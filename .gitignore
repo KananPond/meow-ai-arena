@@ -23,3 +23,6 @@ diplomacy/games/*/承诺核对.json
 # 社区投稿自测的产物（community/check.py）
 community/.runs/
 community/.cache/
+
+# 第 3 集夺旗：make_player_pack.py 生成的选手包
+ctf/out/

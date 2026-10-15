@@ -70,8 +70,23 @@ Windows 上没有 `python` 命令时，把 `python` 换成 `.\run.cmd`。
 | `replays/` | 11 局精选回放：指定对阵或人数里取"典型"的一局，不挑反杀 |
 | `tournament/` | 正式赛配置，可完整复现赛程 |
 | `challenge.py` | 一键挑战 |
+| `make_player_pack.py`、`workspace_manifest.json` | 打一份和比赛时一样的选手包（见上面），以及比赛时选手包的文件清单和哈希 |
 | `CONDITIONS.md` | 比赛条件与异常记录 |
 | `appendix/` | 不计成绩的附加实验：同一个 DeepSeek 换四种工具的对照、豆包的 20 个历史版本、各模型开发过程中的版本演化 |
+
+## 用比赛时的条件让新模型参赛
+
+`workspace/` 里有基准的源码 `baseline.cpp`，比赛时选手只拿到编译好的程序。**不要把 `workspace/` 文件夹直接交给模型**，先打一份和比赛时一样的选手包：
+
+```bash
+python make_player_pack.py        # 生成 out/workspace.zip
+```
+
+脚本用比赛时的编译参数把 `baseline.cpp` 编成 `baseline.exe`，逐个核对其余文件和 `workspace_manifest.json` 里记的哈希，再按比赛时的文件清单和目录结构打包，包里没有 `baseline.cpp`。清单取自比赛时发给 11 位选手的同一个 `workspace.zip`；其中 `arena.py`、`core.py` 开源时改过（没有 `baseline.exe` 时改用源码编译；找编译器时改找仓库 `tools/` 下的 w64devkit），包里放的是开源版，有 `baseline.exe` 时对局行为和比赛时相同。然后：
+
+1. 新建一个空文件夹，只放 `out/workspace.zip`，在里面给模型开一个新会话；
+2. 发 `prompt.md` 里的提示词原文。时间规则（60 分钟，可以适当超时，90 分钟强制交卷）写在提示词里，选手包里的 `clock.py` 从解压时刻开始计时；
+3. 交卷后拿 `submission/bot.cpp` 跑 `challenge.py`，和 11 个模型比。
 
 ## 和比赛时选手包的差别
 

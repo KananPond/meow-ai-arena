@@ -1,0 +1,71 @@
+{
+ "description": "第 3 集比赛时发给选手的 workspace.zip 的文件清单（顺序即压缩包里的顺序，正式赛 11 位选手拿到的是同一个包）。make_player_pack.py 按它核对并打包。",
+ "zip_sha256": "ef3d405741953cce2dbab3f0f90b97710423116e8c37d979431e3a5f665a4130",
+ "compile": "g++ -std=c++20 -O2 -static baseline.cpp -o baseline.exe",
+ "files": [
+  {
+   "path": "workspace/arena.py",
+   "size": 8340,
+   "sha256": "5028dfe5b6638ad61f66d2ec7a993db710d6055cf53561de67a7a081e7acd59d",
+   "open_source_sha256": "9b3032aed21091f902fcd6cdb2f6a0b4139a3d83030f94814a813f1cb0783528",
+   "note": "开源版改过：没有 baseline.exe 时自动用 baseline.cpp 编译（有 baseline.exe 时行为和比赛时相同）"
+  },
+  {
+   "path": "workspace/baseline.exe",
+   "size": 2864411,
+   "sha256": "1ee4b019769c554130f55671ea7d3bef4dd9310dcd45f0a93e911ba1afe3a42f",
+   "note": "由 workspace/baseline.cpp 编译，哈希会随编译器和每次编译不同；这里记的是比赛时发出去的那一份"
+  },
+  {
+   "path": "workspace/clock.py",
+   "size": 805,
+   "sha256": "1a190beb38fbaa32ee26c6ee4d99935d37bd25e8116ab4ef03c4b0d9f69b68d8"
+  },
+  {
+   "path": "workspace/core.py",
+   "size": 10573,
+   "sha256": "0de2b0faefae5fc040864d030167e626b0fecbec331182732bc066b398155ddc",
+   "open_source_sha256": "4903094c85f081d9e866e5deea03ef01cb2c4bfeea1b705ccc958616970e0b44",
+   "note": "开源版改过：找编译器时不再找出题电脑上的目录，改找仓库 tools/ 和 C:/ 下的 w64devkit；其余相同"
+  },
+  {
+   "path": "workspace/engine.py",
+   "size": 19046,
+   "sha256": "705c57839b8b570027defb7882ba3283dfcc093b00203f14231919a285aed756"
+  },
+  {
+   "path": "workspace/README.md",
+   "size": 2584,
+   "sha256": "e15306f72218116ad58bba5a59e8e191e19fe92d804fd911955245ca22cfe70f"
+  },
+  {
+   "path": "workspace/RULES.md",
+   "size": 7176,
+   "sha256": "6d7db8e0e2714436786d98898efafc685b5e111df2ec459a04ed9c5ec9af8791"
+  },
+  {
+   "path": "workspace/run.cmd",
+   "size": 1001,
+   "sha256": "c74ec8b6bd7bcf23e03c4e3c8d600d78574c6e82451b49e4ceefbcdcdc132db9"
+  },
+  {
+   "path": "workspace/run.sh",
+   "size": 478,
+   "sha256": "ab06e50dd140890aff42248b49e0f1078458f8359bd7567a712a2056e30812ff"
+  },
+  {
+   "path": "workspace/submission/",
+   "dir": true
+  },
+  {
+   "path": "workspace/submission/bot.cpp",
+   "size": 3369,
+   "sha256": "f85bfcfcfa77ab154d76af625be5aab14bd064642ecc26e1404275fe7d7ae7ae"
+  },
+  {
+   "path": "workspace/viewer.html",
+   "size": 8318,
+   "sha256": "9b74f7b741eb54cf7e3ef2722df7402627cf9260c83d23afc25b521f13ec1b11"
+  }
+ ]
+}
