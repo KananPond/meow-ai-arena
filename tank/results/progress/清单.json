@@ -1,0 +1,1775 @@
+{
+ "title": "进步赛（下半场版本 对 全员上半场版本 + 基准）",
+ "created": "2026-10-15 05:56:32",
+ "frozen": {
+  "schedule_sha": "d11f90e0879708164f4c12663390d6676cc7878d20cdadb4525de4f8c0a4fe76",
+  "kit": {
+   "tank.hpp": "16ed8d0ef0189cb90b1785ed4633576eb42bdb259d138a98947937a68daa4cc1",
+   "tank_main.cpp": "8e72056d3d3042731ba62eaaccbc095bf4b63cfe8acd810d43ac4f81440634e9",
+   "core.py": "608dced0e0a41bef7abb99802035e261f078767432c34a159f8dd4c848d83e16",
+   "engine.py": "6a7e19f43531ce5404cbbc1452a803346aa51d92e6d8da4a969fe65ac389eb01",
+   "judge/referee.cpp": "35462eb62d70f7a01556e527423e2ef63ed300398dd68cdee0b5db5ccad95d19",
+   "judge/cycles.hpp": "a9afed9da5a30b662ed74ea431941a128779514db365f82f7e98037ffed2f74c",
+   "judge/speed.cpp": "d7d18452b7dcdb593eceb2e6db69beab00318ef1c980dc6dbf6da1872f7acd11"
+  },
+  "compiler": {
+   "path": "g++",
+   "version": "g++.exe (GCC) 16.2.0",
+   "sha256": "4f40f17d8a5a1052b83de568fe2e951fa37a3a21c38676e5b1da5707029cce61",
+   "flags": "-std=c++20 -O2 -static"
+  },
+  "programs": {
+   "Astra@1": {
+    "entered": "../../bots/half1/gpt-6-astra.cpp",
+    "entered_sha": "7adfcb0293b8903da3a15a618092d7c0292a0a0db619cf0f708ad6afce8127ab",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/gpt-6-astra.cpp",
+    "used_sha": "7adfcb0293b8903da3a15a618092d7c0292a0a0db619cf0f708ad6afce8127ab",
+    "used_label": null,
+    "exe": "<build>/bot-7fd385e883a2c743.exe",
+    "exe_sha": "8626e83b5b39f6d4af9a88324864bf75fc9e4889294fb6dbc95db6793ddfed04"
+   },
+   "Astra@2": {
+    "entered": "../../bots/half2/gpt-6-astra.cpp",
+    "entered_sha": "f00b2d5635fa27ecb4397686e5fa836ebff629f5a65a5285a5d7d19110eb35e7",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/gpt-6-astra.cpp",
+    "used_sha": "f00b2d5635fa27ecb4397686e5fa836ebff629f5a65a5285a5d7d19110eb35e7",
+    "used_label": null,
+    "exe": "<build>/bot-603953c8cd603073.exe",
+    "exe_sha": "769e7230e76cb14bbbeb5706152259d99b87804f249a642a860f477a49dbbbcd"
+   },
+   "DeepSeek@1": {
+    "entered": "../../bots/half1/deepseek-v4.1-flash.cpp",
+    "entered_sha": "f71626be2ee09d78e32d7f428b72060dd769726edb09822cb3d5642ea197a09f",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/deepseek-v4.1-flash.cpp",
+    "used_sha": "f71626be2ee09d78e32d7f428b72060dd769726edb09822cb3d5642ea197a09f",
+    "used_label": null,
+    "exe": "<build>/bot-996ea5c3094a0022.exe",
+    "exe_sha": "e03ffbeae90047d474e977461c29ef0e0ae4c8bb64fdea8da0c48cbffd002837"
+   },
+   "DeepSeek@2": {
+    "entered": "../../bots/half2/deepseek-v4.1-flash.cpp",
+    "entered_sha": "1ebbb227be6875d57d0f280965f312294705e97e8335215db533edd65903cfb1",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/deepseek-v4.1-flash.cpp",
+    "used_sha": "1ebbb227be6875d57d0f280965f312294705e97e8335215db533edd65903cfb1",
+    "used_label": null,
+    "exe": "<build>/bot-061f1927999fd3e6.exe",
+    "exe_sha": "cf12c584fa69f54221adf0ca6393c138fac32c2d48c6ad49e8b88e930572d397"
+   },
+   "Doubao@1": {
+    "entered": "../../bots/half1/doubao-seed-evolving.cpp",
+    "entered_sha": "2f2d7325b532236f0a946149d6371d3df9be5bf5f9339c7eaad9404c5dc4a34a",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/doubao-seed-evolving.cpp",
+    "used_sha": "2f2d7325b532236f0a946149d6371d3df9be5bf5f9339c7eaad9404c5dc4a34a",
+    "used_label": null,
+    "exe": "<build>/bot-7d1fd1457f4a732e.exe",
+    "exe_sha": "f902bfdda30050255f1a00b020dc01eaee77d8ebc565545fea2b3b9e03b252a6"
+   },
+   "Doubao@2": {
+    "entered": "../../bots/half2/doubao-seed-evolving.cpp",
+    "entered_sha": "aeb0e7202ad5a5ad7b4d2b11a74173ae61edbb53f622317e6ab2d258b5d5c403",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/doubao-seed-evolving.cpp",
+    "used_sha": "aeb0e7202ad5a5ad7b4d2b11a74173ae61edbb53f622317e6ab2d258b5d5c403",
+    "used_label": null,
+    "exe": "<build>/bot-4bc1ece0474637c0.exe",
+    "exe_sha": "c5a3db54e13853891d9a8b6a10143de38b9a6f8328c8f0844515dff331cb5a38"
+   },
+   "GLM@1": {
+    "entered": "../../bots/half1/glm-5.3.cpp",
+    "entered_sha": "e469868ba46fd0a0dea634182c1f7710b1f13c3ec7f88a8c583c160c609e4dc5",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/glm-5.3.cpp",
+    "used_sha": "e469868ba46fd0a0dea634182c1f7710b1f13c3ec7f88a8c583c160c609e4dc5",
+    "used_label": null,
+    "exe": "<build>/bot-e6c8be6c08b293c8.exe",
+    "exe_sha": "66ea9a3f2bfbc6baf23ef1dceb262de113e030a423269e55f36b8adb34ab6cb9"
+   },
+   "GLM@2": {
+    "entered": "../../bots/half2/glm-5.3.cpp",
+    "entered_sha": "681423c23fdb8324b42258bf77a57aae9733d47cf664ea26c2924e4507a22162",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/glm-5.3.cpp",
+    "used_sha": "681423c23fdb8324b42258bf77a57aae9733d47cf664ea26c2924e4507a22162",
+    "used_label": null,
+    "exe": "<build>/bot-283000d2c8d027e6.exe",
+    "exe_sha": "87a78e89881fb2c4691f225aa03172a4c380d28a5cf005ae647ae8cb7c12a4a4"
+   },
+   "Gemini@1": {
+    "entered": "../../bots/half1/gemini-4-argon.cpp",
+    "entered_sha": "83bf56bb9fbb5a8fe4e3feb1a1e2f99670a08f1e2596758f311b462931560916",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/gemini-4-argon.cpp",
+    "used_sha": "83bf56bb9fbb5a8fe4e3feb1a1e2f99670a08f1e2596758f311b462931560916",
+    "used_label": null,
+    "exe": "<build>/bot-ccfdcffbbfc8000e.exe",
+    "exe_sha": "a8c541a980245e382a97d0197f13fa1a9dd26765e7bbfb2d816a88ea27a83f9b"
+   },
+   "Gemini@2": {
+    "entered": "../../bots/half2/gemini-4-argon.cpp",
+    "entered_sha": "41c1341d0a8ac9357d704639940c3c0b0a9dfb248352ecb531a9905889288947",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/gemini-4-argon.cpp",
+    "used_sha": "41c1341d0a8ac9357d704639940c3c0b0a9dfb248352ecb531a9905889288947",
+    "used_label": null,
+    "exe": "<build>/bot-f75f00e0f37c23ba.exe",
+    "exe_sha": "211ee631920e2c89e6d9074a50837b29b65dd23753a4debd77c2a520bbade940"
+   },
+   "Grok@1": {
+    "entered": "../../bots/half1/grok-4.7.cpp",
+    "entered_sha": "e406debde4d96b6c454e607be69fe7c730eecb2efee3f8d061b9b13ad4e4a039",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/grok-4.7.cpp",
+    "used_sha": "e406debde4d96b6c454e607be69fe7c730eecb2efee3f8d061b9b13ad4e4a039",
+    "used_label": null,
+    "exe": "<build>/bot-558dc133d07005c6.exe",
+    "exe_sha": "7605c44520bbd643475d413cda41b612b6593298feaab1166a45c72a311542f1"
+   },
+   "Grok@2": {
+    "entered": "../../bots/half2/grok-4.7.cpp",
+    "entered_sha": "723cd036eb314020b0a450ccc3564e77231bd93da21a63527f2e9ab9a1880145",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/grok-4.7.cpp",
+    "used_sha": "723cd036eb314020b0a450ccc3564e77231bd93da21a63527f2e9ab9a1880145",
+    "used_label": null,
+    "exe": "<build>/bot-ae305c7a714a4537.exe",
+    "exe_sha": "25da8fbcac27ca8660c8af1e4e741e97e87b2f1398524847690c60d37c767c5d"
+   },
+   "Haiku@1": {
+    "entered": "../../bots/half1/haiku-5.5.cpp",
+    "entered_sha": "54cd8653190543f3646b7fd4ba2f33a9a798295b7f90889cafbb4c7bd00e250a",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/haiku-5.5.cpp",
+    "used_sha": "54cd8653190543f3646b7fd4ba2f33a9a798295b7f90889cafbb4c7bd00e250a",
+    "used_label": null,
+    "exe": "<build>/bot-dc29df6c22ebfb2c.exe",
+    "exe_sha": "13db56a877ce5b584de0e39523235968cb5e81001b9cf575f4750c15a0181fa0"
+   },
+   "Haiku@2": {
+    "entered": "../../bots/half2/haiku-5.5.cpp",
+    "entered_sha": "54cd8653190543f3646b7fd4ba2f33a9a798295b7f90889cafbb4c7bd00e250a",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/haiku-5.5.cpp",
+    "used_sha": "54cd8653190543f3646b7fd4ba2f33a9a798295b7f90889cafbb4c7bd00e250a",
+    "used_label": null,
+    "exe": "<build>/bot-dc29df6c22ebfb2c.exe",
+    "exe_sha": "13db56a877ce5b584de0e39523235968cb5e81001b9cf575f4750c15a0181fa0"
+   },
+   "Kimi@1": {
+    "entered": "../../bots/half1/kimi-k3.cpp",
+    "entered_sha": "49e0e3c786bb1368020e15b69a5a0ef1d481f532e8d8d270ab5e2e429edbfa12",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/kimi-k3.cpp",
+    "used_sha": "49e0e3c786bb1368020e15b69a5a0ef1d481f532e8d8d270ab5e2e429edbfa12",
+    "used_label": null,
+    "exe": "<build>/bot-c2c412bf8da4ba84.exe",
+    "exe_sha": "6f9717fa8d88ff8bd8c6be3daf6d43f9598d6ea9241fe75488862e218976ca94"
+   },
+   "Kimi@2": {
+    "entered": "../../bots/half2/kimi-k3.cpp",
+    "entered_sha": "b21ebeb9bc7626a6102779fedb1010e4bff86f65dee1c5cd7431ae58772148af",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/kimi-k3.cpp",
+    "used_sha": "b21ebeb9bc7626a6102779fedb1010e4bff86f65dee1c5cd7431ae58772148af",
+    "used_label": null,
+    "exe": "<build>/bot-088b0858d85ae0ce.exe",
+    "exe_sha": "0c44250457f8769082d39375a905866ba3ffb29986656c22c1167ae0f2368546"
+   },
+   "MiMo@1": {
+    "entered": "../../bots/half1/mimo-v2.6-pro.cpp",
+    "entered_sha": "dbc4e9969c5229fc3995215e9932539a11c109698c5b791cc08bb36137364b18",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/mimo-v2.6-pro.cpp",
+    "used_sha": "dbc4e9969c5229fc3995215e9932539a11c109698c5b791cc08bb36137364b18",
+    "used_label": null,
+    "exe": "<build>/bot-ccf0dff04e561d45.exe",
+    "exe_sha": "fb15f4fd2867ef9b6d8a436a8f375022ca6655944f5c174dd2be7f4b8bbe2138"
+   },
+   "MiMo@2": {
+    "entered": "../../bots/half2/mimo-v2.6-pro.cpp",
+    "entered_sha": "dbc4e9969c5229fc3995215e9932539a11c109698c5b791cc08bb36137364b18",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/mimo-v2.6-pro.cpp",
+    "used_sha": "dbc4e9969c5229fc3995215e9932539a11c109698c5b791cc08bb36137364b18",
+    "used_label": null,
+    "exe": "<build>/bot-ccf0dff04e561d45.exe",
+    "exe_sha": "fb15f4fd2867ef9b6d8a436a8f375022ca6655944f5c174dd2be7f4b8bbe2138"
+   },
+   "Muse@1": {
+    "entered": "../../bots/half1/muse-wonder-full.cpp",
+    "entered_sha": "4a21366e94d1a00e4b88df5cc912aef88094bfffa93f061705fbfd0e797b84e3",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/muse-wonder-full.cpp",
+    "used_sha": "4a21366e94d1a00e4b88df5cc912aef88094bfffa93f061705fbfd0e797b84e3",
+    "used_label": null,
+    "exe": "<build>/bot-35c7bb33baecc5b8.exe",
+    "exe_sha": "19c46ff5cb72c1d25d8d46032dee09ce542b619cd52a5077a1ed600c3fdeaa9a"
+   },
+   "Muse@2": {
+    "entered": "../../bots/half2/muse-wonder-full.cpp",
+    "entered_sha": "4a21366e94d1a00e4b88df5cc912aef88094bfffa93f061705fbfd0e797b84e3",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/muse-wonder-full.cpp",
+    "used_sha": "4a21366e94d1a00e4b88df5cc912aef88094bfffa93f061705fbfd0e797b84e3",
+    "used_label": null,
+    "exe": "<build>/bot-35c7bb33baecc5b8.exe",
+    "exe_sha": "19c46ff5cb72c1d25d8d46032dee09ce542b619cd52a5077a1ed600c3fdeaa9a"
+   },
+   "Opus@1": {
+    "entered": "../../bots/half1/opus-5.5.cpp",
+    "entered_sha": "1aea949d2820d2f22ba262dd31015310830c47b7fce5a917a06f8f4572999046",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/opus-5.5.cpp",
+    "used_sha": "1aea949d2820d2f22ba262dd31015310830c47b7fce5a917a06f8f4572999046",
+    "used_label": null,
+    "exe": "<build>/bot-5e4e0a7073d25c89.exe",
+    "exe_sha": "a20268860532b96f8b292f80c39096a30f2cb2ddcfa94a3141922ae5a91e0372"
+   },
+   "Opus@2": {
+    "entered": "../../bots/half2/opus-5.5.cpp",
+    "entered_sha": "c026348ce96efb8c12bc8fa7a5f782291b74a3ce4730745dcaf47ce213ec51df",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/opus-5.5.cpp",
+    "used_sha": "c026348ce96efb8c12bc8fa7a5f782291b74a3ce4730745dcaf47ce213ec51df",
+    "used_label": null,
+    "exe": "<build>/bot-4696c89ccb1116de.exe",
+    "exe_sha": "e12c22963aa34b866ed536c6f761eeb42177eaa315e5570688e6df7140d15ca1"
+   },
+   "Qwen@1": {
+    "entered": "../../bots/half1/qwen-3.8-max.cpp",
+    "entered_sha": "2df1d67ba81da9cd3afcb488b73b58c8e2f67f882552232e5a304952ff2ad1f6",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/qwen-3.8-max.cpp",
+    "used_sha": "2df1d67ba81da9cd3afcb488b73b58c8e2f67f882552232e5a304952ff2ad1f6",
+    "used_label": null,
+    "exe": "<build>/bot-0f1a83abbfda1909.exe",
+    "exe_sha": "7c4bd30f91470607bec02a9a46aec6364301914b7fa52bcf72f571944742b28f"
+   },
+   "Qwen@2": {
+    "entered": "../../bots/half2/qwen-3.8-max.cpp",
+    "entered_sha": "efdb8e35c0bffa8206993a21011369ddc2a8e6ee86445b4521b90f84db1c8fc0",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/qwen-3.8-max.cpp",
+    "used_sha": "efdb8e35c0bffa8206993a21011369ddc2a8e6ee86445b4521b90f84db1c8fc0",
+    "used_label": null,
+    "exe": "<build>/bot-280a46ea77aba687.exe",
+    "exe_sha": "c8daa421175a540d88b3ea0d93f7b50cbd47d65cac8ab6e01e6859661ba86fa3"
+   },
+   "Sol@1": {
+    "entered": "../../bots/half1/gpt-6.1-sol.cpp",
+    "entered_sha": "78a099669a81e9bf61e8cdf317ddc93070c0de944cfde42c2ae93b529666fa31",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/gpt-6.1-sol.cpp",
+    "used_sha": "78a099669a81e9bf61e8cdf317ddc93070c0de944cfde42c2ae93b529666fa31",
+    "used_label": null,
+    "exe": "<build>/bot-9f5060ee0f637fd0.exe",
+    "exe_sha": "83747f7b4bee034bfc9121199986cd5ceaf3d6d8f2f2dcdfdc4d8197d243d035"
+   },
+   "Sol@2": {
+    "entered": "../../bots/half2/gpt-6.1-sol.cpp",
+    "entered_sha": "e34c0f45539a5f6b98c0e89848216a24dae09dbf078e0657751e6c1e099a8b75",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/gpt-6.1-sol.cpp",
+    "used_sha": "e34c0f45539a5f6b98c0e89848216a24dae09dbf078e0657751e6c1e099a8b75",
+    "used_label": null,
+    "exe": "<build>/bot-6c418d45a7b69826.exe",
+    "exe_sha": "771482b17e213a07bf5b32970a4c0fdcb4640dbfec0d09da5d1d0077200201e7"
+   },
+   "SolUF@1": {
+    "entered": "../../bots/half1/gpt-6.1-sol-ultrafast.cpp",
+    "entered_sha": "663979e0896665e4539041fd17ad831c5788f997dc521143d31b1a1fd3dc5f60",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half1/gpt-6.1-sol-ultrafast.cpp",
+    "used_sha": "663979e0896665e4539041fd17ad831c5788f997dc521143d31b1a1fd3dc5f60",
+    "used_label": null,
+    "exe": "<build>/bot-3a591c03d2e280f4.exe",
+    "exe_sha": "dc5c6f701a6af64e4b9e2bb88da6399e561db14c7f6b4819c51929845ca47e1b"
+   },
+   "SolUF@2": {
+    "entered": "../../bots/half2/gpt-6.1-sol-ultrafast.cpp",
+    "entered_sha": "63319e0a2b1a31015630c062125202626c40b3345054a31f60341d920ee78abd",
+    "status": "正常",
+    "problems": [],
+    "used": "../../bots/half2/gpt-6.1-sol-ultrafast.cpp",
+    "used_sha": "63319e0a2b1a31015630c062125202626c40b3345054a31f60341d920ee78abd",
+    "used_label": null,
+    "exe": "<build>/bot-c0676e999997c8d6.exe",
+    "exe_sha": "f9f2c06ed9a597076eecaef6a1af37c04244a5f0c75d1d9f59f4f9844a20b35d"
+   },
+   "baseline": {
+    "entered": "../../workspace/baseline.cpp",
+    "entered_sha": "1e0803a541e875342aa2e4a598dd584e44b7382e0ca1d11679ab79b5b9ef04e9",
+    "status": "正常",
+    "problems": [],
+    "used": "../../workspace/baseline.cpp",
+    "used_sha": "1e0803a541e875342aa2e4a598dd584e44b7382e0ca1d11679ab79b5b9ef04e9",
+    "used_label": null,
+    "exe": "<build>/bot-d62c4166a4752afc.exe",
+    "exe_sha": "7f02d8e06f0175eaeaf65f5805959917dffd014e3a7f037443477e61fce84cd9"
+   }
+  }
+ },
+ "engine": "tank-cpp-0.1",
+ "budget": {
+  "budget_kind": "cpu",
+  "first_ms": 2000,
+  "turn_ms": 50,
+  "wall_first_ms": 4000,
+  "wall_turn_ms": 2000,
+  "units_per_ms": 2419200,
+  "units_source": "cpuid"
+ },
+ "config": {
+  "title": "进步赛（下半场版本 对 全员上半场版本 + 基准）",
+  "kit": "../../workspace",
+  "build_dir": "../../workspace/build",
+  "out": "<赛事目录>/进步赛",
+  "compiler": "g++",
+  "players": {
+   "Astra@2": "../../bots/half2/gpt-6-astra.cpp",
+   "Opus@2": "../../bots/half2/opus-5.5.cpp",
+   "Haiku@2": "../../bots/half2/haiku-5.5.cpp",
+   "Sol@2": "../../bots/half2/gpt-6.1-sol.cpp",
+   "GLM@2": "../../bots/half2/glm-5.3.cpp",
+   "MiMo@2": "../../bots/half2/mimo-v2.6-pro.cpp",
+   "Doubao@2": "../../bots/half2/doubao-seed-evolving.cpp",
+   "DeepSeek@2": "../../bots/half2/deepseek-v4.1-flash.cpp",
+   "Muse@2": "../../bots/half2/muse-wonder-full.cpp",
+   "Grok@2": "../../bots/half2/grok-4.7.cpp",
+   "Qwen@2": "../../bots/half2/qwen-3.8-max.cpp",
+   "Kimi@2": "../../bots/half2/kimi-k3.cpp",
+   "SolUF@2": "../../bots/half2/gpt-6.1-sol-ultrafast.cpp",
+   "Gemini@2": "../../bots/half2/gemini-4-argon.cpp",
+   "Astra@1": "../../bots/half1/gpt-6-astra.cpp",
+   "Opus@1": "../../bots/half1/opus-5.5.cpp",
+   "Haiku@1": "../../bots/half1/haiku-5.5.cpp",
+   "Sol@1": "../../bots/half1/gpt-6.1-sol.cpp",
+   "GLM@1": "../../bots/half1/glm-5.3.cpp",
+   "MiMo@1": "../../bots/half1/mimo-v2.6-pro.cpp",
+   "Doubao@1": "../../bots/half1/doubao-seed-evolving.cpp",
+   "DeepSeek@1": "../../bots/half1/deepseek-v4.1-flash.cpp",
+   "Muse@1": "../../bots/half1/muse-wonder-full.cpp",
+   "Grok@1": "../../bots/half1/grok-4.7.cpp",
+   "Qwen@1": "../../bots/half1/qwen-3.8-max.cpp",
+   "Kimi@1": "../../bots/half1/kimi-k3.cpp",
+   "SolUF@1": "../../bots/half1/gpt-6.1-sol-ultrafast.cpp",
+   "Gemini@1": "../../bots/half1/gemini-4-argon.cpp",
+   "baseline": "../../workspace/baseline.cpp"
+  },
+  "maps_per_pair": 8,
+  "workers": 0,
+  "pin": {
+   "mode": "big"
+  },
+  "speed": {
+   "enabled": true,
+   "tolerance": 0.15,
+   "repeat": 3
+  },
+  "boot": 1000,
+  "labels": {
+   "baseline": "基准",
+   "sparring": "出题方参照"
+  },
+  "display": {
+   "Astra": "GPT-6 Astra",
+   "Opus": "Claude Opus 5.5",
+   "Haiku": "Claude Haiku 5.5",
+   "Sol": "GPT-6.1 Sol",
+   "GLM": "智谱 GLM 5.3",
+   "MiMo": "小米 MiMo V2.6 Pro",
+   "Doubao": "Doubao-Seed-Evolving",
+   "DeepSeek": "DeepSeek V4.1 Flash",
+   "Muse": "Muse Wonder Full",
+   "Grok": "Grok 4.7",
+   "Qwen": "通义千问 Qwen 3.8 Max",
+   "Kimi": "Kimi K3",
+   "SolUF": "GPT-6.1 Sol Ultrafast（Codex CLI）",
+   "Gemini": "Gemini 4 Argon Contributor（OpenCode Go）"
+  },
+  "pairs": [
+   [
+    "Astra@2",
+    "Astra@1"
+   ],
+   [
+    "Astra@2",
+    "Opus@1"
+   ],
+   [
+    "Astra@2",
+    "Haiku@1"
+   ],
+   [
+    "Astra@2",
+    "Sol@1"
+   ],
+   [
+    "Astra@2",
+    "GLM@1"
+   ],
+   [
+    "Astra@2",
+    "MiMo@1"
+   ],
+   [
+    "Astra@2",
+    "Doubao@1"
+   ],
+   [
+    "Astra@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Astra@2",
+    "Muse@1"
+   ],
+   [
+    "Astra@2",
+    "Grok@1"
+   ],
+   [
+    "Astra@2",
+    "Qwen@1"
+   ],
+   [
+    "Astra@2",
+    "Kimi@1"
+   ],
+   [
+    "Astra@2",
+    "SolUF@1"
+   ],
+   [
+    "Astra@2",
+    "Gemini@1"
+   ],
+   [
+    "Astra@2",
+    "baseline"
+   ],
+   [
+    "Opus@2",
+    "Astra@1"
+   ],
+   [
+    "Opus@2",
+    "Opus@1"
+   ],
+   [
+    "Opus@2",
+    "Haiku@1"
+   ],
+   [
+    "Opus@2",
+    "Sol@1"
+   ],
+   [
+    "Opus@2",
+    "GLM@1"
+   ],
+   [
+    "Opus@2",
+    "MiMo@1"
+   ],
+   [
+    "Opus@2",
+    "Doubao@1"
+   ],
+   [
+    "Opus@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Opus@2",
+    "Muse@1"
+   ],
+   [
+    "Opus@2",
+    "Grok@1"
+   ],
+   [
+    "Opus@2",
+    "Qwen@1"
+   ],
+   [
+    "Opus@2",
+    "Kimi@1"
+   ],
+   [
+    "Opus@2",
+    "SolUF@1"
+   ],
+   [
+    "Opus@2",
+    "Gemini@1"
+   ],
+   [
+    "Opus@2",
+    "baseline"
+   ],
+   [
+    "Haiku@2",
+    "Astra@1"
+   ],
+   [
+    "Haiku@2",
+    "Opus@1"
+   ],
+   [
+    "Haiku@2",
+    "Haiku@1"
+   ],
+   [
+    "Haiku@2",
+    "Sol@1"
+   ],
+   [
+    "Haiku@2",
+    "GLM@1"
+   ],
+   [
+    "Haiku@2",
+    "MiMo@1"
+   ],
+   [
+    "Haiku@2",
+    "Doubao@1"
+   ],
+   [
+    "Haiku@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Haiku@2",
+    "Muse@1"
+   ],
+   [
+    "Haiku@2",
+    "Grok@1"
+   ],
+   [
+    "Haiku@2",
+    "Qwen@1"
+   ],
+   [
+    "Haiku@2",
+    "Kimi@1"
+   ],
+   [
+    "Haiku@2",
+    "SolUF@1"
+   ],
+   [
+    "Haiku@2",
+    "Gemini@1"
+   ],
+   [
+    "Haiku@2",
+    "baseline"
+   ],
+   [
+    "Sol@2",
+    "Astra@1"
+   ],
+   [
+    "Sol@2",
+    "Opus@1"
+   ],
+   [
+    "Sol@2",
+    "Haiku@1"
+   ],
+   [
+    "Sol@2",
+    "Sol@1"
+   ],
+   [
+    "Sol@2",
+    "GLM@1"
+   ],
+   [
+    "Sol@2",
+    "MiMo@1"
+   ],
+   [
+    "Sol@2",
+    "Doubao@1"
+   ],
+   [
+    "Sol@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Sol@2",
+    "Muse@1"
+   ],
+   [
+    "Sol@2",
+    "Grok@1"
+   ],
+   [
+    "Sol@2",
+    "Qwen@1"
+   ],
+   [
+    "Sol@2",
+    "Kimi@1"
+   ],
+   [
+    "Sol@2",
+    "SolUF@1"
+   ],
+   [
+    "Sol@2",
+    "Gemini@1"
+   ],
+   [
+    "Sol@2",
+    "baseline"
+   ],
+   [
+    "GLM@2",
+    "Astra@1"
+   ],
+   [
+    "GLM@2",
+    "Opus@1"
+   ],
+   [
+    "GLM@2",
+    "Haiku@1"
+   ],
+   [
+    "GLM@2",
+    "Sol@1"
+   ],
+   [
+    "GLM@2",
+    "GLM@1"
+   ],
+   [
+    "GLM@2",
+    "MiMo@1"
+   ],
+   [
+    "GLM@2",
+    "Doubao@1"
+   ],
+   [
+    "GLM@2",
+    "DeepSeek@1"
+   ],
+   [
+    "GLM@2",
+    "Muse@1"
+   ],
+   [
+    "GLM@2",
+    "Grok@1"
+   ],
+   [
+    "GLM@2",
+    "Qwen@1"
+   ],
+   [
+    "GLM@2",
+    "Kimi@1"
+   ],
+   [
+    "GLM@2",
+    "SolUF@1"
+   ],
+   [
+    "GLM@2",
+    "Gemini@1"
+   ],
+   [
+    "GLM@2",
+    "baseline"
+   ],
+   [
+    "MiMo@2",
+    "Astra@1"
+   ],
+   [
+    "MiMo@2",
+    "Opus@1"
+   ],
+   [
+    "MiMo@2",
+    "Haiku@1"
+   ],
+   [
+    "MiMo@2",
+    "Sol@1"
+   ],
+   [
+    "MiMo@2",
+    "GLM@1"
+   ],
+   [
+    "MiMo@2",
+    "MiMo@1"
+   ],
+   [
+    "MiMo@2",
+    "Doubao@1"
+   ],
+   [
+    "MiMo@2",
+    "DeepSeek@1"
+   ],
+   [
+    "MiMo@2",
+    "Muse@1"
+   ],
+   [
+    "MiMo@2",
+    "Grok@1"
+   ],
+   [
+    "MiMo@2",
+    "Qwen@1"
+   ],
+   [
+    "MiMo@2",
+    "Kimi@1"
+   ],
+   [
+    "MiMo@2",
+    "SolUF@1"
+   ],
+   [
+    "MiMo@2",
+    "Gemini@1"
+   ],
+   [
+    "MiMo@2",
+    "baseline"
+   ],
+   [
+    "Doubao@2",
+    "Astra@1"
+   ],
+   [
+    "Doubao@2",
+    "Opus@1"
+   ],
+   [
+    "Doubao@2",
+    "Haiku@1"
+   ],
+   [
+    "Doubao@2",
+    "Sol@1"
+   ],
+   [
+    "Doubao@2",
+    "GLM@1"
+   ],
+   [
+    "Doubao@2",
+    "MiMo@1"
+   ],
+   [
+    "Doubao@2",
+    "Doubao@1"
+   ],
+   [
+    "Doubao@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Doubao@2",
+    "Muse@1"
+   ],
+   [
+    "Doubao@2",
+    "Grok@1"
+   ],
+   [
+    "Doubao@2",
+    "Qwen@1"
+   ],
+   [
+    "Doubao@2",
+    "Kimi@1"
+   ],
+   [
+    "Doubao@2",
+    "SolUF@1"
+   ],
+   [
+    "Doubao@2",
+    "Gemini@1"
+   ],
+   [
+    "Doubao@2",
+    "baseline"
+   ],
+   [
+    "DeepSeek@2",
+    "Astra@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Opus@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Haiku@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Sol@1"
+   ],
+   [
+    "DeepSeek@2",
+    "GLM@1"
+   ],
+   [
+    "DeepSeek@2",
+    "MiMo@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Doubao@1"
+   ],
+   [
+    "DeepSeek@2",
+    "DeepSeek@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Muse@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Grok@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Qwen@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Kimi@1"
+   ],
+   [
+    "DeepSeek@2",
+    "SolUF@1"
+   ],
+   [
+    "DeepSeek@2",
+    "Gemini@1"
+   ],
+   [
+    "DeepSeek@2",
+    "baseline"
+   ],
+   [
+    "Muse@2",
+    "Astra@1"
+   ],
+   [
+    "Muse@2",
+    "Opus@1"
+   ],
+   [
+    "Muse@2",
+    "Haiku@1"
+   ],
+   [
+    "Muse@2",
+    "Sol@1"
+   ],
+   [
+    "Muse@2",
+    "GLM@1"
+   ],
+   [
+    "Muse@2",
+    "MiMo@1"
+   ],
+   [
+    "Muse@2",
+    "Doubao@1"
+   ],
+   [
+    "Muse@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Muse@2",
+    "Muse@1"
+   ],
+   [
+    "Muse@2",
+    "Grok@1"
+   ],
+   [
+    "Muse@2",
+    "Qwen@1"
+   ],
+   [
+    "Muse@2",
+    "Kimi@1"
+   ],
+   [
+    "Muse@2",
+    "SolUF@1"
+   ],
+   [
+    "Muse@2",
+    "Gemini@1"
+   ],
+   [
+    "Muse@2",
+    "baseline"
+   ],
+   [
+    "Grok@2",
+    "Astra@1"
+   ],
+   [
+    "Grok@2",
+    "Opus@1"
+   ],
+   [
+    "Grok@2",
+    "Haiku@1"
+   ],
+   [
+    "Grok@2",
+    "Sol@1"
+   ],
+   [
+    "Grok@2",
+    "GLM@1"
+   ],
+   [
+    "Grok@2",
+    "MiMo@1"
+   ],
+   [
+    "Grok@2",
+    "Doubao@1"
+   ],
+   [
+    "Grok@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Grok@2",
+    "Muse@1"
+   ],
+   [
+    "Grok@2",
+    "Grok@1"
+   ],
+   [
+    "Grok@2",
+    "Qwen@1"
+   ],
+   [
+    "Grok@2",
+    "Kimi@1"
+   ],
+   [
+    "Grok@2",
+    "SolUF@1"
+   ],
+   [
+    "Grok@2",
+    "Gemini@1"
+   ],
+   [
+    "Grok@2",
+    "baseline"
+   ],
+   [
+    "Qwen@2",
+    "Astra@1"
+   ],
+   [
+    "Qwen@2",
+    "Opus@1"
+   ],
+   [
+    "Qwen@2",
+    "Haiku@1"
+   ],
+   [
+    "Qwen@2",
+    "Sol@1"
+   ],
+   [
+    "Qwen@2",
+    "GLM@1"
+   ],
+   [
+    "Qwen@2",
+    "MiMo@1"
+   ],
+   [
+    "Qwen@2",
+    "Doubao@1"
+   ],
+   [
+    "Qwen@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Qwen@2",
+    "Muse@1"
+   ],
+   [
+    "Qwen@2",
+    "Grok@1"
+   ],
+   [
+    "Qwen@2",
+    "Qwen@1"
+   ],
+   [
+    "Qwen@2",
+    "Kimi@1"
+   ],
+   [
+    "Qwen@2",
+    "SolUF@1"
+   ],
+   [
+    "Qwen@2",
+    "Gemini@1"
+   ],
+   [
+    "Qwen@2",
+    "baseline"
+   ],
+   [
+    "Kimi@2",
+    "Astra@1"
+   ],
+   [
+    "Kimi@2",
+    "Opus@1"
+   ],
+   [
+    "Kimi@2",
+    "Haiku@1"
+   ],
+   [
+    "Kimi@2",
+    "Sol@1"
+   ],
+   [
+    "Kimi@2",
+    "GLM@1"
+   ],
+   [
+    "Kimi@2",
+    "MiMo@1"
+   ],
+   [
+    "Kimi@2",
+    "Doubao@1"
+   ],
+   [
+    "Kimi@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Kimi@2",
+    "Muse@1"
+   ],
+   [
+    "Kimi@2",
+    "Grok@1"
+   ],
+   [
+    "Kimi@2",
+    "Qwen@1"
+   ],
+   [
+    "Kimi@2",
+    "Kimi@1"
+   ],
+   [
+    "Kimi@2",
+    "SolUF@1"
+   ],
+   [
+    "Kimi@2",
+    "Gemini@1"
+   ],
+   [
+    "Kimi@2",
+    "baseline"
+   ],
+   [
+    "SolUF@2",
+    "Astra@1"
+   ],
+   [
+    "SolUF@2",
+    "Opus@1"
+   ],
+   [
+    "SolUF@2",
+    "Haiku@1"
+   ],
+   [
+    "SolUF@2",
+    "Sol@1"
+   ],
+   [
+    "SolUF@2",
+    "GLM@1"
+   ],
+   [
+    "SolUF@2",
+    "MiMo@1"
+   ],
+   [
+    "SolUF@2",
+    "Doubao@1"
+   ],
+   [
+    "SolUF@2",
+    "DeepSeek@1"
+   ],
+   [
+    "SolUF@2",
+    "Muse@1"
+   ],
+   [
+    "SolUF@2",
+    "Grok@1"
+   ],
+   [
+    "SolUF@2",
+    "Qwen@1"
+   ],
+   [
+    "SolUF@2",
+    "Kimi@1"
+   ],
+   [
+    "SolUF@2",
+    "SolUF@1"
+   ],
+   [
+    "SolUF@2",
+    "Gemini@1"
+   ],
+   [
+    "SolUF@2",
+    "baseline"
+   ],
+   [
+    "Gemini@2",
+    "Astra@1"
+   ],
+   [
+    "Gemini@2",
+    "Opus@1"
+   ],
+   [
+    "Gemini@2",
+    "Haiku@1"
+   ],
+   [
+    "Gemini@2",
+    "Sol@1"
+   ],
+   [
+    "Gemini@2",
+    "GLM@1"
+   ],
+   [
+    "Gemini@2",
+    "MiMo@1"
+   ],
+   [
+    "Gemini@2",
+    "Doubao@1"
+   ],
+   [
+    "Gemini@2",
+    "DeepSeek@1"
+   ],
+   [
+    "Gemini@2",
+    "Muse@1"
+   ],
+   [
+    "Gemini@2",
+    "Grok@1"
+   ],
+   [
+    "Gemini@2",
+    "Qwen@1"
+   ],
+   [
+    "Gemini@2",
+    "Kimi@1"
+   ],
+   [
+    "Gemini@2",
+    "SolUF@1"
+   ],
+   [
+    "Gemini@2",
+    "Gemini@1"
+   ],
+   [
+    "Gemini@2",
+    "baseline"
+   ]
+  ],
+  "seed": 95350690457500,
+  "avoid_seeds": [
+   "<赛事目录>/中场赛/赛程.json",
+   "<赛事目录>/终场赛/赛程.json"
+  ],
+  "substitutes": {},
+  "planned": "2026-10-15 05:56:32",
+  "games_sha": "d11f90e0879708164f4c12663390d6676cc7878d20cdadb4525de4f8c0a4fe76"
+ },
+ "topology": [
+  {
+   "core": 0,
+   "class": 1,
+   "cpus": [
+    0,
+    1
+   ]
+  },
+  {
+   "core": 1,
+   "class": 1,
+   "cpus": [
+    2,
+    3
+   ]
+  },
+  {
+   "core": 2,
+   "class": 1,
+   "cpus": [
+    4,
+    5
+   ]
+  },
+  {
+   "core": 3,
+   "class": 1,
+   "cpus": [
+    6,
+    7
+   ]
+  },
+  {
+   "core": 4,
+   "class": 1,
+   "cpus": [
+    8,
+    9
+   ]
+  },
+  {
+   "core": 5,
+   "class": 1,
+   "cpus": [
+    10,
+    11
+   ]
+  },
+  {
+   "core": 6,
+   "class": 1,
+   "cpus": [
+    12,
+    13
+   ]
+  },
+  {
+   "core": 7,
+   "class": 1,
+   "cpus": [
+    14,
+    15
+   ]
+  },
+  {
+   "core": 8,
+   "class": 0,
+   "cpus": [
+    16
+   ]
+  },
+  {
+   "core": 9,
+   "class": 0,
+   "cpus": [
+    17
+   ]
+  },
+  {
+   "core": 10,
+   "class": 0,
+   "cpus": [
+    18
+   ]
+  },
+  {
+   "core": 11,
+   "class": 0,
+   "cpus": [
+    19
+   ]
+  },
+  {
+   "core": 12,
+   "class": 0,
+   "cpus": [
+    20
+   ]
+  },
+  {
+   "core": 13,
+   "class": 0,
+   "cpus": [
+    21
+   ]
+  },
+  {
+   "core": 14,
+   "class": 0,
+   "cpus": [
+    22
+   ]
+  },
+  {
+   "core": 15,
+   "class": 0,
+   "cpus": [
+    23
+   ]
+  },
+  {
+   "core": 16,
+   "class": 0,
+   "cpus": [
+    24
+   ]
+  },
+  {
+   "core": 17,
+   "class": 0,
+   "cpus": [
+    25
+   ]
+  },
+  {
+   "core": 18,
+   "class": 0,
+   "cpus": [
+    26
+   ]
+  },
+  {
+   "core": 19,
+   "class": 0,
+   "cpus": [
+    27
+   ]
+  },
+  {
+   "core": 20,
+   "class": 0,
+   "cpus": [
+    28
+   ]
+  },
+  {
+   "core": 21,
+   "class": 0,
+   "cpus": [
+    29
+   ]
+  },
+  {
+   "core": 22,
+   "class": 0,
+   "cpus": [
+    30
+   ]
+  },
+  {
+   "core": 23,
+   "class": 0,
+   "cpus": [
+    31
+   ]
+  }
+ ],
+ "sessions": [
+  {
+   "session": 1,
+   "start": "2026-10-15 05:56:32",
+   "start_epoch": 1792068992.8,
+   "end": "2026-10-15 06:13:52",
+   "plan": {
+    "mode": "big",
+    "slots": [
+     {
+      "class": "大核",
+      "cpus": [
+       [
+        0
+       ],
+       [
+        2
+       ]
+      ]
+     },
+     {
+      "class": "大核",
+      "cpus": [
+       [
+        4
+       ],
+       [
+        6
+       ]
+      ]
+     },
+     {
+      "class": "大核",
+      "cpus": [
+       [
+        8
+       ],
+       [
+        10
+       ]
+      ]
+     },
+     {
+      "class": "大核",
+      "cpus": [
+       [
+        12
+       ],
+       [
+        14
+       ]
+      ]
+     }
+    ],
+    "referee_cpus": [
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31
+    ],
+    "note": ""
+   },
+   "compile_seconds": 0.1,
+   "played": 3360,
+   "errors": 0,
+   "interrupted": false,
+   "python": "3.12.8",
+   "warmup": {
+    "seconds": 15.1,
+    "readings": [
+     {
+      "大核": 77.4
+     },
+     {
+      "大核": 82.08
+     },
+     {
+      "大核": 83.22
+     },
+     {
+      "大核": 82.47
+     },
+     {
+      "大核": 82.43
+     },
+     {
+      "大核": 82.5
+     },
+     {
+      "大核": 83.3
+     },
+     {
+      "大核": 83.41
+     },
+     {
+      "大核": 84.22
+     },
+     {
+      "大核": 83.35
+     },
+     {
+      "大核": 83.11
+     },
+     {
+      "大核": 83.56
+     },
+     {
+      "大核": 84.91
+     },
+     {
+      "大核": 86.58
+     },
+     {
+      "大核": 84.19
+     },
+     {
+      "大核": 83.06
+     },
+     {
+      "大核": 84.2
+     },
+     {
+      "大核": 84.16
+     },
+     {
+      "大核": 83.98
+     },
+     {
+      "大核": 82.58
+     },
+     {
+      "大核": 83.27
+     },
+     {
+      "大核": 83.1
+     },
+     {
+      "大核": 83.71
+     },
+     {
+      "大核": 83.89
+     },
+     {
+      "大核": 83.86
+     },
+     {
+      "大核": 83.53
+     },
+     {
+      "大核": 83.25
+     },
+     {
+      "大核": 84.14
+     },
+     {
+      "大核": 84.44
+     },
+     {
+      "大核": 84.14
+     },
+     {
+      "大核": 84.3
+     },
+     {
+      "大核": 83.65
+     },
+     {
+      "大核": 83.19
+     },
+     {
+      "大核": 84.62
+     },
+     {
+      "大核": 93.96
+     }
+    ]
+   },
+   "speed_opening": {
+    "time": "2026-10-15 05:56:47",
+    "epoch": 1792069007.9,
+    "seconds": 0.5,
+    "cpus": {
+     "0": {
+      "ghz": 3.404,
+      "engine_ms": 99.89,
+      "engine_cpu_ms": 86.52,
+      "loop_ms": 58.75
+     },
+     "2": {
+      "ghz": 3.512,
+      "engine_ms": 92.53,
+      "engine_cpu_ms": 89.94,
+      "loop_ms": 56.94
+     },
+     "4": {
+      "ghz": 3.461,
+      "engine_ms": 96.98,
+      "engine_cpu_ms": 90.75,
+      "loop_ms": 57.78
+     },
+     "6": {
+      "ghz": 3.601,
+      "engine_ms": 101.83,
+      "engine_cpu_ms": 99.54,
+      "loop_ms": 55.54
+     },
+     "8": {
+      "ghz": 3.606,
+      "engine_ms": 92.88,
+      "engine_cpu_ms": 89.84,
+      "loop_ms": 55.47
+     },
+     "10": {
+      "ghz": 3.494,
+      "engine_ms": 93.44,
+      "engine_cpu_ms": 92.91,
+      "loop_ms": 57.23
+     },
+     "12": {
+      "ghz": 3.585,
+      "engine_ms": 93.02,
+      "engine_cpu_ms": 92.08,
+      "loop_ms": 55.79
+     },
+     "14": {
+      "ghz": 3.537,
+      "engine_ms": 93.16,
+      "engine_cpu_ms": 91.54,
+      "loop_ms": 56.54
+     }
+    },
+    "by_class": {
+     "大核": {
+      "cpus": 8,
+      "ghz": 3.524,
+      "engine_ms": 93.3
+     }
+    },
+    "crowded": [
+     0
+    ],
+    "errors": 0
+   },
+   "end_epoch": 1792070032.2,
+   "seconds": 1039.4
+  }
+ ],
+ "speed_reference": {
+  "time": "2026-10-15 05:56:47",
+  "epoch": 1792069007.9,
+  "seconds": 0.5,
+  "cpus": {
+   "0": {
+    "ghz": 3.404,
+    "engine_ms": 99.89,
+    "engine_cpu_ms": 86.52,
+    "loop_ms": 58.75
+   },
+   "2": {
+    "ghz": 3.512,
+    "engine_ms": 92.53,
+    "engine_cpu_ms": 89.94,
+    "loop_ms": 56.94
+   },
+   "4": {
+    "ghz": 3.461,
+    "engine_ms": 96.98,
+    "engine_cpu_ms": 90.75,
+    "loop_ms": 57.78
+   },
+   "6": {
+    "ghz": 3.601,
+    "engine_ms": 101.83,
+    "engine_cpu_ms": 99.54,
+    "loop_ms": 55.54
+   },
+   "8": {
+    "ghz": 3.606,
+    "engine_ms": 92.88,
+    "engine_cpu_ms": 89.84,
+    "loop_ms": 55.47
+   },
+   "10": {
+    "ghz": 3.494,
+    "engine_ms": 93.44,
+    "engine_cpu_ms": 92.91,
+    "loop_ms": 57.23
+   },
+   "12": {
+    "ghz": 3.585,
+    "engine_ms": 93.02,
+    "engine_cpu_ms": 92.08,
+    "loop_ms": 55.79
+   },
+   "14": {
+    "ghz": 3.537,
+    "engine_ms": 93.16,
+    "engine_cpu_ms": 91.54,
+    "loop_ms": 56.54
+   }
+  },
+  "by_class": {
+   "大核": {
+    "cpus": 8,
+    "ghz": 3.524,
+    "engine_ms": 93.3
+   }
+  },
+  "crowded": [
+   0
+  ],
+  "errors": 0
+ }
+}

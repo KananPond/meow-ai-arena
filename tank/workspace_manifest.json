@@ -1,0 +1,93 @@
+{
+ "description": "第 6 集比赛时发给选手的 workspace.zip 的文件清单（顺序即压缩包里的顺序）。make_player_pack.py 按它核对并打包。",
+ "zip_sha256": "ce2d8526e7c3e2dfd15ae75893ed14070b05492434aaa1e0794d6d81e8a95631",
+ "compile": "g++ -std=c++20 -O2 -static -I. baseline.cpp tank_main.cpp -o baseline.exe",
+ "files": [
+  {
+   "path": "workspace/arena.py",
+   "size": 44646,
+   "sha256": "f03f6467ecfff2cab94bfaaf5aabd0207bb2fd363030bd1bed3dea07be711522"
+  },
+  {
+   "path": "workspace/baseline.exe",
+   "size": 606790,
+   "sha256": "7f02d8e06f0175eaeaf65f5805959917dffd014e3a7f037443477e61fce84cd9",
+   "note": "由 workspace/baseline.cpp 编译，哈希会随编译器和每次编译不同；这里记的是比赛时发出去的那一份"
+  },
+  {
+   "path": "workspace/clock.py",
+   "size": 4560,
+   "sha256": "327e1c30348a944cebd5f56525f0ece5eea64e65804409171f66c6dc91bc6f93"
+  },
+  {
+   "path": "workspace/core.py",
+   "size": 31292,
+   "sha256": "608dced0e0a41bef7abb99802035e261f078767432c34a159f8dd4c848d83e16"
+  },
+  {
+   "path": "workspace/engine.py",
+   "size": 23928,
+   "sha256": "6a7e19f43531ce5404cbbc1452a803346aa51d92e6d8da4a969fe65ac389eb01"
+  },
+  {
+   "path": "workspace/judge/cycles.hpp",
+   "size": 2247,
+   "sha256": "a9afed9da5a30b662ed74ea431941a128779514db365f82f7e98037ffed2f74c"
+  },
+  {
+   "path": "workspace/judge/fast.cpp",
+   "size": 13902,
+   "sha256": "b9f61d598bdc52ae263e0813379abe4999970f3e05618904f66be0dbb41f5d3f"
+  },
+  {
+   "path": "workspace/judge/referee.cpp",
+   "size": 5477,
+   "sha256": "35462eb62d70f7a01556e527423e2ef63ed300398dd68cdee0b5db5ccad95d19"
+  },
+  {
+   "path": "workspace/judge/speed.cpp",
+   "size": 3830,
+   "sha256": "d7d18452b7dcdb593eceb2e6db69beab00318ef1c980dc6dbf6da1872f7acd11"
+  },
+  {
+   "path": "workspace/README.md",
+   "size": 13354,
+   "sha256": "e8f4175cfa833e43063b1814b75eb2deaa0c007c2cf8d6f909150f5b8378ba5c"
+  },
+  {
+   "path": "workspace/RULES.md",
+   "size": 29576,
+   "sha256": "01ff45360c8fd65d29db603cf9b918e677d2de0f7b773f4e4efd2ed9f7803688"
+  },
+  {
+   "path": "workspace/run.cmd",
+   "size": 1587,
+   "sha256": "05a906285e9973dfdf1a661c9d5a6032979205acefb061edac2a8c1564efca93"
+  },
+  {
+   "path": "workspace/run.sh",
+   "size": 1082,
+   "sha256": "08edfc406953824f8214ceffbe29d6dd4f9a9f10fc67fbbd7f3bf99ffed666d3"
+  },
+  {
+   "path": "workspace/submission/bot.cpp",
+   "size": 5573,
+   "sha256": "08715287f91f232a1ca48594666c2253a032ac9c89cf08f8b97b3d92a9aa31e4"
+  },
+  {
+   "path": "workspace/tank.hpp",
+   "size": 88917,
+   "sha256": "16ed8d0ef0189cb90b1785ed4633576eb42bdb259d138a98947937a68daa4cc1"
+  },
+  {
+   "path": "workspace/tank_main.cpp",
+   "size": 8639,
+   "sha256": "8e72056d3d3042731ba62eaaccbc095bf4b63cfe8acd810d43ac4f81440634e9"
+  },
+  {
+   "path": "workspace/viewer.html",
+   "size": 83780,
+   "sha256": "4d95392d2be31ce22d330ff5a77948039951798766e59a87aa07865997c11f85"
+  }
+ ]
+}

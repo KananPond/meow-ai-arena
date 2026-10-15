@@ -25,6 +25,11 @@ GAMES = {
     "5": ("第 5 集 · 仓储调度", "warehouse", None,
           [("最终成绩（三张榜和全部明细）", "results/最终成绩.md"), ("第 2 轮找到的 7 个缺陷点", "results/round2/缺陷点归类.md"),
            ("比赛条件与异常记录", "CONDITIONS.md")]),
+    "6": ("第 6 集 · 坦克大战", "tank", "workspace/submission/bot.cpp",
+          [("冠亚军 Astra vs SolUF（终场赛）", "replays/final-astra-vs-soluf.html"),
+           ("冠军对出题方参照（终场赛）", "replays/final-sparring-vs-astra.html"),
+           ("Sol vs Opus（终场赛）", "replays/final-sol-vs-opus.html"),
+           ("豆包下半场版本对自己的上半场版本（进步赛）", "replays/progress-doubao2-vs-doubao1.html")]),
 }
 # 第 4 集是模型直接当玩家，第 5 集是接力优化代码，都没有 bot 可挑战；第 5 集也没有回放，列的是成绩文档
 CHALLENGES = {k: v for k, v in GAMES.items() if v[2]}

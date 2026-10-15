@@ -24,5 +24,9 @@ diplomacy/games/*/承诺核对.json
 community/.runs/
 community/.cache/
 
-# 第 3 集夺旗：make_player_pack.py 生成的选手包
+# 第 6 集坦克大战：本地工具的版本存档和回放、复现正式赛时生成的赛事目录
+tank/workspace/history/
+tank/workspace/replays/
+tank/tournament/run-*/
+tank/out/
 ctf/out/

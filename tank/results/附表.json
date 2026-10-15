@@ -1,0 +1,598 @@
+{
+ "made": "2026-10-15 06:14:01",
+ "boot": 1000,
+ "self": {
+  "Astra": {
+   "games": 16,
+   "w": 11,
+   "d": 0,
+   "l": 5,
+   "score_rate": 0.6875,
+   "ci95": 0.2578,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "Opus": {
+   "games": 16,
+   "w": 11,
+   "d": 0,
+   "l": 5,
+   "score_rate": 0.6875,
+   "ci95": 0.1793,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "Haiku": {
+   "games": 16,
+   "w": 8,
+   "d": 0,
+   "l": 8,
+   "score_rate": 0.5,
+   "ci95": 0.0,
+   "maps": 8,
+   "identical_maps": 8
+  },
+  "Sol": {
+   "games": 16,
+   "w": 12,
+   "d": 0,
+   "l": 4,
+   "score_rate": 0.75,
+   "ci95": 0.1852,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "GLM": {
+   "games": 16,
+   "w": 10,
+   "d": 3,
+   "l": 3,
+   "score_rate": 0.7188,
+   "ci95": 0.1717,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "MiMo": {
+   "games": 16,
+   "w": 8,
+   "d": 0,
+   "l": 8,
+   "score_rate": 0.5,
+   "ci95": 0.0,
+   "maps": 8,
+   "identical_maps": 6
+  },
+  "Doubao": {
+   "games": 16,
+   "w": 15,
+   "d": 0,
+   "l": 1,
+   "score_rate": 0.9375,
+   "ci95": 0.1225,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "DeepSeek": {
+   "games": 16,
+   "w": 8,
+   "d": 0,
+   "l": 8,
+   "score_rate": 0.5,
+   "ci95": 0.1852,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "Muse": {
+   "games": 16,
+   "w": 8,
+   "d": 0,
+   "l": 8,
+   "score_rate": 0.5,
+   "ci95": 0.0,
+   "maps": 8,
+   "identical_maps": 7
+  },
+  "Grok": {
+   "games": 16,
+   "w": 9,
+   "d": 0,
+   "l": 7,
+   "score_rate": 0.5625,
+   "ci95": 0.2891,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "Qwen": {
+   "games": 16,
+   "w": 11,
+   "d": 0,
+   "l": 5,
+   "score_rate": 0.6875,
+   "ci95": 0.1793,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "Kimi": {
+   "games": 16,
+   "w": 3,
+   "d": 6,
+   "l": 7,
+   "score_rate": 0.375,
+   "ci95": 0.1604,
+   "maps": 8,
+   "identical_maps": 3
+  },
+  "SolUF": {
+   "games": 16,
+   "w": 8,
+   "d": 0,
+   "l": 8,
+   "score_rate": 0.5,
+   "ci95": 0.1852,
+   "maps": 8,
+   "identical_maps": 0
+  },
+  "Gemini": {
+   "games": 16,
+   "w": 13,
+   "d": 0,
+   "l": 3,
+   "score_rate": 0.8125,
+   "ci95": 0.1793,
+   "maps": 8,
+   "identical_maps": 0
+  }
+ },
+ "gain": {
+  "Astra": {
+   "first": 337.465663343093,
+   "first_midgame_only": 344.3857281413707,
+   "second": 484.7507875294904,
+   "second_low": 424.53491340379225,
+   "second_high": 569.6829415100476,
+   "gain": 147.2851241863974,
+   "gain_low": 87.42040365867001,
+   "gain_high": 227.85553061516657,
+   "pool_w": 219,
+   "pool_d": 0,
+   "pool_l": 21,
+   "pool_score_rate": 0.9125,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 1,
+   "final_rating": 506.9454874458487,
+   "mid_rank": 2
+  },
+  "Opus": {
+   "first": 138.34342561981592,
+   "first_midgame_only": 154.0730058172622,
+   "second": 177.37094910614067,
+   "second_low": 129.83614743046965,
+   "second_high": 231.32961284007473,
+   "gain": 39.02752348632475,
+   "gain_low": -6.099240236107676,
+   "gain_high": 88.04513083980277,
+   "pool_w": 163,
+   "pool_d": 0,
+   "pool_l": 77,
+   "pool_score_rate": 0.6792,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 5,
+   "final_rating": 258.78757366446996,
+   "mid_rank": 5
+  },
+  "Haiku": {
+   "first": -132.20110576109496,
+   "first_midgame_only": -132.19760303589447,
+   "second": -141.12873092272991,
+   "second_low": -212.65010023717514,
+   "second_high": -75.54412866489066,
+   "gain": -8.92762516163495,
+   "gain_low": -77.78885133895963,
+   "gain_high": 57.15622201981756,
+   "pool_w": 80,
+   "pool_d": 7,
+   "pool_l": 153,
+   "pool_score_rate": 0.3479,
+   "same_program": true,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 12,
+   "final_rating": -149.18553791082107,
+   "mid_rank": 11
+  },
+  "Sol": {
+   "first": 257.5029732239144,
+   "first_midgame_only": 273.50746380563703,
+   "second": 286.77140929382045,
+   "second_low": 206.97331941768164,
+   "second_high": 375.28404245727677,
+   "gain": 29.268436069906045,
+   "gain_low": -49.79949162845165,
+   "gain_high": 111.23719999617833,
+   "pool_w": 187,
+   "pool_d": 0,
+   "pool_l": 53,
+   "pool_score_rate": 0.7792,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 4,
+   "final_rating": 318.7995999432353,
+   "mid_rank": 3
+  },
+  "GLM": {
+   "first": -426.62042524399857,
+   "first_midgame_only": -446.5355054810294,
+   "second": -297.91893376349753,
+   "second_low": -360.58547140449633,
+   "second_high": -246.86641333964434,
+   "gain": 128.70149148050103,
+   "gain_low": 69.58824636249182,
+   "gain_high": 177.91418041300125,
+   "pool_w": 46,
+   "pool_d": 9,
+   "pool_l": 185,
+   "pool_score_rate": 0.2104,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 14,
+   "final_rating": -314.5845826194731,
+   "mid_rank": 13
+  },
+  "MiMo": {
+   "first": 37.36607903940251,
+   "first_midgame_only": 38.954229112440665,
+   "second": 21.464564286929324,
+   "second_low": -16.13987925768372,
+   "second_high": 56.12874705859181,
+   "gain": -15.901514752473183,
+   "gain_low": -50.502827176378254,
+   "gain_high": 20.938766703413243,
+   "pool_w": 124,
+   "pool_d": 0,
+   "pool_l": 116,
+   "pool_score_rate": 0.5167,
+   "same_program": true,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 7,
+   "final_rating": 28.926589497795632,
+   "mid_rank": 7
+  },
+  "Doubao": {
+   "first": -444.2815887206094,
+   "first_midgame_only": -469.6181425237303,
+   "second": -48.95531391630807,
+   "second_low": -99.71940704503568,
+   "second_high": 9.532199784413113,
+   "gain": 395.32627480430136,
+   "gain_low": 331.9065600119706,
+   "gain_high": 459.8768268044152,
+   "pool_w": 106,
+   "pool_d": 0,
+   "pool_l": 134,
+   "pool_score_rate": 0.4417,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 10,
+   "final_rating": -30.703456814699337,
+   "mid_rank": 14
+  },
+  "DeepSeek": {
+   "first": -65.43168111136862,
+   "first_midgame_only": -59.74048475999441,
+   "second": -7.721401186546042,
+   "second_low": -44.20951449140849,
+   "second_high": 29.26250547681424,
+   "gain": 57.71027992482258,
+   "gain_low": 19.049979372684106,
+   "gain_high": 96.5044579117243,
+   "pool_w": 116,
+   "pool_d": 1,
+   "pool_l": 123,
+   "pool_score_rate": 0.4854,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 9,
+   "final_rating": -6.273278067612878,
+   "mid_rank": 9
+  },
+  "Muse": {
+   "first": 75.73209616025997,
+   "first_midgame_only": 73.60215916973878,
+   "second": 89.83350641546616,
+   "second_low": 44.573746668377574,
+   "second_high": 133.5882424265045,
+   "gain": 14.10141025520619,
+   "gain_low": -28.093864264353044,
+   "gain_high": 55.20891517932841,
+   "pool_w": 141,
+   "pool_d": 1,
+   "pool_l": 98,
+   "pool_score_rate": 0.5896,
+   "same_program": true,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 6,
+   "final_rating": 55.491122284551025,
+   "mid_rank": 6
+  },
+  "Grok": {
+   "first": -7.113068467617221,
+   "first_midgame_only": -8.218964533259834,
+   "second": 21.46456428692939,
+   "second_low": -38.879308287920075,
+   "second_high": 73.81139926410472,
+   "gain": 28.577632754546613,
+   "gain_low": -28.99513134641764,
+   "gain_high": 77.6477995886731,
+   "pool_w": 124,
+   "pool_d": 0,
+   "pool_l": 116,
+   "pool_score_rate": 0.5167,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 8,
+   "final_rating": 25.542800587458515,
+   "mid_rank": 8
+  },
+  "Qwen": {
+   "first": -329.517188529748,
+   "first_midgame_only": -331.24742139313406,
+   "second": -243.84661770181708,
+   "second_low": -294.24072242859114,
+   "second_high": -201.1507863707083,
+   "gain": 85.67057082793093,
+   "gain_low": 41.47372776011014,
+   "gain_high": 126.98265022463747,
+   "pool_w": 61,
+   "pool_d": 0,
+   "pool_l": 179,
+   "pool_score_rate": 0.2542,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 13,
+   "final_rating": -205.13582963867123,
+   "mid_rank": 12
+  },
+  "Kimi": {
+   "first": -119.54977862468621,
+   "first_midgame_only": -126.21362877224428,
+   "second": -117.89882832332262,
+   "second_low": -183.70692935775662,
+   "second_high": -51.10478643378953,
+   "gain": 1.6509503013635936,
+   "gain_low": -67.38355733863398,
+   "gain_high": 72.1931338921461,
+   "pool_w": 81,
+   "pool_d": 16,
+   "pool_l": 143,
+   "pool_score_rate": 0.3708,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 11,
+   "final_rating": -129.30187896853465,
+   "mid_rank": 10
+  },
+  "SolUF": {
+   "first": 467.3124289060393,
+   "first_midgame_only": 485.5850282965306,
+   "second": 404.94751918902824,
+   "second_low": 345.29079062411705,
+   "second_high": 476.77886448233727,
+   "gain": -62.364909717011074,
+   "gain_low": -119.62263419956838,
+   "gain_high": 1.2858746745019403,
+   "pool_w": 208,
+   "pool_d": 0,
+   "pool_l": 32,
+   "pool_score_rate": 0.8667,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 2,
+   "final_rating": 466.92800596466685,
+   "mid_rank": 1
+  },
+  "Gemini": {
+   "first": 222.22511764539908,
+   "first_midgame_only": 232.42787458287003,
+   "second": 392.17263562089846,
+   "second_low": 342.19418209190854,
+   "second_high": 451.88415947254555,
+   "gain": 169.94751797549938,
+   "gain_low": 121.76939574537911,
+   "gain_high": 224.55418542400474,
+   "pool_w": 206,
+   "pool_d": 0,
+   "pool_l": 34,
+   "pool_score_rate": 0.8583,
+   "same_program": false,
+   "first_status": "正常",
+   "second_status": "正常",
+   "second_used_label": null,
+   "final_rank": 3,
+   "final_rating": 355.4298340699916,
+   "mid_rank": 4
+  }
+ },
+ "pool": "全员上半场版本 + 基准",
+ "views": false,
+ "gain_games": 3360,
+ "gain_maps": 8,
+ "joint_ratings": {
+  "Astra@1": {
+   "rating": 337.465663343093,
+   "low": 296.7465949119236,
+   "high": 379.54750650896574
+  },
+  "Astra@2": {
+   "rating": 484.7507875294904,
+   "low": 424.53491340379225,
+   "high": 569.6829415100476
+  },
+  "DeepSeek@1": {
+   "rating": -65.43168111136862,
+   "low": -105.93504290211193,
+   "high": -24.72835411660781
+  },
+  "DeepSeek@2": {
+   "rating": -7.721401186546042,
+   "low": -44.20951449140849,
+   "high": 29.26250547681424
+  },
+  "Doubao@1": {
+   "rating": -444.2815887206094,
+   "low": -478.94998968345595,
+   "high": -410.16365718822664
+  },
+  "Doubao@2": {
+   "rating": -48.95531391630807,
+   "low": -99.71940704503568,
+   "high": 9.532199784413113
+  },
+  "GLM@1": {
+   "rating": -426.62042524399857,
+   "low": -471.89979179583634,
+   "high": -388.9154119043957
+  },
+  "GLM@2": {
+   "rating": -297.91893376349753,
+   "low": -360.58547140449633,
+   "high": -246.86641333964434
+  },
+  "Gemini@1": {
+   "rating": 222.22511764539908,
+   "low": 192.09510763882855,
+   "high": 255.54990461746146
+  },
+  "Gemini@2": {
+   "rating": 392.17263562089846,
+   "low": 342.19418209190854,
+   "high": 451.88415947254555
+  },
+  "Grok@1": {
+   "rating": -7.113068467617221,
+   "low": -42.62926434439092,
+   "high": 29.62461335965309
+  },
+  "Grok@2": {
+   "rating": 21.46456428692939,
+   "low": -38.879308287920075,
+   "high": 73.81139926410472
+  },
+  "Haiku@1": {
+   "rating": -132.20110576109496,
+   "low": -159.9350623395353,
+   "high": -104.08859963103663
+  },
+  "Haiku@2": {
+   "rating": -141.12873092272991,
+   "low": -212.65010023717514,
+   "high": -75.54412866489066
+  },
+  "Kimi@1": {
+   "rating": -119.54977862468621,
+   "low": -163.043696308562,
+   "high": -76.65749356601602
+  },
+  "Kimi@2": {
+   "rating": -117.89882832332262,
+   "low": -183.70692935775662,
+   "high": -51.10478643378953
+  },
+  "MiMo@1": {
+   "rating": 37.36607903940251,
+   "low": 6.404915613825859,
+   "high": 65.12822683008372
+  },
+  "MiMo@2": {
+   "rating": 21.464564286929324,
+   "low": -16.13987925768372,
+   "high": 56.12874705859181
+  },
+  "Muse@1": {
+   "rating": 75.73209616025997,
+   "low": 40.782956058220705,
+   "high": 109.01580884450429
+  },
+  "Muse@2": {
+   "rating": 89.83350641546616,
+   "low": 44.573746668377574,
+   "high": 133.5882424265045
+  },
+  "Opus@1": {
+   "rating": 138.34342561981592,
+   "low": 106.59852784380715,
+   "high": 171.13800093484227
+  },
+  "Opus@2": {
+   "rating": 177.37094910614067,
+   "low": 129.83614743046965,
+   "high": 231.32961284007473
+  },
+  "Qwen@1": {
+   "rating": -329.517188529748,
+   "low": -361.477810255461,
+   "high": -297.397451791478
+  },
+  "Qwen@2": {
+   "rating": -243.84661770181708,
+   "low": -294.24072242859114,
+   "high": -201.1507863707083
+  },
+  "Sol@1": {
+   "rating": 257.5029732239144,
+   "low": 223.13799193815686,
+   "high": 293.52765090684113
+  },
+  "Sol@2": {
+   "rating": 286.77140929382045,
+   "low": 206.97331941768164,
+   "high": 375.28404245727677
+  },
+  "SolUF@1": {
+   "rating": 467.3124289060393,
+   "low": 432.1550211343995,
+   "high": 506.78456772577476
+  },
+  "SolUF@2": {
+   "rating": 404.94751918902824,
+   "low": 345.29079062411705,
+   "high": 476.77886448233727
+  },
+  "baseline": {
+   "rating": 0.0,
+   "low": 0.0,
+   "high": 0.0
+  },
+  "sparring": {
+   "rating": 548.4650532172029,
+   "low": 503.70589319301865,
+   "high": 604.1437154176405
+  }
+ }
+}

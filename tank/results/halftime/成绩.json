@@ -1,0 +1,1854 @@
+{
+ "title": "中场赛（上半场版本）",
+ "rated": "2026-10-14 22:41:45",
+ "anchor": "baseline",
+ "names": [
+  "Astra",
+  "DeepSeek",
+  "Doubao",
+  "GLM",
+  "Gemini",
+  "Grok",
+  "Haiku",
+  "Kimi",
+  "MiMo",
+  "Muse",
+  "Opus",
+  "Qwen",
+  "Sol",
+  "SolUF",
+  "baseline",
+  "sparring"
+ ],
+ "order": [
+  "sparring",
+  "SolUF",
+  "Astra",
+  "Sol",
+  "Gemini",
+  "Opus",
+  "Muse",
+  "MiMo",
+  "baseline",
+  "Grok",
+  "DeepSeek",
+  "Kimi",
+  "Haiku",
+  "Qwen",
+  "GLM",
+  "Doubao"
+ ],
+ "games": 10080,
+ "expected_games": 10080,
+ "complete": true,
+ "borrowed_games": 0,
+ "borrowed_from": null,
+ "all_pairs": true,
+ "maps": 42,
+ "boot": 1000,
+ "players": {
+  "Astra": {
+   "rank": 2,
+   "tie": null,
+   "rating": 344.3857281413707,
+   "low": 293.7646597073717,
+   "high": 393.16997599914436,
+   "games": 1260,
+   "w": 989,
+   "d": 1,
+   "l": 270,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 23.665,
+   "first_ms_max": 17.885,
+   "avg_turns": 57.6,
+   "avg_ms": 8.516,
+   "score_rate": 0.7853,
+   "label": null,
+   "display": "GPT-6 Astra",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "DeepSeek": {
+   "rank": 9,
+   "tie": null,
+   "rating": -59.74048475999441,
+   "low": -109.28348812111301,
+   "high": -14.607831128496143,
+   "games": 1260,
+   "w": 503,
+   "d": 4,
+   "l": 753,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 14.113,
+   "first_ms_max": 8.32,
+   "avg_turns": 88.6,
+   "avg_ms": 1.71,
+   "score_rate": 0.4008,
+   "label": null,
+   "display": "DeepSeek V4.1 Flash",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Doubao": {
+   "rank": 14,
+   "tie": [
+    13,
+    14
+   ],
+   "rating": -469.6181425237303,
+   "low": -508.3507543866166,
+   "high": -431.930187348508,
+   "games": 1260,
+   "w": 71,
+   "d": 82,
+   "l": 1107,
+   "forfeits": 2,
+   "faulty_games": 10,
+   "timeout_turns": 21,
+   "illegal_turns": 0,
+   "max_ms": 62.44,
+   "first_ms_max": 42.373,
+   "avg_turns": 115.8,
+   "avg_ms": 26.005,
+   "score_rate": 0.0889,
+   "label": null,
+   "display": "Doubao-Seed-Evolving",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "GLM": {
+   "rank": 13,
+   "tie": [
+    13,
+    14
+   ],
+   "rating": -446.5355054810294,
+   "low": -494.9955347161995,
+   "high": -400.88457918260883,
+   "games": 1260,
+   "w": 96,
+   "d": 62,
+   "l": 1102,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 33.595,
+   "first_ms_max": 25.899,
+   "avg_turns": 96.6,
+   "avg_ms": 8.911,
+   "score_rate": 0.1008,
+   "label": null,
+   "display": "智谱 GLM 5.3",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Gemini": {
+   "rank": 4,
+   "tie": null,
+   "rating": 232.42787458287003,
+   "low": 195.52826058152556,
+   "high": 268.9031405337806,
+   "games": 1260,
+   "w": 870,
+   "d": 0,
+   "l": 390,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 28.906,
+   "first_ms_max": 33.145,
+   "avg_turns": 58.8,
+   "avg_ms": 12.915,
+   "score_rate": 0.6905,
+   "label": null,
+   "display": "Gemini 4 Argon Contributor（OpenCode Go）",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Grok": {
+   "rank": 8,
+   "tie": null,
+   "rating": -8.218964533259834,
+   "low": -49.39072737096436,
+   "high": 32.451085493499484,
+   "games": 1260,
+   "w": 568,
+   "d": 4,
+   "l": 688,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 41.174,
+   "first_ms_max": 44.835,
+   "avg_turns": 105.7,
+   "avg_ms": 9.55,
+   "score_rate": 0.4524,
+   "label": null,
+   "display": "Grok 4.7",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Haiku": {
+   "rank": 11,
+   "tie": [
+    10,
+    11
+   ],
+   "rating": -132.19760303589447,
+   "low": -163.45214337876106,
+   "high": -101.30972325320003,
+   "games": 1260,
+   "w": 415,
+   "d": 5,
+   "l": 840,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 21.46,
+   "first_ms_max": 18.843,
+   "avg_turns": 94.7,
+   "avg_ms": 5.743,
+   "score_rate": 0.3313,
+   "label": null,
+   "display": "Claude Haiku 5.5",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Kimi": {
+   "rank": 10,
+   "tie": [
+    10,
+    11
+   ],
+   "rating": -126.21362877224428,
+   "low": -179.13616501686377,
+   "high": -78.19128137783983,
+   "games": 1260,
+   "w": 412,
+   "d": 25,
+   "l": 823,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 42.135,
+   "first_ms_max": 25.947,
+   "avg_turns": 93.3,
+   "avg_ms": 4.419,
+   "score_rate": 0.3369,
+   "label": null,
+   "display": "Kimi K3",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "MiMo": {
+   "rank": 7,
+   "tie": [
+    6,
+    7
+   ],
+   "rating": 38.954229112440665,
+   "low": 1.5168694622130796,
+   "high": 70.34736461118608,
+   "games": 1260,
+   "w": 630,
+   "d": 1,
+   "l": 629,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 36.617,
+   "first_ms_max": 90.678,
+   "avg_turns": 66.7,
+   "avg_ms": 26.553,
+   "score_rate": 0.5004,
+   "label": null,
+   "display": "小米 MiMo V2.6 Pro",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Muse": {
+   "rank": 6,
+   "tie": [
+    6,
+    7
+   ],
+   "rating": 73.60215916973878,
+   "low": 32.48195162611339,
+   "high": 114.67987401409621,
+   "games": 1260,
+   "w": 665,
+   "d": 20,
+   "l": 575,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 44.205,
+   "first_ms_max": 36.543,
+   "avg_turns": 91.2,
+   "avg_ms": 5.127,
+   "score_rate": 0.5357,
+   "label": null,
+   "display": "Muse Wonder Full",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Opus": {
+   "rank": 5,
+   "tie": null,
+   "rating": 154.0730058172622,
+   "low": 114.64015937950386,
+   "high": 191.6969623798509,
+   "games": 1260,
+   "w": 775,
+   "d": 3,
+   "l": 482,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 1.787,
+   "first_ms_max": 4.46,
+   "avg_turns": 66.1,
+   "avg_ms": 0.51,
+   "score_rate": 0.6163,
+   "label": null,
+   "display": "Claude Opus 5.5",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Qwen": {
+   "rank": 12,
+   "tie": null,
+   "rating": -331.24742139313406,
+   "low": -366.00825745498196,
+   "high": -296.3259696551941,
+   "games": 1260,
+   "w": 215,
+   "d": 0,
+   "l": 1045,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 47.281,
+   "first_ms_max": 49.637,
+   "avg_turns": 81.8,
+   "avg_ms": 26.434,
+   "score_rate": 0.1706,
+   "label": null,
+   "display": "通义千问 Qwen 3.8 Max",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "Sol": {
+   "rank": 3,
+   "tie": null,
+   "rating": 273.50746380563703,
+   "low": 233.73907262183934,
+   "high": 314.57764621867625,
+   "games": 1260,
+   "w": 916,
+   "d": 0,
+   "l": 344,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 11.724,
+   "first_ms_max": 13.709,
+   "avg_turns": 65.3,
+   "avg_ms": 3.923,
+   "score_rate": 0.727,
+   "label": null,
+   "display": "GPT-6.1 Sol",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "SolUF": {
+   "rank": 1,
+   "tie": null,
+   "rating": 485.5850282965306,
+   "low": 442.75693958401797,
+   "high": 533.1492141675014,
+   "games": 1260,
+   "w": 1111,
+   "d": 0,
+   "l": 149,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 45.18,
+   "first_ms_max": 24.912,
+   "avg_turns": 53.5,
+   "avg_ms": 17.967,
+   "score_rate": 0.8817,
+   "label": null,
+   "display": "GPT-6.1 Sol Ultrafast（Codex CLI）",
+   "ranked": true,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "baseline": {
+   "rank": null,
+   "tie": null,
+   "rating": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "games": 1260,
+   "w": 580,
+   "d": 1,
+   "l": 679,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 0.398,
+   "first_ms_max": 3.916,
+   "avg_turns": 67.1,
+   "avg_ms": 0.075,
+   "score_rate": 0.4607,
+   "label": "基准",
+   "display": null,
+   "ranked": false,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  },
+  "sparring": {
+   "rank": null,
+   "tie": null,
+   "rating": 558.4153253015965,
+   "low": 508.36661204850986,
+   "high": 613.2635011452611,
+   "games": 1260,
+   "w": 1160,
+   "d": 0,
+   "l": 100,
+   "forfeits": 0,
+   "faulty_games": 0,
+   "timeout_turns": 0,
+   "illegal_turns": 0,
+   "max_ms": 22.391,
+   "first_ms_max": 22.608,
+   "avg_turns": 60.9,
+   "avg_ms": 10.044,
+   "score_rate": 0.9206,
+   "label": "出题方参照",
+   "display": null,
+   "ranked": false,
+   "status": "正常",
+   "used_label": null,
+   "problems": []
+  }
+ },
+ "matrix": {
+  "Astra": {
+   "DeepSeek": [
+    74,
+    0,
+    10
+   ],
+   "Doubao": [
+    84,
+    0,
+    0
+   ],
+   "GLM": [
+    84,
+    0,
+    0
+   ],
+   "Gemini": [
+    53,
+    0,
+    31
+   ],
+   "Grok": [
+    79,
+    0,
+    5
+   ],
+   "Haiku": [
+    84,
+    0,
+    0
+   ],
+   "Kimi": [
+    76,
+    0,
+    8
+   ],
+   "MiMo": [
+    74,
+    1,
+    9
+   ],
+   "Muse": [
+    72,
+    0,
+    12
+   ],
+   "Opus": [
+    56,
+    0,
+    28
+   ],
+   "Qwen": [
+    84,
+    0,
+    0
+   ],
+   "Sol": [
+    55,
+    0,
+    29
+   ],
+   "SolUF": [
+    24,
+    0,
+    60
+   ],
+   "baseline": [
+    64,
+    0,
+    20
+   ],
+   "sparring": [
+    26,
+    0,
+    58
+   ]
+  },
+  "DeepSeek": {
+   "Astra": [
+    10,
+    0,
+    74
+   ],
+   "Doubao": [
+    69,
+    0,
+    15
+   ],
+   "GLM": [
+    68,
+    0,
+    16
+   ],
+   "Gemini": [
+    14,
+    0,
+    70
+   ],
+   "Grok": [
+    39,
+    1,
+    44
+   ],
+   "Haiku": [
+    38,
+    0,
+    46
+   ],
+   "Kimi": [
+    52,
+    2,
+    30
+   ],
+   "MiMo": [
+    32,
+    0,
+    52
+   ],
+   "Muse": [
+    21,
+    1,
+    62
+   ],
+   "Opus": [
+    20,
+    0,
+    64
+   ],
+   "Qwen": [
+    71,
+    0,
+    13
+   ],
+   "Sol": [
+    21,
+    0,
+    63
+   ],
+   "SolUF": [
+    6,
+    0,
+    78
+   ],
+   "baseline": [
+    41,
+    0,
+    43
+   ],
+   "sparring": [
+    1,
+    0,
+    83
+   ]
+  },
+  "Doubao": {
+   "Astra": [
+    0,
+    0,
+    84
+   ],
+   "DeepSeek": [
+    15,
+    0,
+    69
+   ],
+   "GLM": [
+    10,
+    53,
+    21
+   ],
+   "Gemini": [
+    0,
+    0,
+    84
+   ],
+   "Grok": [
+    2,
+    2,
+    80
+   ],
+   "Haiku": [
+    8,
+    0,
+    76
+   ],
+   "Kimi": [
+    12,
+    15,
+    57
+   ],
+   "MiMo": [
+    3,
+    0,
+    81
+   ],
+   "Muse": [
+    3,
+    11,
+    70
+   ],
+   "Opus": [
+    1,
+    1,
+    82
+   ],
+   "Qwen": [
+    12,
+    0,
+    72
+   ],
+   "Sol": [
+    0,
+    0,
+    84
+   ],
+   "SolUF": [
+    0,
+    0,
+    84
+   ],
+   "baseline": [
+    5,
+    0,
+    79
+   ],
+   "sparring": [
+    0,
+    0,
+    84
+   ]
+  },
+  "GLM": {
+   "Astra": [
+    0,
+    0,
+    84
+   ],
+   "DeepSeek": [
+    16,
+    0,
+    68
+   ],
+   "Doubao": [
+    21,
+    53,
+    10
+   ],
+   "Gemini": [
+    1,
+    0,
+    83
+   ],
+   "Grok": [
+    1,
+    1,
+    82
+   ],
+   "Haiku": [
+    17,
+    1,
+    66
+   ],
+   "Kimi": [
+    13,
+    4,
+    67
+   ],
+   "MiMo": [
+    5,
+    0,
+    79
+   ],
+   "Muse": [
+    8,
+    3,
+    73
+   ],
+   "Opus": [
+    0,
+    0,
+    84
+   ],
+   "Qwen": [
+    11,
+    0,
+    73
+   ],
+   "Sol": [
+    0,
+    0,
+    84
+   ],
+   "SolUF": [
+    0,
+    0,
+    84
+   ],
+   "baseline": [
+    3,
+    0,
+    81
+   ],
+   "sparring": [
+    0,
+    0,
+    84
+   ]
+  },
+  "Gemini": {
+   "Astra": [
+    31,
+    0,
+    53
+   ],
+   "DeepSeek": [
+    70,
+    0,
+    14
+   ],
+   "Doubao": [
+    84,
+    0,
+    0
+   ],
+   "GLM": [
+    83,
+    0,
+    1
+   ],
+   "Grok": [
+    72,
+    0,
+    12
+   ],
+   "Haiku": [
+    74,
+    0,
+    10
+   ],
+   "Kimi": [
+    69,
+    0,
+    15
+   ],
+   "MiMo": [
+    58,
+    0,
+    26
+   ],
+   "Muse": [
+    67,
+    0,
+    17
+   ],
+   "Opus": [
+    60,
+    0,
+    24
+   ],
+   "Qwen": [
+    82,
+    0,
+    2
+   ],
+   "Sol": [
+    31,
+    0,
+    53
+   ],
+   "SolUF": [
+    17,
+    0,
+    67
+   ],
+   "baseline": [
+    62,
+    0,
+    22
+   ],
+   "sparring": [
+    10,
+    0,
+    74
+   ]
+  },
+  "Grok": {
+   "Astra": [
+    5,
+    0,
+    79
+   ],
+   "DeepSeek": [
+    44,
+    1,
+    39
+   ],
+   "Doubao": [
+    80,
+    2,
+    2
+   ],
+   "GLM": [
+    82,
+    1,
+    1
+   ],
+   "Gemini": [
+    12,
+    0,
+    72
+   ],
+   "Haiku": [
+    66,
+    0,
+    18
+   ],
+   "Kimi": [
+    57,
+    0,
+    27
+   ],
+   "MiMo": [
+    43,
+    0,
+    41
+   ],
+   "Muse": [
+    18,
+    0,
+    66
+   ],
+   "Opus": [
+    24,
+    0,
+    60
+   ],
+   "Qwen": [
+    79,
+    0,
+    5
+   ],
+   "Sol": [
+    8,
+    0,
+    76
+   ],
+   "SolUF": [
+    4,
+    0,
+    80
+   ],
+   "baseline": [
+    44,
+    0,
+    40
+   ],
+   "sparring": [
+    2,
+    0,
+    82
+   ]
+  },
+  "Haiku": {
+   "Astra": [
+    0,
+    0,
+    84
+   ],
+   "DeepSeek": [
+    46,
+    0,
+    38
+   ],
+   "Doubao": [
+    76,
+    0,
+    8
+   ],
+   "GLM": [
+    66,
+    1,
+    17
+   ],
+   "Gemini": [
+    10,
+    0,
+    74
+   ],
+   "Grok": [
+    18,
+    0,
+    66
+   ],
+   "Kimi": [
+    44,
+    1,
+    39
+   ],
+   "MiMo": [
+    12,
+    0,
+    72
+   ],
+   "Muse": [
+    14,
+    1,
+    69
+   ],
+   "Opus": [
+    17,
+    1,
+    66
+   ],
+   "Qwen": [
+    76,
+    0,
+    8
+   ],
+   "Sol": [
+    4,
+    0,
+    80
+   ],
+   "SolUF": [
+    0,
+    0,
+    84
+   ],
+   "baseline": [
+    32,
+    1,
+    51
+   ],
+   "sparring": [
+    0,
+    0,
+    84
+   ]
+  },
+  "Kimi": {
+   "Astra": [
+    8,
+    0,
+    76
+   ],
+   "DeepSeek": [
+    30,
+    2,
+    52
+   ],
+   "Doubao": [
+    57,
+    15,
+    12
+   ],
+   "GLM": [
+    67,
+    4,
+    13
+   ],
+   "Gemini": [
+    15,
+    0,
+    69
+   ],
+   "Grok": [
+    27,
+    0,
+    57
+   ],
+   "Haiku": [
+    39,
+    1,
+    44
+   ],
+   "MiMo": [
+    27,
+    0,
+    57
+   ],
+   "Muse": [
+    26,
+    3,
+    55
+   ],
+   "Opus": [
+    18,
+    0,
+    66
+   ],
+   "Qwen": [
+    65,
+    0,
+    19
+   ],
+   "Sol": [
+    6,
+    0,
+    78
+   ],
+   "SolUF": [
+    3,
+    0,
+    81
+   ],
+   "baseline": [
+    24,
+    0,
+    60
+   ],
+   "sparring": [
+    0,
+    0,
+    84
+   ]
+  },
+  "MiMo": {
+   "Astra": [
+    9,
+    1,
+    74
+   ],
+   "DeepSeek": [
+    52,
+    0,
+    32
+   ],
+   "Doubao": [
+    81,
+    0,
+    3
+   ],
+   "GLM": [
+    79,
+    0,
+    5
+   ],
+   "Gemini": [
+    26,
+    0,
+    58
+   ],
+   "Grok": [
+    41,
+    0,
+    43
+   ],
+   "Haiku": [
+    72,
+    0,
+    12
+   ],
+   "Kimi": [
+    57,
+    0,
+    27
+   ],
+   "Muse": [
+    24,
+    0,
+    60
+   ],
+   "Opus": [
+    47,
+    0,
+    37
+   ],
+   "Qwen": [
+    78,
+    0,
+    6
+   ],
+   "Sol": [
+    18,
+    0,
+    66
+   ],
+   "SolUF": [
+    4,
+    0,
+    80
+   ],
+   "baseline": [
+    35,
+    0,
+    49
+   ],
+   "sparring": [
+    7,
+    0,
+    77
+   ]
+  },
+  "Muse": {
+   "Astra": [
+    12,
+    0,
+    72
+   ],
+   "DeepSeek": [
+    62,
+    1,
+    21
+   ],
+   "Doubao": [
+    70,
+    11,
+    3
+   ],
+   "GLM": [
+    73,
+    3,
+    8
+   ],
+   "Gemini": [
+    17,
+    0,
+    67
+   ],
+   "Grok": [
+    66,
+    0,
+    18
+   ],
+   "Haiku": [
+    69,
+    1,
+    14
+   ],
+   "Kimi": [
+    55,
+    3,
+    26
+   ],
+   "MiMo": [
+    60,
+    0,
+    24
+   ],
+   "Opus": [
+    32,
+    1,
+    51
+   ],
+   "Qwen": [
+    76,
+    0,
+    8
+   ],
+   "Sol": [
+    23,
+    0,
+    61
+   ],
+   "SolUF": [
+    3,
+    0,
+    81
+   ],
+   "baseline": [
+    45,
+    0,
+    39
+   ],
+   "sparring": [
+    2,
+    0,
+    82
+   ]
+  },
+  "Opus": {
+   "Astra": [
+    28,
+    0,
+    56
+   ],
+   "DeepSeek": [
+    64,
+    0,
+    20
+   ],
+   "Doubao": [
+    82,
+    1,
+    1
+   ],
+   "GLM": [
+    84,
+    0,
+    0
+   ],
+   "Gemini": [
+    24,
+    0,
+    60
+   ],
+   "Grok": [
+    60,
+    0,
+    24
+   ],
+   "Haiku": [
+    66,
+    1,
+    17
+   ],
+   "Kimi": [
+    66,
+    0,
+    18
+   ],
+   "MiMo": [
+    37,
+    0,
+    47
+   ],
+   "Muse": [
+    51,
+    1,
+    32
+   ],
+   "Qwen": [
+    84,
+    0,
+    0
+   ],
+   "Sol": [
+    25,
+    0,
+    59
+   ],
+   "SolUF": [
+    21,
+    0,
+    63
+   ],
+   "baseline": [
+    77,
+    0,
+    7
+   ],
+   "sparring": [
+    6,
+    0,
+    78
+   ]
+  },
+  "Qwen": {
+   "Astra": [
+    0,
+    0,
+    84
+   ],
+   "DeepSeek": [
+    13,
+    0,
+    71
+   ],
+   "Doubao": [
+    72,
+    0,
+    12
+   ],
+   "GLM": [
+    73,
+    0,
+    11
+   ],
+   "Gemini": [
+    2,
+    0,
+    82
+   ],
+   "Grok": [
+    5,
+    0,
+    79
+   ],
+   "Haiku": [
+    8,
+    0,
+    76
+   ],
+   "Kimi": [
+    19,
+    0,
+    65
+   ],
+   "MiMo": [
+    6,
+    0,
+    78
+   ],
+   "Muse": [
+    8,
+    0,
+    76
+   ],
+   "Opus": [
+    0,
+    0,
+    84
+   ],
+   "Sol": [
+    0,
+    0,
+    84
+   ],
+   "SolUF": [
+    0,
+    0,
+    84
+   ],
+   "baseline": [
+    9,
+    0,
+    75
+   ],
+   "sparring": [
+    0,
+    0,
+    84
+   ]
+  },
+  "Sol": {
+   "Astra": [
+    29,
+    0,
+    55
+   ],
+   "DeepSeek": [
+    63,
+    0,
+    21
+   ],
+   "Doubao": [
+    84,
+    0,
+    0
+   ],
+   "GLM": [
+    84,
+    0,
+    0
+   ],
+   "Gemini": [
+    53,
+    0,
+    31
+   ],
+   "Grok": [
+    76,
+    0,
+    8
+   ],
+   "Haiku": [
+    80,
+    0,
+    4
+   ],
+   "Kimi": [
+    78,
+    0,
+    6
+   ],
+   "MiMo": [
+    66,
+    0,
+    18
+   ],
+   "Muse": [
+    61,
+    0,
+    23
+   ],
+   "Opus": [
+    59,
+    0,
+    25
+   ],
+   "Qwen": [
+    84,
+    0,
+    0
+   ],
+   "SolUF": [
+    9,
+    0,
+    75
+   ],
+   "baseline": [
+    76,
+    0,
+    8
+   ],
+   "sparring": [
+    14,
+    0,
+    70
+   ]
+  },
+  "SolUF": {
+   "Astra": [
+    60,
+    0,
+    24
+   ],
+   "DeepSeek": [
+    78,
+    0,
+    6
+   ],
+   "Doubao": [
+    84,
+    0,
+    0
+   ],
+   "GLM": [
+    84,
+    0,
+    0
+   ],
+   "Gemini": [
+    67,
+    0,
+    17
+   ],
+   "Grok": [
+    80,
+    0,
+    4
+   ],
+   "Haiku": [
+    84,
+    0,
+    0
+   ],
+   "Kimi": [
+    81,
+    0,
+    3
+   ],
+   "MiMo": [
+    80,
+    0,
+    4
+   ],
+   "Muse": [
+    81,
+    0,
+    3
+   ],
+   "Opus": [
+    63,
+    0,
+    21
+   ],
+   "Qwen": [
+    84,
+    0,
+    0
+   ],
+   "Sol": [
+    75,
+    0,
+    9
+   ],
+   "baseline": [
+    80,
+    0,
+    4
+   ],
+   "sparring": [
+    30,
+    0,
+    54
+   ]
+  },
+  "baseline": {
+   "Astra": [
+    20,
+    0,
+    64
+   ],
+   "DeepSeek": [
+    43,
+    0,
+    41
+   ],
+   "Doubao": [
+    79,
+    0,
+    5
+   ],
+   "GLM": [
+    81,
+    0,
+    3
+   ],
+   "Gemini": [
+    22,
+    0,
+    62
+   ],
+   "Grok": [
+    40,
+    0,
+    44
+   ],
+   "Haiku": [
+    51,
+    1,
+    32
+   ],
+   "Kimi": [
+    60,
+    0,
+    24
+   ],
+   "MiMo": [
+    49,
+    0,
+    35
+   ],
+   "Muse": [
+    39,
+    0,
+    45
+   ],
+   "Opus": [
+    7,
+    0,
+    77
+   ],
+   "Qwen": [
+    75,
+    0,
+    9
+   ],
+   "Sol": [
+    8,
+    0,
+    76
+   ],
+   "SolUF": [
+    4,
+    0,
+    80
+   ],
+   "sparring": [
+    2,
+    0,
+    82
+   ]
+  },
+  "sparring": {
+   "Astra": [
+    58,
+    0,
+    26
+   ],
+   "DeepSeek": [
+    83,
+    0,
+    1
+   ],
+   "Doubao": [
+    84,
+    0,
+    0
+   ],
+   "GLM": [
+    84,
+    0,
+    0
+   ],
+   "Gemini": [
+    74,
+    0,
+    10
+   ],
+   "Grok": [
+    82,
+    0,
+    2
+   ],
+   "Haiku": [
+    84,
+    0,
+    0
+   ],
+   "Kimi": [
+    84,
+    0,
+    0
+   ],
+   "MiMo": [
+    77,
+    0,
+    7
+   ],
+   "Muse": [
+    82,
+    0,
+    2
+   ],
+   "Opus": [
+    78,
+    0,
+    6
+   ],
+   "Qwen": [
+    84,
+    0,
+    0
+   ],
+   "Sol": [
+    70,
+    0,
+    14
+   ],
+   "SolUF": [
+    54,
+    0,
+    30
+   ],
+   "baseline": [
+    82,
+    0,
+    2
+   ]
+  }
+ },
+ "adjacent": [
+  {
+   "high": "SolUF",
+   "low": "Astra",
+   "diff": 141.1993001551599,
+   "diff_low": 98.35499868836797,
+   "diff_high": 189.2536373610921,
+   "tied": false
+  },
+  {
+   "high": "Astra",
+   "low": "Sol",
+   "diff": 70.87826433573366,
+   "diff_low": 32.28612087577983,
+   "diff_high": 107.57083262066448,
+   "tied": false
+  },
+  {
+   "high": "Sol",
+   "low": "Gemini",
+   "diff": 41.079589222767,
+   "diff_low": 1.7491187173565663,
+   "diff_high": 77.82129815756622,
+   "tied": false
+  },
+  {
+   "high": "Gemini",
+   "low": "Opus",
+   "diff": 78.35486876560782,
+   "diff_low": 49.98609866571286,
+   "diff_high": 108.06361291407356,
+   "tied": false
+  },
+  {
+   "high": "Opus",
+   "low": "Muse",
+   "diff": 80.47084664752343,
+   "diff_low": 43.54337103758796,
+   "diff_high": 118.15530571489137,
+   "tied": false
+  },
+  {
+   "high": "Muse",
+   "low": "MiMo",
+   "diff": 34.64793005729812,
+   "diff_low": -5.898081135928599,
+   "diff_high": 73.07128162564041,
+   "tied": true
+  },
+  {
+   "high": "MiMo",
+   "low": "Grok",
+   "diff": 47.1731936457005,
+   "diff_low": 8.67166553711721,
+   "diff_high": 82.42378794545101,
+   "tied": false
+  },
+  {
+   "high": "Grok",
+   "low": "DeepSeek",
+   "diff": 51.52152022673457,
+   "diff_low": 22.724977804826054,
+   "diff_high": 86.03834781714157,
+   "tied": false
+  },
+  {
+   "high": "DeepSeek",
+   "low": "Kimi",
+   "diff": 66.47314401224986,
+   "diff_low": 18.018551245129032,
+   "diff_high": 117.0578659381909,
+   "tied": false
+  },
+  {
+   "high": "Kimi",
+   "low": "Haiku",
+   "diff": 5.983974263650197,
+   "diff_low": -42.45897269732377,
+   "diff_high": 57.31919267453709,
+   "tied": true
+  },
+  {
+   "high": "Haiku",
+   "low": "Qwen",
+   "diff": 199.0498183572396,
+   "diff_low": 160.49545561726703,
+   "diff_high": 239.35313583648417,
+   "tied": false
+  },
+  {
+   "high": "Qwen",
+   "low": "GLM",
+   "diff": 115.28808408789536,
+   "diff_low": 66.52643963814825,
+   "diff_high": 169.43177828107116,
+   "tied": false
+  },
+  {
+   "high": "GLM",
+   "low": "Doubao",
+   "diff": 23.082637042700867,
+   "diff_low": -16.666084876130242,
+   "diff_high": 60.36029196892878,
+   "tied": true
+  }
+ ],
+ "overall": {
+  "avg_turns": 79.0,
+  "draw_rate": 0.0103,
+  "draws": 104,
+  "seat0_wins": 5003,
+  "seat1_wins": 4973,
+  "fault_games": 2,
+  "reasons": {
+   "base": 9370,
+   "hp": 266,
+   "kills": 154,
+   "draw": 103,
+   "stars": 128,
+   "both_kills": 47,
+   "both_stars": 9,
+   "both_draw": 1,
+   "fault": 2
+  },
+  "seconds_per_game": 1.38
+ },
+ "substitutions": [],
+ "flagged_batches": [
+  0,
+  1,
+  2,
+  4,
+  22
+ ],
+ "judge_errors": 0
+}
