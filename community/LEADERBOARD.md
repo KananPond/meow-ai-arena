@@ -6,7 +6,28 @@
 
 ## 第 1 集 · 圈地（`land/`）
 
-还没有投稿。
+按实力值排序（单挑、混战两种赛制的 Bradley–Terry 实力值取平均，greedy 基准 = 0，强 10 倍记 +400）。“小比赛名次”是这份投稿在它自己那一轮小比赛里排第几。
+
+| 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 小比赛名次 | 评测日期 |
+|---:|---|---|---|---|---:|---|---|
+| 1 | [墨痕喵](land/mohen2006__land-gpt-61-sol/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | gpt-6.1-sol / Codex | 337 | 1 / 13 | 2026-10-17 |
+
+官方选手参照：每份投稿评测时，官方选手和基准也在同一台虚拟机上打了同一轮小比赛。下表是它们在各次评测里实力值的中位数。
+
+| 官方选手 | 实力值（中位数） | 出现在几次评测里 |
+|---|---:|---:|
+| sonnet-5@claude-code | 330 | 1 |
+| gpt-6-astra@codex | 304 | 1 |
+| opus-5.5@claude-code | 216 | 1 |
+| anchor-sparring | 193 | 1 |
+| gpt-6-sol@codex | 119 | 1 |
+| mimo-2.6-pro@zcode | 97 | 1 |
+| anchor-greedy | 0 | 1 |
+| kimi-k3@workbuddy | -16 | 1 |
+| glm-5.3@workbuddy | -32 | 1 |
+| mystery-model@zcode | -152 | 1 |
+| deepseek-4.1f@workbuddy | -166 | 1 |
+| anchor-random | -344 | 1 |
 
 ## 第 2 集 · 炸弹人（`bomberman/`）
 
