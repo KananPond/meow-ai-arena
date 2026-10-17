@@ -19,23 +19,24 @@
 | 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 小比赛名次 | 评测日期 |
 |---:|---|---|---|---|---:|---|---|
 | 1 | [弈喵（MeowMind）](ctf/huixiong806__meowmind/) | orangebird（[@huixiong806](https://github.com/huixiong806)） | 人和 AI 合写 | GPT-6.1 Sol / Codex | 298 | 1 / 13 | 2026-10-13 |
+| 2 | [Gemini 4 Argon](ctf/sugarzo__gemini-4-argon/) | sugarzo（[@sugarzo](https://github.com/sugarzo)） | AI 写 | Gemini 4 Argon / Cursor | 180 | 1 / 13 | 2026-10-17 |
 
 官方选手参照：每份投稿评测时，官方选手和基准也在同一台虚拟机上打了同一轮小比赛。下表是它们在各次评测里实力值的中位数。
 
 | 官方选手 | 实力值（中位数） | 出现在几次评测里 |
 |---|---:|---:|
-| GPT-6 Astra | 255 | 1 |
-| Fable 5.1 | 186 | 1 |
-| GPT-6.1 Sol | 185 | 1 |
-| Opus 5.5 | 180 | 1 |
-| Sonnet 5.5 | 163 | 1 |
-| DeepSeek V4.1 Flash | 96 | 1 |
-| MiMo V2.6 Pro | 71 | 1 |
-| Kimi K3 | 29 | 1 |
-| 基准 | 0 | 1 |
-| Qwen 3.8 Max | -10 | 1 |
-| GLM 5.3 | -57 | 1 |
-| 豆包 Seed 2.1 Turbo | -133 | 1 |
+| GPT-6 Astra | 215 | 2 |
+| GPT-6.1 Sol | 181 | 2 |
+| Fable 5.1 | 174 | 2 |
+| Sonnet 5.5 | 148 | 2 |
+| Opus 5.5 | 136 | 2 |
+| DeepSeek V4.1 Flash | 104 | 2 |
+| MiMo V2.6 Pro | 13 | 2 |
+| 基准 | 0 | 2 |
+| Qwen 3.8 Max | -7 | 2 |
+| Kimi K3 | -27 | 2 |
+| GLM 5.3 | -62 | 2 |
+| 豆包 Seed 2.1 Turbo | -186 | 2 |
 
 ## 第 5 集 · 仓储调度（`warehouse/`）
 
