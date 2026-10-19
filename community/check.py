@@ -5,7 +5,7 @@
   python community/check.py <投稿目录> --full        局数更多（bot 类）/ 跑全部 8 组隐藏负载（仓储调度）
   python community/check.py <投稿目录> --skip-eval   只查结构和能否编译，不跑评测
 
-bot 类三集（land、bomberman、ctf）直接调用那一集的 challenge.py，官方脚本没有改动。
+bot 类四集（land、bomberman、ctf、tank）直接调用那一集的 challenge.py，不改动游戏引擎、预算或评分算法。
 仓储调度（warehouse）在本机把基线和投稿各跑一遍：先比输出，再算加速比。
 默认的快速档跑 5 组公开负载和 3 组较快的隐藏负载；--full 跑第 1 轮的全部 8 组隐藏负载。
 
@@ -29,14 +29,14 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 SCHEMA = 1
 
-BOT_EPISODES = ("land", "bomberman", "ctf")
-EPISODES = BOT_EPISODES + ("warehouse",)
+BOT_EPISODES = ("land", "bomberman", "ctf", "tank")
+EPISODES = ("land", "bomberman", "ctf", "warehouse", "tank")
 EPISODE_TITLES = {"land": "第 1 集 · 圈地", "bomberman": "第 2 集 · 炸弹人", "ctf": "第 3 集 · 夺旗",
-                  "warehouse": "第 5 集 · 仓储调度"}
+                  "warehouse": "第 5 集 · 仓储调度", "tank": "第 6 集 · 坦克大战"}
 
 # 目录名：<GitHub 用户名小写>__<作品名>。两段都只允许小写字母、数字、连字符，连字符不能在开头结尾，也不能连用。
 _PART = r"[a-z0-9]+(?:-[a-z0-9]+)*"
-ENTRY_RE = re.compile(r"^(?P<user>%s)__(?P<slug>%s)$" % (_PART, _PART))
+ENTRY_RE = re.compile(r"^(?P<user>%s)__(?P<slug>%s)\Z" % (_PART, _PART))
 MAX_USER, MAX_SLUG = 39, 40
 
 WRITTEN_BY = ("human", "ai", "human+ai")
@@ -179,9 +179,20 @@ def validate_meta(path, user, errors):
     return clean
 
 
+def has_symlink(path):
+    """检查 community/集/投稿 或 artifacts/结果/result.json 这三层。
+
+    更高层属于调用者选择的工作目录，可能包含 macOS 的 /tmp 等系统链接。
+    """
+    path = Path(path).absolute()
+    return any(p.is_symlink() for p in (path, *path.parents[:2]))
+
+
 def validate(entry, episode):
     """返回 (meta, errors, warnings, files)。files 是 {相对路径: sha256}。"""
     errors, warnings, files = [], [], {}
+    if episode not in EPISODES or has_symlink(entry) or not entry.is_dir():
+        return None, ["投稿目录不存在、集数不合法或路径包含符号链接"], warnings, files
     m = ENTRY_RE.match(entry.name)
     user = None
     if not m or len(m["user"]) > MAX_USER or len(m["slug"]) > MAX_SLUG:
@@ -202,7 +213,7 @@ def validate(entry, episode):
             errors.append("%s 必须是普通文件" % p.name)
 
     meta = None
-    if (entry / "meta.json").is_file():
+    if (entry / "meta.json").is_file() and not (entry / "meta.json").is_symlink():
         meta = validate_meta(entry / "meta.json", user, errors)
     else:
         errors.append("缺少 meta.json")
@@ -216,7 +227,7 @@ def validate(entry, episode):
     code = []  # (相对路径, 文本)
     if episode == "warehouse":
         src = entry / "src"
-        if not src.is_dir():
+        if not src.is_dir() or src.is_symlink():
             errors.append("缺少 src/ 文件夹")
         else:
             total, cpps, n = 0, 0, 0
@@ -261,11 +272,13 @@ def validate(entry, episode):
         for pattern, message in SUSPICIOUS:
             found = sorted({x.group(1) for x in re.finditer(pattern, text)})
             for name in found[:5]:
-                warnings.append("%s：%s。规则不允许读写文件、联网、启动别的程序或多线程，请维护者人工确认" % (rel, message % name))
+                rule = ("请维护者按 tank/workspace/README.md 人工确认；坦克允许线程，但按所有线程的 CPU 总时间计费"
+                        if episode == "tank" else "规则不允许读写文件、联网、启动别的程序或多线程，请维护者人工确认")
+                warnings.append("%s：%s。%s" % (rel, message % name, rule))
     return meta, errors, warnings, files
 
 
-# ---------------------------------------------------------------- bot 类三集
+# ---------------------------------------------------------------- bot 类四集
 
 def parse_land(run_dir):
     doc = json.loads((run_dir / "ratings.json").read_text(encoding="utf-8"))
@@ -304,7 +317,43 @@ def parse_ctf(run_dir):
     return field, {"games_note": "%d 局" % n}
 
 
+def parse_tank(run_dir):
+    """Tank 挑战沿用固定终场赛评分，不把参照分数误当作本次重测。"""
+    doc = json.loads((run_dir / "result.json").read_text(encoding="utf-8"))
+    final = json.loads((ROOT / "tank" / "results" / "final" / "成绩.json").read_text(encoding="utf-8"))["players"]
+    number = lambda v: isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v)
+    if not isinstance(doc, dict) or not isinstance(doc.get("budget"), dict):
+        raise ValueError("坦克成绩格式不合法")
+    budget = doc["budget"]
+    if (doc.get("schema") != 1 or doc.get("complete") is not True or doc.get("mode") != "formal" or
+            doc.get("rating_method") != "fixed-final" or budget.get("budget_kind") != "cpu" or
+            (budget.get("first_ms"), budget.get("turn_ms")) != (2000, 50)):
+        raise ValueError("坦克成绩不是完整的官方 CPU 预算正式对局")
+    games = doc["games_per_opponent"]
+    opponents = doc["opponents"]
+    if (type(games) is not int or games not in (20, 80) or not isinstance(opponents, list) or
+            len(opponents) != len(final) or any(not isinstance(r, dict) for r in opponents) or
+            {r["name"] for r in opponents} != set(final) or
+            doc["games"] != games * len(final) or doc["seed"] != 1001 or not number(doc["rating"])):
+        raise ValueError("坦克成绩缺少对手、对局或有效实力值")
+    for row in opponents:
+        ref = final[row["name"]]
+        counts = [row[k] for k in ("wins", "draws", "losses")]
+        if (any(type(x) is not int or x < 0 for x in counts) or sum(counts) != games or
+                row["rating"] != ref["rating"] or row["ranked"] is not ref["ranked"]):
+            raise ValueError("坦克对局不完整或固定参照成绩不一致")
+    field = [{"name": r["display"] or r["label"] or name, "is_entry": False,
+              "score": round(r["rating"], 1)} for name, r in final.items() if r["ranked"]]
+    field.append({"name": "你的 bot", "is_entry": True, "score": round(doc["rating"], 1)})
+    return field, {"games_note": "%d 局（16 个对手，每个 %d 局）" % (doc["games"], games),
+                   "games": doc["games"], "rating_method": "fixed-final", "opponents": opponents,
+                   "source_sha256": doc["source_sha256"], "budget": budget,
+                   "rank": 1 + sum(r["ranked"] and r["rating"] > doc["rating"] for r in final.values())}
+
+
 BOT_SPEC = {
+    "tank": {"parse": parse_tank, "report": "report.md",
+             "score_label": "实力值（固定终场赛对手评分，只拟合投稿的 Bradley–Terry 实力值，基准 = 0，强 10 倍记 +400）"},
     "land": {"parse": parse_land, "report": "ratings.md",
              "score_label": "实力值（单挑、混战两种赛制的 Bradley–Terry 实力值取平均，greedy 基准 = 0，强 10 倍记 +400）"},
     "bomberman": {"parse": parse_bomberman, "report": "汇总.md",
@@ -324,8 +373,15 @@ def eval_bot(entry, episode, work, full, timeout, result):
     shutil.rmtree(build, ignore_errors=True)
     build.mkdir(parents=True)
     shutil.copy(entry / "bot.cpp", build / "bot.cpp")
-    out("[1/2] 试编译 bot.cpp（%s）" % " ".join(["g++"] + cxx_flags() + ["bot.cpp"]))
-    exe, err = compile_in(build, ["bot.cpp"], "bot" + (".exe" if os.name == "nt" else ""), cxx)
+    sources = ["bot.cpp"]
+    if episode == "tank":
+        # 投稿只有 bot.cpp。头文件、主循环只取运行本脚本的可信 checkout，
+        # 不从 PR 的 workspace 或投稿旁边查找；正式挑战也只读取这份源码快照。
+        for name in ("tank.hpp", "tank_main.cpp"):
+            shutil.copy(ROOT / "tank" / "workspace" / name, build / name)
+        sources.append("tank_main.cpp")
+    out("[1/2] 试编译 bot.cpp（%s）" % " ".join(["g++"] + cxx_flags() + sources))
+    exe, err = compile_in(build, sources, "bot" + (".exe" if os.name == "nt" else ""), cxx)
     if err:
         result["errors"].append("bot.cpp 编译失败")
         result["detail"]["compile_error"] = err
@@ -337,7 +393,12 @@ def eval_bot(entry, episode, work, full, timeout, result):
     ep_dir = ROOT / episode
     runs = ep_dir / "challenge-runs"
     before = {p.name for p in runs.iterdir()} if runs.is_dir() else set()
-    cmd = [sys.executable, "-X", "utf8", str(ep_dir / "challenge.py"), str((entry / "bot.cpp").resolve())] + (["--full"] if full else [])
+    source = build / "bot.cpp" if episode == "tank" else entry / "bot.cpp"
+    cmd = [sys.executable, "-X", "utf8", str(ep_dir / "challenge.py"), str(source.resolve())] + (["--full"] if full else [])
+    if episode == "tank":
+        run_dir = work / "challenge"
+        shutil.rmtree(run_dir, ignore_errors=True)
+        cmd += ["--out", str(run_dir.resolve()), "--require-cpu"]
     out("[2/2] 运行 %s/challenge.py%s（官方脚本，原样调用）\n" % (episode, " --full" if full else ""))
     env = dict(os.environ, PYTHONUTF8="1", CXX=cxx)
     try:
@@ -348,22 +409,26 @@ def eval_bot(entry, episode, work, full, timeout, result):
     if r.returncode != 0:
         result["errors"].append("%s/challenge.py 以退出码 %d 结束，比赛没有打完（上面有它的报错）" % (episode, r.returncode))
         return
-    new = sorted(p for p in runs.iterdir() if p.name not in before) if runs.is_dir() else []
-    if not new:
-        result["errors"].append("没有在 %s/challenge-runs/ 里找到这次运行的结果目录" % episode)
-        return
-    run_dir = new[-1]
+    if episode != "tank":
+        new = sorted(p for p in runs.iterdir() if p.name not in before) if runs.is_dir() else []
+        if not new:
+            result["errors"].append("没有在 %s/challenge-runs/ 里找到这次运行的结果目录" % episode)
+            return
+        run_dir = new[-1]
     spec = BOT_SPEC[episode]
     try:
         field, extra = spec["parse"](run_dir)
-    except (OSError, ValueError, KeyError, TypeError, IndexError) as e:
+        if episode == "tank" and (extra["source_sha256"] != result["files"]["bot.cpp"] or
+                                   extra["games"] != (1280 if full else 320)):
+            raise ValueError("坦克成绩的源码哈希或局数与本次投稿评测不符")
+    except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError, OverflowError) as e:
         result["errors"].append("读不懂 %s 里的成绩文件：%s: %s" % (run_dir.name, type(e).__name__, e))
         return
     field.sort(key=lambda x: (x["score"] is None, -(x["score"] or 0), x["name"]))
     for i, row in enumerate(field, 1):
         row["rank"] = i
     mine = next((x for x in field if x["is_entry"]), None)
-    result["detail"].update(extra, field=field, field_size=len(field), run_dir=run_dir.relative_to(ROOT).as_posix())
+    result["detail"].update(extra, field=field, field_size=len(field), run_dir=os.path.relpath(run_dir, ROOT))
     result["score_label"] = spec["score_label"]
     report = run_dir / spec["report"]
     if report.is_file():
@@ -372,7 +437,7 @@ def eval_bot(entry, episode, work, full, timeout, result):
         result["errors"].append("成绩表里没有这份投稿的实力值（多半是它在评测脚本里编译失败或一局都没打成）")
         return
     result["score"] = mine["score"]
-    result["detail"]["rank"] = mine["rank"]
+    result["detail"]["rank"] = extra["rank"] if episode == "tank" else mine["rank"]
     if "ci95" in mine:
         result["detail"]["ci95"] = mine["ci95"]
 
@@ -567,6 +632,15 @@ def render_summary(result):
                       "基线：" + r["diff"]["expected"].replace("```", "'''"), "投稿：" + r["diff"]["actual"].replace("```", "'''"), "```", ""]
         L += ["加速比是同一台机器上基线和投稿的 CPU 时间之比。%s和节目里的正式成绩（比赛电脑、8 组隐藏负载、另一套计时遍数）不是同一次测量，不能直接比。" % (
             "快速档只跑 5 组公开负载和 3 组隐藏负载，" if result["mode"] == "quick" else ""), ""]
+    elif ep == "tank" and d.get("field"):
+        L += ["### 成绩", "", "正式模式挑战 14 位 AI 的下半场版本、出题方参照和基准（%s）。" % d.get("games_note", ""), "",
+              "投稿实力值 **%s**；放进 14 位 AI 里相当于第 **%s / 15** 名。" % (fmt(result["score"]), d["rank"]), "",
+              result["score_label"] + "。官方参照分数固定，只有投稿分数由本次胜平负拟合；不是官方选手之间重新打的一轮联赛。", "",
+              "| 对手 | 终场赛实力值（固定） | 你的胜-平-负 |", "|---|---:|---|"]
+        for r in d["opponents"]:
+            L.append("| %s | %s | %d-%d-%d |" % (md_escape(r["display"]), fmt(r["rating"]), r["wins"], r["draws"], r["losses"]))
+        L += ["", "官方预算：首回合 2000 CPU 毫秒，之后每回合 50 CPU 毫秒（所有线程合计）。",
+              "局数少，且机器和地图与终场赛不同；这个参照名次不是正式赛成绩。", ""]
     elif ep in BOT_EPISODES and d.get("field"):
         land = ep == "land"
         L += ["### 成绩", "", "这份投稿和全部官方选手、基准打了一轮小型比赛（%s）。" % d.get("games_note", ""), ""]
@@ -604,7 +678,10 @@ def main():
     ap.add_argument("--timeout", type=int, default=120, help="bot 类：challenge.py 最多跑多少分钟（默认 120）")
     args = ap.parse_args()
 
-    entry = Path(args.entry).resolve()
+    entry_path = Path(args.entry)
+    if has_symlink(entry_path):
+        raise SystemExit("投稿路径不能包含符号链接：%s" % entry_path)
+    entry = entry_path.resolve()
     if not entry.is_dir():
         raise SystemExit("找不到投稿目录：%s" % entry)
     episode = args.episode or entry.parent.name

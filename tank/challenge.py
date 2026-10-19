@@ -8,6 +8,8 @@
 你的 bot 和比赛选手一样只写 init 和 decide 两个函数，规则和接口见 workspace/README.md、workspace/RULES.md。
 需要 Python 3.10+ 和 g++（Windows 可用 w64devkit，见仓库根目录 README）。
 """
+import argparse
+import hashlib
 import json
 import math
 import os
@@ -16,9 +18,11 @@ import shutil
 import subprocess
 import sys
 import time
+import tempfile
 from pathlib import Path
 
-sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 HERE = Path(__file__).resolve().parent
 WS = HERE / "workspace"
 # 名字：终场赛成绩表里的短名 → 程序
@@ -63,15 +67,58 @@ def ensure_compiler():
     raise SystemExit("没找到 C++ 编译器（g++）。Windows 推荐 w64devkit，放法见仓库根目录 README。")
 
 
+def budget_info():
+    """从官方裁判读取实际预算，不复制或修改游戏规则。"""
+    sys.path.insert(0, str(WS))
+    import engine
+    try:
+        return engine.info()
+    finally:
+        engine.shutdown()
+
+
+def render_report(doc):
+    lines = ["# 坦克大战挑战成绩", "",
+             f"你的实力值：**{doc['rating']:+.1f}**；放进 14 位 AI 里相当于第 **{doc['rank']} / 15** 名。", "",
+             "固定终场赛对手实力值，只拟合投稿的 Bradley–Terry 实力值（基准 = 0，强 10 倍 = +400）。",
+             "这是新地图上的少量挑战对局，不是重跑终场赛，也不是官方选手互相重打的小联赛。", "",
+             f"正式模式；共 {doc['games']} 局；地图种子从 {doc['seed']} 起，每张图换边。",
+             f"预算：{doc['budget']['first_ms']} / {doc['budget']['turn_ms']} 毫秒（{doc['budget']['budget_kind']}，首回合 / 之后）。", "",
+             "| 对手 | 终场赛实力值（固定） | 你的胜-平-负 | 得分率 |", "|---|---:|---|---:|"]
+    for row in doc["opponents"]:
+        w, d, l = (row[k] for k in ("wins", "draws", "losses"))
+        lines.append(f"| {row['display']}（{row['name']}） | {row['rating']:+.0f} | {w}-{d}-{l} | {(w + 0.5 * d) / (w + d + l):.1%} |")
+    lines += ["", "局数少时结果会有起伏，想要更稳就加 --full。正式赛（14400 局）的成绩见 tank/results/final/成绩.md。", ""]
+    return "\n".join(lines)
+
+
 def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("bot", nargs="?", help="bot.cpp；默认使用选手包模板")
+    ap.add_argument("--full", action="store_true", help="每个对手 80 局（默认 20 局）")
+    ap.add_argument("--out", help="结果目录；默认新建 tank/challenge-runs/ 下的目录")
+    ap.add_argument("--require-cpu", action="store_true", help="社区评测：CPU 计时不可用时拒绝出成绩")
+    args = ap.parse_args()
     ensure_compiler()
-    args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    full = "--full" in sys.argv
-    mine = Path(args[0]).resolve() if args else WS / "submission" / "bot.cpp"
+    mine = Path(args.bot).resolve() if args.bot else WS / "submission" / "bot.cpp"
     if not mine.is_file():
         raise SystemExit(f"找不到你的程序：{mine}")
-    games = 80 if full else 20
+    games = 80 if args.full else 20
     workers = max(1, min(8, (os.cpu_count() or 2) // 2))
+    budget = budget_info()
+    if args.require_cpu and (budget["budget_kind"] != "cpu" or
+                             (budget["first_ms"], budget["turn_ms"]) != (2000, 50)):
+        raise SystemExit("社区坦克评测必须使用官方的 2000 / 50 CPU 毫秒预算；请勿设置 TANK_BUDGET=wall。")
+    if args.out:
+        run_dir = Path(args.out).resolve()
+        run_dir.mkdir(parents=True, exist_ok=True)
+        if any((run_dir / name).exists() for name in ("result.json", "report.md")):
+            raise SystemExit(f"结果目录已有成绩，请换一个新目录：{run_dir}")
+    else:
+        runs = HERE / "challenge-runs"
+        runs.mkdir(exist_ok=True)
+        run_dir = Path(tempfile.mkdtemp(prefix=time.strftime("%Y%m%d-%H%M%S-"), dir=runs))
+    source_sha = hashlib.sha256(mine.read_bytes()).hexdigest()
     final = json.loads((HERE / "results" / "final" / "成绩.json").read_text(encoding="utf-8"))["players"]
     print(f"你的程序：{mine}\n对手：14 个 AI 的下半场版本 + 出题方参照 + 基准，每个 {games} 局（正式模式，并行 {workers}）\n"
           f"（第一次运行要编译 17 个程序，稍等一会儿）\n", flush=True)
@@ -87,20 +134,25 @@ def main():
             print(out.stdout[-2000:], out.stderr[-2000:], sep="\n")
             raise SystemExit(f"和 {name} 的对局出错了，请看上面的输出。")
         w, d, l = map(int, m.groups())
+        if w + d + l != games:
+            raise SystemExit(f"和 {name} 只完成了 {w + d + l} / {games} 局，不计算不完整的成绩。")
         rating = final[name]["rating"]
         rows.append((rating, w, d, l))
-        table.append((name, final[name]["display"] or final[name]["label"] or name, rating, w, d, l))
+        table.append({"name": name, "display": final[name]["display"] or final[name]["label"] or name,
+                      "rating": rating, "ranked": final[name]["ranked"], "wins": w, "draws": d, "losses": l})
         print(f"  对 {name:<9} {w:>3}-{d}-{l:<3}（胜-平-负）  {time.time() - start:5.1f} 秒  {last.split('故障：')[-1]}", flush=True)
+    if hashlib.sha256(mine.read_bytes()).hexdigest() != source_sha:
+        raise SystemExit("评测途中 bot 源码发生了变化，不计算成绩。")
     mine_rating = fit(rows)
-    ranked = sorted([(v["rating"], k) for k, v in final.items() if v["ranked"]], reverse=True)
-    place = 1 + sum(1 for r, _ in ranked if r > mine_rating)
-    print(f"\n按终场赛的尺子（基准 = 0，强 10 倍 = +400），你的实力值约为 {mine_rating:+.0f}，"
-          f"放进 14 位 AI 里相当于第 {place} 名。")
-    print("\n| 对手 | 终场赛实力值 | 你的胜-平-负 | 得分率 |\n|---|---:|---|---:|")
-    for name, shown, rating, w, d, l in table:
-        print(f"| {shown}（{name}） | {rating:+.0f} | {w}-{d}-{l} | {(w + 0.5 * d) / (w + d + l):.1%} |")
-    print(f"\n局数少时结果会有起伏，想要更稳就加 --full。地图种子从 1001 起，和正式赛不是同一批图。"
-          f"\n正式赛（14400 局）的成绩见 results/final/成绩.md。")
+    place = 1 + sum(1 for v in final.values() if v["ranked"] and v["rating"] > mine_rating)
+    doc = {"schema": 1, "complete": True, "rating_method": "fixed-final", "mode": "formal", "budget": budget,
+           "source_sha256": source_sha, "games_per_opponent": games, "games": games * len(table), "seed": 1001,
+           "rating": mine_rating, "rank": place, "opponents": table}
+    report = render_report(doc)
+    (run_dir / "result.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    (run_dir / "report.md").write_text(report, encoding="utf-8")
+    print("\n" + report)
+    print(f"结果文件：{run_dir / 'result.json'}\n成绩表：{run_dir / 'report.md'}")
 
 
 if __name__ == "__main__":

@@ -70,9 +70,9 @@ def all_entries(root=ROOT):
     found = []
     for ep in check.EPISODES:
         d = root / "community" / ep
-        if d.is_dir():
+        if d.is_dir() and not check.has_symlink(d):
             for p in sorted(d.iterdir()):
-                if p.is_dir() and check.ENTRY_RE.match(p.name) and (p / "meta.json").is_file():
+                if not check.has_symlink(p) and p.is_dir() and check.ENTRY_RE.match(p.name) and (p / "meta.json").is_file():
                     found.append((ep, p.name))
     return found
 
@@ -174,18 +174,22 @@ def clean(x, depth=0):
 
 
 def is_num(x):
-    return isinstance(x, (int, float)) and not isinstance(x, bool)
+    return isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x)
+
+
+def as_list(value):
+    return value if isinstance(value, list) else []
 
 
 def collect_one(ep, name, artifacts, commit):
     entry_dir = HERE / ep / name
-    if not check.ENTRY_RE.match(name) or not entry_dir.is_dir():
+    if ep not in check.EPISODES or not check.ENTRY_RE.match(name) or check.has_symlink(entry_dir) or not entry_dir.is_dir():
         return None, "仓库里已经没有这个目录"
     meta, errors, _, files = check.validate(entry_dir, ep)     # 只读文件，不运行任何东西
     rec = {"schema": check.SCHEMA, "episode": ep, "entry": name, "status": "missing", "score": None, "files": files,
            "commit": commit, "mode": "", "errors": [], "detail": {}, "env": {}, "time": ""}
     path = Path(artifacts) / ("result-%s-%s" % (ep, name)) / "result.json"
-    if not path.is_file():
+    if check.has_symlink(path) or not path.is_file():
         rec["errors"] = ["评测任务没有交回结果（可能是超时或中途失败），见这次工作流的日志"]
         return rec, "没有结果文件"
     if path.stat().st_size > 512 * 1024:
@@ -205,23 +209,44 @@ def collect_one(ep, name, artifacts, commit):
     rec["status"] = "pass" if status == "pass" and is_num(score) and not errors else "fail"
     rec["score"] = float(score) if rec["status"] == "pass" else None
     rec["mode"] = raw.get("mode") if raw.get("mode") in ("quick", "full") else ""
-    rec["errors"] = [e for e in (raw.get("errors") or []) if isinstance(e, str)][:20] + errors[:20]
+    rec["errors"] = [e for e in as_list(raw.get("errors")) if isinstance(e, str)][:20] + errors[:20]
     rec["time"] = raw.get("time") if isinstance(raw.get("time"), str) else ""
     env = raw.get("env") if isinstance(raw.get("env"), dict) else {}
     rec["env"] = {k: env.get(k) for k in ("platform", "python", "compiler", "cpus") if isinstance(env.get(k), (str, int))}
     if ep == "warehouse":
-        rows = [r for r in (detail.get("workloads") or []) if isinstance(r, dict)]
+        rows = [r for r in as_list(detail.get("workloads")) if isinstance(r, dict)]
         rec["detail"] = {"correct": detail.get("correct") if isinstance(detail.get("correct"), int) else 0,
                          "total": detail.get("total") if isinstance(detail.get("total"), int) else 0,
                          "workloads": [{k: r.get(k) for k in ("name", "set", "status", "baseline_cpu", "cpu", "speedup", "runs", "mem_mb")}
                                        for r in rows]}
     else:
-        field = [r for r in (detail.get("field") or []) if isinstance(r, dict) and isinstance(r.get("name"), str)]
+        field = [r for r in as_list(detail.get("field")) if isinstance(r, dict) and isinstance(r.get("name"), str)]
         rec["detail"] = {"rank": detail.get("rank") if isinstance(detail.get("rank"), int) else None,
                          "field_size": len(field), "games_note": detail.get("games_note") if isinstance(detail.get("games_note"), str) else "",
                          "ci95": detail.get("ci95") if isinstance(detail.get("ci95"), list) and all(map(is_num, detail.get("ci95"))) else None,
                          "field": [{"name": r["name"], "score": r.get("score") if is_num(r.get("score")) else None}
                                    for r in field if r.get("is_entry") is not True]}
+        if ep == "tank":
+            budget = detail.get("budget") if isinstance(detail.get("budget"), dict) else {}
+            opponents = detail.get("opponents") if isinstance(detail.get("opponents"), list) else []
+            expected_games = {"quick": 320, "full": 1280}.get(rec["mode"])
+            if rec["status"] == "pass" and (
+                    detail.get("rating_method") != "fixed-final" or budget.get("budget_kind") != "cpu" or
+                    type(budget.get("first_ms")) is not int or budget.get("first_ms") != 2000 or
+                    type(budget.get("turn_ms")) is not int or budget.get("turn_ms") != 50 or
+                    type(detail.get("games")) is not int or detail.get("games") != expected_games):
+                rec["status"], rec["score"] = "fail", None
+                rec["errors"].append("坦克结果缺少完整的正式 CPU 预算、固定参照评分或对应档位的局数")
+            rec["detail"].update(
+                rating_method=detail.get("rating_method") if detail.get("rating_method") == "fixed-final" else None,
+                games=detail.get("games") if type(detail.get("games")) is int else None,
+                budget={"budget_kind": budget.get("budget_kind") if budget.get("budget_kind") in ("cpu", "wall") else None,
+                        **{k: budget.get(k) if type(budget.get(k)) is int else None for k in ("first_ms", "turn_ms")}},
+                opponents=[{"name": r["name"], "display": r.get("display") if isinstance(r.get("display"), str) else "",
+                            "rating": r.get("rating") if is_num(r.get("rating")) else None,
+                            **{k: r.get(k) if type(r.get(k)) is int and 0 <= r[k] <= 80 else None
+                               for k in ("wins", "draws", "losses")}}
+                           for r in opponents if isinstance(r, dict) and isinstance(r.get("name"), str)])
     return rec, "已采用（%s）" % rec["status"]
 
 
@@ -283,7 +308,7 @@ def who_cells(ep, name, meta):
 def cmd_render(args):
     L = ["# 社区榜", "",
          "这个文件由 `community/ci_tools.py render` 自动生成，投稿合并后由 GitHub Actions 更新，请不要手改。怎么投稿见 [README.md](README.md)。", "",
-         "成绩是在 GitHub 提供的虚拟机上测的：bot 类三集每份投稿只和官方选手打一轮几百局的小比赛，仓储调度的加速比是同一台虚拟机上基线和投稿的 CPU 时间之比。"
+         "成绩是在 GitHub 提供的虚拟机上测的：bot 类每份投稿只和官方选手打一轮几百局的小比赛，仓储调度的加速比是同一台虚拟机上基线和投稿的 CPU 时间之比。"
          "不同投稿不一定在同一台虚拟机上测，局数也少，名次相近的不必当真；**这些数字和节目里的正式成绩不能直接比。**", ""]
     for ep in check.EPISODES:
         ranked, unranked = load_board(ep)
@@ -301,6 +326,16 @@ def cmd_render(args):
                     "8 组隐藏负载" if rec.get("mode") == "full" else "快速档", E(str(rec.get("time", ""))[:10])))
             L += ["", "官方选手的第 1 轮成绩见 [`warehouse/results/第1轮_速度成绩.md`](../warehouse/results/第1轮_速度成绩.md)，"
                   "那是在比赛电脑上测的，评测脚本不会在虚拟机上重测它们，所以这里不列参照。", ""]
+        elif ranked and ep == "tank":
+            L += ["按投稿实力值排序：正式模式挑战 14 位 AI、出题方参照和基准，固定终场赛对手评分，只拟合投稿的 Bradley–Terry 实力值（基准 = 0，强 10 倍 = +400）。", "",
+                  "“终场赛参照名次”只把投稿分数放进 14 位 AI 的固定评分中比较，不是重跑正式赛。", "",
+                  "| 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 终场赛参照名次 | 评测日期 |", "|---:|---|---|---|---|---:|---|---|"]
+            for i, (name, meta, rec, _) in enumerate(ranked, 1):
+                d = rec.get("detail") or {}
+                L.append("| %d | %s | %.0f | %s / 15 | %s |" % (
+                    i, who_cells(ep, name, meta), rec["score"], d.get("rank") or "—", E(str(rec.get("time", ""))[:10])))
+            L += ["", "固定参照来自 [`tank/results/final/成绩.md`](../tank/results/final/成绩.md)。"
+                  "社区对局使用新地图，在不同机器上运行，局数较少；参照分数不是本次在虚拟机上重新测出的官方成绩。", ""]
         elif ranked:
             label = "单挑、混战两种赛制的 Bradley–Terry 实力值取平均，greedy 基准 = 0" if ep == "land" else "Bradley–Terry，基准 = 0"
             L += ["按实力值排序（%s，强 10 倍记 +400）。“小比赛名次”是这份投稿在它自己那一轮小比赛里排第几。" % label, "",

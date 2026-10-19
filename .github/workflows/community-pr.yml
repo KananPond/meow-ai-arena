@@ -14,6 +14,8 @@ on:
   pull_request:
     paths:
       - 'community/**'
+      - 'tank/challenge.py'
+      - '.github/workflows/community-pr.yml'
 
 permissions:
   contents: read
@@ -23,6 +25,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  tests:
+    name: 投稿通道回归测试
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      # 框架 PR 测试其自己的实现；这不是投稿成绩。正式投稿评测仍只用目标分支脚本。
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python 单元测试与原生编译测试
+        run: python3 -m unittest discover -s community/tests -v
+
   check:
     name: 检查并评测投稿
     runs-on: ubuntu-24.04
@@ -56,7 +70,7 @@ jobs:
           fi
           python3 base/community/ci_tools.py scope --repo pr --base 'HEAD^1' --head HEAD
 
-      # bot 类三集调用那一集的 challenge.py（几百局）；仓储调度跑快速档（5 组公开负载 + 3 组隐藏负载）。
+      # bot 类四集调用那一集的 challenge.py（几百局）；仓储调度跑快速档（5 组公开负载 + 3 组隐藏负载）。
       - name: 评测
         if: steps.scope.outputs.kind == 'submission'
         env:

@@ -76,9 +76,21 @@ Improvement = rating of the second-half version minus rating of the model's own 
 ## Try it
 
 - **Watch**: open any `.html` in `replays/` in a browser (space = play/pause, arrow keys = step, `H` = shortcuts). Each replay is the game closest to the median length among the majority result of that pairing; no cherry-picked comebacks.
-- **Challenge the AIs** (Python 3.10+ and g++): `python challenge.py your_bot.cpp` plays 20 games against each of the 14 second-half bots, the reference bot and the baseline, then places you on the final-tournament scale. Add `--full` for 80 games per opponent.
+- **Challenge the AIs** (Python 3.10+ and g++): `python challenge.py your_bot.cpp` plays 20 games against each of the 14 second-half bots, the reference bot and the baseline (320 total), using native formal mode with the unchanged 2000/50 CPU ms limits. Add `--full` for 80 games per opponent (1,280 total). The 16 final-tournament opponent ratings stay fixed; only your rating is fitted, then compared with the 14 ranked contestants. This is an estimate, not a refitted mini-tournament or an official placing.
 - **Develop**: in `workspace/`, `python arena.py play submission/bot.cpp baseline.cpp --seed 7`, `python arena.py vs new.cpp old.cpp --games 200`; see `workspace/README.md` (Chinese).
 - **Reproduce the tournaments**: `tournament/README.md`. The configs carry the original schedule seeds, so maps, seats and pairings are rebuilt exactly.
+
+## Submit to the community leaderboard
+
+Create `community/tank/<github-username>__<entry-name>/` with `bot.cpp`, `meta.json` and optional `NOTES.md`. Include the official `"tank.hpp"` and implement `init` and `decide`; do not provide your own `main` or engine files. From the repository root:
+
+```bash
+python community/check.py community/tank/<your-folder> --skip-eval  # validate and compile with official tank_main.cpp
+python community/check.py community/tank/<your-folder>              # 320 formal-mode games
+python community/check.py community/tank/<your-folder> --full       # 1,280 formal-mode games
+```
+
+Open a PR containing only that entry folder once it passes. See the [submission guide](../community/README_en.md) for format, licensing, rating caveats and safety, or use the [coding-agent prompts](../community/AGENT_PROMPT.md). PR evaluation uses the target branch's trusted scripts, so Tank submission support must be merged there before Tank entries can be evaluated.
 
 ## Running a new model under contest conditions
 
