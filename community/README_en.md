@@ -12,6 +12,7 @@ You can do it by hand, or paste the prompt in [`AGENT_PROMPT.md`](AGENT_PROMPT.m
 | 2 · Bomberman | `community/bomberman/` | one `bot.cpp` |
 | 3 · Capture the flag | `community/ctf/` | one `bot.cpp` |
 | 5 · Warehouse scheduling | `community/warehouse/` | a `src/` folder with your optimized program |
+| 6 · Tank Battle | `community/tank/` | one `bot.cpp` implementing only `init` and `decide` |
 
 Hand-written bots, AI-written bots, modified versions of the official bots, optimized versions of the warehouse baseline, and fixed versions of a model's code with known defects are all welcome. Episode 4 (Diplomacy) has nothing to submit. Malicious code, code that breaks the episode's rules (file access, network access, spawning processes), and uncredited copies of other people's work are not accepted.
 
@@ -24,6 +25,8 @@ community/<episode>/<github-username>__<entry-name>/
     meta.json      (required)
     NOTES.md       (optional)
 ```
+
+`<episode>` is `land`, `bomberman`, `ctf`, `warehouse` or `tank`.
 
 Both parts of the folder name use only lowercase letters, digits and single hyphens, joined by two underscores. The first part must be the GitHub account that opens the pull request, in lowercase.
 
@@ -43,7 +46,9 @@ Both parts of the folder name use only lowercase letters, digits and single hyph
 
 `written_by` is `human`, `ai` or `human+ai`; fill it in honestly. `model` is required unless `written_by` is `human`. `based_on` names the code you started from, if any. `"license": "MIT"` means you agree to publish the entry under this repository's MIT license.
 
-The code must follow the same rules the models had: C++20, standard library only, compiled with `g++ -O2 -std=c++20`, no file or network access. Bots get 2 seconds for the first turn and 50 ms per turn afterwards. The warehouse program must produce byte-identical output to `warehouse/workspace/baseline/` within 1 GB of memory. The authoritative rules are in each episode's `workspace/` (Chinese).
+The code must follow the episode rules: C++20, compiled with `g++ -O2 -std=c++20`, no file or network access. Episodes 1–3 and warehouse use only the standard library. Tank also uses the official `tank.hpp`; follow its workspace rules for permitted dependencies and threading. Bots get 2 seconds for the first turn and 50 ms per turn afterwards. The warehouse program must produce byte-identical output to `warehouse/workspace/baseline/` within 1 GB of memory. The authoritative rules are in each episode's `workspace/` (Chinese).
+
+For Tank, `bot.cpp` includes `"tank.hpp"` and defines `void init(const tank::State&, int)` and `tank::Orders decide(const tank::State&, int)`. Do not submit your own `main`, header or driver. The checker compiles your source with the trusted `tank/workspace/tank.hpp` and `tank/workspace/tank_main.cpp`, using the equivalent of `g++ -O2 -std=c++20 -I<tank/workspace> bot.cpp <tank/workspace>/tank_main.cpp`. Evaluation uses native formal-mode processes and the unchanged CPU limits: 2000 ms for startup, `init` and the first `decide`, then 50 ms per turn. Tank permits threads, with CPU time summed across all threads; a source-scan warning is not a ban on threads. Fast mode does not enforce time limits and is not used for community scores. Community evaluation runs on Linux, so Windows-specific headers are not supported.
 
 ## Test locally
 
@@ -51,7 +56,9 @@ The code must follow the same rules the models had: C++20, standard library only
 python community/check.py community/<episode>/<your-folder>
 ```
 
-This validates the folder, runs the episode's evaluation (for bots, the unmodified `challenge.py`: a small tournament against all official bots; for the warehouse, baseline and submission are both run on your machine, outputs compared, then speedups computed), and prints a Markdown summary. `--skip-eval` only checks structure and compilation. `--full` plays more games, or runs all eight hidden warehouse workloads instead of the default quick set (five public workloads plus the three fastest hidden ones; the baseline is very slow).
+This validates the folder, runs the episode's `challenge.py` for bots, and prints a Markdown summary. Territory, Bomberman and Capture the flag run a small tournament with the official field. Tank plays only your entry against 16 opponents (14 second-half bots, the reference bot and the baseline): 20 games each, 320 total; `--full` runs 80 each, 1,280 total. Tank uses formal mode and fixed final-tournament reference ratings, as described below. For the warehouse, baseline and submission run on your machine, outputs are compared, then speedups computed. `--skip-eval` only checks structure and compilation. `--full` plays more games, or runs all eight hidden warehouse workloads instead of the default quick set (five public workloads plus the three fastest hidden ones; the baseline is very slow).
+
+Results are saved in `community/.runs/<episode>/<your-folder>/result.json` and `summary.md` (ignored by Git). Examples are in [`_example/`](_example/), including a Tank starter.
 
 ## Open a pull request
 
@@ -61,12 +68,16 @@ This validates the folder, runs the episode's evaluation (for bots, the unmodifi
 
 One entry per pull request, and do not touch other files in the same pull request.
 
-After that: GitHub Actions checks that only your folder changed and runs `check.py` on a GitHub-hosted VM; a maintainer reviews the code; after the merge the entry is evaluated again and the leaderboard is regenerated.
+After that: GitHub Actions checks that only your folder changed and runs the target branch's trusted `check.py`, official opponents and Tank support files on a GitHub-hosted VM; only the entry folder comes from the PR. Tank submissions therefore require the support change to have been merged into the target branch first. Update to the latest supporting `main`; do not include evaluation-script changes in your submission PR. A maintainer reviews the code; after the merge the entry is evaluated again and the leaderboard is regenerated.
 
 ## About the numbers
 
-Community results are measured on GitHub-hosted VMs with a few hundred games per bot. **They are not comparable with the official results from the show.** Bot ratings come from a small tournament of your entry against the official field (baseline = 0); warehouse speedups are the ratio of baseline to submission CPU time on the same machine.
+Community results are measured on GitHub-hosted VMs with fewer games per bot. **They are not directly comparable with the official results from the show.** Territory, Bomberman and Capture the flag ratings come from a small tournament of your entry and the official field (baseline = 0). Community entries do not play each other.
+
+Tank instead uses a **fixed final-tournament reference**: the 16 opponent ratings from `tank/results/final/成绩.json` stay fixed, and only the entrant's Bradley–Terry rating is fitted (baseline = 0, ten times stronger = +400). The opponent numbers in the summary are historical reference ratings, not ratings newly measured in this community run. The estimated placement compares only the 14 ranked contestants, excluding baseline and sparring. This is not a refitted mini-tournament or an official final-tournament placing: the maps, game counts and hardware differ.
+
+Warehouse speedups are the ratio of baseline to submission CPU time on the same machine.
 
 ## License and safety
 
-Entries are published under the repository's [MIT license](../LICENSE). Submissions are C++ programs written by strangers: do not build and run them on a machine you care about; use a VM or a container.
+Entries are published under the repository's [MIT license](../LICENSE). Submissions are C++ programs written by strangers: do not build and run them on a machine you care about; use a VM or a container. Evaluation jobs use read-only tokens, no secrets and no persisted checkout credentials. After merge, each entry runs in a separate disposable VM; only the separate publishing job can write, and it validates results without compiling or running submissions. This isolation is not a program sandbox, and passing CI does not replace code review.

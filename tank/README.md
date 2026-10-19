@@ -120,10 +120,20 @@
 
 ```bash
 python challenge.py 你的bot.cpp           # 和 14 个下半场版本、出题方参照、基准各打 20 局，共 320 局，几分钟
-python challenge.py 你的bot.cpp --full    # 每个对手 80 局，结果更稳
+python challenge.py 你的bot.cpp --full    # 每个对手 80 局，共 1280 局，结果更稳
 ```
 
-不带参数时用 `workspace/submission/bot.cpp`，这是选手拿到的起步模板（三辆车直冲对方基地，很弱）。最后按终场赛的实力值估出你的实力值和相当的名次。
+不带参数时用 `workspace/submission/bot.cpp`，这是选手拿到的起步模板（三辆车直冲对方基地，很弱）。评测沿用独立进程的正式模式和原来的 2000/50 CPU 毫秒预算；最后固定终场赛 16 个对手的实力值，只拟合你的实力值，再和 14 位正式选手比较相当名次，基准和出题方参照不排名。不会重新拟合一轮小比赛，估计名次也不是正式赛成绩。
+
+**投到社区榜**：在仓库根目录新建 `community/tank/<GitHub用户名小写>__<作品名>/`，只放 `bot.cpp`、`meta.json` 和可选的 `NOTES.md`。`bot.cpp` 包含官方 `tank.hpp`、实现 `init` 和 `decide`，不要自带 `main` 或引擎文件。然后在仓库根目录运行：
+
+```bash
+python community/check.py community/tank/<你的目录> --skip-eval  # 结构检查，并与官方 tank_main.cpp 一起编译
+python community/check.py community/tank/<你的目录>              # 320 局正式评测
+python community/check.py community/tank/<你的目录> --full       # 1280 局正式评测
+```
+
+通过后只提交这个文件夹，向本仓库开 PR。格式、许可、成绩口径和安全说明见 [社区投稿指南](../community/README.md)，也可以使用 [coding agent 提示词](../community/AGENT_PROMPT.md)。PR 评测使用目标分支的可信脚本，因此目标分支需先合并 Tank 投稿支持。
 
 **自己开发时**，在 `workspace/` 里用本地工具，和比赛时选手用的完全一样（用法见 `workspace/README.md`）：
 

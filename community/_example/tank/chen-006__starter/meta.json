@@ -1,0 +1,11 @@
+{
+  "author": "示例",
+  "github": "chen-006",
+  "name": "起步模板",
+  "description": "第 6 集选手包里的模板原样复制，三辆车朝对方基地前进，只用来演示投稿格式。",
+  "written_by": "human",
+  "model": "",
+  "tool": "",
+  "based_on": "tank/workspace/submission/bot.cpp",
+  "license": "MIT"
+}

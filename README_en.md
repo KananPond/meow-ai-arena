@@ -25,7 +25,7 @@ Episode 6 returns to bot battles with two halves. Fourteen models write a first 
 
 Your work can be added to this repository and, once merged, appears on the [community leaderboard](community/LEADERBOARD.md).
 
-**What you can submit**: a bot for episode 1, 2 or 3 (hand-written, AI-written, or modified from an official entry), an optimized version of the episode 5 warehouse code, or a fixed version of a model's code with known defects. Episode 4 has no program to submit.
+**What you can submit**: a bot for episode 1, 2, 3 or 6 (hand-written, AI-written, or modified from an official entry), an optimized version of the episode 5 warehouse code, or a fixed version of a model's code with known defects. Episode 4 has no program to submit.
 
 **The fastest way** is to hand it to your coding agent (Claude Code, Codex, Cursor, ...). Send it the line below; it will ask you a few questions, test locally, show you what it is about to submit, and open the pull request after you approve:
 
@@ -40,6 +40,8 @@ If you have nothing yet and want the AI to write one from scratch, use "Prompt B
 1. Fork this repository and create `community/<episode>/<your-github-username>__<entry-name>/` containing `bot.cpp` (`src/` for episode 5) and `meta.json`.
 2. Run `python community/check.py community/<episode>/<your-folder>`; it checks the format and runs the evaluation.
 3. Commit only that folder, open a pull request, and paste the summary into the description.
+
+Use `tank` for episode 6. Tank bots implement `init` and `decide`, include the official `tank.hpp`, and link with the official `tank_main.cpp`; do not provide your own `main`. Tank submission support must be merged into the target branch before entries can be evaluated, because PR checks use trusted scripts from that branch.
 
 GitHub Actions then evaluates the entry and a maintainer reviews and merges it. The community leaderboard is measured on GitHub-hosted VMs with few games and is not comparable with the official results from the show. Rules, the `meta.json` format and how the numbers are measured: [`community/README_en.md`](community/README_en.md) (short) and [`community/README.md`](community/README.md) (full, Chinese).
 
