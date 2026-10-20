@@ -29,9 +29,36 @@
 | deepseek-4.1f@workbuddy | -166 | 1 |
 | anchor-random | -344 | 1 |
 
+没有成绩的投稿：
+
+- [洪泛圈地](land/spicae__flood-claim/)（@spicae）：还没有评测
+
 ## 第 2 集 · 炸弹人（`bomberman/`）
 
-还没有投稿。
+按实力值排序（Bradley–Terry，基准 = 0，强 10 倍记 +400）。“小比赛名次”是这份投稿在它自己那一轮小比赛里排第几。
+
+| 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 小比赛名次 | 评测日期 |
+|---:|---|---|---|---|---:|---|---|
+| 1 | [墨痕喵](bomberman/mohen2006__bomberman-gpt-61-sol/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | gpt-6.1-sol / Codex | 484 | 1 / 11 | 2026-10-20 |
+
+官方选手参照：每份投稿评测时，官方选手和基准也在同一台虚拟机上打了同一轮小比赛。下表是它们在各次评测里实力值的中位数。
+
+| 官方选手 | 实力值（中位数） | 出现在几次评测里 |
+|---|---:|---:|
+| GPT-6 Astra | 443 | 1 |
+| Opus 5.5 | 323 | 1 |
+| GPT-6 Sol | 314 | 1 |
+| Qwen 3.8 Max | 286 | 1 |
+| GLM 5.3 | 242 | 1 |
+| DeepSeek V4.1 Flash | 241 | 1 |
+| Kimi K3 | 226 | 1 |
+| MiMo V2.6 Pro | 92 | 1 |
+| 豆包 Seed 2.1 | 87 | 1 |
+| Base | 0 | 1 |
+
+没有成绩的投稿：
+
+- [deepseek屎山v35](bomberman/dinson98__deepseek-shishan-v35/)（@dinson98）：还没有评测
 
 ## 第 3 集 · 夺旗（`ctf/`）
 
@@ -65,4 +92,6 @@
 
 ## 第 6 集 · 坦克大战（`tank/`）
 
-还没有投稿。
+没有成绩的投稿：
+
+- [神经网络搜索 (自适应预算版)](tank/mbfcasper__neural-search/)（@mbfcasper）：还没有评测
