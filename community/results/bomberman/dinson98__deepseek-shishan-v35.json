@@ -1,0 +1,68 @@
+{
+ "commit": "abba2c7cca0e4325ae78794eda80d40335aeb613",
+ "detail": {
+  "ci95": null,
+  "field": [
+   {
+    "name": "GPT-6 Astra",
+    "score": 383.2
+   },
+   {
+    "name": "Opus 5.5",
+    "score": 266.7
+   },
+   {
+    "name": "GPT-6 Sol",
+    "score": 250.0
+   },
+   {
+    "name": "DeepSeek V4.1 Flash",
+    "score": 224.8
+   },
+   {
+    "name": "Qwen 3.8 Max",
+    "score": 218.4
+   },
+   {
+    "name": "Kimi K3",
+    "score": 179.1
+   },
+   {
+    "name": "豆包 Seed 2.1",
+    "score": 159.6
+   },
+   {
+    "name": "GLM 5.3",
+    "score": 138.4
+   },
+   {
+    "name": "MiMo V2.6 Pro",
+    "score": 41.5
+   },
+   {
+    "name": "Base",
+    "score": 0.0
+   }
+  ],
+  "field_size": 11,
+  "games_note": "330 局",
+  "rank": 2
+ },
+ "entry": "dinson98__deepseek-shishan-v35",
+ "env": {
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cpus": 4,
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "episode": "bomberman",
+ "errors": [],
+ "files": {
+  "bot.cpp": "c6df0a1ba272fdd8b7ca3ac5f75e2bb670df9378e5e8d2f240841275bac00c3c"
+ },
+ "mode": "quick",
+ "schema": 1,
+ "score": 312.0,
+ "status": "pass",
+ "time": "2026-10-20T02:17:43Z"
+}
