@@ -11,27 +11,24 @@
 | 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 小比赛名次 | 评测日期 |
 |---:|---|---|---|---|---:|---|---|
 | 1 | [墨痕喵](land/mohen2006__land-gpt-61-sol/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | gpt-6.1-sol / Codex | 337 | 1 / 13 | 2026-10-17 |
+| 2 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
 
 官方选手参照：每份投稿评测时，官方选手和基准也在同一台虚拟机上打了同一轮小比赛。下表是它们在各次评测里实力值的中位数。
 
 | 官方选手 | 实力值（中位数） | 出现在几次评测里 |
 |---|---:|---:|
-| sonnet-5@claude-code | 330 | 1 |
-| gpt-6-astra@codex | 304 | 1 |
-| opus-5.5@claude-code | 216 | 1 |
-| anchor-sparring | 193 | 1 |
-| gpt-6-sol@codex | 119 | 1 |
-| mimo-2.6-pro@zcode | 97 | 1 |
-| anchor-greedy | 0 | 1 |
-| kimi-k3@workbuddy | -16 | 1 |
-| glm-5.3@workbuddy | -32 | 1 |
-| mystery-model@zcode | -152 | 1 |
-| deepseek-4.1f@workbuddy | -166 | 1 |
-| anchor-random | -344 | 1 |
-
-没有成绩的投稿：
-
-- [洪泛圈地](land/spicae__flood-claim/)（@spicae）：还没有评测
+| sonnet-5@claude-code | 364 | 2 |
+| gpt-6-astra@codex | 296 | 2 |
+| opus-5.5@claude-code | 256 | 2 |
+| anchor-sparring | 231 | 2 |
+| gpt-6-sol@codex | 150 | 2 |
+| mimo-2.6-pro@zcode | 123 | 2 |
+| kimi-k3@workbuddy | 17 | 2 |
+| anchor-greedy | 0 | 2 |
+| glm-5.3@workbuddy | -18 | 2 |
+| deepseek-4.1f@workbuddy | -143 | 2 |
+| mystery-model@zcode | -145 | 2 |
+| anchor-random | -343 | 2 |
 
 ## 第 2 集 · 炸弹人（`bomberman/`）
 
