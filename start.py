@@ -112,12 +112,14 @@ def challenge():
 
 
 def submit():
-    print("你的 bot（第 1、2、3 集）和优化过的仓储调度代码（第 5 集）可以投到这个仓库，合并后进社区榜 community/LEADERBOARD.md。")
+    print("你的 bot（第 1、2、3、6 集）和优化过的仓储调度代码（第 5 集）可以投到这个仓库，合并后进社区榜 community/LEADERBOARD.md。")
     print("  交给 AI 办：把 community/AGENT_PROMPT.md 里的提示词整段复制给你的 coding agent。")
     print("  自己动手：")
     print("    1. fork 本仓库，新建 community/<集>/<你的GitHub用户名>__<作品名>/，放进 bot.cpp（第 5 集是 src/）和 meta.json")
+    print("       第 6 集目录名用 tank；bot.cpp 只写 init/decide，使用官方 tank.hpp，不要自带 main 或头文件")
     print("    2. 运行 python community/check.py community/<集>/<你的文件夹>")
     print("    3. 只提交这一个文件夹，开 Pull Request，把自测摘要贴进描述")
+    print("Tank 投稿支持需先合并到目标分支；PR 评测使用目标分支的可信脚本。")
     print("规则和 meta.json 的写法见 community/README.md。")
     if ask("现在打开投稿指南吗？输入 y 或 n：", ["y", "n"]) == "y":
         path = ROOT / "community" / "README.md"

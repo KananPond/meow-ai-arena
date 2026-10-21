@@ -1,0 +1,79 @@
+{
+ "commit": "ba4cf1f1a1f398d769bf41766ac2ba97e3d12605",
+ "detail": {
+  "ci95": [
+   111.9,
+   241.2
+  ],
+  "field": [
+   {
+    "name": "GPT-6.1 Sol",
+    "score": 176.6
+   },
+   {
+    "name": "GPT-6 Astra",
+    "score": 175.4
+   },
+   {
+    "name": "Fable 5.1",
+    "score": 162.7
+   },
+   {
+    "name": "Sonnet 5.5",
+    "score": 133.6
+   },
+   {
+    "name": "DeepSeek V4.1 Flash",
+    "score": 112.8
+   },
+   {
+    "name": "Opus 5.5",
+    "score": 92.1
+   },
+   {
+    "name": "基准",
+    "score": 0.0
+   },
+   {
+    "name": "Qwen 3.8 Max",
+    "score": -4.3
+   },
+   {
+    "name": "MiMo V2.6 Pro",
+    "score": -45.2
+   },
+   {
+    "name": "GLM 5.3",
+    "score": -67.1
+   },
+   {
+    "name": "Kimi K3",
+    "score": -82.0
+   },
+   {
+    "name": "豆包 Seed 2.1 Turbo",
+    "score": -238.2
+   }
+  ],
+  "field_size": 13,
+  "games_note": "180 局",
+  "rank": 1
+ },
+ "entry": "sugarzo__gemini-4-argon",
+ "env": {
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cpus": 4,
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "episode": "ctf",
+ "errors": [],
+ "files": {
+  "bot.cpp": "7dc8e5a56e94de0626a634ad43dc9146a62dea5aba515c6150d5779f19310d74"
+ },
+ "mode": "quick",
+ "schema": 1,
+ "score": 179.9,
+ "status": "pass",
+ "time": "2026-10-17T14:49:46Z"
+}

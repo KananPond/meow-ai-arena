@@ -1,0 +1,68 @@
+{
+ "commit": "09d408ae984e6d6c430dcd8dbaccfd5ab64b742c",
+ "detail": {
+  "ci95": null,
+  "field": [
+   {
+    "name": "GPT-6 Astra",
+    "score": 443.0
+   },
+   {
+    "name": "Opus 5.5",
+    "score": 322.7
+   },
+   {
+    "name": "GPT-6 Sol",
+    "score": 313.6
+   },
+   {
+    "name": "Qwen 3.8 Max",
+    "score": 286.3
+   },
+   {
+    "name": "GLM 5.3",
+    "score": 242.5
+   },
+   {
+    "name": "DeepSeek V4.1 Flash",
+    "score": 240.9
+   },
+   {
+    "name": "Kimi K3",
+    "score": 225.5
+   },
+   {
+    "name": "MiMo V2.6 Pro",
+    "score": 91.8
+   },
+   {
+    "name": "豆包 Seed 2.1",
+    "score": 87.4
+   },
+   {
+    "name": "Base",
+    "score": 0.0
+   }
+  ],
+  "field_size": 11,
+  "games_note": "330 局",
+  "rank": 1
+ },
+ "entry": "mohen2006__bomberman-gpt-61-sol",
+ "env": {
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cpus": 4,
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "episode": "bomberman",
+ "errors": [],
+ "files": {
+  "bot.cpp": "d0974d02dc8dd3cfe613f1d90ccfb554088b0913555b1427c0ddaab3b38a11a2"
+ },
+ "mode": "quick",
+ "schema": 1,
+ "score": 483.6,
+ "status": "pass",
+ "time": "2026-10-20T02:09:16Z"
+}
