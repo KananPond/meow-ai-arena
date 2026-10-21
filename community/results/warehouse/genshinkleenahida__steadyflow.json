@@ -1,0 +1,110 @@
+{
+ "commit": "05ab539b20bbd82cd27b605a637603563630c33f",
+ "detail": {
+  "correct": 8,
+  "total": 8,
+  "workloads": [
+   {
+    "baseline_cpu": 173.452,
+    "cpu": 0.053,
+    "mem_mb": 22.3,
+    "name": "hid_medium",
+    "runs": 19,
+    "set": "隐藏",
+    "speedup": 3274.57,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 118.826,
+    "cpu": 0.054,
+    "mem_mb": 22.3,
+    "name": "hid_huge",
+    "runs": 19,
+    "set": "隐藏",
+    "speedup": 2198.8,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 223.772,
+    "cpu": 0.073,
+    "mem_mb": 25.2,
+    "name": "hid_crowded",
+    "runs": 14,
+    "set": "隐藏",
+    "speedup": 3066.35,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 120.779,
+    "cpu": 0.0629,
+    "mem_mb": 25.2,
+    "name": "hid_dynamic",
+    "runs": 16,
+    "set": "隐藏",
+    "speedup": 1919.97,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 277.998,
+    "cpu": 0.0328,
+    "mem_mb": 25.2,
+    "name": "hid_flood",
+    "runs": 30,
+    "set": "隐藏",
+    "speedup": 8482.07,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 40.272,
+    "cpu": 0.0253,
+    "mem_mb": 25.2,
+    "name": "hid_lowbattery",
+    "runs": 30,
+    "set": "隐藏",
+    "speedup": 1591.2,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 261.059,
+    "cpu": 0.0482,
+    "mem_mb": 25.2,
+    "name": "hid_long",
+    "runs": 21,
+    "set": "隐藏",
+    "speedup": 5420.89,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 105.471,
+    "cpu": 0.0539,
+    "mem_mb": 25.2,
+    "name": "hid_mixed",
+    "runs": 19,
+    "set": "隐藏",
+    "speedup": 1957.45,
+    "status": "ok"
+   }
+  ]
+ },
+ "entry": "genshinkleenahida__steadyflow",
+ "env": {
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cpus": 4,
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "episode": "warehouse",
+ "errors": [],
+ "files": {
+  "src/HANDOFF.md": "a27bdce54dce893e405f3f11ec18fa3348af1ad30702ed459bc23952f41acdee",
+  "src/common.h": "575560e25cb6c1bc2bc66fa929db3111e2fc2ad9275307a8335e66f80033308d",
+  "src/main.cpp": "72a049078db046d10144d28473c9c17c1fe529e2a7abb0c37fb8d589f5d9b814",
+  "src/monotone.h": "3ce3e6349b143700ff2912da746cda8e33d8ebe09111cdb60c30287fb86146ec",
+  "src/sim.cpp": "650e2e1f614689d76bcefe00f006d3ff414fe5c223e80d5686ece4df6841b203"
+ },
+ "mode": "full",
+ "schema": 1,
+ "score": 2971.02,
+ "status": "pass",
+ "time": "2026-10-21T16:05:14Z"
+}
