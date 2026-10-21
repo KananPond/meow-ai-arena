@@ -2,7 +2,7 @@
   "author": "genshinkleenahida",
   "github": "genshinkleenahida",
   "name": "循迹仓流",
-  "description": "静态距离证书与增量路径修复复用精确寻路，缓存规范路线并加速派单和热点统计，保持基线逐字节输出。",
+  "description": "静态最短路证书与势函数局部绕行减少精确寻路工作，复用有界距离表和规范路线，保持基线逐字节输出。",
   "written_by": "ai",
   "model": "GPT-6 Astra Pro",
   "tool": "ChatGPT（GitHub 插件）",
