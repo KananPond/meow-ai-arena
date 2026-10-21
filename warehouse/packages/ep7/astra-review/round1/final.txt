@@ -1,0 +1,10 @@
+已完成12份检查，11份可编译程序各运行了443个小用例。
+
+- **Pangu：2处缺陷**——停机未清除占位、救援未登记占位。
+- **Mercury：1处缺陷**——悬空引用导致订单号输出损坏，连续三次复现。
+- **LongCat：编译失败**——`__m128i` 未声明，已单列证据。
+- **Dots、Wenxin、Qwen27B、Mistral、Hunyuan、Step、Haiku、Sonnet、Opus：本次未找到**，不代表已证明无缺陷。
+
+反例、原始输出、验证命令及记录已保存到 `findings/`。源码哈希未变，未做性能或超时测试。
+
+已写入 [report.md](packages/ep7/astra-review/round1/report.md) 和 [summary.json](packages/ep7/astra-review/round1/summary.json)。

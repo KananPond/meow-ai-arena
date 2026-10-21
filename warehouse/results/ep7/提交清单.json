@@ -1,0 +1,221 @@
+{
+ "ep7_Pangu": {
+  "label": "盘古 openPangu-2.0-Pro",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Pangu\\封存\\src",
+  "used_seconds": 2700.0,
+  "forced": true,
+  "compensation_seconds": 456.3439724445343,
+  "sha256": {
+   "common.h": "d9078f0f61a8921a17370b56920279e453fe9941f32961a070f5b5bc0298e711",
+   "main.cpp": "e4fc864f0384e9629c1165601552d850b4112834e862f8c2482ce565181c6bf4",
+   "old_stuff.cpp": "bcb1ea945d52fb88e1927e87de7f3997a2f8ac154744d7ca762d8223625074fb",
+   "sim.cpp": "3deb916374bce1c5b2a0ac55a5f25a1985e3101ba35805e0d3294e0d1418413a",
+   "util.cpp": "c03bd3694e895b41747a22d6e2ba97806a48fc9175e91ab4623bc698204c2fbf"
+  }
+ },
+ "ep7_Dots": {
+  "label": "小红书 dots3-note preview",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Dots\\封存\\src",
+  "used_seconds": 2700.0,
+  "forced": true,
+  "compensation_seconds": 0,
+  "sha256": {
+   "common.h": "a164755f27a01ef21bab0e447585e5c55f7c6fb6a4fff3cd2ebdceb80b1dbf1d",
+   "main.cpp": "789c59e298dedf51895467e1c750ef5316c8a004de4f572c37df9b8beeba0a2b",
+   "old_stuff.cpp": "bcb1ea945d52fb88e1927e87de7f3997a2f8ac154744d7ca762d8223625074fb",
+   "sim.cpp": "160fe330ddfd2b96cf110f309d059ac76c327ae0554659d31418dff95f803302",
+   "util.cpp": "a936c0af21216563207053893b2982e5c0cea44eff6c73e04387920cb3278e6b"
+  }
+ },
+ "ep7_Wenxin": {
+  "label": "文心 ERNIE 5.1",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Wenxin\\封存\\src",
+  "used_seconds": 2185.058557987213,
+  "forced": false,
+  "compensation_seconds": 0,
+  "sha256": {
+   "common.h": "c4ddbbc11dbd2cd49d724417d6a74db2fe91cff024dd07588d4d33ae8ff3315c",
+   "HANDOFF.md": "005ceb88d5b7acbc2dfe37e967ef13596d1a686f6650423065e46d79f17c6e7e",
+   "main.cpp": "213d2314f64a8c696cda3ec214483fa9be3f5a24073ba8b34d87facb1477193e",
+   "old_stuff.cpp": "f302daa337588315a110cf9e20e6b8dae3a2f16721cd02432d14218e36e088ba",
+   "sim.cpp": "5f3032a3ef5cc513888f5c76fc47c54b73d6d221684d3e560643c877bc397cd1",
+   "util.cpp": "8069a3f925c0da3fb63a026d8821d99d92108db41706de5081ff98636f50f01e"
+  }
+ },
+ "ep7_LongCat": {
+  "label": "美团 LongCat-2.0",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\LongCat\\封存\\src",
+  "used_seconds": 2700.0,
+  "forced": true,
+  "compensation_seconds": 104.34999465942383,
+  "sha256": {
+   "common.h": "7e41aaf0951191fa5d3fbc5a4d218c62d54794b541d398cf93a38b46ad2539ef",
+   "main.cpp": "abce70b5167c16b815900e46bdb45f0e27ad30f8905ca8ac78d6f2a7c8b6e1a0",
+   "old_stuff.cpp": "bcb1ea945d52fb88e1927e87de7f3997a2f8ac154744d7ca762d8223625074fb",
+   "sim.cpp": "5603401e5270e62d6a7baf1ebf7b86b80823df6ba0bea3c4a5228762d9fa21b0",
+   "util.cpp": "f389cb33d6bf75f95c8c3869f1a9a288cf866c4a7b5c869703e022a6b79f7139"
+  }
+ },
+ "ep7_Qwen27B": {
+  "label": "通义千问 Qwen3.8-27B",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Qwen27B\\封存\\src",
+  "used_seconds": 2700.0,
+  "forced": true,
+  "compensation_seconds": 0,
+  "sha256": {
+   "common.h": "9d6479dce81a144dd8f45b7e1042a041706059d1e197e507b9dad4bc506e2f01",
+   "main.cpp": "3d4abf065b6dc8fd401615c910e7b35b1c19173523cd1ba7a5774a3c21357e3c",
+   "sim.cpp": "d1d6ee52e74425a54d53dbe783543926da64b591b850fba4a7fcb8516969b9eb",
+   "util.cpp": "65966f859c7fa4e0d1a03e8addfd3213182851fdd888a352db7ae728f1a5d3cc"
+  }
+ },
+ "ep7_Mistral": {
+  "label": "Mistral Large 4",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Mistral\\封存\\src",
+  "used_seconds": 3727.453267812729,
+  "forced": false,
+  "compensation_seconds": 0,
+  "sha256": {
+   "common.h": "a164755f27a01ef21bab0e447585e5c55f7c6fb6a4fff3cd2ebdceb80b1dbf1d",
+   "main.cpp": "789c59e298dedf51895467e1c750ef5316c8a004de4f572c37df9b8beeba0a2b",
+   "old_stuff.cpp": "bcb1ea945d52fb88e1927e87de7f3997a2f8ac154744d7ca762d8223625074fb",
+   "sim.cpp": "160fe330ddfd2b96cf110f309d059ac76c327ae0554659d31418dff95f803302",
+   "util.cpp": "a936c0af21216563207053893b2982e5c0cea44eff6c73e04387920cb3278e6b"
+  }
+ },
+ "ep7_Hunyuan": {
+  "label": "腾讯混元 Hy4 preview",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Hunyuan\\封存\\src",
+  "used_seconds": 3712.5994765758514,
+  "forced": false,
+  "compensation_seconds": 0,
+  "sha256": {
+   "common.h": "8b079c631ee23dd5aaf40c432b49f0eff6b786acb8714ff2261ff41aef9bf468",
+   "HANDOFF.md": "3786c755397877729c2a76cbc99508ed8334bcd140b04624af5eb78a41b7e06f",
+   "main.cpp": "49d7d7fe06309c626e0d64fae7b129f82322bbc96bc81695ce1b1438930c8168",
+   "sim.cpp": "883982cb74106aad8135d5a1dd26932b431f1a5282ba81300c14a9e617f813e0",
+   "util.cpp": "94b200c5c2c7c4db97fa25a37588ab7c6ba81f35dae081ba677119810296082f"
+  }
+ },
+ "ep7_Step": {
+  "label": "阶跃 Step 5 preview",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Step\\封存\\src",
+  "used_seconds": 3386.4162981510162,
+  "forced": false,
+  "compensation_seconds": 0,
+  "sha256": {
+   "common.h": "26bcfd86562f1bc8165c7df1937b79cba71367e43e24b2b75c84bd71a0a861c2",
+   "HANDOFF.md": "809dbbedbd569d6ac56bc73a69333136bb137574c85ff89257c43b447701e8b3",
+   "main.cpp": "5e482247c172c771ede15f383ee4919553496d1a45438b68ed9386968b4b7320",
+   "sim.cpp": "93b424cdc84852d19919414e92b7510fa4d3b4569839cf1e3208196cb7311d8e",
+   "util.cpp": "ffe0b91466775a3250bf24ab10ffbdad189a3d4978b4226ca68abb8d5f34cc9b"
+  }
+ },
+ "ep7_Mercury": {
+  "label": "Inception Mercury 3（扩散模型）",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Mercury\\封存\\src",
+  "used_seconds": 3371.6043310165405,
+  "forced": false,
+  "compensation_seconds": 0,
+  "sha256": {
+   "common.h": "f546503d1e9af24234af3a9e2a773d8781a3c1e5a9587178cb7d77d245b22b01",
+   "main.cpp": "3c76e913cd6315a18309df6526b3824dbaf85135cfdc675882a72acab58074e4",
+   "sim.cpp": "00e6a4cfb51681a6503e9fc77c0f151fff54810cd3659d97c945fae605cc8b62",
+   "util.cpp": "fe97970cb82f54c26a519d8db29bbd3fb51fbe498242ecff253fff2f900965ce"
+  }
+ },
+ "ep7_Haiku": {
+  "label": "Claude Haiku",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Haiku\\封存\\src",
+  "used_seconds": 2727.378591775894,
+  "forced": false,
+  "compensation_seconds": 0,
+  "sha256": {
+   "grid.cpp": "da2a47b1c45cc621d6cc6af0df3b8e01b17727e89f2cd5ec4184f8b9d9ace2d5",
+   "grid.h": "a1dbee6512b9f9913182a809f8e99e00799cf98c975296b850b7f012d0ad86c6",
+   "HANDOFF.md": "44f59aa80d217b937f8aa526e52edbac0bb5ba741325aa19b061e88f52de299b",
+   "main.cpp": "da630cea62cf1b8fbf60c1b85d5ffa11506c03ceafec0be25edd327a3cf8d272",
+   "sim.cpp": "54e3449f87f6f560bea2d15a8051225cb421d703f383525c4c5a5b9d8d5d68b8",
+   "sim.h": "5f504936819c185e43cd4fc8b492d4b3c752a90c9b3eba8bec5ea9d231de020a"
+  }
+ },
+ "ep7_Sonnet": {
+  "label": "Claude Sonnet",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Sonnet\\封存\\src",
+  "used_seconds": 2778.415981054306,
+  "forced": false,
+  "compensation_seconds": 0,
+  "sha256": {
+   "common.h": "4719ba759815094746825763ba8cb33e6bab1ba107d0cd3e41b547d7d6f98406",
+   "grid.cpp": "cf9188088a36c06364936b5da7f12dd819e4c1ce0182287b58595bc514c0b813",
+   "HANDOFF.md": "48af4a4f2ea09024c4a6c5c909cbd5f3d6d6baa93ec96b91a9f8c11606ed19d8",
+   "main.cpp": "78db23c3bc33ac4d4d92b1183fa1d0ef62bd91afbfe9f76418a435eeb2ec79e6",
+   "sim.cpp": "91fbfc0d57815dde13d89dccbe9f6931e1eb179bfbd51b868c2dc418d54a3ac7"
+  }
+ },
+ "ep7_Opus": {
+  "label": "Claude Opus",
+  "group": "ep7",
+  "source": "<主办方评测目录>/运行记录\\Opus\\封存\\src",
+  "used_seconds": 2758.818672657013,
+  "forced": false,
+  "compensation_seconds": 0,
+  "sha256": {
+   "grid.cpp": "a4af686b07b5b85535fdd33197d535670d3c66e2e3ec311f5bf3290aa35d40c8",
+   "grid.h": "eeaa0440698f9a94ac57658889713e76c8b790e6c653748aeb1e73aaf9717fa9",
+   "HANDOFF.md": "07567ee94909ebbf863aa6a2601340ff214942e41843a7fdb021cc53ab54aeae",
+   "main.cpp": "2edb31285b16c1bbca3d39b9ef2f476c04d5c032fcf72b0e12d46ddf38baa417",
+   "sim.cpp": "ef3f77edc697758e6373788427ae116e4ec2a22391a4eb2eba21f1326517218a",
+   "sim.h": "79e2e1649203a8df1235a1989a648f83550f1702f7f367244e58c203a93e5694"
+  }
+ },
+ "calib_new_astramaxfast": {
+  "label": "GPT-6 Astra · max · Fast（校准重测）",
+  "group": "calib",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\sources\\new_astramaxfast\\src",
+  "used_seconds": 1544.923497,
+  "forced": false,
+  "used_display": "25分45秒",
+  "speedup_1017": 1045.6472396312054,
+  "sha256": {
+   "common.h": "100fc52950d58365fd7048d24b384903849a16d23742f88f4a09c10718100b5a",
+   "HANDOFF.md": "e94c0e36c064f52452af0312ee7233b825c24b6d31a3ed2e6c8cb810c5fa9df5",
+   "main.cpp": "e3ea37618e63ee547ee5e70aeb0801784ffa53e17fe4a568311825e4352f0c3f",
+   "pathfinder.cpp": "559b1fd0479c20b7b44fa657847fd0a1f9d34cfc5ef0059b19ccb94f1b0cb611",
+   "pathfinder.h": "b9adae78e307f49e0fc0e7abac59ebb69167fe66999624dd830a445e6b6ae031",
+   "sim.cpp": "fd8728ec08f1a9f992166286cdb61c66ad62521a4e1a0bc1f464c21d5a071ee6",
+   "util.cpp": "5c3703f6588e70b03e6ef5db37acf0479788ebba220a270d01c41460b9401cb7",
+   "tests/differential.py": "2ce2813687227d766689afd6b4060252ef2166cdac8c76242fdfb92a7f316d3c",
+   "tests/extreme.py": "1b37a23989ac15aa7a1d1e5e35fe5cfb9377395b43311c0abb5f1b8b9ba37283",
+   "tests/path_test.cpp": "5b6a812df24fd0e5c9176bb62b00e899e6ab5ffae0e7136883278c452bea0bbe",
+   "tests/stress.py": "5011e849d06fb7e8fe1de5cff9678292bbdc3b9bb37345de79d77769db764ece"
+  }
+ },
+ "calib_old_kimi": {
+  "label": "Kimi K3（原主程）（校准重测）",
+  "group": "calib",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\sources\\old_kimi\\src",
+  "used_seconds": 2701.0,
+  "forced": true,
+  "used_display": "45分01秒（到点收卷）",
+  "speedup_1017": 87.86360334085327,
+  "sha256": {
+   "common.h": "7bf904e76ab47f445b63d25a5f71fc3d281a7e6812a102922101e784d87145c9",
+   "HANDOFF.md": "6108badd1e6c51c67546ba2a8b72714dd7d05817391ffba3009f29d8a57ad8f6",
+   "main.cpp": "fc4f425356da8b2578ca266de99e772124de2eeabf388903e9a42c34b692c323",
+   "sim.cpp": "accf1d9a3d31df421081a583006c66d80f6ffc64b6efd44a1fe0db2fb78a8001",
+   "util.cpp": "8353eabeb816ef8a715bd4f0bbe52081f0ee3e8a1afc3529197cc7f96b8f32b7"
+  }
+ }
+}

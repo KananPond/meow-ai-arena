@@ -1,0 +1,62 @@
+{
+ "stale_distance": {
+  "description": "旧距离被当成当前距离",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\counterexamples\\stale_distance.in",
+  "sha256": "2321a0c0cd67ecaa953a7f0ca97446330db6652f49c3b8a7f79f0674a3838519",
+  "file": "results/ep7/counterexamples/stale_distance.in"
+ },
+ "blocked_origin_charger": {
+  "description": "被封起点充电距离方向性",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\counterexamples\\blocked_origin_charger.in",
+  "sha256": "e6c3b6882b78dc3e3e1efc7cfef88955d704df4ecda75f70063698777235102e",
+  "file": "results/ep7/counterexamples/blocked_origin_charger.in"
+ },
+ "cache_eviction": {
+  "description": "缓存淘汰覆盖仍在使用的距离场",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\counterexamples\\cache_eviction.in",
+  "sha256": "21afb400e5d904928f2d36ce3d676a1f395710f8ae8c17ff655beb00be19cfd0",
+  "file": "results/ep7/counterexamples/cache_eviction.in"
+ },
+ "cache_thrashing": {
+  "description": "不可达取货点与缓存抖动性能",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\counterexamples\\cache_thrashing.in",
+  "sha256": "34b6ee1af1dd5fc4b1ff7cc39e59984be0afa5721a01254a557336868a5df723",
+  "file": "results/ep7/counterexamples/cache_thrashing.in"
+ },
+ "eager_tail": {
+  "description": "预先计算不可达订单距离性能",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\counterexamples\\eager_tail.in",
+  "sha256": "c5a76be771da1c039410d88afc4e0aeb4d36d5151ce62d4c559599f5578a67ff",
+  "file": "results/ep7/counterexamples/eager_tail.in"
+ },
+ "no_candidate_dispatch": {
+  "description": "无可派机器人时仍计算距离性能",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\counterexamples\\no_candidate_dispatch.in",
+  "sha256": "e9bc56ab3b6af122417fefe257aae3a60ad47237c5d14556f9e3d231ef0bd805",
+  "file": "results/ep7/counterexamples/no_candidate_dispatch.in"
+ },
+ "blocked_pickup_churn": {
+  "description": "被封取货点与动态封锁性能",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\counterexamples\\blocked_pickup_churn.in",
+  "sha256": "60f3fc062305e19e7a9ff5b981e115468d3f4e1251b02e0a606946ba38aaa395",
+  "file": "results/ep7/counterexamples/blocked_pickup_churn.in"
+ },
+ "unreachable_charger_sentinel": {
+  "description": "不可达充电距离哨兵当作有限成本",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\十四份统一评测\\counterexamples\\unreachable_charger_sentinel.in",
+  "sha256": "855648689e8af2bde699a6ea78016e2c0ceef1b389482e871587119010e22ba4",
+  "file": "results/ep7/counterexamples/unreachable_charger_sentinel.in"
+ },
+ "round2_4985a0f30877": {
+  "description": "二轮专项强输入（缓存/充电/封路压力）",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\二轮专项_AstraMaxFast\\work\\cases\\strong\\irregular_1000_t2200_s271828_churn_chargers_far.in",
+  "sha256": "4985a0f308778db00edc5d8414b8df796087937937722a912477f597e92a65b3",
+  "file": "results/ep7/counterexamples/round2_4985a0f30877.in"
+ },
+ "round2_21d6b9fb03b8": {
+  "description": "二轮专项强输入（缓存/充电/封路压力）",
+  "source": "<主办方目录>/00_项目管理\\联调\\第五期_GPT五型号_20261017\\二轮专项_AstraMaxFast\\work\\cases\\strong\\irregular_1000_t1800_s271828_chargers.in",
+  "sha256": "21d6b9fb03b89b98dedfeaab866a19358666cf97e1eb7ca344744ea57d8b544e",
+  "file": "results/ep7/counterexamples/round2_21d6b9fb03b8.in"
+ }
+}

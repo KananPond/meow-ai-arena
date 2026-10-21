@@ -10,6 +10,8 @@ Several AI models receive **the exact same prompt**, each writes a game bot in a
 | 4 | Diplomacy (models play directly) | 7 | 3 | Fable 5.1 (total over 3 games; solo win in game 3) | `diplomacy/` |
 | 5 | Warehouse scheduling (legacy-code optimization relay) | 12, in 6 two-model teams | 1 run per round | Team F: MiMo V2.6 Pro + GPT-6 Astra (team score; rounds 2–3 were a rematch) | `warehouse/` |
 | 6 | Tank battle (two halves) | 1v1, 14 models | 27,840 | GPT-6 Astra | `tank/` |
+| 7, round 1 | Tron light cycles | 1v1 + 4p + 12p, 10 models (+2 reference) | 5,713 | Mistral Large 4 | `tron/` |
+| 7, round 2 | Legacy-code optimization (warehouse task) | 10 models, solo (+3 Claude reference runs) | 1 run each | StepFun Step 5 preview / Tencent Hunyuan Hy4 preview (tie) | `warehouse/` |
 
 Episode 4 is different: no bots. Seven models each play one power in standard Diplomacy, negotiating by private messages and issuing orders themselves, for three games with memory carried over. `diplomacy/` contains the referee and scheduler, full game archives (every message, order and adjudication), replays, and the models' own notes.
 
@@ -17,9 +19,11 @@ Episode 5 is different again: no head-to-head games. Twelve models form six team
 
 Episode 6 returns to bot battles with two halves. Fourteen models write a first version of a 1-vs-1 tank-battle bot; all first versions play a round robin; at half time each model receives the standings, its own replays and the other models' first-version executables, and then improves its bot. Only the second-half version counts. `tank/` contains both versions of every bot, all three tournaments (half-time, final, and a progress tournament measuring each model's improvement), selected replays, the tournament platform and configs, trash talk and post-match reviews. Three of the fourteen were run by outside operators on a faster machine and were not timed by the organizer; five first halves were rerun after the originals were voided; see `tank/CONDITIONS.md` and `tank/README_en.md`.
 
+Episode 7, "District King Championship", has two rounds with the same ten models. Round 1 is Tron light cycles: each model writes one C++ bot that plays 1-vs-1, 4-player and 12-player games; ratings are Bradley–Terry per game type weighted 50/30/20, anchored at Doubao = 0 (the anchor was chosen after the race). GPT-6 Astra and DeepSeek V4.1 Flash ran as reference contestants and, with an organizer-written strong sparring bot, appear only on a separate strong-opponent board. `tron/` contains the task package, all sealed bots, both leaderboards, per-game results, 30 randomly sampled replays and a challenge script; it also lists, with links and thanks, the 2010 Google AI Challenge human bots used in a side experiment (their code is not included, as most have no license). There was no trash talk and no post-match review this time. Round 2 reuses the episode 5 warehouse task as a solo legacy-code optimization round (`warehouse/`, section "Episode 7"). Each round awards 10…1 points by place; the overall "District King" is StepFun Step 5 preview (see the end of `tron/README_en.md`).
+
 **Watch**: open any `.html` file under `*/replays/` in a browser (episode 1: `land/replays/index.html`). Episode 5 has no replays; its results are in `warehouse/results/最终成绩.md`.
 
-**Challenge the AIs**: install Python 3.10+ and g++, then run `start.cmd` (Windows) or `sh start.sh`, or directly `python ctf/challenge.py your_bot.cpp` (episode 6: `python tank/challenge.py your_bot.cpp`). Rules and the I/O protocol are in each episode's `workspace/RULES.md` (Chinese).
+**Challenge the AIs**: install Python 3.10+ and g++, then run `start.cmd` (Windows) or `sh start.sh`, or directly `python ctf/challenge.py your_bot.cpp` (episode 6: `python tank/challenge.py your_bot.cpp`; episode 7: `python tron/challenge.py your_bot.cpp`, Windows only). Rules and the I/O protocol are in each episode's `workspace/RULES.md` (Chinese).
 
 ## Submit your own
 

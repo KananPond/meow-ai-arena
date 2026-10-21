@@ -1,0 +1,5265 @@
+{
+ "time": "2026-10-20 07:17:41",
+ "mode": "boards",
+ "boards": {
+  "正式榜": {
+   "players": [
+    "Wenxin",
+    "Pangu",
+    "Dots",
+    "LongCat",
+    "Qwen27B",
+    "Doubao",
+    "Mistral",
+    "Hunyuan",
+    "Step",
+    "Mercury"
+   ],
+   "lines": [],
+   "entries": [
+    "Wenxin",
+    "Pangu",
+    "Dots",
+    "LongCat",
+    "Qwen27B",
+    "Doubao",
+    "Mistral",
+    "Hunyuan",
+    "Step",
+    "Mercury"
+   ],
+   "score": {
+    "method": "bt",
+    "entries": [
+     "Wenxin",
+     "Pangu",
+     "Dots",
+     "LongCat",
+     "Qwen27B",
+     "Doubao",
+     "Mistral",
+     "Hunyuan",
+     "Step",
+     "Mercury"
+    ],
+    "baseline": "greedy",
+    "anchor": "Doubao",
+    "weights": {
+     "1v1": 0.5,
+     "3-4": 0.3,
+     "12": 0.2
+    },
+    "boot": 1000,
+    "boot_asked": 1000,
+    "table": {
+     "Wenxin": {
+      "total": -304.49,
+      "total_ci": [
+       -341.28,
+       -270.68
+      ],
+      "modes": {
+       "1v1": {
+        "score": -342.84,
+        "ci": [
+         -410.71,
+         -281.12
+        ]
+       },
+       "3-4": {
+        "score": -263.22,
+        "ci": [
+         -307.67,
+         -218.8
+        ]
+       },
+       "12": {
+        "score": -270.54,
+        "ci": [
+         -299.39,
+         -239.25
+        ]
+       }
+      }
+     },
+     "Pangu": {
+      "total": -208.02,
+      "total_ci": [
+       -241.56,
+       -175.26
+      ],
+      "modes": {
+       "1v1": {
+        "score": -170.16,
+        "ci": [
+         -232.57,
+         -112.99
+        ]
+       },
+       "3-4": {
+        "score": -198.9,
+        "ci": [
+         -249.6,
+         -150.46
+        ]
+       },
+       "12": {
+        "score": -316.35,
+        "ci": [
+         -346.91,
+         -285.07
+        ]
+       }
+      }
+     },
+     "Dots": {
+      "total": -440.2,
+      "total_ci": [
+       -480.28,
+       -402.89
+      ],
+      "modes": {
+       "1v1": {
+        "score": -509.69,
+        "ci": [
+         -585.81,
+         -442.65
+        ]
+       },
+       "3-4": {
+        "score": -334.95,
+        "ci": [
+         -376.95,
+         -297.24
+        ]
+       },
+       "12": {
+        "score": -424.34,
+        "ci": [
+         -452.51,
+         -398.31
+        ]
+       }
+      }
+     },
+     "LongCat": {
+      "total": 9.5,
+      "total_ci": [
+       -24.34,
+       50.32
+      ],
+      "modes": {
+       "1v1": {
+        "score": 260.72,
+        "ci": [
+         199.39,
+         336.83
+        ]
+       },
+       "3-4": {
+        "score": -270.68,
+        "ci": [
+         -320.0,
+         -224.56
+        ]
+       },
+       "12": {
+        "score": -198.28,
+        "ci": [
+         -230.1,
+         -168.39
+        ]
+       }
+      }
+     },
+     "Qwen27B": {
+      "total": -289.95,
+      "total_ci": [
+       -325.17,
+       -253.25
+      ],
+      "modes": {
+       "1v1": {
+        "score": -362.58,
+        "ci": [
+         -431.13,
+         -298.1
+        ]
+       },
+       "3-4": {
+        "score": -238.64,
+        "ci": [
+         -282.4,
+         -197.27
+        ]
+       },
+       "12": {
+        "score": -185.36,
+        "ci": [
+         -215.23,
+         -154.3
+        ]
+       }
+      }
+     },
+     "Doubao": {
+      "total": 0.0,
+      "total_ci": [
+       0.0,
+       0.0
+      ],
+      "modes": {
+       "1v1": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ]
+       },
+       "3-4": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ]
+       },
+       "12": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ]
+       }
+      }
+     },
+     "Mistral": {
+      "total": 101.71,
+      "total_ci": [
+       63.27,
+       147.12
+      ],
+      "modes": {
+       "1v1": {
+        "score": 363.38,
+        "ci": [
+         293.3,
+         446.37
+        ]
+       },
+       "3-4": {
+        "score": -191.38,
+        "ci": [
+         -238.75,
+         -146.0
+        ]
+       },
+       "12": {
+        "score": -112.84,
+        "ci": [
+         -144.92,
+         -79.91
+        ]
+       }
+      }
+     },
+     "Hunyuan": {
+      "total": -240.09,
+      "total_ci": [
+       -280.02,
+       -202.65
+      ],
+      "modes": {
+       "1v1": {
+        "score": -351.69,
+        "ci": [
+         -425.63,
+         -281.86
+        ]
+       },
+       "3-4": {
+        "score": -257.88,
+        "ci": [
+         -308.21,
+         -213.26
+        ]
+       },
+       "12": {
+        "score": 65.58,
+        "ci": [
+         36.72,
+         96.8
+        ]
+       }
+      }
+     },
+     "Step": {
+      "total": -24.56,
+      "total_ci": [
+       -59.56,
+       11.34
+      ],
+      "modes": {
+       "1v1": {
+        "score": 13.26,
+        "ci": [
+         -49.16,
+         75.59
+        ]
+       },
+       "3-4": {
+        "score": -61.4,
+        "ci": [
+         -111.37,
+         -13.65
+        ]
+       },
+       "12": {
+        "score": -63.87,
+        "ci": [
+         -92.65,
+         -32.12
+        ]
+       }
+      }
+     },
+     "Mercury": {
+      "total": -296.77,
+      "total_ci": [
+       -337.55,
+       -261.51
+      ],
+      "modes": {
+       "1v1": {
+        "score": -384.48,
+        "ci": [
+         -455.37,
+         -317.58
+        ]
+       },
+       "3-4": {
+        "score": -200.65,
+        "ci": [
+         -255.33,
+         -147.12
+        ]
+       },
+       "12": {
+        "score": -221.67,
+        "ci": [
+         -263.97,
+         -185.7
+        ]
+       }
+      }
+     }
+    },
+    "order": [
+     "Mistral",
+     "LongCat",
+     "Doubao",
+     "Step",
+     "Pangu",
+     "Hunyuan",
+     "Qwen27B",
+     "Mercury",
+     "Wenxin",
+     "Dots"
+    ],
+    "full_order": [
+     "Mistral",
+     "LongCat",
+     "Doubao",
+     "Step",
+     "Pangu",
+     "Hunyuan",
+     "Qwen27B",
+     "Mercury",
+     "Wenxin",
+     "Dots"
+    ],
+    "lines": [],
+    "adjacent": [
+     {
+      "upper": "Mistral",
+      "lower": "LongCat",
+      "diff": 92.21,
+      "ci": [
+       58.94,
+       131.74
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Doubao",
+      "diff": 9.5,
+      "ci": [
+       -24.34,
+       50.32
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Step",
+      "diff": 24.56,
+      "ci": [
+       -11.34,
+       59.56
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Step",
+      "lower": "Pangu",
+      "diff": 183.46,
+      "ci": [
+       156.08,
+       215.39
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Hunyuan",
+      "diff": 32.07,
+      "ci": [
+       3.59,
+       64.68
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Qwen27B",
+      "diff": 49.86,
+      "ci": [
+       17.3,
+       79.19
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Mercury",
+      "diff": 6.82,
+      "ci": [
+       -23.16,
+       37.15
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Mercury",
+      "lower": "Wenxin",
+      "diff": 7.72,
+      "ci": [
+       -20.74,
+       37.69
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Wenxin",
+      "lower": "Dots",
+      "diff": 135.7,
+      "ci": [
+       105.78,
+       166.37
+      ],
+      "separated": true
+     }
+    ],
+    "pairwise": [
+     {
+      "upper": "Mistral",
+      "lower": "LongCat",
+      "diff": 92.21,
+      "ci": [
+       58.94,
+       131.74
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Doubao",
+      "diff": 101.71,
+      "ci": [
+       63.27,
+       147.12
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Step",
+      "diff": 126.27,
+      "ci": [
+       88.91,
+       167.21
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Pangu",
+      "diff": 309.73,
+      "ci": [
+       274.26,
+       350.2
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Hunyuan",
+      "diff": 341.8,
+      "ci": [
+       306.7,
+       387.14
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Qwen27B",
+      "diff": 391.66,
+      "ci": [
+       357.7,
+       435.62
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Mercury",
+      "diff": 398.48,
+      "ci": [
+       361.59,
+       445.62
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Wenxin",
+      "diff": 406.2,
+      "ci": [
+       371.18,
+       450.36
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Dots",
+      "diff": 541.91,
+      "ci": [
+       505.71,
+       588.66
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Doubao",
+      "diff": 9.5,
+      "ci": [
+       -24.34,
+       50.32
+      ],
+      "separated": false
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Step",
+      "diff": 34.06,
+      "ci": [
+       2.57,
+       67.88
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Pangu",
+      "diff": 217.52,
+      "ci": [
+       186.82,
+       253.95
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Hunyuan",
+      "diff": 249.59,
+      "ci": [
+       213.08,
+       289.83
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Qwen27B",
+      "diff": 299.45,
+      "ci": [
+       266.52,
+       336.12
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Mercury",
+      "diff": 306.27,
+      "ci": [
+       270.57,
+       346.96
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Wenxin",
+      "diff": 313.99,
+      "ci": [
+       280.22,
+       349.97
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Dots",
+      "diff": 449.7,
+      "ci": [
+       413.82,
+       491.26
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Step",
+      "diff": 24.56,
+      "ci": [
+       -11.34,
+       59.56
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Pangu",
+      "diff": 208.02,
+      "ci": [
+       175.26,
+       241.56
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Hunyuan",
+      "diff": 240.09,
+      "ci": [
+       202.65,
+       280.02
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Qwen27B",
+      "diff": 289.95,
+      "ci": [
+       253.25,
+       325.17
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Mercury",
+      "diff": 296.77,
+      "ci": [
+       261.51,
+       337.55
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Wenxin",
+      "diff": 304.49,
+      "ci": [
+       270.68,
+       341.28
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Dots",
+      "diff": 440.2,
+      "ci": [
+       402.89,
+       480.28
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Pangu",
+      "diff": 183.46,
+      "ci": [
+       156.08,
+       215.39
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Hunyuan",
+      "diff": 215.53,
+      "ci": [
+       185.12,
+       252.37
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Qwen27B",
+      "diff": 265.39,
+      "ci": [
+       236.11,
+       298.33
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Mercury",
+      "diff": 272.21,
+      "ci": [
+       239.9,
+       307.57
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Wenxin",
+      "diff": 279.93,
+      "ci": [
+       247.5,
+       312.54
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Dots",
+      "diff": 415.63,
+      "ci": [
+       384.09,
+       453.5
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Hunyuan",
+      "diff": 32.07,
+      "ci": [
+       3.59,
+       64.68
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Qwen27B",
+      "diff": 81.93,
+      "ci": [
+       55.81,
+       109.59
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Mercury",
+      "diff": 88.75,
+      "ci": [
+       60.02,
+       119.06
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Wenxin",
+      "diff": 96.47,
+      "ci": [
+       67.68,
+       126.21
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Dots",
+      "diff": 232.17,
+      "ci": [
+       202.69,
+       264.92
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Qwen27B",
+      "diff": 49.86,
+      "ci": [
+       17.3,
+       79.19
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Mercury",
+      "diff": 56.68,
+      "ci": [
+       25.95,
+       86.74
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Wenxin",
+      "diff": 64.4,
+      "ci": [
+       31.98,
+       95.93
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Dots",
+      "diff": 200.1,
+      "ci": [
+       169.71,
+       233.4
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Mercury",
+      "diff": 6.82,
+      "ci": [
+       -23.16,
+       37.15
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Wenxin",
+      "diff": 14.54,
+      "ci": [
+       -13.93,
+       45.05
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Dots",
+      "diff": 150.24,
+      "ci": [
+       120.42,
+       181.58
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mercury",
+      "lower": "Wenxin",
+      "diff": 7.72,
+      "ci": [
+       -20.74,
+       37.69
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Mercury",
+      "lower": "Dots",
+      "diff": 143.43,
+      "ci": [
+       110.89,
+       176.05
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Wenxin",
+      "lower": "Dots",
+      "diff": 135.7,
+      "ci": [
+       105.78,
+       166.37
+      ],
+      "separated": true
+     }
+    ],
+    "rank": {
+     "Mistral": {
+      "rank": 1,
+      "lo": 1,
+      "hi": 1,
+      "indistinct": []
+     },
+     "LongCat": {
+      "rank": 2,
+      "lo": 2,
+      "hi": 3,
+      "indistinct": [
+       "Doubao"
+      ]
+     },
+     "Doubao": {
+      "rank": 3,
+      "lo": 2,
+      "hi": 4,
+      "indistinct": [
+       "LongCat",
+       "Step"
+      ]
+     },
+     "Step": {
+      "rank": 4,
+      "lo": 3,
+      "hi": 4,
+      "indistinct": [
+       "Doubao"
+      ]
+     },
+     "Pangu": {
+      "rank": 5,
+      "lo": 5,
+      "hi": 5,
+      "indistinct": []
+     },
+     "Hunyuan": {
+      "rank": 6,
+      "lo": 6,
+      "hi": 6,
+      "indistinct": []
+     },
+     "Qwen27B": {
+      "rank": 7,
+      "lo": 7,
+      "hi": 9,
+      "indistinct": [
+       "Mercury",
+       "Wenxin"
+      ]
+     },
+     "Mercury": {
+      "rank": 8,
+      "lo": 7,
+      "hi": 9,
+      "indistinct": [
+       "Qwen27B",
+       "Wenxin"
+      ]
+     },
+     "Wenxin": {
+      "rank": 9,
+      "lo": 7,
+      "hi": 9,
+      "indistinct": [
+       "Qwen27B",
+       "Mercury"
+      ]
+     },
+     "Dots": {
+      "rank": 10,
+      "lo": 10,
+      "hi": 10,
+      "indistinct": []
+     }
+    },
+    "modes_present": [
+     "1v1",
+     "3-4",
+     "12"
+    ],
+    "pairs": {
+     "1v1": 2087,
+     "3-4": 3636,
+     "12": 19440
+    }
+   },
+   "rank_score": {
+    "entries": [
+     "Wenxin",
+     "Pangu",
+     "Dots",
+     "LongCat",
+     "Qwen27B",
+     "Doubao",
+     "Mistral",
+     "Hunyuan",
+     "Step",
+     "Mercury"
+    ],
+    "baseline": "greedy",
+    "weights": {
+     "1v1": 0.5,
+     "3-4": 0.3,
+     "12": 0.2
+    },
+    "boot": 1000,
+    "table": {
+     "Wenxin": {
+      "total": -35.12,
+      "total_ci": [
+       -39.23,
+       -31.08
+      ],
+      "modes": {
+       "1v1": {
+        "score": -35.42,
+        "ci": [
+         -42.51,
+         -28.13
+        ],
+        "mean": 0.3113,
+        "seats": 424
+       },
+       "3-4": {
+        "score": -35.14,
+        "ci": [
+         -40.53,
+         -29.52
+        ],
+        "mean": 0.4378,
+        "seats": 276
+       },
+       "12": {
+        "score": -34.34,
+        "ci": [
+         -37.27,
+         -31.26
+        ],
+        "mean": 0.4156,
+        "seats": 480
+       }
+      }
+     },
+     "Pangu": {
+      "total": -24.66,
+      "total_ci": [
+       -29.26,
+       -20.3
+      ],
+      "modes": {
+       "1v1": {
+        "score": -16.78,
+        "ci": [
+         -24.93,
+         -9.09
+        ],
+        "mean": 0.4976,
+        "seats": 424
+       },
+       "3-4": {
+        "score": -27.23,
+        "ci": [
+         -33.09,
+         -21.21
+        ],
+        "mean": 0.5169,
+        "seats": 276
+       },
+       "12": {
+        "score": -40.49,
+        "ci": [
+         -43.68,
+         -37.35
+        ],
+        "mean": 0.3541,
+        "seats": 480
+       }
+      }
+     },
+     "Dots": {
+      "total": -50.85,
+      "total_ci": [
+       -54.49,
+       -47.67
+      ],
+      "modes": {
+       "1v1": {
+        "score": -51.69,
+        "ci": [
+         -57.98,
+         -45.7
+        ],
+        "mean": 0.1486,
+        "seats": 424
+       },
+       "3-4": {
+        "score": -48.31,
+        "ci": [
+         -53.26,
+         -43.1
+        ],
+        "mean": 0.3062,
+        "seats": 276
+       },
+       "12": {
+        "score": -52.57,
+        "ci": [
+         -55.33,
+         -49.85
+        ],
+        "mean": 0.2333,
+        "seats": 480
+       }
+      }
+     },
+     "LongCat": {
+      "total": -6.0,
+      "total_ci": [
+       -9.56,
+       -2.45
+      ],
+      "modes": {
+       "1v1": {
+        "score": 20.48,
+        "ci": [
+         14.41,
+         26.43
+        ],
+        "mean": 0.8703,
+        "seats": 424
+       },
+       "3-4": {
+        "score": -37.5,
+        "ci": [
+         -43.7,
+         -31.52
+        ],
+        "mean": 0.4143,
+        "seats": 280
+       },
+       "12": {
+        "score": -24.96,
+        "ci": [
+         -28.75,
+         -21.29
+        ],
+        "mean": 0.5094,
+        "seats": 480
+       }
+      }
+     },
+     "Qwen27B": {
+      "total": -33.53,
+      "total_ci": [
+       -37.28,
+       -29.49
+      ],
+      "modes": {
+       "1v1": {
+        "score": -37.47,
+        "ci": [
+         -44.39,
+         -30.31
+        ],
+        "mean": 0.2908,
+        "seats": 423
+       },
+       "3-4": {
+        "score": -33.63,
+        "ci": [
+         -39.24,
+         -27.89
+        ],
+        "mean": 0.453,
+        "seats": 280
+       },
+       "12": {
+        "score": -23.51,
+        "ci": [
+         -26.78,
+         -20.21
+        ],
+        "mean": 0.5239,
+        "seats": 480
+       }
+      }
+     },
+     "Doubao": {
+      "total": 0.0,
+      "total_ci": [
+       0.0,
+       0.0
+      ],
+      "modes": {
+       "1v1": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.6655,
+        "seats": 423
+       },
+       "3-4": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.7893,
+        "seats": 276
+       },
+       "12": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.759,
+        "seats": 480
+       }
+      }
+     },
+     "Mistral": {
+      "total": 2.51,
+      "total_ci": [
+       -0.68,
+       5.81
+      ],
+      "modes": {
+       "1v1": {
+        "score": 26.49,
+        "ci": [
+         21.54,
+         31.65
+        ],
+        "mean": 0.9304,
+        "seats": 424
+       },
+       "3-4": {
+        "score": -26.63,
+        "ci": [
+         -32.74,
+         -20.42
+        ],
+        "mean": 0.5229,
+        "seats": 276
+       },
+       "12": {
+        "score": -13.72,
+        "ci": [
+         -17.37,
+         -10.11
+        ],
+        "mean": 0.6218,
+        "seats": 480
+       }
+      }
+     },
+     "Hunyuan": {
+      "total": -27.91,
+      "total_ci": [
+       -32.14,
+       -23.92
+      ],
+      "modes": {
+       "1v1": {
+        "score": -36.36,
+        "ci": [
+         -43.39,
+         -29.59
+        ],
+        "mean": 0.3019,
+        "seats": 424
+       },
+       "3-4": {
+        "score": -36.84,
+        "ci": [
+         -43.48,
+         -30.28
+        ],
+        "mean": 0.4209,
+        "seats": 276
+       },
+       "12": {
+        "score": 6.61,
+        "ci": [
+         3.75,
+         9.57
+        ],
+        "mean": 0.8251,
+        "seats": 480
+       }
+      }
+     },
+     "Step": {
+      "total": -3.39,
+      "total_ci": [
+       -7.63,
+       0.83
+      ],
+      "modes": {
+       "1v1": {
+        "score": 1.26,
+        "ci": [
+         -6.34,
+         8.82
+        ],
+        "mean": 0.6781,
+        "seats": 424
+       },
+       "3-4": {
+        "score": -8.4,
+        "ci": [
+         -14.45,
+         -2.6
+        ],
+        "mean": 0.7053,
+        "seats": 272
+       },
+       "12": {
+        "score": -7.52,
+        "ci": [
+         -10.62,
+         -4.06
+        ],
+        "mean": 0.6838,
+        "seats": 480
+       }
+      }
+     },
+     "Mercury": {
+      "total": -33.62,
+      "total_ci": [
+       -37.96,
+       -29.62
+      ],
+      "modes": {
+       "1v1": {
+        "score": -39.47,
+        "ci": [
+         -46.22,
+         -32.85
+        ],
+        "mean": 0.2708,
+        "seats": 360
+       },
+       "3-4": {
+        "score": -26.88,
+        "ci": [
+         -34.0,
+         -19.46
+        ],
+        "mean": 0.5204,
+        "seats": 212
+       },
+       "12": {
+        "score": -29.1,
+        "ci": [
+         -33.36,
+         -24.83
+        ],
+        "mean": 0.468,
+        "seats": 240
+       }
+      }
+     }
+    },
+    "order": [
+     "Mistral",
+     "Doubao",
+     "Step",
+     "LongCat",
+     "Pangu",
+     "Hunyuan",
+     "Qwen27B",
+     "Mercury",
+     "Wenxin",
+     "Dots"
+    ],
+    "adjacent": [
+     {
+      "upper": "Mistral",
+      "lower": "Doubao",
+      "diff": 2.51,
+      "ci": [
+       -0.68,
+       5.81
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Step",
+      "diff": 3.39,
+      "ci": [
+       -0.83,
+       7.63
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Step",
+      "lower": "LongCat",
+      "diff": 2.61,
+      "ci": [
+       -1.38,
+       6.7
+      ],
+      "tie": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Pangu",
+      "diff": 18.66,
+      "ci": [
+       14.09,
+       22.5
+      ],
+      "tie": false
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Hunyuan",
+      "diff": 3.25,
+      "ci": [
+       -1.15,
+       7.7
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Qwen27B",
+      "diff": 5.62,
+      "ci": [
+       1.58,
+       9.74
+      ],
+      "tie": false
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Mercury",
+      "diff": 0.09,
+      "ci": [
+       -4.36,
+       4.36
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Mercury",
+      "lower": "Wenxin",
+      "diff": 1.5,
+      "ci": [
+       -2.54,
+       5.56
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Wenxin",
+      "lower": "Dots",
+      "diff": 15.73,
+      "ci": [
+       12.25,
+       19.49
+      ],
+      "tie": false
+     }
+    ],
+    "rank": {
+     "Mistral": {
+      "rank": 1,
+      "group": [
+       1,
+       4
+      ]
+     },
+     "Doubao": {
+      "rank": 2,
+      "group": [
+       1,
+       4
+      ]
+     },
+     "Step": {
+      "rank": 3,
+      "group": [
+       1,
+       4
+      ]
+     },
+     "LongCat": {
+      "rank": 4,
+      "group": [
+       1,
+       4
+      ]
+     },
+     "Pangu": {
+      "rank": 5,
+      "group": [
+       5,
+       6
+      ]
+     },
+     "Hunyuan": {
+      "rank": 6,
+      "group": [
+       5,
+       6
+      ]
+     },
+     "Qwen27B": {
+      "rank": 7,
+      "group": [
+       7,
+       9
+      ]
+     },
+     "Mercury": {
+      "rank": 8,
+      "group": [
+       7,
+       9
+      ]
+     },
+     "Wenxin": {
+      "rank": 9,
+      "group": [
+       7,
+       9
+      ]
+     },
+     "Dots": {
+      "rank": 10,
+      "group": null
+     }
+    },
+    "lines": [],
+    "anchor": "Doubao",
+    "modes_present": [
+     "1v1",
+     "3-4",
+     "12"
+    ]
+   },
+   "faults": {
+    "Wenxin": {
+     "games": 1084,
+     "turns": 74032,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 6.07,
+     "max_ms": 0.5,
+     "avg_ms": 0.05
+    },
+    "Pangu": {
+     "games": 1084,
+     "turns": 72211,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 8.0,
+     "max_ms": 1.84,
+     "avg_ms": 0.07
+    },
+    "Dots": {
+     "games": 1084,
+     "turns": 59721,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 98.08,
+     "max_ms": 4.01,
+     "avg_ms": 0.21
+    },
+    "LongCat": {
+     "games": 1084,
+     "turns": 84757,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1999.17,
+     "max_ms": 48.71,
+     "avg_ms": 13.0
+    },
+    "Qwen27B": {
+     "games": 1084,
+     "turns": 80525,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 500.81,
+     "max_ms": 26.89,
+     "avg_ms": 9.37
+    },
+    "Doubao": {
+     "games": 1084,
+     "turns": 102711,
+     "timeouts": 14,
+     "timeout_games": 14,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1614.87,
+     "max_ms": 51.58,
+     "avg_ms": 9.4
+    },
+    "Mistral": {
+     "games": 1084,
+     "turns": 90227,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1991.41,
+     "max_ms": 41.93,
+     "avg_ms": 15.72
+    },
+    "Hunyuan": {
+     "games": 1084,
+     "turns": 103415,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1993.66,
+     "max_ms": 43.94,
+     "avg_ms": 24.16
+    },
+    "Step": {
+     "games": 1080,
+     "turns": 101524,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1984.42,
+     "max_ms": 34.69,
+     "avg_ms": 12.83
+    },
+    "Mercury": {
+     "games": 812,
+     "turns": 56056,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1998.33,
+     "max_ms": 49.05,
+     "avg_ms": 8.07
+    }
+   },
+   "sparring": {
+    "Wenxin": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 52.0
+    },
+    "Pangu": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 78.0
+    },
+    "Dots": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 52.4
+    },
+    "LongCat": {
+     "games": 48,
+     "w": 8,
+     "d": 0,
+     "l": 40,
+     "rate": 0.1667,
+     "turns": 126.9
+    },
+    "Qwen27B": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 57.3
+    },
+    "Doubao": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 113.8
+    },
+    "Mistral": {
+     "games": 48,
+     "w": 17,
+     "d": 2,
+     "l": 29,
+     "rate": 0.375,
+     "turns": 148.2
+    },
+    "Hunyuan": {
+     "games": 48,
+     "w": 1,
+     "d": 0,
+     "l": 47,
+     "rate": 0.0208,
+     "turns": 76.3
+    },
+    "Step": {
+     "games": 48,
+     "w": 2,
+     "d": 1,
+     "l": 45,
+     "rate": 0.0521,
+     "turns": 124.2
+    },
+    "Mercury": {
+     "games": 40,
+     "w": 0,
+     "d": 0,
+     "l": 40,
+     "rate": 0.0,
+     "turns": 71.7
+    }
+   },
+   "sources": {
+    "final": {
+     "12p": 240,
+     "4p": 212,
+     "1v1": 360
+    },
+    "final1018": {
+     "12p": 228,
+     "4p": 480,
+     "1v1": 1440
+    },
+    "preview1": {
+     "1v1": 286,
+     "4p": 32,
+     "12p": 12
+    },
+    "preview2": {
+     "1v1": 1,
+     "4p": 20
+    }
+   },
+   "coverage": {
+    "12p": {
+     "Wenxin": [
+      480,
+      4080
+     ],
+     "Pangu": [
+      480,
+      4080
+     ],
+     "Dots": [
+      480,
+      4080
+     ],
+     "LongCat": [
+      480,
+      4080
+     ],
+     "Qwen27B": [
+      480,
+      4080
+     ],
+     "Doubao": [
+      480,
+      4080
+     ],
+     "Mistral": [
+      480,
+      4080
+     ],
+     "Hunyuan": [
+      480,
+      4080
+     ],
+     "Step": [
+      480,
+      4080
+     ],
+     "Mercury": [
+      240,
+      2160
+     ]
+    },
+    "4p": {
+     "Wenxin": [
+      276,
+      716
+     ],
+     "Pangu": [
+      276,
+      740
+     ],
+     "Dots": [
+      276,
+      728
+     ],
+     "LongCat": [
+      280,
+      732
+     ],
+     "Qwen27B": [
+      280,
+      784
+     ],
+     "Doubao": [
+      276,
+      760
+     ],
+     "Mistral": [
+      276,
+      772
+     ],
+     "Hunyuan": [
+      276,
+      720
+     ],
+     "Step": [
+      272,
+      748
+     ],
+     "Mercury": [
+      212,
+      572
+     ]
+    },
+    "1v1": {
+     "Wenxin": [
+      424,
+      424
+     ],
+     "Pangu": [
+      424,
+      424
+     ],
+     "Dots": [
+      424,
+      424
+     ],
+     "LongCat": [
+      424,
+      424
+     ],
+     "Qwen27B": [
+      423,
+      423
+     ],
+     "Doubao": [
+      423,
+      423
+     ],
+     "Mistral": [
+      424,
+      424
+     ],
+     "Hunyuan": [
+      424,
+      424
+     ],
+     "Step": [
+      424,
+      424
+     ],
+     "Mercury": [
+      360,
+      360
+     ]
+    }
+   },
+   "games": 3311
+  },
+  "强对手榜": {
+   "players": [
+    "Wenxin",
+    "Pangu",
+    "Dots",
+    "LongCat",
+    "Qwen27B",
+    "Doubao",
+    "Mistral",
+    "Hunyuan",
+    "Step",
+    "Mercury",
+    "DSNew",
+    "AstraUF"
+   ],
+   "lines": [
+    "sparring_hard"
+   ],
+   "entries": [
+    "Wenxin",
+    "Pangu",
+    "Dots",
+    "LongCat",
+    "Qwen27B",
+    "Doubao",
+    "Mistral",
+    "Hunyuan",
+    "Step",
+    "Mercury",
+    "DSNew",
+    "AstraUF",
+    "sparring_hard"
+   ],
+   "score": {
+    "method": "bt",
+    "entries": [
+     "Wenxin",
+     "Pangu",
+     "Dots",
+     "LongCat",
+     "Qwen27B",
+     "Doubao",
+     "Mistral",
+     "Hunyuan",
+     "Step",
+     "Mercury",
+     "DSNew",
+     "AstraUF",
+     "sparring_hard"
+    ],
+    "baseline": "greedy",
+    "anchor": "Doubao",
+    "weights": {
+     "1v1": 0.5,
+     "3-4": 0.3,
+     "12": 0.2
+    },
+    "boot": 1000,
+    "boot_asked": 1000,
+    "table": {
+     "Wenxin": {
+      "total": -276.15,
+      "total_ci": [
+       -311.75,
+       -244.49
+      ],
+      "modes": {
+       "1v1": {
+        "score": -331.98,
+        "ci": [
+         -399.37,
+         -272.18
+        ]
+       },
+       "3-4": {
+        "score": -212.16,
+        "ci": [
+         -268.38,
+         -163.03
+        ]
+       },
+       "12": {
+        "score": -232.57,
+        "ci": [
+         -260.03,
+         -205.02
+        ]
+       }
+      }
+     },
+     "Pangu": {
+      "total": -193.16,
+      "total_ci": [
+       -225.45,
+       -161.19
+      ],
+      "modes": {
+       "1v1": {
+        "score": -167.45,
+        "ci": [
+         -220.59,
+         -117.56
+        ]
+       },
+       "3-4": {
+        "score": -175.98,
+        "ci": [
+         -230.71,
+         -123.77
+        ]
+       },
+       "12": {
+        "score": -283.18,
+        "ci": [
+         -310.75,
+         -253.4
+        ]
+       }
+      }
+     },
+     "Dots": {
+      "total": -407.76,
+      "total_ci": [
+       -447.66,
+       -372.51
+      ],
+      "modes": {
+       "1v1": {
+        "score": -492.76,
+        "ci": [
+         -563.2,
+         -431.6
+        ]
+       },
+       "3-4": {
+        "score": -294.44,
+        "ci": [
+         -347.74,
+         -244.35
+        ]
+       },
+       "12": {
+        "score": -365.25,
+        "ci": [
+         -392.36,
+         -340.27
+        ]
+       }
+      }
+     },
+     "LongCat": {
+      "total": 12.69,
+      "total_ci": [
+       -21.27,
+       48.94
+      ],
+      "modes": {
+       "1v1": {
+        "score": 239.9,
+        "ci": [
+         188.13,
+         297.61
+        ]
+       },
+       "3-4": {
+        "score": -241.21,
+        "ci": [
+         -298.38,
+         -185.81
+        ]
+       },
+       "12": {
+        "score": -174.48,
+        "ci": [
+         -206.93,
+         -141.12
+        ]
+       }
+      }
+     },
+     "Qwen27B": {
+      "total": -265.19,
+      "total_ci": [
+       -300.86,
+       -232.87
+      ],
+      "modes": {
+       "1v1": {
+        "score": -355.23,
+        "ci": [
+         -414.54,
+         -297.19
+        ]
+       },
+       "3-4": {
+        "score": -194.16,
+        "ci": [
+         -245.96,
+         -148.68
+        ]
+       },
+       "12": {
+        "score": -146.63,
+        "ci": [
+         -174.49,
+         -120.83
+        ]
+       }
+      }
+     },
+     "Doubao": {
+      "total": 0.0,
+      "total_ci": [
+       0.0,
+       0.0
+      ],
+      "modes": {
+       "1v1": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ]
+       },
+       "3-4": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ]
+       },
+       "12": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ]
+       }
+      }
+     },
+     "Mistral": {
+      "total": 119.95,
+      "total_ci": [
+       85.85,
+       154.83
+      ],
+      "modes": {
+       "1v1": {
+        "score": 383.28,
+        "ci": [
+         325.81,
+         447.65
+        ]
+       },
+       "3-4": {
+        "score": -159.61,
+        "ci": [
+         -212.87,
+         -111.44
+        ]
+       },
+       "12": {
+        "score": -119.04,
+        "ci": [
+         -150.39,
+         -90.0
+        ]
+       }
+      }
+     },
+     "Hunyuan": {
+      "total": -220.51,
+      "total_ci": [
+       -259.51,
+       -181.12
+      ],
+      "modes": {
+       "1v1": {
+        "score": -340.48,
+        "ci": [
+         -410.21,
+         -277.03
+        ]
+       },
+       "3-4": {
+        "score": -228.13,
+        "ci": [
+         -287.82,
+         -174.74
+        ]
+       },
+       "12": {
+        "score": 90.82,
+        "ci": [
+         62.88,
+         118.13
+        ]
+       }
+      }
+     },
+     "Step": {
+      "total": -8.51,
+      "total_ci": [
+       -39.87,
+       24.55
+      ],
+      "modes": {
+       "1v1": {
+        "score": 20.43,
+        "ci": [
+         -31.19,
+         74.61
+        ]
+       },
+       "3-4": {
+        "score": -37.63,
+        "ci": [
+         -91.71,
+         13.26
+        ]
+       },
+       "12": {
+        "score": -37.17,
+        "ci": [
+         -66.57,
+         -7.72
+        ]
+       }
+      }
+     },
+     "Mercury": {
+      "total": -275.88,
+      "total_ci": [
+       -314.48,
+       -240.88
+      ],
+      "modes": {
+       "1v1": {
+        "score": -373.14,
+        "ci": [
+         -433.69,
+         -315.87
+        ]
+       },
+       "3-4": {
+        "score": -183.02,
+        "ci": [
+         -243.12,
+         -129.06
+        ]
+       },
+       "12": {
+        "score": -172.01,
+        "ci": [
+         -209.25,
+         -135.52
+        ]
+       }
+      }
+     },
+     "DSNew": {
+      "total": 127.53,
+      "total_ci": [
+       94.75,
+       163.61
+      ],
+      "modes": {
+       "1v1": {
+        "score": 276.54,
+        "ci": [
+         220.87,
+         337.03
+        ]
+       },
+       "3-4": {
+        "score": 8.91,
+        "ci": [
+         -45.47,
+         65.6
+        ]
+       },
+       "12": {
+        "score": -67.09,
+        "ci": [
+         -96.76,
+         -38.8
+        ]
+       }
+      }
+     },
+     "AstraUF": {
+      "total": 313.14,
+      "total_ci": [
+       278.64,
+       352.17
+      ],
+      "modes": {
+       "1v1": {
+        "score": 418.21,
+        "ci": [
+         361.38,
+         484.39
+        ]
+       },
+       "3-4": {
+        "score": 238.55,
+        "ci": [
+         181.01,
+         296.06
+        ]
+       },
+       "12": {
+        "score": 162.38,
+        "ci": [
+         132.72,
+         191.84
+        ]
+       }
+      }
+     },
+     "sparring_hard": {
+      "total": 324.4,
+      "total_ci": [
+       290.27,
+       363.01
+      ],
+      "modes": {
+       "1v1": {
+        "score": 487.35,
+        "ci": [
+         429.3,
+         554.55
+        ]
+       },
+       "3-4": {
+        "score": 179.35,
+        "ci": [
+         130.08,
+         227.36
+        ]
+       },
+       "12": {
+        "score": 134.6,
+        "ci": [
+         103.33,
+         164.6
+        ]
+       }
+      }
+     }
+    },
+    "order": [
+     "AstraUF",
+     "DSNew",
+     "Mistral",
+     "LongCat",
+     "Doubao",
+     "Step",
+     "Pangu",
+     "Hunyuan",
+     "Qwen27B",
+     "Mercury",
+     "Wenxin",
+     "Dots"
+    ],
+    "full_order": [
+     "sparring_hard",
+     "AstraUF",
+     "DSNew",
+     "Mistral",
+     "LongCat",
+     "Doubao",
+     "Step",
+     "Pangu",
+     "Hunyuan",
+     "Qwen27B",
+     "Mercury",
+     "Wenxin",
+     "Dots"
+    ],
+    "lines": [
+     "sparring_hard"
+    ],
+    "adjacent": [
+     {
+      "upper": "AstraUF",
+      "lower": "DSNew",
+      "diff": 185.62,
+      "ci": [
+       152.56,
+       219.9
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Mistral",
+      "diff": 7.58,
+      "ci": [
+       -22.34,
+       39.08
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Mistral",
+      "lower": "LongCat",
+      "diff": 107.26,
+      "ci": [
+       75.68,
+       137.88
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Doubao",
+      "diff": 12.69,
+      "ci": [
+       -21.27,
+       48.94
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Step",
+      "diff": 8.51,
+      "ci": [
+       -24.55,
+       39.87
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Step",
+      "lower": "Pangu",
+      "diff": 184.65,
+      "ci": [
+       157.9,
+       215.68
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Hunyuan",
+      "diff": 27.36,
+      "ci": [
+       -4.06,
+       57.89
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Qwen27B",
+      "diff": 44.68,
+      "ci": [
+       12.9,
+       77.43
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Mercury",
+      "diff": 10.68,
+      "ci": [
+       -18.33,
+       38.19
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Mercury",
+      "lower": "Wenxin",
+      "diff": 0.28,
+      "ci": [
+       -27.33,
+       28.28
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Wenxin",
+      "lower": "Dots",
+      "diff": 131.61,
+      "ci": [
+       103.13,
+       162.83
+      ],
+      "separated": true
+     }
+    ],
+    "pairwise": [
+     {
+      "upper": "sparring_hard",
+      "lower": "AstraUF",
+      "diff": 11.26,
+      "ci": [
+       -23.93,
+       45.55
+      ],
+      "separated": false
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "DSNew",
+      "diff": 196.88,
+      "ci": [
+       164.84,
+       232.41
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Mistral",
+      "diff": 204.45,
+      "ci": [
+       174.42,
+       237.42
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "LongCat",
+      "diff": 311.71,
+      "ci": [
+       278.44,
+       346.83
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Doubao",
+      "diff": 324.4,
+      "ci": [
+       290.27,
+       363.01
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Step",
+      "diff": 332.91,
+      "ci": [
+       300.65,
+       368.22
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Pangu",
+      "diff": 517.56,
+      "ci": [
+       484.64,
+       556.81
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Hunyuan",
+      "diff": 544.91,
+      "ci": [
+       507.57,
+       586.46
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Qwen27B",
+      "diff": 589.59,
+      "ci": [
+       556.99,
+       629.85
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Mercury",
+      "diff": 600.28,
+      "ci": [
+       564.55,
+       639.78
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Wenxin",
+      "diff": 600.56,
+      "ci": [
+       566.6,
+       639.09
+      ],
+      "separated": true
+     },
+     {
+      "upper": "sparring_hard",
+      "lower": "Dots",
+      "diff": 732.16,
+      "ci": [
+       696.41,
+       773.98
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "DSNew",
+      "diff": 185.62,
+      "ci": [
+       152.56,
+       219.9
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Mistral",
+      "diff": 193.19,
+      "ci": [
+       160.62,
+       225.76
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "LongCat",
+      "diff": 300.45,
+      "ci": [
+       266.1,
+       337.34
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Doubao",
+      "diff": 313.14,
+      "ci": [
+       278.64,
+       352.17
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Step",
+      "diff": 321.65,
+      "ci": [
+       288.47,
+       356.53
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Pangu",
+      "diff": 506.3,
+      "ci": [
+       476.1,
+       544.21
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Hunyuan",
+      "diff": 533.66,
+      "ci": [
+       493.96,
+       575.61
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Qwen27B",
+      "diff": 578.34,
+      "ci": [
+       545.81,
+       616.81
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Mercury",
+      "diff": 589.02,
+      "ci": [
+       553.9,
+       630.94
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Wenxin",
+      "diff": 589.3,
+      "ci": [
+       555.64,
+       630.7
+      ],
+      "separated": true
+     },
+     {
+      "upper": "AstraUF",
+      "lower": "Dots",
+      "diff": 720.9,
+      "ci": [
+       687.15,
+       760.47
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Mistral",
+      "diff": 7.58,
+      "ci": [
+       -22.34,
+       39.08
+      ],
+      "separated": false
+     },
+     {
+      "upper": "DSNew",
+      "lower": "LongCat",
+      "diff": 114.83,
+      "ci": [
+       80.5,
+       145.98
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Doubao",
+      "diff": 127.53,
+      "ci": [
+       94.75,
+       163.61
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Step",
+      "diff": 136.03,
+      "ci": [
+       104.88,
+       167.19
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Pangu",
+      "diff": 320.68,
+      "ci": [
+       291.41,
+       356.09
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Hunyuan",
+      "diff": 348.04,
+      "ci": [
+       313.18,
+       389.27
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Qwen27B",
+      "diff": 392.72,
+      "ci": [
+       360.61,
+       428.2
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Mercury",
+      "diff": 403.4,
+      "ci": [
+       368.57,
+       440.95
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Wenxin",
+      "diff": 403.68,
+      "ci": [
+       373.17,
+       440.35
+      ],
+      "separated": true
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Dots",
+      "diff": 535.29,
+      "ci": [
+       502.16,
+       576.32
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "LongCat",
+      "diff": 107.26,
+      "ci": [
+       75.68,
+       137.88
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Doubao",
+      "diff": 119.95,
+      "ci": [
+       85.85,
+       154.83
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Step",
+      "diff": 128.46,
+      "ci": [
+       97.12,
+       161.09
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Pangu",
+      "diff": 313.11,
+      "ci": [
+       284.64,
+       348.34
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Hunyuan",
+      "diff": 340.46,
+      "ci": [
+       305.82,
+       377.71
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Qwen27B",
+      "diff": 385.14,
+      "ci": [
+       352.6,
+       420.78
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Mercury",
+      "diff": 395.83,
+      "ci": [
+       362.27,
+       434.06
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Wenxin",
+      "diff": 396.1,
+      "ci": [
+       361.98,
+       430.2
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Dots",
+      "diff": 527.71,
+      "ci": [
+       494.15,
+       564.95
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Doubao",
+      "diff": 12.69,
+      "ci": [
+       -21.27,
+       48.94
+      ],
+      "separated": false
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Step",
+      "diff": 21.2,
+      "ci": [
+       -9.61,
+       53.08
+      ],
+      "separated": false
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Pangu",
+      "diff": 205.85,
+      "ci": [
+       178.25,
+       238.1
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Hunyuan",
+      "diff": 233.2,
+      "ci": [
+       203.37,
+       269.06
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Qwen27B",
+      "diff": 277.88,
+      "ci": [
+       247.51,
+       311.31
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Mercury",
+      "diff": 288.57,
+      "ci": [
+       257.18,
+       325.89
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Wenxin",
+      "diff": 288.85,
+      "ci": [
+       259.95,
+       322.36
+      ],
+      "separated": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Dots",
+      "diff": 420.45,
+      "ci": [
+       390.45,
+       457.65
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Step",
+      "diff": 8.51,
+      "ci": [
+       -24.55,
+       39.87
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Pangu",
+      "diff": 193.16,
+      "ci": [
+       161.19,
+       225.45
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Hunyuan",
+      "diff": 220.51,
+      "ci": [
+       181.12,
+       259.51
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Qwen27B",
+      "diff": 265.19,
+      "ci": [
+       232.87,
+       300.86
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Mercury",
+      "diff": 275.88,
+      "ci": [
+       240.88,
+       314.48
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Wenxin",
+      "diff": 276.15,
+      "ci": [
+       244.49,
+       311.75
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Dots",
+      "diff": 407.76,
+      "ci": [
+       372.51,
+       447.66
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Pangu",
+      "diff": 184.65,
+      "ci": [
+       157.9,
+       215.68
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Hunyuan",
+      "diff": 212.0,
+      "ci": [
+       181.42,
+       249.67
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Qwen27B",
+      "diff": 256.68,
+      "ci": [
+       229.52,
+       289.83
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Mercury",
+      "diff": 267.37,
+      "ci": [
+       238.22,
+       300.48
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Wenxin",
+      "diff": 267.65,
+      "ci": [
+       241.01,
+       299.63
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Step",
+      "lower": "Dots",
+      "diff": 399.25,
+      "ci": [
+       367.85,
+       434.3
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Hunyuan",
+      "diff": 27.36,
+      "ci": [
+       -4.06,
+       57.89
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Qwen27B",
+      "diff": 72.04,
+      "ci": [
+       42.92,
+       99.86
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Mercury",
+      "diff": 82.72,
+      "ci": [
+       56.45,
+       111.33
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Wenxin",
+      "diff": 83.0,
+      "ci": [
+       54.9,
+       112.25
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Dots",
+      "diff": 214.6,
+      "ci": [
+       185.9,
+       247.83
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Qwen27B",
+      "diff": 44.68,
+      "ci": [
+       12.9,
+       77.43
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Mercury",
+      "diff": 55.36,
+      "ci": [
+       23.9,
+       83.81
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Wenxin",
+      "diff": 55.64,
+      "ci": [
+       24.26,
+       86.52
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Dots",
+      "diff": 187.25,
+      "ci": [
+       154.65,
+       223.5
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Mercury",
+      "diff": 10.68,
+      "ci": [
+       -18.33,
+       38.19
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Wenxin",
+      "diff": 10.96,
+      "ci": [
+       -20.81,
+       38.77
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Dots",
+      "diff": 142.57,
+      "ci": [
+       114.63,
+       173.8
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Mercury",
+      "lower": "Wenxin",
+      "diff": 0.28,
+      "ci": [
+       -27.33,
+       28.28
+      ],
+      "separated": false
+     },
+     {
+      "upper": "Mercury",
+      "lower": "Dots",
+      "diff": 131.88,
+      "ci": [
+       104.34,
+       164.0
+      ],
+      "separated": true
+     },
+     {
+      "upper": "Wenxin",
+      "lower": "Dots",
+      "diff": 131.61,
+      "ci": [
+       103.13,
+       162.83
+      ],
+      "separated": true
+     }
+    ],
+    "rank": {
+     "AstraUF": {
+      "rank": 1,
+      "lo": 1,
+      "hi": 1,
+      "indistinct": []
+     },
+     "DSNew": {
+      "rank": 2,
+      "lo": 2,
+      "hi": 3,
+      "indistinct": [
+       "Mistral"
+      ]
+     },
+     "Mistral": {
+      "rank": 3,
+      "lo": 2,
+      "hi": 3,
+      "indistinct": [
+       "DSNew"
+      ]
+     },
+     "LongCat": {
+      "rank": 4,
+      "lo": 4,
+      "hi": 6,
+      "indistinct": [
+       "Doubao",
+       "Step"
+      ]
+     },
+     "Doubao": {
+      "rank": 5,
+      "lo": 4,
+      "hi": 6,
+      "indistinct": [
+       "LongCat",
+       "Step"
+      ]
+     },
+     "Step": {
+      "rank": 6,
+      "lo": 4,
+      "hi": 6,
+      "indistinct": [
+       "LongCat",
+       "Doubao"
+      ]
+     },
+     "Pangu": {
+      "rank": 7,
+      "lo": 7,
+      "hi": 8,
+      "indistinct": [
+       "Hunyuan"
+      ]
+     },
+     "Hunyuan": {
+      "rank": 8,
+      "lo": 7,
+      "hi": 8,
+      "indistinct": [
+       "Pangu"
+      ]
+     },
+     "Qwen27B": {
+      "rank": 9,
+      "lo": 9,
+      "hi": 11,
+      "indistinct": [
+       "Mercury",
+       "Wenxin"
+      ]
+     },
+     "Mercury": {
+      "rank": 10,
+      "lo": 9,
+      "hi": 11,
+      "indistinct": [
+       "Qwen27B",
+       "Wenxin"
+      ]
+     },
+     "Wenxin": {
+      "rank": 11,
+      "lo": 9,
+      "hi": 11,
+      "indistinct": [
+       "Qwen27B",
+       "Mercury"
+      ]
+     },
+     "Dots": {
+      "rank": 12,
+      "lo": 12,
+      "hi": 12,
+      "indistinct": []
+     }
+    },
+    "modes_present": [
+     "1v1",
+     "3-4",
+     "12"
+    ],
+    "pairs": {
+     "1v1": 3647,
+     "3-4": 4824,
+     "12": 31878
+    }
+   },
+   "rank_score": {
+    "entries": [
+     "Wenxin",
+     "Pangu",
+     "Dots",
+     "LongCat",
+     "Qwen27B",
+     "Doubao",
+     "Mistral",
+     "Hunyuan",
+     "Step",
+     "Mercury",
+     "DSNew",
+     "AstraUF",
+     "sparring_hard"
+    ],
+    "baseline": "greedy",
+    "weights": {
+     "1v1": 0.5,
+     "3-4": 0.3,
+     "12": 0.2
+    },
+    "boot": 1000,
+    "table": {
+     "Wenxin": {
+      "total": -27.06,
+      "total_ci": [
+       -30.86,
+       -23.07
+      ],
+      "modes": {
+       "1v1": {
+        "score": -28.17,
+        "ci": [
+         -34.43,
+         -21.63
+        ],
+        "mean": 0.2359,
+        "seats": 568
+       },
+       "3-4": {
+        "score": -23.83,
+        "ci": [
+         -31.32,
+         -16.9
+        ],
+        "mean": 0.3903,
+        "seats": 272
+       },
+       "12": {
+        "score": -29.12,
+        "ci": [
+         -32.21,
+         -25.95
+        ],
+        "mean": 0.3426,
+        "seats": 504
+       }
+      }
+     },
+     "Pangu": {
+      "total": -20.91,
+      "total_ci": [
+       -24.92,
+       -16.61
+      ],
+      "modes": {
+       "1v1": {
+        "score": -14.09,
+        "ci": [
+         -20.98,
+         -7.32
+        ],
+        "mean": 0.3768,
+        "seats": 568
+       },
+       "3-4": {
+        "score": -22.89,
+        "ci": [
+         -30.25,
+         -15.29
+        ],
+        "mean": 0.3998,
+        "seats": 276
+       },
+       "12": {
+        "score": -34.99,
+        "ci": [
+         -38.38,
+         -32.05
+        ],
+        "mean": 0.2839,
+        "seats": 504
+       }
+      }
+     },
+     "Dots": {
+      "total": -39.7,
+      "total_ci": [
+       -43.11,
+       -36.24
+      ],
+      "modes": {
+       "1v1": {
+        "score": -40.32,
+        "ci": [
+         -46.12,
+         -34.39
+        ],
+        "mean": 0.1144,
+        "seats": 568
+       },
+       "3-4": {
+        "score": -36.18,
+        "ci": [
+         -42.68,
+         -30.29
+        ],
+        "mean": 0.2668,
+        "seats": 268
+       },
+       "12": {
+        "score": -43.41,
+        "ci": [
+         -46.0,
+         -40.67
+        ],
+        "mean": 0.1998,
+        "seats": 504
+       }
+      }
+     },
+     "LongCat": {
+      "total": -3.38,
+      "total_ci": [
+       -7.57,
+       0.75
+      ],
+      "modes": {
+       "1v1": {
+        "score": 19.63,
+        "ci": [
+         12.56,
+         26.21
+        ],
+        "mean": 0.7139,
+        "seats": 568
+       },
+       "3-4": {
+        "score": -29.1,
+        "ci": [
+         -36.12,
+         -22.84
+        ],
+        "mean": 0.3376,
+        "seats": 272
+       },
+       "12": {
+        "score": -22.3,
+        "ci": [
+         -25.69,
+         -18.51
+        ],
+        "mean": 0.4108,
+        "seats": 504
+       }
+      }
+     },
+     "Qwen27B": {
+      "total": -25.48,
+      "total_ci": [
+       -29.38,
+       -21.69
+      ],
+      "modes": {
+       "1v1": {
+        "score": -30.07,
+        "ci": [
+         -36.61,
+         -23.26
+        ],
+        "mean": 0.2169,
+        "seats": 567
+       },
+       "3-4": {
+        "score": -22.44,
+        "ci": [
+         -28.51,
+         -16.37
+        ],
+        "mean": 0.4042,
+        "seats": 268
+       },
+       "12": {
+        "score": -18.57,
+        "ci": [
+         -21.86,
+         -15.18
+        ],
+        "mean": 0.4481,
+        "seats": 504
+       }
+      }
+     },
+     "Doubao": {
+      "total": 0.0,
+      "total_ci": [
+       0.0,
+       0.0
+      ],
+      "modes": {
+       "1v1": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.5176,
+        "seats": 567
+       },
+       "3-4": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.6286,
+        "seats": 276
+       },
+       "12": {
+        "score": 0.0,
+        "ci": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.6338,
+        "seats": 504
+       }
+      }
+     },
+     "Mistral": {
+      "total": 7.11,
+      "total_ci": [
+       3.42,
+       10.75
+      ],
+      "modes": {
+       "1v1": {
+        "score": 30.63,
+        "ci": [
+         24.82,
+         37.04
+        ],
+        "mean": 0.8239,
+        "seats": 568
+       },
+       "3-4": {
+        "score": -17.21,
+        "ci": [
+         -23.99,
+         -10.53
+        ],
+        "mean": 0.4565,
+        "seats": 276
+       },
+       "12": {
+        "score": -15.23,
+        "ci": [
+         -19.02,
+         -11.37
+        ],
+        "mean": 0.4815,
+        "seats": 504
+       }
+      }
+     },
+     "Hunyuan": {
+      "total": -19.98,
+      "total_ci": [
+       -23.7,
+       -16.19
+      ],
+      "modes": {
+       "1v1": {
+        "score": -28.88,
+        "ci": [
+         -35.54,
+         -22.4
+        ],
+        "mean": 0.2289,
+        "seats": 568
+       },
+       "3-4": {
+        "score": -25.73,
+        "ci": [
+         -32.39,
+         -19.77
+        ],
+        "mean": 0.3713,
+        "seats": 272
+       },
+       "12": {
+        "score": 10.89,
+        "ci": [
+         7.46,
+         14.02
+        ],
+        "mean": 0.7428,
+        "seats": 504
+       }
+      }
+     },
+     "Step": {
+      "total": -0.33,
+      "total_ci": [
+       -4.49,
+       3.97
+      ],
+      "modes": {
+       "1v1": {
+        "score": 1.76,
+        "ci": [
+         -4.85,
+         9.13
+        ],
+        "mean": 0.5352,
+        "seats": 568
+       },
+       "3-4": {
+        "score": -1.1,
+        "ci": [
+         -8.07,
+         5.8
+        ],
+        "mean": 0.6176,
+        "seats": 272
+       },
+       "12": {
+        "score": -4.38,
+        "ci": [
+         -8.01,
+         -0.92
+        ],
+        "mean": 0.59,
+        "seats": 504
+       }
+      }
+     },
+     "Mercury": {
+      "total": -26.07,
+      "total_ci": [
+       -29.93,
+       -22.25
+      ],
+      "modes": {
+       "1v1": {
+        "score": -31.24,
+        "ci": [
+         -37.45,
+         -24.85
+        ],
+        "mean": 0.2052,
+        "seats": 480
+       },
+       "3-4": {
+        "score": -20.14,
+        "ci": [
+         -27.28,
+         -13.49
+        ],
+        "mean": 0.4273,
+        "seats": 220
+       },
+       "12": {
+        "score": -22.02,
+        "ci": [
+         -26.37,
+         -17.69
+        ],
+        "mean": 0.4136,
+        "seats": 252
+       }
+      }
+     },
+     "DSNew": {
+      "total": 10.77,
+      "total_ci": [
+       6.43,
+       14.84
+      ],
+      "modes": {
+       "1v1": {
+        "score": 22.53,
+        "ci": [
+         15.44,
+         29.5
+        ],
+        "mean": 0.743,
+        "seats": 568
+       },
+       "3-4": {
+        "score": 3.87,
+        "ci": [
+         -3.41,
+         11.01
+        ],
+        "mean": 0.6673,
+        "seats": 268
+       },
+       "12": {
+        "score": -8.28,
+        "ci": [
+         -12.17,
+         -4.73
+        ],
+        "mean": 0.551,
+        "seats": 504
+       }
+      }
+     },
+     "AstraUF": {
+      "total": 27.63,
+      "total_ci": [
+       24.07,
+       31.65
+      ],
+      "modes": {
+       "1v1": {
+        "score": 33.1,
+        "ci": [
+         26.85,
+         39.8
+        ],
+        "mean": 0.8486,
+        "seats": 568
+       },
+       "3-4": {
+        "score": 25.0,
+        "ci": [
+         18.82,
+         30.37
+        ],
+        "mean": 0.8786,
+        "seats": 276
+       },
+       "12": {
+        "score": 17.89,
+        "ci": [
+         14.83,
+         21.19
+        ],
+        "mean": 0.8128,
+        "seats": 504
+       }
+      }
+     },
+     "sparring_hard": {
+      "total": 28.09,
+      "total_ci": [
+       24.67,
+       31.29
+      ],
+      "modes": {
+       "1v1": {
+        "score": 37.58,
+        "ci": [
+         32.07,
+         43.5
+        ],
+        "mean": 0.8935,
+        "seats": 568
+       },
+       "3-4": {
+        "score": 20.84,
+        "ci": [
+         15.09,
+         25.84
+        ],
+        "mean": 0.837,
+        "seats": 272
+       },
+       "12": {
+        "score": 15.25,
+        "ci": [
+         11.83,
+         18.64
+        ],
+        "mean": 0.7863,
+        "seats": 504
+       }
+      }
+     }
+    },
+    "order": [
+     "AstraUF",
+     "DSNew",
+     "Mistral",
+     "Doubao",
+     "Step",
+     "LongCat",
+     "Hunyuan",
+     "Pangu",
+     "Qwen27B",
+     "Mercury",
+     "Wenxin",
+     "Dots"
+    ],
+    "adjacent": [
+     {
+      "upper": "AstraUF",
+      "lower": "DSNew",
+      "diff": 16.86,
+      "ci": [
+       13.5,
+       20.33
+      ],
+      "tie": false
+     },
+     {
+      "upper": "DSNew",
+      "lower": "Mistral",
+      "diff": 3.66,
+      "ci": [
+       0.01,
+       7.01
+      ],
+      "tie": false
+     },
+     {
+      "upper": "Mistral",
+      "lower": "Doubao",
+      "diff": 7.11,
+      "ci": [
+       3.42,
+       10.75
+      ],
+      "tie": false
+     },
+     {
+      "upper": "Doubao",
+      "lower": "Step",
+      "diff": 0.33,
+      "ci": [
+       -3.97,
+       4.49
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Step",
+      "lower": "LongCat",
+      "diff": 3.05,
+      "ci": [
+       -1.01,
+       7.43
+      ],
+      "tie": true
+     },
+     {
+      "upper": "LongCat",
+      "lower": "Hunyuan",
+      "diff": 16.6,
+      "ci": [
+       13.03,
+       20.04
+      ],
+      "tie": false
+     },
+     {
+      "upper": "Hunyuan",
+      "lower": "Pangu",
+      "diff": 0.93,
+      "ci": [
+       -2.88,
+       4.65
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Pangu",
+      "lower": "Qwen27B",
+      "diff": 4.57,
+      "ci": [
+       0.82,
+       8.54
+      ],
+      "tie": false
+     },
+     {
+      "upper": "Qwen27B",
+      "lower": "Mercury",
+      "diff": 0.59,
+      "ci": [
+       -2.81,
+       3.76
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Mercury",
+      "lower": "Wenxin",
+      "diff": 0.99,
+      "ci": [
+       -2.55,
+       4.27
+      ],
+      "tie": true
+     },
+     {
+      "upper": "Wenxin",
+      "lower": "Dots",
+      "diff": 12.64,
+      "ci": [
+       9.75,
+       15.74
+      ],
+      "tie": false
+     }
+    ],
+    "rank": {
+     "AstraUF": {
+      "rank": 1,
+      "group": null
+     },
+     "DSNew": {
+      "rank": 2,
+      "group": null
+     },
+     "Mistral": {
+      "rank": 3,
+      "group": null
+     },
+     "Doubao": {
+      "rank": 4,
+      "group": [
+       4,
+       6
+      ]
+     },
+     "Step": {
+      "rank": 5,
+      "group": [
+       4,
+       6
+      ]
+     },
+     "LongCat": {
+      "rank": 6,
+      "group": [
+       4,
+       6
+      ]
+     },
+     "Hunyuan": {
+      "rank": 7,
+      "group": [
+       7,
+       8
+      ]
+     },
+     "Pangu": {
+      "rank": 8,
+      "group": [
+       7,
+       8
+      ]
+     },
+     "Qwen27B": {
+      "rank": 9,
+      "group": [
+       9,
+       11
+      ]
+     },
+     "Mercury": {
+      "rank": 10,
+      "group": [
+       9,
+       11
+      ]
+     },
+     "Wenxin": {
+      "rank": 11,
+      "group": [
+       9,
+       11
+      ]
+     },
+     "Dots": {
+      "rank": 12,
+      "group": null
+     }
+    },
+    "lines": [
+     "sparring_hard"
+    ],
+    "anchor": "Doubao",
+    "modes_present": [
+     "1v1",
+     "3-4",
+     "12"
+    ]
+   },
+   "faults": {
+    "Wenxin": {
+     "games": 1216,
+     "turns": 78580,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 5.57,
+     "max_ms": 0.44,
+     "avg_ms": 0.06
+    },
+    "Pangu": {
+     "games": 1220,
+     "turns": 79803,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 5.86,
+     "max_ms": 1.44,
+     "avg_ms": 0.07
+    },
+    "Dots": {
+     "games": 1216,
+     "turns": 66167,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 98.08,
+     "max_ms": 4.01,
+     "avg_ms": 0.23
+    },
+    "LongCat": {
+     "games": 1220,
+     "turns": 97181,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1999.17,
+     "max_ms": 48.71,
+     "avg_ms": 16.08
+    },
+    "Qwen27B": {
+     "games": 1216,
+     "turns": 85436,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 500.91,
+     "max_ms": 23.91,
+     "avg_ms": 10.31
+    },
+    "Doubao": {
+     "games": 1220,
+     "turns": 114712,
+     "timeouts": 18,
+     "timeout_games": 18,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1614.87,
+     "max_ms": 51.58,
+     "avg_ms": 10.96
+    },
+    "Mistral": {
+     "games": 1220,
+     "turns": 102833,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1991.41,
+     "max_ms": 41.93,
+     "avg_ms": 19.86
+    },
+    "Hunyuan": {
+     "games": 1216,
+     "turns": 113867,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1993.43,
+     "max_ms": 43.98,
+     "avg_ms": 24.42
+    },
+    "Step": {
+     "games": 1216,
+     "turns": 114632,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1985.51,
+     "max_ms": 34.69,
+     "avg_ms": 11.14
+    },
+    "Mercury": {
+     "games": 952,
+     "turns": 62486,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 1998.33,
+     "max_ms": 49.05,
+     "avg_ms": 9.58
+    },
+    "DSNew": {
+     "games": 1212,
+     "turns": 107856,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 127.56,
+     "max_ms": 49.09,
+     "avg_ms": 24.53
+    },
+    "AstraUF": {
+     "games": 1220,
+     "turns": 137607,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 600.39,
+     "max_ms": 42.45,
+     "avg_ms": 17.22
+    },
+    "sparring_hard": {
+     "games": 1220,
+     "turns": 135129,
+     "timeouts": 0,
+     "timeout_games": 0,
+     "invalid": 0,
+     "crash_games": 0,
+     "first_max": 40.29,
+     "max_ms": 21.77,
+     "avg_ms": 5.99
+    }
+   },
+   "sparring": {
+    "Wenxin": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 52.0
+    },
+    "Pangu": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 78.0
+    },
+    "Dots": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 52.4
+    },
+    "LongCat": {
+     "games": 48,
+     "w": 8,
+     "d": 0,
+     "l": 40,
+     "rate": 0.1667,
+     "turns": 126.9
+    },
+    "Qwen27B": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 57.3
+    },
+    "Doubao": {
+     "games": 48,
+     "w": 0,
+     "d": 0,
+     "l": 48,
+     "rate": 0.0,
+     "turns": 113.8
+    },
+    "Mistral": {
+     "games": 48,
+     "w": 17,
+     "d": 2,
+     "l": 29,
+     "rate": 0.375,
+     "turns": 148.2
+    },
+    "Hunyuan": {
+     "games": 48,
+     "w": 1,
+     "d": 0,
+     "l": 47,
+     "rate": 0.0208,
+     "turns": 76.3
+    },
+    "Step": {
+     "games": 48,
+     "w": 2,
+     "d": 1,
+     "l": 45,
+     "rate": 0.0521,
+     "turns": 124.2
+    },
+    "Mercury": {
+     "games": 40,
+     "w": 0,
+     "d": 0,
+     "l": 40,
+     "rate": 0.0,
+     "turns": 71.7
+    },
+    "DSNew": {
+     "games": 48,
+     "w": 9,
+     "d": 2,
+     "l": 37,
+     "rate": 0.2083,
+     "turns": 122.5
+    },
+    "AstraUF": {
+     "games": 48,
+     "w": 21,
+     "d": 0,
+     "l": 27,
+     "rate": 0.4375,
+     "turns": 150.4
+    }
+   },
+   "sources": {
+    "final": {
+     "12p": 294,
+     "4p": 220,
+     "1v1": 480
+    },
+    "final1018": {
+     "12p": 247,
+     "4p": 672,
+     "1v1": 2640
+    },
+    "preview1": {
+     "1v1": 358
+    },
+    "preview2": {
+     "1v1": 169,
+     "4p": 48,
+     "12p": 26
+    }
+   },
+   "coverage": {
+    "12p": {
+     "Wenxin": [
+      504,
+      5096
+     ],
+     "Pangu": [
+      504,
+      5099
+     ],
+     "Dots": [
+      504,
+      5099
+     ],
+     "LongCat": [
+      504,
+      5099
+     ],
+     "Qwen27B": [
+      504,
+      5102
+     ],
+     "Doubao": [
+      504,
+      5103
+     ],
+     "Mistral": [
+      504,
+      5101
+     ],
+     "Hunyuan": [
+      504,
+      5099
+     ],
+     "Step": [
+      504,
+      5100
+     ],
+     "Mercury": [
+      252,
+      2555
+     ],
+     "DSNew": [
+      504,
+      5103
+     ],
+     "AstraUF": [
+      504,
+      5100
+     ],
+     "sparring_hard": [
+      504,
+      5100
+     ]
+    },
+    "4p": {
+     "Wenxin": [
+      272,
+      736
+     ],
+     "Pangu": [
+      276,
+      752
+     ],
+     "Dots": [
+      268,
+      744
+     ],
+     "LongCat": [
+      272,
+      760
+     ],
+     "Qwen27B": [
+      268,
+      756
+     ],
+     "Doubao": [
+      276,
+      772
+     ],
+     "Mistral": [
+      276,
+      764
+     ],
+     "Hunyuan": [
+      272,
+      760
+     ],
+     "Step": [
+      272,
+      756
+     ],
+     "Mercury": [
+      220,
+      608
+     ],
+     "DSNew": [
+      268,
+      744
+     ],
+     "AstraUF": [
+      276,
+      756
+     ],
+     "sparring_hard": [
+      272,
+      740
+     ]
+    },
+    "1v1": {
+     "Wenxin": [
+      568,
+      568
+     ],
+     "Pangu": [
+      568,
+      568
+     ],
+     "Dots": [
+      568,
+      568
+     ],
+     "LongCat": [
+      568,
+      568
+     ],
+     "Qwen27B": [
+      567,
+      567
+     ],
+     "Doubao": [
+      567,
+      567
+     ],
+     "Mistral": [
+      568,
+      568
+     ],
+     "Hunyuan": [
+      568,
+      568
+     ],
+     "Step": [
+      568,
+      568
+     ],
+     "Mercury": [
+      480,
+      480
+     ],
+     "DSNew": [
+      568,
+      568
+     ],
+     "AstraUF": [
+      568,
+      568
+     ],
+     "sparring_hard": [
+      568,
+      568
+     ]
+    }
+   },
+   "games": 5154
+  }
+ },
+ "imports": [
+  {
+   "source": "preview1",
+   "files": [
+    {
+     "file": "<preview1>/results/1v1.jsonl",
+     "rows": 440
+    },
+    {
+     "file": "<preview1>/results/multi_formal.jsonl",
+     "rows": 80
+    },
+    {
+     "file": "<preview1>/results/multi_ref.jsonl",
+     "rows": 80
+    }
+   ],
+   "kit": "一致",
+   "names": {
+    "Pangu": {
+     "then": "8bad2945631c2d13",
+     "now": "8bad2945631c2d13",
+     "same": true
+    },
+    "Wenxin": {
+     "then": "3d127342e7bc3ebf",
+     "now": "3d127342e7bc3ebf",
+     "same": true
+    },
+    "Dots": {
+     "then": "cf31f2cf63610298",
+     "now": "cf31f2cf63610298",
+     "same": true
+    },
+    "Qwen27B": {
+     "then": "ab274da44dd128ca",
+     "now": "ab274da44dd128ca",
+     "same": true
+    },
+    "Doubao": {
+     "then": "ad36b8a09bac994b",
+     "now": "ad36b8a09bac994b",
+     "same": true
+    },
+    "Step": {
+     "then": "b26e29889fef5dc1",
+     "now": "b26e29889fef5dc1",
+     "same": true
+    },
+    "Mistral": {
+     "then": "ce0defddd8b636b5",
+     "now": "ce0defddd8b636b5",
+     "same": true
+    },
+    "LongCat": {
+     "then": "f884001d63277b5b",
+     "now": "f884001d63277b5b",
+     "same": true
+    },
+    "greedy": {
+     "then": "4ad6c24ec815d3de",
+     "now": "4ad6c24ec815d3de",
+     "same": true
+    },
+    "AstraUF": {
+     "then": "0c5883a2799930ef",
+     "now": "0c5883a2799930ef",
+     "same": true
+    },
+    "Hunyuan": {
+     "then": "09142c877d0ea532",
+     "now": "09142c877d0ea532",
+     "same": true
+    },
+    "greedy_fill": {
+     "then": "4ad6c24ec815d3de",
+     "now": "4ad6c24ec815d3de",
+     "same": true
+    }
+   },
+   "dropped": {
+    "有超时（快速模式不判罚，和正式模式不等价）": 2
+   },
+   "kept": 598,
+   "note": "第一次快速预览（快速模式，2026-10-17 02:3x）",
+   "formal": false,
+   "by_type": {
+    "1v1": 438,
+    "3p": 72,
+    "4p": 64,
+    "12p": 24,
+    "sparring": 0
+   },
+   "seeds": 48
+  },
+  {
+   "source": "preview2",
+   "files": [
+    {
+     "file": "<preview2>/results/1v1.jsonl",
+     "rows": 624
+    },
+    {
+     "file": "<preview2>/results/multi_formal.jsonl",
+     "rows": 80
+    },
+    {
+     "file": "<preview2>/results/multi_ref.jsonl",
+     "rows": 122
+    }
+   ],
+   "kit": "一致",
+   "names": {
+    "Pangu": {
+     "then": "8bad2945631c2d13",
+     "now": "8bad2945631c2d13",
+     "same": true
+    },
+    "Wenxin": {
+     "then": "3d127342e7bc3ebf",
+     "now": "3d127342e7bc3ebf",
+     "same": true
+    },
+    "Dots": {
+     "then": "cf31f2cf63610298",
+     "now": "cf31f2cf63610298",
+     "same": true
+    },
+    "Doubao": {
+     "then": "ad36b8a09bac994b",
+     "now": "ad36b8a09bac994b",
+     "same": true
+    },
+    "Qwen27B": {
+     "then": "ab274da44dd128ca",
+     "now": "ab274da44dd128ca",
+     "same": true
+    },
+    "Step": {
+     "then": "b26e29889fef5dc1",
+     "now": "b26e29889fef5dc1",
+     "same": true
+    },
+    "Mistral": {
+     "then": "ce0defddd8b636b5",
+     "now": "ce0defddd8b636b5",
+     "same": true
+    },
+    "LongCat": {
+     "then": "f884001d63277b5b",
+     "now": "f884001d63277b5b",
+     "same": true
+    },
+    "greedy": {
+     "then": "4ad6c24ec815d3de",
+     "now": "4ad6c24ec815d3de",
+     "same": true
+    },
+    "sparring_hard": {
+     "then": "da93257a3c8b4f55",
+     "now": "da93257a3c8b4f55",
+     "same": true
+    },
+    "AstraUF": {
+     "then": "0c5883a2799930ef",
+     "now": "0c5883a2799930ef",
+     "same": true
+    },
+    "DSNew": {
+     "then": "25931c5e6f69255a",
+     "now": "25931c5e6f69255a",
+     "same": true
+    },
+    "Hunyuan": {
+     "then": "09142c877d0ea532",
+     "now": "09142c877d0ea532",
+     "same": true
+    },
+    "greedy_fill": {
+     "then": "4ad6c24ec815d3de",
+     "now": "4ad6c24ec815d3de",
+     "same": true
+    }
+   },
+   "dropped": {
+    "有超时（快速模式不判罚，和正式模式不等价）": 1,
+    "和前面的来源重复（只留第一份）": 438
+   },
+   "kept": 387,
+   "note": "第二次快速预览（加强档陪练，快速模式，2026-10-17 04:4x）",
+   "formal": false,
+   "by_type": {
+    "1v1": 185,
+    "3p": 84,
+    "4p": 80,
+    "12p": 38,
+    "sparring": 0
+   },
+   "seeds": 56
+  },
+  {
+   "source": "final1018",
+   "files": [
+    {
+     "file": "<终场1018>/results.jsonl",
+     "rows": 4267
+    }
+   ],
+   "kit": "一致",
+   "names": {
+    "Qwen27B": {
+     "then": "ab274da44dd128ca",
+     "now": "ab274da44dd128ca",
+     "same": true
+    },
+    "Doubao": {
+     "then": "ad36b8a09bac994b",
+     "now": "ad36b8a09bac994b",
+     "same": true
+    },
+    "Pangu": {
+     "then": "8bad2945631c2d13",
+     "now": "8bad2945631c2d13",
+     "same": true
+    },
+    "Hunyuan": {
+     "then": "09142c877d0ea532",
+     "now": "09142c877d0ea532",
+     "same": true
+    },
+    "greedy_fill": {
+     "then": "4ad6c24ec815d3de",
+     "now": "4ad6c24ec815d3de",
+     "same": true
+    },
+    "LongCat": {
+     "then": "f884001d63277b5b",
+     "now": "f884001d63277b5b",
+     "same": true
+    },
+    "greedy": {
+     "then": "4ad6c24ec815d3de",
+     "now": "4ad6c24ec815d3de",
+     "same": true
+    },
+    "Dots": {
+     "then": "cf31f2cf63610298",
+     "now": "cf31f2cf63610298",
+     "same": true
+    },
+    "Wenxin": {
+     "then": "3d127342e7bc3ebf",
+     "now": "3d127342e7bc3ebf",
+     "same": true
+    },
+    "Step": {
+     "then": "b26e29889fef5dc1",
+     "now": "b26e29889fef5dc1",
+     "same": true
+    },
+    "Mistral": {
+     "then": "ce0defddd8b636b5",
+     "now": "ce0defddd8b636b5",
+     "same": true
+    },
+    "AstraUF": {
+     "then": "0c5883a2799930ef",
+     "now": "0c5883a2799930ef",
+     "same": true
+    },
+    "sparring_hard": {
+     "then": "1d23900398ba50f3",
+     "now": "1d23900398ba50f3",
+     "same": true
+    },
+    "DSNew": {
+     "then": "25931c5e6f69255a",
+     "now": "25931c5e6f69255a",
+     "same": true
+    }
+   },
+   "dropped": {},
+   "kept": 4267,
+   "note": "10-18 正式终场，无 Mercury",
+   "formal": true,
+   "by_type": {
+    "1v1": 2640,
+    "3p": 0,
+    "4p": 1152,
+    "12p": 475,
+    "sparring": 0
+   },
+   "seeds": 346
+  }
+ ],
+ "seals": {
+  "Wenxin": {
+   "how": "选手交卷后手动收卷",
+   "sha256": "3d127342e7bc3ebf9378728066f5056fed4abb2eaad40655ecff025ebd856e0c",
+   "bytes": 3715,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 2302.1,
+   "saved": "bots/ernie-5.1.cpp",
+   "recheck": {
+    "time": "2026-10-17 00:56:20",
+    "same": true,
+    "sha256": "3d127342e7bc3ebf9378728066f5056fed4abb2eaad40655ecff025ebd856e0c"
+   },
+   "time": "2026-10-17 00:55:20",
+   "last_edit": "第 21.5 分钟"
+  },
+  "Pangu": {
+   "how": "选手交卷后手动收卷",
+   "sha256": "8bad2945631c2d133f2f69fbeee604d6c1f753a6d86b9ed058472c8e849706e6",
+   "bytes": 6692,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 2675.9,
+   "saved": "bots/openpangu-2.0-pro.cpp",
+   "recheck": {
+    "time": "2026-10-17 01:40:08",
+    "same": true,
+    "sha256": "8bad2945631c2d133f2f69fbeee604d6c1f753a6d86b9ed058472c8e849706e6"
+   },
+   "time": "2026-10-17 01:39:07",
+   "last_edit": "第 39.3 分钟"
+  },
+  "Dots": {
+   "how": "到点强制封存",
+   "sha256": "cf31f2cf636102980f2573be42a4463a10c8757fd7b04b172e4ab0309f34a0b4",
+   "bytes": 6250,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3603.6,
+   "saved": "bots/dots3-note-preview.cpp",
+   "recheck": {
+    "time": "2026-10-17 01:49:10",
+    "same": true,
+    "sha256": "cf31f2cf636102980f2573be42a4463a10c8757fd7b04b172e4ab0309f34a0b4"
+   },
+   "time": "2026-10-17 01:48:08",
+   "last_edit": "第 57.2 分钟"
+  },
+  "LongCat": {
+   "how": "到点强制封存",
+   "sha256": "f884001d63277b5bfe531c663eb5bbc1bc7668ac505d949db83f59e1d8cc2b39",
+   "bytes": 8730,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3601.7,
+   "saved": "bots/longcat-2.0.cpp",
+   "recheck": {
+    "time": "2026-10-17 01:18:32",
+    "same": true,
+    "sha256": "f884001d63277b5bfe531c663eb5bbc1bc7668ac505d949db83f59e1d8cc2b39"
+   },
+   "time": "2026-10-17 01:17:30",
+   "last_edit": "第 53.1 分钟"
+  },
+  "Qwen27B": {
+   "how": "到点强制封存",
+   "sha256": "ab274da44dd128caed1e6b7d47c907e82ea2d9c6382514827554737d25e69d11",
+   "bytes": 29932,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3604.6,
+   "saved": "bots/qwen3.8-27b.cpp",
+   "recheck": {
+    "time": "2026-10-17 01:18:43",
+    "same": true,
+    "sha256": "ab274da44dd128caed1e6b7d47c907e82ea2d9c6382514827554737d25e69d11"
+   },
+   "time": "2026-10-17 01:17:41",
+   "last_edit": "第 38.1 分钟"
+  },
+  "Doubao": {
+   "how": "到点强制封存",
+   "sha256": "ad36b8a09bac994b5bb921fd6e1390e6ec585cc6815c6bf5567cc78ad83eeac9",
+   "bytes": 28902,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3602.7,
+   "saved": "bots/doubao-seed-evolving.cpp",
+   "recheck": {
+    "time": "2026-10-17 02:04:21",
+    "same": false,
+    "sha256": "b8c8afe44c82f636cbf0c4db1b14b075346f6f191d6b67814298409dc8f8cf91"
+   },
+   "time": "2026-10-17 02:03:20",
+   "last_edit": "第 58.9 分钟"
+  },
+  "Mistral": {
+   "how": "选手交卷后手动收卷",
+   "sha256": "ce0defddd8b636b504678567090ffbc020058c7b008a485efaaccd48181dc84d",
+   "bytes": 17128,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3594.9,
+   "saved": "bots/mistral-large-4.cpp",
+   "recheck": {
+    "time": "2026-10-17 01:19:08",
+    "same": true,
+    "sha256": "ce0defddd8b636b504678567090ffbc020058c7b008a485efaaccd48181dc84d"
+   },
+   "time": "2026-10-17 01:18:05",
+   "last_edit": "第 56.6 分钟"
+  },
+  "Hunyuan": {
+   "how": "选手交卷后手动收卷",
+   "sha256": "09142c877d0ea532d84bec080e2d0ecbd2459f6c894e698d627e3dc80841ff14",
+   "bytes": 17884,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3587.4,
+   "saved": "bots/hunyuan-hy4-preview.cpp",
+   "recheck": {
+    "time": "2026-10-17 01:19:08",
+    "same": true,
+    "sha256": "09142c877d0ea532d84bec080e2d0ecbd2459f6c894e698d627e3dc80841ff14"
+   },
+   "time": "2026-10-17 01:18:05",
+   "last_edit": "第 53.1 分钟"
+  },
+  "Step": {
+   "how": "选手交卷后手动收卷",
+   "sha256": "b26e29889fef5dc1c46dc06c1813a699501685b115fb30684c678eb05ed00261",
+   "bytes": 20431,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3583.2,
+   "saved": "bots/step-5-preview.cpp",
+   "recheck": {
+    "time": "2026-10-17 01:19:08",
+    "same": true,
+    "sha256": "b26e29889fef5dc1c46dc06c1813a699501685b115fb30684c678eb05ed00261"
+   },
+   "time": "2026-10-17 01:18:05",
+   "last_edit": "第 34.1 分钟"
+  },
+  "Mercury": {
+   "how": "到点强制封存",
+   "sha256": "45dfa785d1c54ab3b7c5a7dd5009a9803e5a5034bf3a95258d738f9328e86cdb",
+   "bytes": 12782,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3605.0,
+   "saved": "bots/mercury-3.cpp",
+   "recheck": {
+    "time": "2026-10-20 04:48:57",
+    "same": true,
+    "sha256": "45dfa785d1c54ab3b7c5a7dd5009a9803e5a5034bf3a95258d738f9328e86cdb"
+   },
+   "time": "2026-10-20 04:47:54",
+   "last_edit": "第 33.7 分钟"
+  },
+  "AstraUF": {
+   "how": "选手交卷后手动收卷",
+   "sha256": "0c5883a2799930ef54d01d24e41cd3a0aabe8d21324f8ba2a76ed050aa06e248",
+   "bytes": 15158,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 3267.4,
+   "saved": "bots/reference/gpt-6-astra-ultra-fast.cpp",
+   "recheck": {
+    "time": "2026-10-17 01:19:08",
+    "same": true,
+    "sha256": "0c5883a2799930ef54d01d24e41cd3a0aabe8d21324f8ba2a76ed050aa06e248"
+   },
+   "time": "2026-10-17 01:18:05",
+   "last_edit": "第 39.7 分钟"
+  },
+  "DSNew": {
+   "how": "选手交卷后手动收卷",
+   "sha256": "25931c5e6f69255a1ae97a059a5df5888fc9ff5b0bc67fd1bd70e293812ff3b7",
+   "bytes": 17594,
+   "missing": false,
+   "why": null,
+   "elapsed_seconds": 2166.4,
+   "saved": "bots/reference/deepseek-v4.1-flash-dsh.cpp",
+   "recheck": {
+    "time": "2026-10-17 03:52:31",
+    "same": true,
+    "sha256": "25931c5e6f69255a1ae97a059a5df5888fc9ff5b0bc67fd1bd70e293812ff3b7"
+   },
+   "time": "2026-10-17 03:51:27",
+   "last_edit": "第 29.4 分钟"
+  }
+ },
+ "programs": {
+  "Wenxin": {
+   "name": "Wenxin",
+   "origin": "选手",
+   "source": "bots/ernie-5.1.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "3d127342e7bc3ebf9378728066f5056fed4abb2eaad40655ecff025ebd856e0c",
+   "exe": "<build>/bot-354a1bda15178fc5.exe",
+   "used_sha": "3d127342e7bc3ebf9378728066f5056fed4abb2eaad40655ecff025ebd856e0c",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "b1d7d7c47aae24bd5c8f57af2ada432e7cfa270c9063629bba7771b442bce3e6"
+  },
+  "Pangu": {
+   "name": "Pangu",
+   "origin": "选手",
+   "source": "bots/openpangu-2.0-pro.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "8bad2945631c2d133f2f69fbeee604d6c1f753a6d86b9ed058472c8e849706e6",
+   "exe": "<build>/bot-157cd450a81da43b.exe",
+   "used_sha": "8bad2945631c2d133f2f69fbeee604d6c1f753a6d86b9ed058472c8e849706e6",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "a510bc6e6f7197939b39666541468a97c28839f5e5490f04e02b8442b579b8b3"
+  },
+  "Dots": {
+   "name": "Dots",
+   "origin": "选手",
+   "source": "bots/dots3-note-preview.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "cf31f2cf636102980f2573be42a4463a10c8757fd7b04b172e4ab0309f34a0b4",
+   "exe": "<build>/bot-301ea37e366998f2.exe",
+   "used_sha": "cf31f2cf636102980f2573be42a4463a10c8757fd7b04b172e4ab0309f34a0b4",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "e33f8b522cbf91190e9c858b3d67517c9bd4f5b43d091fa9331b856a99063500"
+  },
+  "LongCat": {
+   "name": "LongCat",
+   "origin": "选手",
+   "source": "bots/longcat-2.0.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "f884001d63277b5bfe531c663eb5bbc1bc7668ac505d949db83f59e1d8cc2b39",
+   "exe": "<build>/bot-2718e966f3168f1c.exe",
+   "used_sha": "f884001d63277b5bfe531c663eb5bbc1bc7668ac505d949db83f59e1d8cc2b39",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "810dbb9791443ec7f3da1ac05ef1475e19f290004c1a3a501d59834b22d36ab1"
+  },
+  "Qwen27B": {
+   "name": "Qwen27B",
+   "origin": "选手",
+   "source": "bots/qwen3.8-27b.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "ab274da44dd128caed1e6b7d47c907e82ea2d9c6382514827554737d25e69d11",
+   "exe": "<build>/bot-7b7a25bda944d662.exe",
+   "used_sha": "ab274da44dd128caed1e6b7d47c907e82ea2d9c6382514827554737d25e69d11",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "88070cbe541e1c7ac1407babdcdb4c3808140b6980f6ff6d7e9b50389e7bc93c"
+  },
+  "Doubao": {
+   "name": "Doubao",
+   "origin": "选手",
+   "source": "bots/doubao-seed-evolving.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "ad36b8a09bac994b5bb921fd6e1390e6ec585cc6815c6bf5567cc78ad83eeac9",
+   "exe": "<build>/bot-de7c53dff08c183e.exe",
+   "used_sha": "ad36b8a09bac994b5bb921fd6e1390e6ec585cc6815c6bf5567cc78ad83eeac9",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "10d33def9bf6aa65eb913b7f1f126b63a15d25912676eb4a193a463c126e8bd7"
+  },
+  "Mistral": {
+   "name": "Mistral",
+   "origin": "选手",
+   "source": "bots/mistral-large-4.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "ce0defddd8b636b504678567090ffbc020058c7b008a485efaaccd48181dc84d",
+   "exe": "<build>/bot-e15166267e3f9139.exe",
+   "used_sha": "ce0defddd8b636b504678567090ffbc020058c7b008a485efaaccd48181dc84d",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "cdcbcfed9b020f5602f473426e52e33b63d0e5996aab9db519e3274589222a00"
+  },
+  "Hunyuan": {
+   "name": "Hunyuan",
+   "origin": "选手",
+   "source": "bots/hunyuan-hy4-preview.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "09142c877d0ea532d84bec080e2d0ecbd2459f6c894e698d627e3dc80841ff14",
+   "exe": "<build>/bot-e07b4ae91fee60b0.exe",
+   "used_sha": "09142c877d0ea532d84bec080e2d0ecbd2459f6c894e698d627e3dc80841ff14",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "7417cdeba6780be16432bec77808165d2f1e78dcc918aa38426f63179e2298a5"
+  },
+  "Step": {
+   "name": "Step",
+   "origin": "选手",
+   "source": "bots/step-5-preview.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "b26e29889fef5dc1c46dc06c1813a699501685b115fb30684c678eb05ed00261",
+   "exe": "<build>/bot-7dc0b5cc67e430a8.exe",
+   "used_sha": "b26e29889fef5dc1c46dc06c1813a699501685b115fb30684c678eb05ed00261",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "e3e1416b72d147c4a55e246537da8fad5553518b3c186024633caff1cb4aeccc"
+  },
+  "Mercury": {
+   "name": "Mercury",
+   "origin": "选手",
+   "source": "bots/mercury-3.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "45dfa785d1c54ab3b7c5a7dd5009a9803e5a5034bf3a95258d738f9328e86cdb",
+   "exe": "<build>/bot-50017344fd6f96b9.exe",
+   "used_sha": "45dfa785d1c54ab3b7c5a7dd5009a9803e5a5034bf3a95258d738f9328e86cdb",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "4c8d4daf94419e4a8d294f2e68ebbd0eaaaaaf005e7901d2bf0e798f4a87a828"
+  },
+  "AstraUF": {
+   "name": "AstraUF",
+   "origin": "选手",
+   "source": "bots/reference/gpt-6-astra-ultra-fast.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "0c5883a2799930ef54d01d24e41cd3a0aabe8d21324f8ba2a76ed050aa06e248",
+   "exe": "<build>/bot-d86af94d3e9d0325.exe",
+   "used_sha": "0c5883a2799930ef54d01d24e41cd3a0aabe8d21324f8ba2a76ed050aa06e248",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "1c00c50f6716dba5b8d07c34e5c59e01613928d935dae60b303f8509c3c1c1f0"
+  },
+  "DSNew": {
+   "name": "DSNew",
+   "origin": "选手",
+   "source": "bots/reference/deepseek-v4.1-flash-dsh.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "25931c5e6f69255a1ae97a059a5df5888fc9ff5b0bc67fd1bd70e293812ff3b7",
+   "exe": "<build>/bot-cf56bfd98da81d1d.exe",
+   "used_sha": "25931c5e6f69255a1ae97a059a5df5888fc9ff5b0bc67fd1bd70e293812ff3b7",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "8a92e05793be52a8a599875437a2f01bb32503f8405e7b88f8e5835dc8754ecc"
+  },
+  "greedy": {
+   "name": "greedy",
+   "origin": "基准",
+   "source": "workspace/bots/greedy.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "4ad6c24ec815d3de347e0601b7820580162969925c0155647f63485f9771e91a",
+   "exe": "<build>/bot-a06b64155abf748f.exe",
+   "used_sha": "4ad6c24ec815d3de347e0601b7820580162969925c0155647f63485f9771e91a",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "cdf408c45a978330db64dc8046ea3dcc4f8090a2d73a2c54b72c549a2fe05305"
+  },
+  "greedy_fill": {
+   "name": "greedy_fill",
+   "origin": "补位",
+   "source": "workspace/bots/greedy.cpp",
+   "status": "正常",
+   "why": null,
+   "source_sha": "4ad6c24ec815d3de347e0601b7820580162969925c0155647f63485f9771e91a",
+   "exe": "<build>/bot-a06b64155abf748f.exe",
+   "used_sha": "4ad6c24ec815d3de347e0601b7820580162969925c0155647f63485f9771e91a",
+   "used": "提交的版本",
+   "compile_seconds": 0.0,
+   "exe_sha": "cdf408c45a978330db64dc8046ea3dcc4f8090a2d73a2c54b72c549a2fe05305"
+  },
+  "sparring_hard": {
+   "name": "sparring_hard",
+   "origin": "陪练",
+   "source": "workspace/bots/sparring_hard.exe",
+   "status": "正常",
+   "why": null,
+   "exe": "<build>/sparring-1d23900398ba50f3.exe",
+   "used_sha": "1d23900398ba50f34997d5f6ede038ecf95408f39b23947361546adf180c8331",
+   "exe_sha": "1d23900398ba50f34997d5f6ede038ecf95408f39b23947361546adf180c8331",
+   "used": "陪练程序"
+  }
+ },
+ "timing": {
+  "12p": {
+   "games": 534,
+   "seconds": 3197.5
+  },
+  "4p": {
+   "games": 432,
+   "seconds": 406.1
+  },
+  "1v1": {
+   "games": 480,
+   "seconds": 375.2
+  }
+ },
+ "env": {
+  "cpus": [
+   0,
+   2,
+   4,
+   6,
+   8,
+   10,
+   12,
+   14
+  ],
+  "cpus12": [
+   0,
+   2,
+   4,
+   6,
+   8,
+   10,
+   12,
+   14
+  ],
+  "power": "电源方案 GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (平衡)",
+  "per_ms": "2419200"
+ }
+}

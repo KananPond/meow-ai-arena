@@ -30,8 +30,16 @@ GAMES = {
            ("冠军对出题方参照（终场赛）", "replays/final-sparring-vs-astra.html"),
            ("Sol vs Opus（终场赛）", "replays/final-sol-vs-opus.html"),
            ("豆包下半场版本对自己的上半场版本（进步赛）", "replays/progress-doubao2-vs-doubao1.html")]),
+    "7": ("第 7 集 · 光轮对战", "tron", "workspace/submission/bot.cpp",
+          [("12 人局（正式榜，随机抽的一局）", "replays/25-12p-official-m05-rot01.html"),
+           ("4 人局（正式榜，随机抽的一局）", "replays/19-4p-official-Pangu-Dots-Doubao-Mistral.html"),
+           ("1v1（随机抽的一局）", "replays/06-1v1-Mistral-vs-LongCat.html"),
+           ("全部 30 局的清单", "replays/README.md")]),
+    "7b": ("第 7 集 · 屎山优化（仓储调度）", "warehouse", None,
+           [("名次和说明（README 文末的第 7 集一节）", "README.md"), ("统一评测主表", "results/ep7/汇总.md"),
+            ("比赛条件与异常记录（文末一节）", "CONDITIONS.md")]),
 }
-# 第 4 集是模型直接当玩家，第 5 集是接力优化代码，都没有 bot 可挑战；第 5 集也没有回放，列的是成绩文档
+# 第 4 集是模型直接当玩家，第 5 集和第 7 集屎山优化是优化代码，都没有 bot 可挑战；它们也没有回放（第 4 集除外），列的是成绩文档
 CHALLENGES = {k: v for k, v in GAMES.items() if v[2]}
 
 
@@ -91,6 +99,9 @@ def challenge():
     for k, (title, _, _, _) in CHALLENGES.items():
         print(f"  {k}. {title}")
     title, folder, template, _ = CHALLENGES[ask("挑战哪一集的 AI？", list(CHALLENGES))]
+    if folder == "tron" and os.name != "nt":
+        print("第 7 集光轮对战的裁判用到 Windows 的 CPU 计时接口，只能在 Windows 上挑战。回放用浏览器就能看。")
+        return
     print(f"把你的 bot（.cpp 文件）拖进这个窗口再回车；直接回车则用模板 {folder}/{template}。规则见 {folder}/workspace/。")
     raw = input("你的 bot：").strip().strip('"').strip("'")
     args = [sys.executable, "-X", "utf8", str(ROOT / folder / "challenge.py")] + ([raw] if raw else [])

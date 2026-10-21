@@ -45,3 +45,5 @@
 - `CHANGE.md`、`评审说明.md`（内容是 `blind-review/评审说明_同一对话版.md`）、`评审顺序.txt`（每位裁判的顺序不同）。
 
 想在本地照样拼出这些包，先按 `../referee/README.md` 还原目录，再运行对应的脚本。
+
+第 7 集 · 屎山优化的提示词和 GPT-6 Astra 找缺陷报告在 `ep7/`，见 `ep7/README.md`。那一场用的选手包就是 `../workspace/`。

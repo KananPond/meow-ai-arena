@@ -1,0 +1,1096 @@
+{
+ "per_entry": {
+  "LongCat": {
+   "12": {
+    "games": 468,
+    "turns_alive": 38085,
+    "game_turns": 66096,
+    "wins": 16,
+    "causes": {
+     "headon": 112,
+     "self": 256,
+     "obstacle": 46,
+     "trail": 30,
+     "alive": 16,
+     "out": 8
+    },
+    "kills": 84,
+    "headon_won": 34,
+    "headon_lost": 112,
+    "killed_by": {
+     "Mistral": 16,
+     "Step": 18,
+     "Hunyuan": 16,
+     "Mercury": 10,
+     "Doubao": 24,
+     "Pangu": 13,
+     "Wenxin": 8,
+     "greedy_fill": 16,
+     "Dots": 3,
+     "Qwen27B": 9,
+     "greedy": 9
+    },
+    "avg_alive": 81.4,
+    "alive_share": 0.576
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 17079,
+    "game_turns": 23483,
+    "wins": 56,
+    "causes": {
+     "alive": 56,
+     "headon": 68,
+     "self": 78,
+     "trail": 26,
+     "obstacle": 22,
+     "out": 6
+    },
+    "kills": 26,
+    "headon_won": 31,
+    "headon_lost": 68,
+    "killed_by": {
+     "Mercury": 19,
+     "greedy": 11,
+     "Dots": 4,
+     "Mistral": 18,
+     "Doubao": 7,
+     "Hunyuan": 9,
+     "Pangu": 9,
+     "Qwen27B": 6,
+     "Step": 5,
+     "Wenxin": 6
+    },
+    "avg_alive": 66.7,
+    "alive_share": 0.727
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 29593,
+    "game_turns": 29638,
+    "wins": 315,
+    "causes": {
+     "alive": 315,
+     "self": 29,
+     "trail": 2,
+     "headon": 3,
+     "obstacle": 7,
+     "out": 4
+    },
+    "kills": 43,
+    "headon_won": 57,
+    "headon_lost": 3,
+    "killed_by": {
+     "Doubao": 4,
+     "Mistral": 1
+    },
+    "avg_alive": 82.2,
+    "alive_share": 0.998
+   }
+  },
+  "greedy": {
+   "12": {
+    "games": 468,
+    "turns_alive": 28280,
+    "game_turns": 66096,
+    "wins": 2,
+    "causes": {
+     "self": 171,
+     "headon": 93,
+     "trail": 121,
+     "obstacle": 74,
+     "out": 7,
+     "alive": 2
+    },
+    "kills": 53,
+    "headon_won": 36,
+    "headon_lost": 93,
+    "killed_by": {
+     "Qwen27B": 19,
+     "Hunyuan": 29,
+     "Dots": 21,
+     "Doubao": 34,
+     "Step": 23,
+     "Wenxin": 15,
+     "Mercury": 16,
+     "Mistral": 18,
+     "Pangu": 16,
+     "greedy_fill": 13,
+     "LongCat": 10
+    },
+    "avg_alive": 60.4,
+    "alive_share": 0.428
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 16962,
+    "game_turns": 22703,
+    "wins": 46,
+    "causes": {
+     "trail": 40,
+     "headon": 71,
+     "obstacle": 28,
+     "self": 70,
+     "alive": 46,
+     "out": 1
+    },
+    "kills": 16,
+    "headon_won": 32,
+    "headon_lost": 71,
+    "killed_by": {
+     "Wenxin": 10,
+     "Mercury": 14,
+     "LongCat": 17,
+     "Dots": 8,
+     "Doubao": 16,
+     "Hunyuan": 17,
+     "Pangu": 8,
+     "Qwen27B": 5,
+     "Mistral": 12,
+     "Step": 4
+    },
+    "avg_alive": 66.3,
+    "alive_share": 0.747
+   }
+  },
+  "Wenxin": {
+   "12": {
+    "games": 468,
+    "turns_alive": 32747,
+    "game_turns": 66096,
+    "wins": 4,
+    "causes": {
+     "trail": 124,
+     "self": 246,
+     "headon": 30,
+     "obstacle": 56,
+     "out": 8,
+     "alive": 4
+    },
+    "kills": 98,
+    "headon_won": 18,
+    "headon_lost": 30,
+    "killed_by": {
+     "Pangu": 9,
+     "greedy": 13,
+     "Step": 19,
+     "Doubao": 23,
+     "Hunyuan": 17,
+     "Dots": 19,
+     "greedy_fill": 14,
+     "Mistral": 11,
+     "Qwen27B": 15,
+     "Mercury": 5,
+     "LongCat": 9
+    },
+    "avg_alive": 70.0,
+    "alive_share": 0.495
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 18264,
+    "game_turns": 22537,
+    "wins": 32,
+    "causes": {
+     "self": 103,
+     "trail": 43,
+     "headon": 28,
+     "obstacle": 43,
+     "out": 7,
+     "alive": 32
+    },
+    "kills": 29,
+    "headon_won": 10,
+    "headon_lost": 28,
+    "killed_by": {
+     "Mercury": 10,
+     "Doubao": 14,
+     "Hunyuan": 6,
+     "Mistral": 4,
+     "Dots": 7,
+     "Pangu": 7,
+     "LongCat": 9,
+     "Step": 5,
+     "Qwen27B": 5,
+     "greedy": 4
+    },
+    "avg_alive": 71.3,
+    "alive_share": 0.81
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 23021,
+    "game_turns": 23271,
+    "wins": 110,
+    "causes": {
+     "alive": 110,
+     "headon": 83,
+     "obstacle": 22,
+     "self": 82,
+     "out": 15,
+     "trail": 48
+    },
+    "kills": 13,
+    "headon_won": 6,
+    "headon_lost": 83,
+    "killed_by": {
+     "Mercury": 6,
+     "Qwen27B": 10,
+     "LongCat": 26,
+     "Mistral": 25,
+     "Hunyuan": 16,
+     "Doubao": 26,
+     "Step": 12,
+     "Pangu": 8,
+     "Dots": 2
+    },
+    "avg_alive": 63.9,
+    "alive_share": 0.989
+   }
+  },
+  "Hunyuan": {
+   "12": {
+    "games": 468,
+    "turns_alive": 57643,
+    "game_turns": 66096,
+    "wins": 150,
+    "causes": {
+     "self": 210,
+     "alive": 150,
+     "obstacle": 37,
+     "out": 6,
+     "trail": 63,
+     "headon": 2
+    },
+    "kills": 162,
+    "headon_won": 74,
+    "headon_lost": 2,
+    "killed_by": {
+     "Qwen27B": 14,
+     "Mercury": 3,
+     "Step": 6,
+     "Wenxin": 4,
+     "Dots": 11,
+     "Doubao": 11,
+     "greedy": 5,
+     "Pangu": 1,
+     "greedy_fill": 3,
+     "LongCat": 5,
+     "Mistral": 2
+    },
+    "avg_alive": 123.2,
+    "alive_share": 0.872
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 18062,
+    "game_turns": 23252,
+    "wins": 32,
+    "causes": {
+     "out": 23,
+     "obstacle": 26,
+     "trail": 26,
+     "self": 143,
+     "alive": 32,
+     "headon": 6
+    },
+    "kills": 38,
+    "headon_won": 32,
+    "headon_lost": 6,
+    "killed_by": {
+     "Doubao": 7,
+     "Pangu": 6,
+     "Mercury": 2,
+     "Dots": 1,
+     "LongCat": 2,
+     "Mistral": 3,
+     "greedy": 6,
+     "Qwen27B": 1,
+     "Wenxin": 3,
+     "Step": 1
+    },
+    "avg_alive": 70.6,
+    "alive_share": 0.777
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 27710,
+    "game_turns": 27953,
+    "wins": 117,
+    "causes": {
+     "alive": 117,
+     "obstacle": 19,
+     "self": 151,
+     "out": 53,
+     "headon": 11,
+     "trail": 9
+    },
+    "kills": 14,
+    "headon_won": 28,
+    "headon_lost": 11,
+    "killed_by": {
+     "Mercury": 2,
+     "Step": 3,
+     "Doubao": 4,
+     "LongCat": 4,
+     "Qwen27B": 2,
+     "Pangu": 2,
+     "Mistral": 2,
+     "Dots": 1
+    },
+    "avg_alive": 77.0,
+    "alive_share": 0.991
+   }
+  },
+  "Mercury": {
+   "12": {
+    "games": 240,
+    "turns_alive": 19198,
+    "game_turns": 34291,
+    "wins": 11,
+    "causes": {
+     "trail": 94,
+     "out": 7,
+     "self": 60,
+     "obstacle": 55,
+     "alive": 11,
+     "headon": 13
+    },
+    "kills": 48,
+    "headon_won": 35,
+    "headon_lost": 13,
+    "killed_by": {
+     "Hunyuan": 12,
+     "greedy_fill": 2,
+     "Pangu": 7,
+     "LongCat": 5,
+     "Wenxin": 11,
+     "Dots": 9,
+     "Doubao": 20,
+     "greedy": 6,
+     "Step": 17,
+     "Qwen27B": 8,
+     "Mistral": 10
+    },
+    "avg_alive": 80.0,
+    "alive_share": 0.56
+   },
+   "3-4": {
+    "games": 212,
+    "turns_alive": 16373,
+    "game_turns": 19745,
+    "wins": 52,
+    "causes": {
+     "self": 40,
+     "trail": 70,
+     "alive": 52,
+     "out": 6,
+     "headon": 20,
+     "obstacle": 24
+    },
+    "kills": 15,
+    "headon_won": 60,
+    "headon_lost": 20,
+    "killed_by": {
+     "LongCat": 8,
+     "Step": 9,
+     "Qwen27B": 10,
+     "Mistral": 11,
+     "Pangu": 7,
+     "greedy": 8,
+     "Doubao": 16,
+     "Wenxin": 6,
+     "Dots": 9,
+     "Hunyuan": 6
+    },
+    "avg_alive": 77.2,
+    "alive_share": 0.829
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 20485,
+    "game_turns": 20748,
+    "wins": 97,
+    "causes": {
+     "self": 117,
+     "obstacle": 51,
+     "out": 15,
+     "alive": 97,
+     "headon": 43,
+     "trail": 37
+    },
+    "kills": 8,
+    "headon_won": 17,
+    "headon_lost": 43,
+    "killed_by": {
+     "LongCat": 10,
+     "Doubao": 14,
+     "Hunyuan": 6,
+     "Mistral": 13,
+     "Step": 12,
+     "Wenxin": 6,
+     "Pangu": 11,
+     "Qwen27B": 6,
+     "Dots": 2
+    },
+    "avg_alive": 56.9,
+    "alive_share": 0.987
+   }
+  },
+  "greedy_fill": {
+   "12": {
+    "games": 696,
+    "turns_alive": 42224,
+    "game_turns": 97901,
+    "wins": 6,
+    "causes": {
+     "obstacle": 122,
+     "headon": 155,
+     "trail": 162,
+     "self": 247,
+     "alive": 6,
+     "out": 4
+    },
+    "kills": 60,
+    "headon_won": 65,
+    "headon_lost": 155,
+    "killed_by": {
+     "Step": 45,
+     "Mercury": 13,
+     "Doubao": 37,
+     "Hunyuan": 42,
+     "Dots": 33,
+     "Mistral": 26,
+     "LongCat": 23,
+     "Qwen27B": 33,
+     "Wenxin": 17,
+     "Pangu": 17,
+     "greedy": 16,
+     "greedy_fill": 15
+    },
+    "avg_alive": 60.7,
+    "alive_share": 0.431
+   }
+  },
+  "Doubao": {
+   "12": {
+    "games": 468,
+    "turns_alive": 53623,
+    "game_turns": 66096,
+    "wins": 112,
+    "causes": {
+     "self": 163,
+     "trail": 122,
+     "alive": 112,
+     "obstacle": 60,
+     "headon": 7,
+     "out": 4
+    },
+    "kills": 162,
+    "headon_won": 91,
+    "headon_lost": 7,
+    "killed_by": {
+     "Step": 17,
+     "Hunyuan": 26,
+     "Qwen27B": 15,
+     "Wenxin": 9,
+     "Mercury": 6,
+     "Dots": 18,
+     "Mistral": 13,
+     "LongCat": 8,
+     "greedy_fill": 7,
+     "Pangu": 5,
+     "greedy": 5
+    },
+    "avg_alive": 114.6,
+    "alive_share": 0.811
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 22226,
+    "game_turns": 24089,
+    "wins": 158,
+    "causes": {
+     "out": 4,
+     "alive": 158,
+     "self": 45,
+     "obstacle": 13,
+     "headon": 14,
+     "trail": 22
+    },
+    "kills": 51,
+    "headon_won": 81,
+    "headon_lost": 14,
+    "killed_by": {
+     "Qwen27B": 6,
+     "Wenxin": 2,
+     "Hunyuan": 6,
+     "Mercury": 4,
+     "Step": 2,
+     "Pangu": 8,
+     "Dots": 4,
+     "greedy": 2,
+     "Mistral": 2
+    },
+    "avg_alive": 86.8,
+    "alive_share": 0.923
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 26862,
+    "game_turns": 26980,
+    "wins": 242,
+    "causes": {
+     "alive": 242,
+     "obstacle": 21,
+     "self": 34,
+     "trail": 43,
+     "headon": 15,
+     "out": 5
+    },
+    "kills": 25,
+    "headon_won": 66,
+    "headon_lost": 15,
+    "killed_by": {
+     "Mercury": 3,
+     "LongCat": 14,
+     "Qwen27B": 3,
+     "Mistral": 17,
+     "Hunyuan": 6,
+     "Wenxin": 4,
+     "Dots": 2,
+     "Step": 6,
+     "Pangu": 3
+    },
+    "avg_alive": 74.6,
+    "alive_share": 0.996
+   }
+  },
+  "Dots": {
+   "12": {
+    "games": 468,
+    "turns_alive": 23754,
+    "game_turns": 66096,
+    "wins": 0,
+    "causes": {
+     "self": 292,
+     "obstacle": 66,
+     "trail": 82,
+     "headon": 27,
+     "out": 1
+    },
+    "kills": 150,
+    "headon_won": 18,
+    "headon_lost": 27,
+    "killed_by": {
+     "Step": 10,
+     "Wenxin": 10,
+     "Doubao": 17,
+     "Pangu": 9,
+     "greedy_fill": 9,
+     "Mercury": 6,
+     "greedy": 9,
+     "Mistral": 11,
+     "Qwen27B": 7,
+     "Hunyuan": 10,
+     "LongCat": 11
+    },
+    "avg_alive": 50.8,
+    "alive_share": 0.359
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 15525,
+    "game_turns": 22524,
+    "wins": 12,
+    "causes": {
+     "self": 168,
+     "obstacle": 29,
+     "alive": 12,
+     "headon": 13,
+     "trail": 29,
+     "out": 5
+    },
+    "kills": 32,
+    "headon_won": 15,
+    "headon_lost": 13,
+    "killed_by": {
+     "LongCat": 4,
+     "greedy": 3,
+     "Mercury": 3,
+     "Doubao": 12,
+     "Wenxin": 4,
+     "Mistral": 2,
+     "Hunyuan": 2,
+     "Step": 6,
+     "Pangu": 3,
+     "Qwen27B": 3
+    },
+    "avg_alive": 60.6,
+    "alive_share": 0.689
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 20442,
+    "game_turns": 20752,
+    "wins": 50,
+    "causes": {
+     "alive": 50,
+     "self": 212,
+     "trail": 22,
+     "obstacle": 36,
+     "out": 24,
+     "headon": 16
+    },
+    "kills": 6,
+    "headon_won": 2,
+    "headon_lost": 16,
+    "killed_by": {
+     "Mercury": 3,
+     "Mistral": 5,
+     "Doubao": 6,
+     "Pangu": 6,
+     "LongCat": 8,
+     "Step": 4,
+     "Wenxin": 1,
+     "Hunyuan": 4,
+     "Qwen27B": 1
+    },
+    "avg_alive": 56.8,
+    "alive_share": 0.985
+   }
+  },
+  "Step": {
+   "12": {
+    "games": 468,
+    "turns_alive": 49120,
+    "game_turns": 66096,
+    "wins": 79,
+    "causes": {
+     "alive": 79,
+     "trail": 81,
+     "self": 252,
+     "headon": 17,
+     "obstacle": 33,
+     "out": 6
+    },
+    "kills": 126,
+    "headon_won": 81,
+    "headon_lost": 17,
+    "killed_by": {
+     "Pangu": 4,
+     "greedy_fill": 5,
+     "Hunyuan": 13,
+     "Doubao": 12,
+     "Dots": 10,
+     "Qwen27B": 19,
+     "Wenxin": 10,
+     "LongCat": 8,
+     "Mistral": 9,
+     "Mercury": 5,
+     "greedy": 3
+    },
+    "avg_alive": 105.0,
+    "alive_share": 0.743
+   },
+   "3-4": {
+    "games": 252,
+    "turns_alive": 22583,
+    "game_turns": 24217,
+    "wins": 115,
+    "causes": {
+     "trail": 25,
+     "self": 66,
+     "alive": 115,
+     "obstacle": 22,
+     "out": 20,
+     "headon": 4
+    },
+    "kills": 32,
+    "headon_won": 18,
+    "headon_lost": 4,
+    "killed_by": {
+     "Mercury": 1,
+     "Mistral": 4,
+     "LongCat": 5,
+     "Doubao": 11,
+     "Dots": 3,
+     "Hunyuan": 2,
+     "Pangu": 2,
+     "Qwen27B": 1
+    },
+    "avg_alive": 89.6,
+    "alive_share": 0.933
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 29821,
+    "game_turns": 29937,
+    "wins": 244,
+    "causes": {
+     "alive": 244,
+     "self": 51,
+     "headon": 34,
+     "obstacle": 10,
+     "trail": 16,
+     "out": 5
+    },
+    "kills": 30,
+    "headon_won": 19,
+    "headon_lost": 34,
+    "killed_by": {
+     "Mercury": 1,
+     "LongCat": 12,
+     "Doubao": 15,
+     "Mistral": 17,
+     "Qwen27B": 1,
+     "Pangu": 2,
+     "Wenxin": 1,
+     "Hunyuan": 1
+    },
+    "avg_alive": 82.8,
+    "alive_share": 0.996
+   }
+  },
+  "Mistral": {
+   "12": {
+    "games": 468,
+    "turns_alive": 43646,
+    "game_turns": 66096,
+    "wins": 59,
+    "causes": {
+     "obstacle": 77,
+     "alive": 59,
+     "self": 166,
+     "trail": 141,
+     "out": 14,
+     "headon": 11
+    },
+    "kills": 83,
+    "headon_won": 59,
+    "headon_lost": 11,
+    "killed_by": {
+     "Step": 16,
+     "Qwen27B": 11,
+     "Dots": 19,
+     "Hunyuan": 25,
+     "Doubao": 25,
+     "Pangu": 11,
+     "Mercury": 4,
+     "LongCat": 9,
+     "greedy_fill": 11,
+     "greedy": 10,
+     "Wenxin": 11
+    },
+    "avg_alive": 93.3,
+    "alive_share": 0.66
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 17301,
+    "game_turns": 23819,
+    "wins": 81,
+    "causes": {
+     "alive": 81,
+     "trail": 43,
+     "self": 73,
+     "headon": 22,
+     "obstacle": 28,
+     "out": 9
+    },
+    "kills": 37,
+    "headon_won": 46,
+    "headon_lost": 22,
+    "killed_by": {
+     "Mercury": 6,
+     "Wenxin": 4,
+     "Hunyuan": 10,
+     "Pangu": 16,
+     "Doubao": 13,
+     "LongCat": 3,
+     "Step": 6,
+     "Dots": 2,
+     "Qwen27B": 5
+    },
+    "avg_alive": 67.6,
+    "alive_share": 0.726
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 29280,
+    "game_turns": 29305,
+    "wins": 335,
+    "causes": {
+     "alive": 335,
+     "trail": 5,
+     "self": 12,
+     "headon": 3,
+     "obstacle": 4,
+     "out": 1
+    },
+    "kills": 31,
+    "headon_won": 72,
+    "headon_lost": 3,
+    "killed_by": {
+     "LongCat": 4,
+     "Pangu": 1,
+     "Doubao": 3
+    },
+    "avg_alive": 81.3,
+    "alive_share": 0.999
+   }
+  },
+  "Qwen27B": {
+   "12": {
+    "games": 468,
+    "turns_alive": 39277,
+    "game_turns": 66096,
+    "wins": 21,
+    "causes": {
+     "out": 18,
+     "self": 278,
+     "obstacle": 48,
+     "trail": 67,
+     "headon": 36,
+     "alive": 21
+    },
+    "kills": 128,
+    "headon_won": 44,
+    "headon_lost": 36,
+    "killed_by": {
+     "Step": 13,
+     "Pangu": 6,
+     "Dots": 10,
+     "Doubao": 12,
+     "Wenxin": 9,
+     "LongCat": 8,
+     "Hunyuan": 18,
+     "Mistral": 6,
+     "Mercury": 3,
+     "greedy": 3,
+     "greedy_fill": 15
+    },
+    "avg_alive": 83.9,
+    "alive_share": 0.594
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 18049,
+    "game_turns": 22735,
+    "wins": 32,
+    "causes": {
+     "self": 113,
+     "alive": 32,
+     "headon": 49,
+     "obstacle": 24,
+     "trail": 28,
+     "out": 10
+    },
+    "kills": 34,
+    "headon_won": 16,
+    "headon_lost": 49,
+    "killed_by": {
+     "Mercury": 8,
+     "Pangu": 16,
+     "greedy": 7,
+     "Step": 6,
+     "Mistral": 8,
+     "Doubao": 17,
+     "Dots": 3,
+     "LongCat": 5,
+     "Wenxin": 4,
+     "Hunyuan": 3
+    },
+    "avg_alive": 70.5,
+    "alive_share": 0.794
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 23199,
+    "game_turns": 23451,
+    "wins": 108,
+    "causes": {
+     "alive": 108,
+     "headon": 48,
+     "self": 138,
+     "trail": 28,
+     "obstacle": 31,
+     "out": 7
+    },
+    "kills": 15,
+    "headon_won": 11,
+    "headon_lost": 48,
+    "killed_by": {
+     "Mercury": 7,
+     "Pangu": 5,
+     "Doubao": 16,
+     "Step": 7,
+     "LongCat": 14,
+     "Mistral": 16,
+     "Wenxin": 5,
+     "Hunyuan": 5,
+     "Dots": 1
+    },
+    "avg_alive": 64.4,
+    "alive_share": 0.989
+   }
+  },
+  "Pangu": {
+   "12": {
+    "games": 468,
+    "turns_alive": 29088,
+    "game_turns": 66096,
+    "wins": 2,
+    "causes": {
+     "trail": 118,
+     "headon": 99,
+     "self": 158,
+     "obstacle": 86,
+     "out": 5,
+     "alive": 2
+    },
+    "kills": 51,
+    "headon_won": 47,
+    "headon_lost": 99,
+    "killed_by": {
+     "Doubao": 38,
+     "Step": 23,
+     "Hunyuan": 28,
+     "Dots": 15,
+     "Qwen27B": 22,
+     "Mercury": 12,
+     "greedy": 10,
+     "Wenxin": 12,
+     "greedy_fill": 15,
+     "LongCat": 22,
+     "Mistral": 20
+    },
+    "avg_alive": 62.2,
+    "alive_share": 0.44
+   },
+   "3-4": {
+    "games": 256,
+    "turns_alive": 17490,
+    "game_turns": 23044,
+    "wins": 69,
+    "causes": {
+     "alive": 69,
+     "headon": 70,
+     "self": 73,
+     "obstacle": 26,
+     "trail": 16,
+     "out": 2
+    },
+    "kills": 58,
+    "headon_won": 24,
+    "headon_lost": 70,
+    "killed_by": {
+     "Mercury": 8,
+     "Mistral": 19,
+     "Doubao": 19,
+     "Hunyuan": 9,
+     "Qwen27B": 8,
+     "Dots": 6,
+     "LongCat": 4,
+     "Step": 6,
+     "greedy": 7
+    },
+    "avg_alive": 68.3,
+    "alive_share": 0.759
+   },
+   "1v1": {
+    "games": 360,
+    "turns_alive": 25633,
+    "game_turns": 25815,
+    "wins": 178,
+    "causes": {
+     "alive": 178,
+     "obstacle": 38,
+     "self": 102,
+     "trail": 9,
+     "headon": 26,
+     "out": 7
+    },
+    "kills": 34,
+    "headon_won": 4,
+    "headon_lost": 26,
+    "killed_by": {
+     "Mercury": 3,
+     "LongCat": 8,
+     "Qwen27B": 3,
+     "Step": 5,
+     "Mistral": 7,
+     "Doubao": 3,
+     "Hunyuan": 4,
+     "Wenxin": 2
+    },
+    "avg_alive": 71.2,
+    "alive_share": 0.993
+   }
+  }
+ },
+ "longest": {
+  "12": {
+   "turns": 269,
+   "gid": "final1018:results:3218",
+   "seats": [
+    "greedy",
+    "Wenxin",
+    "greedy_fill",
+    "Qwen27B",
+    "Pangu",
+    "LongCat",
+    "Step",
+    "greedy_fill",
+    "Dots",
+    "Hunyuan",
+    "Mistral",
+    "Doubao"
+   ],
+   "replay": "<终场1018>/回放/正式榜/12p/12p-m08-rot02.json"
+  },
+  "3-4": {
+   "turns": 174,
+   "gid": "final1018:results:2652",
+   "seats": [
+    "Step",
+    "Pangu",
+    "Mistral",
+    "LongCat"
+   ],
+   "replay": "<终场1018>/回放/正式榜/4p/4p-r01-t1-rot0.json"
+  },
+  "1v1": {
+   "turns": 186,
+   "gid": "final1018:results:1781",
+   "seats": [
+    "Mistral",
+    "LongCat"
+   ],
+   "replay": null
+  }
+ },
+ "lengths": {
+  "12p": {
+   "games": 468,
+   "mean": 141.2,
+   "median": 138.5,
+   "max": 269,
+   "min": 90
+  },
+  "4p": {
+   "games": 692,
+   "mean": 91.1,
+   "median": 91.0,
+   "max": 174,
+   "min": 34
+  },
+  "1v1": {
+   "games": 1800,
+   "mean": 71.6,
+   "median": 68.0,
+   "max": 186,
+   "min": 5
+  }
+ }
+}

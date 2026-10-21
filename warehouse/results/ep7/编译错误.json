@@ -1,0 +1,3 @@
+{
+ "ep7_LongCat": "编译失败：<主办方目录>/00_项目管理\\联调\\toolchain\\w64devkit\\bin\\g++.exe -O2 -std=c++20 -static -o <主办方评测目录>/统一评测\\build\\ep7_LongCat\\sim.exe submissions/ep7/longcat-2.0\\main.cpp submissions/ep7/longcat-2.0\\old_stuff.cpp submissions/ep7/longcat-2.0\\sim.cpp submissions/ep7/longcat-2.0\\util.cpp\nsubmissions/ep7/longcat-2.0\\sim.cpp: In function 'void RunSim()':\nsubmissions/ep7/longcat-2.0\\sim.cpp:70:9: error: '__m128i' was not declared in this scope\n   70 |         __m128i _pad = _mm_setzero_si128(); // prevent optimization\n      |         ^~~~~~~\n"
+}

@@ -1,0 +1,272 @@
+{
+  "name": "光轮对战（第 7 集正赛）",
+  "final_dir": "终场_补打Mercury",
+  "work_dir": "<赛事工作目录>",
+  "event_dir": "<赛事工作目录>/event",
+  "players_root": "<选手文件夹的上一级>",
+  "release_dir": "../发布",
+  "compiler": null,
+  "kit": "../workspace",
+  "prompt": "../提示词/开赛提示词.md",
+  "messages": "../提示词/消息模板_v0.md",
+  "trash_talk": null,
+  "baseline": "../workspace/bots/greedy.cpp",
+  "sparring": "../workspace/bots/sparring_hard.exe",
+  "substitute": "../workspace/submission/bot.cpp",
+  "baseline_name": "greedy",
+  "sparring_name": "sparring_hard",
+  "players": [
+    {
+      "name": "Wenxin",
+      "display": "文心 ERNIE 5.1",
+      "tool": "opencode",
+      "model": "qianfan/ernie-5.1"
+    },
+    {
+      "name": "Pangu",
+      "display": "盘古 openPangu-2.0-Pro",
+      "tool": "opencode",
+      "model": "huawei-maas/openpangu-2.0-pro"
+    },
+    {
+      "name": "Dots",
+      "display": "小红书 dots3-note preview",
+      "tool": "opencode",
+      "model": "dots/dots3-note-prev"
+    },
+    {
+      "name": "LongCat",
+      "display": "美团 LongCat-2.0",
+      "tool": "opencode",
+      "model": "openrouter/meituan/longcat-2.0"
+    },
+    {
+      "name": "Qwen27B",
+      "display": "通义千问 Qwen3.8-27B",
+      "tool": "opencode",
+      "model": "openrouter/qwen/qwen3.8-27b"
+    },
+    {
+      "name": "Doubao",
+      "display": "豆包 Doubao-Seed-Evolving",
+      "tool": "opencode",
+      "model": "volcengine/doubao-seed-evolving"
+    },
+    {
+      "name": "Mistral",
+      "display": "Mistral Large 4",
+      "tool": "opencode",
+      "model": "openrouter/mistralai/mistral-large-4-0"
+    },
+    {
+      "name": "Hunyuan",
+      "display": "腾讯混元 Hy4 preview",
+      "tool": "opencode",
+      "model": "openrouter/tencent/hy4-preview"
+    },
+    {
+      "name": "Step",
+      "display": "阶跃 Step 5 preview",
+      "tool": "opencode",
+      "model": "openrouter/stepfun/step-5-preview"
+    },
+    {
+      "name": "Mercury",
+      "display": "Inception Mercury 3（扩散模型）",
+      "tool": "opencode",
+      "model": "openrouter/inception/mercury-3"
+    },
+    {
+      "name": "AstraUF",
+      "display": "GPT-6 Astra（ultra + fast）",
+      "tool": "codex",
+      "model": "gpt-6-astra",
+      "codex_args": "-c model_reasoning_effort=ultra -c service_tier=priority"
+    },
+    {
+      "name": "DSFlash",
+      "display": "DeepSeek V4.1 Flash（dsh PTC 创造模式，作废）",
+      "tool": "other",
+      "model": "deepseek-flash",
+      "void": true
+    },
+    {
+      "name": "DSStd",
+      "display": "DeepSeek V4.1 Flash（dsh 0.2.0 标准模式，作废）",
+      "tool": "other",
+      "model": "deepseek-flash",
+      "void": true
+    },
+    {
+      "name": "DSNew",
+      "display": "DeepSeek V4.1 Flash（dsh 0.2.1-rc.2 标准模式）",
+      "tool": "other",
+      "model": "deepseek-flash"
+    },
+    {
+      "name": "Human",
+      "display": "人工队（未参赛）",
+      "tool": "human",
+      "model": null,
+      "void": true
+    }
+  ],
+  "target_minutes": 45,
+  "limit_minutes": 60,
+  "recheck_seconds": 60,
+  "cpus": "auto",
+  "max_cpus": 8,
+  "cpus_12": null,
+  "schedule": {
+    "table_seed": 7007,
+    "map_seed": null,
+    "1v1": {
+      "maps": 20,
+      "seeds_from": "<终场1018>/赛程.json"
+    },
+    "4p": {
+      "rounds": 20
+    },
+    "3p": {
+      "rounds": 10
+    },
+    "12p": {
+      "maps": 4
+    },
+    "sparring": {
+      "maps": 10
+    },
+    "focus": [
+      "Mercury"
+    ]
+  },
+  "weights": {
+    "1v1": 0.5,
+    "3-4": 0.3,
+    "12": 0.2
+  },
+  "boot": 1000,
+  "replays": {
+    "1v1_maps": 1,
+    "4p_rounds": 2,
+    "3p_rounds": 1,
+    "12p": true,
+    "sparring_maps": 1,
+    "faults": true
+  },
+  "leaderboards": [
+    {
+      "name": "正式榜",
+      "note": "10 位正式选手，Doubao 是锚点（0 分）。greedy 只坐座位、不计分、不上榜；12 人局人数不够，用 greedy 的副本补位，同样不计分。",
+      "players": [
+        "Wenxin",
+        "Pangu",
+        "Dots",
+        "LongCat",
+        "Qwen27B",
+        "Doubao",
+        "Mistral",
+        "Hunyuan",
+        "Step",
+        "Mercury"
+      ],
+      "lines": [],
+      "import_multi": [
+        "preview1/multi_formal",
+        "preview2/multi_formal",
+        "final1018/results"
+      ],
+      "schedule": {
+        "4p": {
+          "rounds": 53
+        },
+        "3p": {
+          "rounds": 0
+        },
+        "12p": {
+          "maps": 20
+        }
+      }
+    },
+    {
+      "name": "强对手榜",
+      "note": "看各选手面对强对手的表现。Doubao 是锚点（0 分）。sparring_hard 正常参赛、参与拟合，但不占名次，作为“强档陪练线”；greedy 只坐座位、不计分、不上榜。12 人局正好坐满。",
+      "players": [
+        "Wenxin",
+        "Pangu",
+        "Dots",
+        "LongCat",
+        "Qwen27B",
+        "Doubao",
+        "Mistral",
+        "Hunyuan",
+        "Step",
+        "Mercury",
+        "DSNew",
+        "AstraUF"
+      ],
+      "lines": [
+        "sparring_hard"
+      ],
+      "line_labels": {
+        "sparring_hard": "强档陪练线"
+      },
+      "import_multi": [
+        "preview2/multi_ref",
+        "final1018/results"
+      ],
+      "schedule": {
+        "4p": {
+          "rounds": 55
+        },
+        "3p": {
+          "rounds": 0
+        },
+        "12p": {
+          "maps": 21
+        }
+      }
+    }
+  ],
+  "imports": [
+    {
+      "source": "preview1",
+      "note": "第一次快速预览（快速模式，2026-10-17 02:3x）",
+      "results": [
+        "<preview1>/results/1v1.jsonl",
+        "<preview1>/results/multi_formal.jsonl",
+        "<preview1>/results/multi_ref.jsonl"
+      ],
+      "bots": "<preview1>/bots",
+      "kit": "<preview1>/kit",
+      "rename": {
+        "greedy2": "@filler"
+      }
+    },
+    {
+      "source": "preview2",
+      "note": "第二次快速预览（加强档陪练，快速模式，2026-10-17 04:4x）",
+      "results": [
+        "<preview2>/results/1v1.jsonl",
+        "<preview2>/results/multi_formal.jsonl",
+        "<preview2>/results/multi_ref.jsonl"
+      ],
+      "bots": "<preview2>/bots",
+      "kit": "<preview2>/kit",
+      "rename": {
+        "greedy2": "@filler"
+      }
+    },
+    {
+      "source": "final1018",
+      "note": "10-18 正式终场，无 Mercury",
+      "final": "<终场1018>"
+    }
+  ],
+  "anchor": "Doubao",
+  "baseline_scored": false,
+  "baseline_in_1v1": false,
+  "exclude_types": [
+    "3p"
+  ]
+}

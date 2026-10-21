@@ -1,0 +1,6 @@
+0 ASSIGN 1000000000 R0 0
+0 PICK 1000000000 R0
+0 REPORT pending=0 idle=0 to_pickup=0 delivering=1 to_charger=0 charging=0 dead=0 hot=1,1,1
+SUMMARY delivered=0 lost=0 rejected=0 cancelled=0 open=1
+LATENCY sum=0 max=0 avg=0
+ROBOT R0 1 1 1 DELIVERING 0 0

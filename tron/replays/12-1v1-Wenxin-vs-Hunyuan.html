@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>光轮对战 · 回放</title>
+<!--
+  光轮对战回放查看器。单个文件，不联网、不引用任何外部资源，双击用浏览器打开。
+  读 arena.py play 存的 replays/*.json（format = tron-replay-1）。三种来法：
+    1. 把回放文件拖进页面，或点右上角"打开文件"；
+    2. 地址栏 viewer.html?file=replays/xxx.json（相对本文件；浏览器要允许网页读本地文件，见帮助）；
+    3. 下面 EMBED 的占位换成回放 JSON，做成单个能直接打开的网页。
+  其余地址栏参数（turn、p、play、speed、rec、check 等）见页面里的"帮助"（H 键）。
+  对局由回放里的 rows、spawns、moves 在网页里按 tron.hpp 的 step 重新结算；?check=1 把重算结果和回放核对。
+-->
+<style>
+:root{color-scheme:dark;--bg:#090b10;--panel:#121620;--panel2:#191e29;--line:#262d3a;--ink:#e8ecf2;--ink2:#aeb7c4;--muted:#76808f;
+  --gold:#ffd24a;--bad:#ff4d4d;--good:#4fd18b;--warn:#f5c542}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei UI","Microsoft YaHei","Segoe UI","PingFang SC","Noto Sans CJK SC",sans-serif;
+  font-size:14px;overflow:hidden;-webkit-font-smoothing:antialiased;user-select:none}
+b{font-weight:700}
+.mono{font-family:Consolas,"Cascadia Mono","Courier New",monospace}
+#app{position:fixed;inset:0;display:flex;flex-direction:column}
+header{flex:none;display:flex;align-items:center;gap:12px;padding:7px 14px;background:#0d1016;border-bottom:1px solid var(--line);min-height:44px}
+header h1{margin:0;font-size:18px;letter-spacing:.1em;white-space:nowrap}
+header h1 small{font-weight:400;color:var(--muted);font-size:12px;letter-spacing:0;margin-left:8px}
+#meta{flex:1;min-width:0;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{display:none;border-radius:5px;padding:2px 9px;font-weight:700;white-space:nowrap;cursor:pointer}
+.chip.pass{display:inline-block;background:#173b29;color:#7ff0b0;border:1px solid #2c7a52}
+.chip.fail{display:inline-block;background:var(--bad);color:#fff}
+button,select,input{background:#20262f;color:var(--ink);border:1px solid #384252;border-radius:6px;padding:5px 10px;font:inherit;font-size:13px;line-height:1.2}
+button{cursor:pointer;white-space:nowrap}
+button:hover,select:hover{background:#2b3340}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+button.on{background:#3a3214;border-color:#8a7426;color:var(--gold)}
+main{flex:1;position:relative;min-height:0}
+footer{flex:none;border-top:1px solid var(--line);background:#0d1016;padding:6px 14px 8px}
+#ctl{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#ctl .sep{width:1px;height:22px;background:var(--line);margin:0 6px}
+#ctl .grow{flex:1}
+#bplay{min-width:74px;font-weight:700}
+#turnbox{width:62px;text-align:right}
+#turnlbl{color:var(--ink2);white-space:nowrap}
+#tl{display:block;width:100%;height:46px;margin-top:6px;cursor:pointer}
+.panel{position:absolute;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.panel h2{margin:0;padding:8px 12px 6px;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.14em;flex:none;display:flex;justify-content:space-between}
+.panel h2 span{letter-spacing:0;font-weight:400}
+#stage{position:absolute}
+#board{position:absolute;pointer-events:none}
+#recbox{position:absolute;display:none;background:radial-gradient(ellipse at 30% 40%,#121826 0%,#090b10 70%);border-radius:0}
+body.rec #recbox{display:block}
+body.rec header,body.rec footer,body.rec #left{display:none}
+body.rec #app{background:#000}
+body.rec .norec{display:none!important}
+body:not(.rec) .onlyrec{display:none!important}
+
+/* 右栏：记分板 */
+#right{font-size:14px}
+#sb{flex:none;padding:.7em .9em .6em;border-bottom:1px solid var(--line);display:flex;align-items:flex-end;gap:.8em;flex-wrap:wrap}
+#sbt{font-size:1.25em;font-weight:700;letter-spacing:.06em;flex:1;min-width:0;white-space:nowrap}
+#sbt small{display:block;font-size:.62em;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:.15em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sbnum{text-align:right;white-space:nowrap;color:var(--ink2);font-size:.85em;line-height:1.1}
+.sbnum b{display:block;font-size:2.1em;color:var(--ink);font-family:Consolas,monospace;letter-spacing:-.02em}
+.sbnum b small{font-size:.45em;color:var(--muted);font-weight:400;margin-left:.15em}
+#rows{flex:0 1 auto;overflow:auto;padding:.35em .5em .5em;scrollbar-width:thin;display:flex;flex-direction:column;gap:.3em}
+.prow{display:grid;grid-template-columns:2.3em minmax(0,1fr) auto;gap:.6em;align-items:center;padding:.35em .5em;border-radius:.5em;
+  background:var(--panel2);border:1px solid transparent;cursor:pointer;transition:opacity .25s;flex:none}
+.prow:hover{border-color:#3a4454}
+.prow.sel{border-color:var(--c)}
+.prow.dead{opacity:.5}
+.prow.flash{background:color-mix(in srgb,var(--c) 28%,#191e29);box-shadow:inset 0 0 0 2px var(--c);opacity:1}
+.prow.won{border-color:var(--gold);background:#272210}
+.sw{width:2.3em;height:2.3em;border-radius:.45em;background:var(--c);color:#06080c;display:grid;place-items:center;font-weight:800;font-size:1em;
+  box-shadow:0 0 .7em color-mix(in srgb,var(--c) 70%,transparent),inset 0 0 0 2px rgba(255,255,255,.55);font-family:Consolas,monospace}
+.dead .sw{box-shadow:none;background:#0b0d12;color:var(--c);border:2px solid var(--c)}
+.pl1{display:flex;align-items:baseline;gap:.5em;min-width:0}
+.pname{font-weight:700;font-size:1.08em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.pstat{margin-left:auto;font-size:.82em;white-space:nowrap;color:var(--good)}
+.dead .pstat{color:#ff8f8f}
+.pl2{display:flex;gap:.9em;font-size:.8em;color:var(--muted);white-space:nowrap;margin-top:.12em}
+.pl2 b{color:var(--ink2);font-family:Consolas,monospace;font-weight:600}
+.pl2 .flt{color:var(--warn)}
+.pl3{font-size:.74em;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.1em}
+.tbar{height:.32em;background:#0b0e14;border-radius:1em;margin-top:.3em;overflow:hidden}
+.tbar i{display:block;height:100%;background:var(--c);border-radius:1em;transition:width .15s}
+.prank{text-align:right;min-width:3.6em;white-space:nowrap}
+.prank b{display:block;font-size:1.15em}
+.prank small{color:var(--muted);font-size:.8em;font-family:Consolas,monospace}
+.prank.first b{color:var(--gold)}
+body.n12 .pl3{display:none}
+body.n12 .prow{padding:.22em .45em}
+body.n12 .sw{width:2em;height:2em;font-size:.92em}
+body.n12 .prow{grid-template-columns:2em minmax(0,1fr) auto}
+
+#rlog{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:.35em;padding:.5em .9em .8em;border-top:1px solid var(--line);font-size:.86em;line-height:1.45}
+#rlog .t{color:var(--muted);font-family:Consolas,monospace;margin-right:.4em}
+body.n12 #rlog{display:none}
+/* 左栏：事件 */
+#left{font-size:13px}
+#evs{flex:1;overflow:auto;padding:0 8px 8px;scrollbar-width:thin}
+.ev{padding:5px 8px;border-radius:6px;cursor:pointer;line-height:1.45;border:1px solid transparent}
+.ev:hover{background:var(--panel2)}
+.ev.cur{background:#262013;border-color:#6d5a1e}
+.ev .t{color:var(--muted);font-family:Consolas,monospace;font-size:.92em;margin-right:6px}
+.pc{white-space:nowrap;font-weight:700;color:color-mix(in srgb,var(--c) 75%,#fff)}
+.pc i{display:inline-block;width:.75em;height:.75em;border-radius:2px;background:var(--c);margin-right:.25em;vertical-align:-.04em}
+.tag{display:inline-block;font-size:.8em;padding:0 .4em;border-radius:3px;margin-right:.35em;font-weight:700;vertical-align:.05em}
+.tag.k{background:#4a1a1a;color:#ff9b9b}.tag.c{background:#3d3410;color:var(--gold)}.tag.s{background:#16324a;color:#8fd0ff}
+#dbg{flex:none;border-top:1px solid var(--line);max-height:38%;display:flex;flex-direction:column}
+#dbg pre{margin:0;padding:6px 10px 10px;overflow:auto;font-size:11.5px;color:var(--ink2);white-space:pre-wrap;word-break:break-all;flex:1;user-select:text;font-family:Consolas,monospace}
+#legend{flex:none;border-top:1px solid var(--line);padding:7px 12px 9px;color:var(--ink2);font-size:12px;line-height:1.7}
+#legend canvas{vertical-align:middle;margin-right:4px}
+
+/* 棋盘上的字幕、结束卡 */
+#toasts{position:absolute;left:1.2%;top:1.2%;right:1.2%;display:flex;flex-direction:column;gap:.35em;pointer-events:none;align-items:flex-start}
+.toast{background:rgba(8,10,15,.86);border:1px solid #333c4b;border-left:4px solid var(--bad);border-radius:6px;padding:.35em .7em;font-size:var(--tf,14px);
+  line-height:1.45;max-width:100%;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.toast .t{color:var(--muted);margin-right:.5em;font-family:Consolas,monospace}
+.toast.c{border-left-color:var(--gold)}
+#endcard{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(9,11,16,.93);border:1px solid #3b4454;border-radius:12px;
+  padding:1em 1.3em 1.1em;min-width:56%;max-width:92%;max-height:92%;overflow:hidden;display:none;box-shadow:0 10px 40px rgba(0,0,0,.6);font-size:var(--ef,15px)}
+#endcard h3{margin:0 0 .6em;font-size:1.35em;letter-spacing:.08em;display:flex;justify-content:space-between;align-items:baseline;gap:1em}
+#endcard h3 small{font-size:.6em;color:var(--muted);font-weight:400;letter-spacing:0}
+#endcard table{border-collapse:collapse;width:100%}
+#endcard td{padding:.22em .5em;white-space:nowrap;border-top:1px solid #222935}
+#endcard td.r{text-align:right;font-family:Consolas,monospace}
+#endcard td.rk{font-weight:800;color:var(--ink2)}
+#endcard tr.first td.rk{color:var(--gold)}
+#endcard td.why{color:var(--muted);font-size:.9em}
+#endcard .hint{color:var(--muted);font-size:.78em;margin-top:.6em}
+body.n12 #endcard{font-size:calc(var(--ef,15px)*.82)}
+
+#empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ink2);line-height:1.9;font-size:15px;padding:20px}
+#empty b{color:var(--ink);font-size:20px}
+#empty .err{color:#ff9b9b;margin-top:10px;max-width:640px;text-align:left;font-size:13.5px}
+#drop{position:fixed;inset:0;background:rgba(10,14,22,.82);border:3px dashed var(--gold);display:none;align-items:center;justify-content:center;font-size:26px;z-index:50}
+#tip{position:fixed;pointer-events:none;background:#05070a;border:1px solid #3a4454;border-radius:6px;padding:5px 9px;font-size:12.5px;z-index:60;display:none;max-width:420px;line-height:1.5}
+#checkbar{display:none;flex:none;background:#5c0d0d;border-bottom:2px solid var(--bad);color:#fff;padding:8px 14px;font-size:14px;max-height:40vh;overflow:auto;user-select:text}
+#checkbar.show{display:block}
+#checkbar b{font-size:16px}
+#checkbar ul{margin:4px 0 0;padding-left:22px}
+body.rec #checkbar.show{position:fixed;left:0;right:0;top:0;z-index:70}
+#help{position:fixed;inset:0;background:rgba(5,7,10,.78);display:none;align-items:center;justify-content:center;z-index:80}
+#help .box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 24px;max-width:860px;max-height:90vh;overflow:auto;line-height:1.6;user-select:text}
+#help h3{margin:0 0 8px}
+#help table{border-collapse:collapse;margin-bottom:12px}
+#help td{padding:2px 12px 2px 0;vertical-align:top}
+#help td:first-child{white-space:nowrap;color:var(--gold);font-family:Consolas,monospace}
+#hint{position:fixed;pointer-events:none;left:50%;bottom:24px;transform:translateX(-50%);background:rgba(0,0,0,.8);border:1px solid #444;border-radius:8px;padding:8px 16px;z-index:90;display:none}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="checkbar"></div>
+  <header>
+    <h1>光轮对战<small>回放查看器</small></h1>
+    <div id="meta">未载入回放</div>
+    <span id="chk" class="chip" title="点击查看自检详情"></span>
+    <button id="bopen" title="打开回放文件（O）">打开文件</button>
+    <button id="bhelp" title="帮助（H）">帮助</button>
+  </header>
+  <main id="main">
+    <div id="recbox"></div>
+    <div id="left" class="panel">
+      <h2>事件<span id="evcount"></span></h2>
+      <div id="evs"></div>
+      <div id="dbg"><h2>调试输出<span id="dbgwho">点右侧选手查看</span></h2><pre id="dbgtext"></pre></div>
+      <div id="legend"></div>
+    </div>
+    <div id="stage">
+      <canvas id="board"></canvas>
+      <div id="toasts"></div>
+      <div id="endcard"></div>
+      <div id="empty"><div><b>把回放文件拖到这里</b><br>或者点右上角"打开文件"，选 <span class="mono">replays\*.json</span><br>
+        <span style="color:var(--muted)">也可以在地址栏写 <span class="mono">viewer.html?file=replays/xxx.json</span>（见帮助）</span><div class="err" id="loaderr"></div></div></div>
+    </div>
+    <div id="right" class="panel">
+      <div id="sb">
+        <div id="sbt">光轮对战<small id="sbsub">—</small></div>
+        <div class="sbnum">存活<b id="sbalive">-</b></div>
+        <div class="sbnum">回合<b id="sbturn">-</b></div>
+      </div>
+      <div id="rows"></div>
+      <div id="rlog" class="onlyrec"></div>
+    </div>
+  </main>
+  <footer>
+    <div id="ctl">
+      <button id="bhome" title="开局（Home）">⏮</button>
+      <button id="bprev" title="上一回合（←，Shift+← 后退 10）">◀ 上一回合</button>
+      <button id="bplay" title="播放 / 暂停（空格）">▶ 播放</button>
+      <button id="bnext" title="下一回合（→，Shift+→ 前进 10）">下一回合 ▶</button>
+      <button id="bend" title="终局（End）">⏭</button>
+      <span class="sep"></span>
+      <label for="speed" style="color:var(--ink2)">速度</label>
+      <select id="speed" title="播放速度（+ / -）"></select>
+      <span class="sep"></span>
+      <span id="turnlbl">回合</span><input id="turnbox" class="mono" title="输入回合号回车跳转（G）"><span id="turnof" style="color:var(--muted)"></span>
+      <span class="sep"></span>
+      <button id="bpe" title="上一个事件（[）">⇤ 上个事件</button>
+      <button id="bne" title="下一个事件（]）">下个事件 ⇥</button>
+      <span class="grow"></span>
+      <button id="bvor" title="显示各人地盘（V）：每个空格染成最先能到达它的人的颜色">地盘</button>
+      <button id="btoast" class="on" title="棋盘上的事件字幕（T）">字幕</button>
+      <button id="brec" title="录屏模式（R）：隐藏控件、放大棋盘、16:9">录屏模式</button>
+    </div>
+    <canvas id="tl"></canvas>
+  </footer>
+</div>
+<input type="file" id="file" accept=".json,application/json" style="display:none">
+<div id="drop">松开鼠标载入回放</div>
+<div id="tip"></div>
+<div id="hint"></div>
+<div id="help"><div class="box">
+  <h3>快捷键</h3>
+  <table>
+    <tr><td>空格 / K</td><td>播放 / 暂停（在终局时从头播放）</td></tr>
+    <tr><td>← →</td><td>上一回合 / 下一回合；按住 Shift 一次 10 回合</td></tr>
+    <tr><td>Home End</td><td>开局 / 终局</td></tr>
+    <tr><td>[ ]　, .</td><td>上一个 / 下一个事件（出局、抢格、互换）</td></tr>
+    <tr><td>+ -</td><td>加速 / 减速（0.25× ～ 8×，1× = 每秒 4 回合）</td></tr>
+    <tr><td>G</td><td>跳到某回合（光标进回合输入框，输入后回车）</td></tr>
+    <tr><td>R</td><td>录屏模式：只留棋盘和记分板，16:9。再按 R 或 Esc 退出</td></tr>
+    <tr><td>V</td><td>地盘：空格染成最先能到达它的活人的颜色（同时到达的不染）</td></tr>
+    <tr><td>T</td><td>棋盘上的事件字幕</td></tr>
+    <tr><td>E</td><td>终局时收起 / 显示名次表</td></tr>
+    <tr><td>0–9 A B</td><td>聚焦某个座位（别人的轨迹变暗），再按一次取消；也可以点右栏</td></tr>
+    <tr><td>F</td><td>全屏</td></tr>
+    <tr><td>O</td><td>打开文件</td></tr>
+    <tr><td>H / ?</td><td>这张帮助</td></tr>
+  </table>
+  <h3>地址栏参数（<span class="mono">viewer.html?file=replays/a.json&amp;turn=40&amp;rec=1</span>，写在 # 后面也行）</h3>
+  <table>
+    <tr><td>file=路径</td><td>载入这个回放（相对 viewer.html）。浏览器默认不许网页读本地文件：Edge / Chrome 要加启动参数 <span class="mono">--allow-file-access-from-files</span>，或者在 workspace 里运行 <span class="mono">python -m http.server</span> 后打开 <span class="mono">http://localhost:8000/viewer.html?file=…</span></td></tr>
+    <tr><td>turn=N</td><td>停在第 N 回合结算后（N 个回合已经走完）</td></tr>
+    <tr><td>p=0.5</td><td>和 turn 一起用：停在第 N 回合这一步走到一半的地方（0～1）</td></tr>
+    <tr><td>play=1</td><td>打开就播放（从 turn 开始）</td></tr>
+    <tr><td>speed=2</td><td>速度倍数：0.25、0.5、1、2、4、8</td></tr>
+    <tr><td>rec=1</td><td>录屏模式</td></tr>
+    <tr><td>vor=1</td><td>显示地盘</td></tr>
+    <tr><td>focus=3</td><td>聚焦 3 号</td></tr>
+    <tr><td>toast=0</td><td>不显示事件字幕</td></tr>
+    <tr><td>end=0</td><td>终局不弹名次表</td></tr>
+    <tr><td>check=1</td><td>自检：把网页重算的 turns、rank、death_turn、cause、final、score 和回放逐项核对，结果显示在顶栏（不一致时页面顶上是红条）</td></tr>
+  </table>
+  <h3>画面</h3>
+  <div style="color:var(--ink2)">方块的颜色就是座位；亮色发光、写着编号的方块是活人的头，暗底带 × 的是死者停下的地方；同色的线是轨迹（永久是墙）；空心方框是出生点；灰块是障碍。
+  "回合 N"表示已经结算完 N 个回合，所以第 t 回合出局的人在"回合 t+1"时才显示为出局。时间轴上排的金色菱形是抢格、蓝色是互换位置，下排是出局（颜色是座位）。点标记跳到那一回合结算后。</div>
+  <div style="margin-top:12px;text-align:right"><button id="bhelpclose">关闭</button></div>
+</div></div>
+<script>
+'use strict';
+const EMBED = {"format": "tron-replay-1", "engine": "tron-1.0", "mode": "formal", "n": 2, "seed": 1865897494, "W": 21, "H": 21, "rows": [".#............#......", ".#.........##.#......", ".....................", ".....................", "..##.............#...", "..........#......#...", "#.........#......#...", "#........##.........#", ".....................", ".....................", ".....................", ".....................", ".....................", "#.........##........#", "...#......#.........#", "...#......#..........", "...#.............##..", ".....................", ".....................", "......#.##.........#.", "......#............#."], "spawns": [[3, 9], [17, 11]], "players": ["Wenxin", "Hunyuan"], "sha": ["3d127342e7bc", "09142c877d0e"], "turns": 93, "moves": ["LU", "LU", "UU", "UU", "RL", "UU", "RU", "RL", "DL", "DU", "RL", "DL", "DL", "DU", "DL", "DL", "DD", "DL", "DL", "DD", "DL", "RU", "RL", "UL", "RD", "RL", "RL", "RL", "RL", "RU", "RR", "RU", "RL", "DU", "DR", "RR", "RU", "UU", "RR", "UR", "RR", "UR", "UR", "LD", "LL", "UL", "UD", "UL", "LD", "LR", "LR", "DU", "DR", "DR", "RR", "DR", "LU", "LU", "LR", "UR", "UR", "LD", "DD", "LD", "DR", "LR", "LR", "LR", "UR", "LR", "UD", "UD", "UR", "UU", "UU", "UU", "UU", "UL", "LU", "UL", "RD", "RD", "DL", "DU", "DU", "RL", "DL", "DD", "DR", "RD", "RL", "RL", "RU"], "rank": [0, 1], "score": [1.0, 0.0], "death_turn": [-1, 92], "cause": ["alive", "obstacle"], "final": [[13, 12], [14, 2]], "first_ms": [2.88, 1992.07], "avg_ms": [0.04, 27.91], "max_ms": [0.13, 42.06], "timeouts": [0, 0], "invalid": [0, 0], "crash_turn": [-1, -1], "stderr": {"0": "", "1": ""}, "name": "12_共用_1v1-m00-Wenxin-vs-Hunyuan.json"};
+
+// 12 种座位颜色：在深色底上互相拉开色相和明度，前 4 种（2～4 人局）兼顾色盲（蓝 / 橙 / 粉紫 / 青绿）。
+const COLORS = ['#3fa7ff', '#ff8a1e', '#ef5fb4', '#2fd6a5', '#f2e14c', '#9b7bff', '#e8463a', '#8ee04a', '#40dcf0', '#ffb8a3', '#cfd3da', '#c08a52'];
+const DIRS = 'URDL', DX = [0, 1, 0, -1], DY = [-1, 0, 1, 0];
+const CAUSES = ['alive', 'out', 'obstacle', 'self', 'trail', 'headon'];
+const SPEEDS = [0.25, 0.5, 1, 2, 4, 8], BASE_TPS = 4;
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const hexrgb = h => { const n = parseInt(h.slice(1), 16); return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+const mixc = (c, d, t) => c.map((v, i) => Math.round(v + (d[i] - v) * t));
+const COL = COLORS.map(hexrgb), BG = [15, 19, 27];
+const HEADC = COL.map(c => mixc(c, [255, 255, 255], .22)), DIMC = COL.map(c => mixc(c, BG, .42));
+
+// ------------------------------------------------------------------ 地址栏参数
+const Q = new URLSearchParams(location.search);
+for (const [k, v] of new URLSearchParams(location.hash.replace(/^#/, ''))) if (!Q.has(k)) Q.set(k, v);
+const qnum = (k, d) => { const v = parseFloat(Q.get(k)); return isFinite(v) ? v : d; };
+
+// ------------------------------------------------------------------ 状态
+let R = null, S = null, fileName = '';
+let f = 0, playing = false, speedIdx = SPEEDS.indexOf(clamp(qnum('speed', 1), .25, 8)), lastTs = 0;
+if (speedIdx < 0) speedIdx = 2;
+let recMode = Q.get('rec') === '1', showVor = Q.get('vor') === '1', showToasts = Q.get('toast') !== '0', showEnd = Q.get('end') !== '0';
+let focus = Q.has('focus') ? parseInt(Q.get('focus')) : -1, selected = -1, hoverCell = null, checkWanted = Q.get('check') === '1';
+let check = null;
+
+// ------------------------------------------------------------------ 重算（与 tron.hpp 的 step 一致）
+function simulate(R) {
+  const W = R.W, H = R.H, N = R.n, maxTurns = W * H, problems = [];
+  const wall = new Uint8Array(W * H), owner = new Int8Array(W * H).fill(-1), claimT = new Int32Array(W * H).fill(1 << 30);
+  if (!Array.isArray(R.rows) || R.rows.length !== H) problems.push(`rows 有 ${R.rows && R.rows.length} 行，应为 H = ${H}`);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) if ((R.rows[y] || '')[x] === '#') wall[y * W + x] = 1;
+  if (!Array.isArray(R.spawns) || R.spawns.length !== N) problems.push(`spawns 有 ${R.spawns && R.spawns.length} 个，应为 n = ${N}`);
+  const x = [], y = [], alive = [], last = [], dt = [], cause = [], path = [], target = [];
+  for (let k = 0; k < N; k++) {
+    const [sx, sy] = R.spawns[k];
+    x[k] = sx; y[k] = sy; alive[k] = true; last[k] = 0; dt[k] = -1; cause[k] = 'alive'; path[k] = [[sx, sy]]; target[k] = null;
+    if (sx < 0 || sx >= W || sy < 0 || sy >= H) { problems.push(`${k} 号出生点 (${sx}, ${sy}) 在棋盘外`); continue; }
+    if (wall[sy * W + sx]) problems.push(`${k} 号出生点 (${sx}, ${sy}) 是障碍`);
+    owner[sy * W + sx] = k; claimT[sy * W + sx] = 0;
+  }
+  const events = [], deaths = [], lateMoves = [], lateFirst = [];
+  let turn = 0, over = N < 2;
+  const moves = R.moves || [];
+  for (let t = 0; t < moves.length; t++) {
+    if (over) { problems.push(`对局在第 ${turn} 回合已经结束，但 moves 还有 ${moves.length - t} 回合`); break; }
+    const str = String(moves[t]);
+    if (str.length !== N) problems.push(`moves[${t}] 长度 ${str.length}，应为 ${N}`);
+    const tx = [], ty = [], why = [];
+    for (let k = 0; k < N; k++) {
+      why[k] = 'alive';
+      const ch = str[k];
+      if (!alive[k]) { if (ch !== '-') lateMoves[k] = (lateMoves[k] || 0) + 1, lateFirst[k] ??= t; continue; }
+      let d = DIRS.indexOf(ch);
+      if (d < 0) { problems.push(`moves[${t}][${k}] = '${ch}'，活着的人应为 U/R/D/L`); d = last[k]; }
+      last[k] = d;
+      tx[k] = x[k] + DX[d]; ty[k] = y[k] + DY[d];
+      if (tx[k] < 0 || tx[k] >= W || ty[k] < 0 || ty[k] >= H) why[k] = 'out';
+      else if (wall[ty[k] * W + tx[k]]) why[k] = 'obstacle';
+      else if (owner[ty[k] * W + tx[k]] === k) why[k] = 'self';
+      else if (owner[ty[k] * W + tx[k]] >= 0) why[k] = 'trail';
+    }
+    const pri = k => ((k - turn) % N + N) % N;
+    const contestOf = [];
+    for (let k = 0; k < N; k++) {
+      if (!alive[k] || why[k] !== 'alive') continue;
+      let best = k, rivals = 1;
+      for (let j = 0; j < N; j++) {
+        if (j === k || !alive[j] || tx[j] !== tx[k] || ty[j] !== ty[k]) continue;
+        rivals++;
+        if (pri(j) < pri(best)) best = j;
+      }
+      if (rivals >= 2) { contestOf[k] = best; if (best !== k) why[k] = 'headon'; }
+    }
+    // 事件：抢格、互换
+    const seen = new Set();
+    for (let k = 0; k < N; k++) if (contestOf[k] !== undefined && !seen.has(tx[k] * 64 + ty[k])) {
+      seen.add(tx[k] * 64 + ty[k]);
+      const all = []; for (let j = 0; j < N; j++) if (contestOf[j] !== undefined && tx[j] === tx[k] && ty[j] === ty[k]) all.push(j);
+      events.push({type: 'contest', t, x: tx[k], y: ty[k], winner: contestOf[k], losers: all.filter(j => j !== contestOf[k])});
+    }
+    const swapWith = [];
+    for (let a = 0; a < N; a++) for (let b = a + 1; b < N; b++)
+      if (alive[a] && alive[b] && tx[a] === x[b] && ty[a] === y[b] && tx[b] === x[a] && ty[b] === y[a]) {
+        events.push({type: 'swap', t, a, b}); swapWith[a] = b; swapWith[b] = a;
+      }
+    for (let k = 0; k < N; k++) {
+      if (!alive[k] || why[k] === 'alive') continue;
+      const inb = tx[k] >= 0 && tx[k] < W && ty[k] >= 0 && ty[k] < H;
+      const hit = inb ? owner[ty[k] * W + tx[k]] : -1;
+      const ev = {type: 'death', t, k, cause: why[k], tx: tx[k], ty: ty[k], fx: x[k], fy: y[k], hit,
+        head: hit >= 0 && hit !== k && x[hit] === tx[k] && y[hit] === ty[k], swap: swapWith[k] ?? -1, winner: why[k] === 'headon' ? contestOf[k] : -1};
+      events.push(ev); deaths.push(ev);
+    }
+    for (let k = 0; k < N; k++) {
+      if (!alive[k]) continue;
+      if (why[k] !== 'alive') { alive[k] = false; dt[k] = turn; cause[k] = why[k]; target[k] = [tx[k], ty[k]]; }
+      else { x[k] = tx[k]; y[k] = ty[k]; owner[ty[k] * W + tx[k]] = k; claimT[ty[k] * W + tx[k]] = t + 1; path[k].push([x[k], y[k]]); }
+    }
+    turn++;
+    if (alive.filter(Boolean).length <= 1 || turn >= maxTurns) over = true;
+  }
+  for (let k = 0; k < N; k++) if (lateMoves[k]) problems.push(`moves 里 ${k} 号出局后还有 ${lateMoves[k]} 个方向（从 moves[${lateFirst[k]}] 起），应为 '-'`);
+  if (!over) problems.push(`moves 只有 ${moves.length} 回合，结算完对局还没有结束（还有 ${alive.filter(Boolean).length} 人活着）`);
+  const key = k => alive[k] ? maxTurns + 1 : dt[k];
+  const rank = [], score = [];
+  for (let k = 0; k < N; k++) {
+    let ahead = 0, behind = 0, tie = 0;
+    for (let j = 0; j < N; j++) { if (key(j) > key(k)) ahead++; else if (key(j) < key(k)) behind++; else if (j !== k) tie++; }
+    rank[k] = ahead; score[k] = N > 1 ? (behind + .5 * tie) / (N - 1) : 0;
+  }
+  const evByTurn = new Map();
+  for (const e of events) { if (!evByTurn.has(e.t)) evByTurn.set(e.t, []); evByTurn.get(e.t).push(e); }
+  const empty0 = W * H - wall.reduce((a, b) => a + b, 0);
+  return {W, H, N, wall, owner, claimT, path, turns: turn, dt, cause, target, final: x.map((v, k) => [v, y[k]]), rank, score,
+    events, deaths, evByTurn, eventTurns: [...evByTurn.keys()].sort((a, b) => a - b), problems, empty0, vor: new Map()};
+}
+
+function runCheck() {
+  const bad = [...S.problems], N = S.N;
+  let items = 0;
+  const cmp = (name, a, b) => { items++; if (JSON.stringify(a) !== JSON.stringify(b)) bad.push(`${name}：回放 ${JSON.stringify(a)}，重算 ${JSON.stringify(b)}`); };
+  cmp('turns', R.turns, S.turns);
+  items++;
+  if ((R.moves || []).length !== R.turns) bad.push(`moves 有 ${(R.moves || []).length} 回合，turns 写的是 ${R.turns}`);
+  for (let k = 0; k < N; k++) {
+    cmp(`rank[${k}]`, R.rank && R.rank[k], S.rank[k]);
+    cmp(`death_turn[${k}]`, R.death_turn && R.death_turn[k], S.dt[k]);
+    cmp(`cause[${k}]`, R.cause && R.cause[k], S.cause[k]);
+    cmp(`final[${k}]`, R.final && R.final[k], S.final[k]);
+    items++;
+    if (!R.score || Math.abs(R.score[k] - S.score[k]) > 1e-9) bad.push(`score[${k}]：回放 ${R.score && R.score[k]}，重算 ${S.score[k]}`);
+  }
+  check = {ok: bad.length === 0, bad, items};
+  const chip = $('chk'), bar = $('checkbar');
+  document.body.dataset.check = check.ok ? 'pass' : 'fail';
+  if (check.ok) {
+    chip.className = checkWanted ? 'chip pass' : 'chip';
+    chip.textContent = `✓ 自检通过（${items} 项）`;
+    chip.title = `turns、rank、death_turn、cause、final、score 共 ${items} 项与网页重算一致`;
+    bar.className = '';
+  } else {
+    chip.className = 'chip fail';
+    chip.textContent = `✗ 自检失败（${bad.length} 处）`;
+    bar.innerHTML = `<b>自检失败：回放和网页重算的结果有 ${bad.length} 处不一致</b>（查看器的结算与 tron.hpp 不一致，或者回放文件被改过；画面按网页重算的结果画）<ul>${bad.slice(0, 40).map(s => `<li>${esc(s)}</li>`).join('')}${bad.length > 40 ? `<li>……还有 ${bad.length - 40} 处</li>` : ''}</ul>`;
+    bar.className = 'show';
+  }
+  let out = $('checkout');
+  if (!out) { out = document.createElement('pre'); out.id = 'checkout'; out.style.display = 'none'; document.body.appendChild(out); }
+  out.textContent = JSON.stringify({file: fileName, ok: check.ok, items, bad, turns: S.turns,
+    contest: S.events.filter(e => e.type === 'contest').length, swap: S.events.filter(e => e.type === 'swap').length, causes: S.cause.join(',')});
+}
+
+// ------------------------------------------------------------------ 派生量
+const aliveAt = (k, v) => S.dt[k] < 0 || S.dt[k] >= v;
+const posAt = (k, v) => { const p = S.path[k]; return p[Math.min(v, p.length - 1)]; };
+const lenAt = (k, v) => Math.min(v, S.path[k].length - 1) + 1;
+const names = [];
+function shortName(spec, k) {
+  let s = String(spec ?? '').replace(/\\/g, '/');
+  const parts = s.split('/').filter(Boolean);
+  let b = (parts.pop() || '').replace(/\.(cpp|cc|cxx|exe)$/i, '');
+  if (b === 'bot' && parts.length) b = parts.pop() + '/bot';
+  return b || `选手 ${k}`;
+}
+function vorAt(v) {    // 地盘：每个空格归最先到达的活人（多源 BFS，同时到达的不归任何人）
+  if (S.vor.has(v)) return S.vor.get(v);
+  const {W, H, N} = S, n = W * H, blocked = new Uint8Array(n);
+  for (let i = 0; i < n; i++) blocked[i] = S.wall[i] || S.claimT[i] <= v ? 1 : 0;
+  const dist = new Int32Array(n).fill(-1), own = new Int8Array(n).fill(-1);
+  let q = [];
+  for (let k = 0; k < N; k++) if (aliveAt(k, v)) { const [hx, hy] = posAt(k, v); const i = hy * W + hx; dist[i] = 0; own[i] = k; q.push(i); }
+  let d = 0;
+  while (q.length) {
+    const nq = [];
+    for (const i of q) {
+      if (own[i] < 0) continue;
+      const cx = i % W, cy = (i / W) | 0;
+      for (let dd = 0; dd < 4; dd++) {
+        const nx = cx + DX[dd], ny = cy + DY[dd];
+        if (nx < 0 || nx >= W || ny < 0 || ny >= H) continue;
+        const j = ny * W + nx;
+        if (blocked[j]) continue;
+        if (dist[j] < 0) { dist[j] = d + 1; own[j] = own[i]; nq.push(j); }
+        else if (dist[j] === d + 1 && own[j] !== own[i]) own[j] = -2;
+      }
+    }
+    q = nq; d++;
+  }
+  // 同时到达的格被标成 -2 后不再向外扩展；它后面的格由其他路径决定。头部所在格是轨迹，不计入
+  const cnt = new Array(N).fill(0);
+  for (let i = 0; i < n; i++) if (!blocked[i] && own[i] >= 0) cnt[own[i]]++;
+  const r = {own, cnt, free: blocked.reduce((a, b) => a + (b ? 0 : 1), 0)};
+  if (S.vor.size > 4000) S.vor.clear();
+  S.vor.set(v, r);
+  return r;
+}
+
+// ------------------------------------------------------------------ 文本
+function who(k, short) {
+  const nm = names[k] || '';
+  const label = short ? `${k}号` : `${k}号 ${esc(nm.length > 14 ? nm.slice(0, 13) + '…' : nm)}`;
+  return `<span class="pc" style="--c:${COLORS[k]}"><i></i>${label}</span>`;
+}
+function turnItems(t, short) {
+  const evs = S.evByTurn.get(t) || [], out = [];
+  const covered = new Set();
+  for (const e of evs) if (e.type === 'contest') {
+    out.push({c: 'c', html: `<span class="tag c">抢格</span>(${e.x}, ${e.y})：${who(e.winner, short)} 占下` + (e.losers.length ? `，${e.losers.map(j => who(j, short)).join('、')} 出局` : '')});
+    e.losers.forEach(j => covered.add(j));
+  }
+  for (const e of evs) if (e.type === 'swap') {
+    out.push({c: 's', html: `<span class="tag s">互换</span>${who(e.a, short)} 与 ${who(e.b, short)} 互换位置，同归于尽`});
+    covered.add(e.a); covered.add(e.b);
+  }
+  for (const e of evs) if (e.type === 'death' && !covered.has(e.k)) out.push({c: 'k', html: `<span class="tag k">出局</span>${who(e.k, short)} ${deathText(e, short)}`});
+  return out;
+}
+function deathText(e, short) {
+  switch (e.cause) {
+    case 'out': return '出界';
+    case 'obstacle': return '撞上障碍';
+    case 'self': return '撞上自己的轨迹';
+    case 'trail': return e.swap >= 0 ? `与 ${who(e.swap, short)} 互换位置` : e.head ? `撞上 ${who(e.hit, short)} 的头` : `撞上 ${who(e.hit, short)} 的轨迹`;
+    case 'headon': return `抢格输给 ${who(e.winner, short)}`;
+  }
+  return e.cause;
+}
+function deathPlain(k) {
+  const e = S.deaths.find(d => d.k === k);
+  if (!e) return '';
+  switch (e.cause) {
+    case 'out': return '出界';
+    case 'obstacle': return '撞障碍';
+    case 'self': return '撞自己';
+    case 'trail': return e.swap >= 0 ? `与 ${e.swap}号互换` : e.head ? `撞 ${e.hit}号的头` : `撞 ${e.hit}号`;
+    case 'headon': return `抢格输给 ${e.winner}号`;
+  }
+  return e.cause;
+}
+
+// ------------------------------------------------------------------ 载入
+function load(obj, name) {
+  if (!obj || typeof obj !== 'object' || !obj.moves || !obj.rows || !obj.spawns) throw new Error('不是光轮对战的回放（缺 rows / spawns / moves）');
+  if (obj.format && obj.format !== 'tron-replay-1') console.warn('未知的回放格式', obj.format);
+  R = obj; fileName = name || '';
+  if (!R.n) R.n = R.spawns.length;
+  if (!R.H) R.H = R.rows.length;
+  if (!R.W) R.W = R.rows[0].length;
+  S = simulate(R);
+  names.length = 0;
+  for (let k = 0; k < S.N; k++) names.push(shortName((R.players || [])[k], k));
+  document.body.classList.toggle('n12', S.N > 6);
+  $('empty').style.display = 'none';
+  runCheck();
+  buildRows(); buildEvents(); buildLegend();
+  const mode = R.mode === 'formal' ? '正式模式' : R.mode === 'fast' ? '快速模式' : (R.mode || '');
+  $('meta').textContent = `${S.N} 人局 · ${S.W}×${S.H} · 种子 ${R.seed ?? '?'} · ${S.turns} 回合 · ${mode}${fileName ? ' · ' + fileName : ''}`;
+  $('sbsub').textContent = `${S.N === 12 ? '12 人乱斗' : S.N === 2 ? '1v1' : S.N + ' 人局'} · ${S.W}×${S.H} · 种子 ${R.seed ?? '?'}`;
+  document.title = `${check.ok ? '' : '[自检失败] '}光轮对战回放 · ${S.N} 人局 · 种子 ${R.seed ?? '?'}`;
+  $('turnof').textContent = ` / ${S.turns}`;
+  const t0 = Q.has('turn') ? clamp(qnum('turn', 0), 0, S.turns) : 0;
+  f = clamp(Math.floor(t0) + (Q.has('p') ? clamp(qnum('p', 0), 0, .999) : 0), 0, S.turns);
+  if (focus >= S.N) focus = -1;
+  playing = Q.get('play') === '1';
+  layout(); render(true);
+}
+function loadText(text, name) {
+  try { load(JSON.parse(text), name); $('loaderr').textContent = ''; }
+  catch (e) { showLoadError(`${name}：${e.message}`); }
+}
+function showLoadError(msg) {
+  if (!R) { $('empty').style.display = 'flex'; $('loaderr').innerHTML = esc(msg).replace(/\n/g, '<br>'); }
+  else alert(msg);
+}
+function loadFile(file) { const r = new FileReader(); r.onload = () => loadText(r.result, file.name); r.readAsText(file, 'utf-8'); }
+function loadUrl(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', url);
+  xhr.overrideMimeType('application/json; charset=utf-8');
+  xhr.onload = () => { if (xhr.status === 200 || (xhr.status === 0 && xhr.responseText)) loadText(xhr.responseText, url.split(/[\\/]/).pop()); else fail(); };
+  xhr.onerror = fail;
+  function fail() {
+    showLoadError(`读不到 ${url}。\n浏览器默认不许网页读本地文件。办法：把文件拖进来；或者用带 --allow-file-access-from-files 参数启动的 Edge / Chrome 打开；` +
+      `或者在 viewer.html 所在目录运行 python -m http.server，再打开 http://localhost:8000/viewer.html?file=${url}`);
+  }
+  try { xhr.send(); } catch (e) { fail(); }
+}
+
+// ------------------------------------------------------------------ 侧栏
+let rowEls = [];
+function buildRows() {
+  const box = $('rows'); box.innerHTML = ''; rowEls = [];
+  for (let k = 0; k < S.N; k++) {
+    const el = document.createElement('div');
+    el.className = 'prow'; el.style.setProperty('--c', COLORS[k]);
+    const spec = (R.players || [])[k] ?? '';
+    const flt = [];
+    if (R.timeouts && R.timeouts[k]) flt.push(`超时 ${R.timeouts[k]}`);
+    if (R.invalid && R.invalid[k]) flt.push(`不合法 ${R.invalid[k]}`);
+    if (R.crash_turn && R.crash_turn[k] >= 0) flt.push(`第 ${R.crash_turn[k]} 回合崩溃`);
+    const cpu = R.avg_ms ? `CPU 首回合 ${fmt(R.first_ms[k])} · 平均 ${fmt(R.avg_ms[k])} · 最多 ${fmt(R.max_ms[k])} 毫秒` : '';
+    el.title = `${k} 号座位：${spec}${R.sha && R.sha[k] ? '（' + R.sha[k] + '）' : ''}\n点击：聚焦并查看调试输出`;
+    el.innerHTML = `<div class="sw">${k}</div><div style="min-width:0"><div class="pl1"><span class="pname">${esc(names[k])}</span><span class="pstat"></span></div>` +
+      `<div class="pl2"><span>长度 <b class="len"></b></span><span>地盘 <b class="ter"></b></span>${flt.length ? `<span class="flt norec">⚠ ${flt.join(' · ')}</span>` : ''}</div>` +
+      `${cpu ? `<div class="pl3 norec">${cpu}</div>` : ''}<div class="tbar"><i></i></div></div><div class="prank"></div>`;
+    el.onclick = () => setFocus(focus === k ? -1 : k);
+    box.appendChild(el);
+    rowEls.push({el, stat: el.querySelector('.pstat'), len: el.querySelector('.len'), ter: el.querySelector('.ter'), bar: el.querySelector('.tbar i'),
+      rank: el.querySelector('.prank'), cache: {}});
+  }
+}
+const fmt = v => v == null ? '-' : v >= 100 ? v.toFixed(0) : v.toFixed(1);
+function set(o, key, el, prop, val) { if (o.cache[key] !== val) { o.cache[key] = val; el[prop] = val; } }
+function updateRows(v) {
+  const vr = vorAt(v), end = v >= S.turns;
+  let alive = 0;
+  for (let k = 0; k < S.N; k++) {
+    const o = rowEls[k], al = S.dt[k] < 0 || f < S.dt[k] + .5;    // 出局在这一回合的一半时显示，和棋盘上的爆点同步
+    alive += al;
+    set(o, 'stat', o.stat, 'textContent', al ? (end ? '活到最后' : '存活') : `第 ${S.dt[k]} 回合 · ${deathPlain(k)}`);
+    set(o, 'len', o.len, 'textContent', String(lenAt(k, v)));
+    set(o, 'ter', o.ter, 'textContent', al ? String(vr.cnt[k]) : '-');
+    const w = al && vr.free ? (100 * vr.cnt[k] / vr.free).toFixed(1) + '%' : '0%';
+    if (o.cache.w !== w) { o.cache.w = w; o.bar.style.width = w; }
+    const age = S.dt[k] >= 0 ? f - (S.dt[k] + .5) : -1;
+    const cls = 'prow' + (al ? '' : ' dead') + (age >= 0 && age < 1.6 && Math.floor(age * 5) % 2 === 0 ? ' flash' : '') +
+      (focus === k ? ' sel' : '') + (end && S.rank[k] === 0 ? ' won' : '');
+    set(o, 'cls', o.el, 'className', cls);
+    const rk = end ? `<b>${rankText(k)}</b><small>${S.score[k].toFixed(2)} 分</small>` : '';
+    set(o, 'rk', o.rank, 'innerHTML', rk);
+    if (o.cache.first !== (end && S.rank[k] === 0)) { o.cache.first = end && S.rank[k] === 0; o.rank.classList.toggle('first', o.cache.first); }
+  }
+  $('sbalive').innerHTML = `${alive}<small>/ ${S.N}</small>`;
+  $('sbturn').innerHTML = `${v}<small>/ ${S.turns}</small>`;
+}
+function rankText(k) {
+  const tie = S.rank.filter((r, j) => j !== k && r === S.rank[k]).length;
+  return `${tie ? '并列' : ''}第 ${S.rank[k] + 1} 名`;
+}
+
+let evEls = new Map();
+function buildEvents() {
+  const box = $('evs'); box.innerHTML = ''; evEls = new Map();
+  let n = 0;
+  for (const t of S.eventTurns) {
+    const items = turnItems(t, false);
+    n += items.length;
+    const el = document.createElement('div');
+    el.className = 'ev';
+    el.innerHTML = items.map(it => `<div><span class="t">第 ${t} 回合</span>${it.html}</div>`).join('');
+    el.onclick = () => seek(t + 1);
+    box.appendChild(el); evEls.set(t, el);
+  }
+  if (!n) box.innerHTML = '<div style="color:var(--muted);padding:8px">没有事件</div>';
+  $('evcount').textContent = `${S.deaths.length} 人出局 · ${S.events.filter(e => e.type === 'contest').length} 次抢格`;
+  updateDebug();
+}
+let curEv = null;
+function updateEvents(v) {
+  const el = evEls.get(v - 1) || null;
+  if (el === curEv) return;
+  if (curEv) curEv.classList.remove('cur');
+  curEv = el;
+  if (el) { el.classList.add('cur'); el.scrollIntoView({block: 'nearest'}); }
+}
+function updateDebug() {
+  const k = focus;
+  const logs = R && R.stderr;
+  if (k < 0) { $('dbgwho').textContent = '点右侧选手查看'; $('dbgtext').textContent = logs ? '' : '（这个回放没有调试输出：只有正式模式的回放才有）'; return; }
+  $('dbgwho').innerHTML = who(k);
+  const text = logs ? (logs[k] ?? logs[String(k)] ?? '') : null;
+  $('dbgtext').textContent = text == null ? '（这个回放没有调试输出：只有正式模式的回放才有）' : text || '（没有输出）';
+  const pre = $('dbgtext'); pre.scrollTop = pre.scrollHeight;
+}
+function buildLegend() {
+  const items = [['head', '活人的头（编号）'], ['dead', '出局的位置'], ['spawn', '出生点'], ['wall', '障碍'], ['contest', '抢格']];
+  $('legend').innerHTML = items.map(([kind, txt]) => `<span style="margin-right:12px;white-space:nowrap"><canvas width="32" height="32" style="width:16px;height:16px" data-k="${kind}"></canvas>${txt}</span>`).join('');
+  for (const c of $('legend').querySelectorAll('canvas')) {
+    const g = c.getContext('2d'), kind = c.dataset.k, s = 32, col = COL[0];
+    g.fillStyle = '#0f131b'; g.fillRect(0, 0, s, s);
+    if (kind === 'head') { g.fillStyle = rgba(HEADC[0], 1); rr(g, 3, 3, 26, 26, 6); g.fill(); g.fillStyle = '#06080c'; g.font = 'bold 20px Consolas'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('0', 16, 17); }
+    if (kind === 'dead') drawDeadHead(g, 3, 3, 26, 0);
+    if (kind === 'spawn') { g.strokeStyle = rgba(col, .95); g.lineWidth = 3; g.strokeRect(5, 5, 22, 22); }
+    if (kind === 'wall') drawWall(g, 0, 0, s);
+    if (kind === 'contest') drawDiamond(g, 16, 16, 12, '#ffd24a', 1, 3);
+  }
+}
+
+// ------------------------------------------------------------------ 画棋盘
+const cv = $('board'), ctx = cv.getContext('2d');
+let BP = 600, DPR = 1, M = 8, CS = 10, EXT = 0;    // EXT：画布比棋盘区每边多出的宽度，出界的爆点不被裁掉
+function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+function drawWall(g, x, y, s) {
+  const i = Math.max(.5, s * .06);
+  g.fillStyle = '#2c3341'; g.fillRect(x + i, y + i, s - 2 * i, s - 2 * i);
+  g.fillStyle = '#3d4658'; g.fillRect(x + i, y + i, s - 2 * i, Math.max(1, s * .16));
+  g.fillStyle = '#1d222c'; g.fillRect(x + i, y + s - i - Math.max(1, s * .12), s - 2 * i, Math.max(1, s * .12));
+}
+function drawDeadHead(g, x, y, s, k) {
+  g.fillStyle = '#07090d'; rr(g, x, y, s, s, s * .18); g.fill();
+  g.strokeStyle = COLORS[k]; g.lineWidth = Math.max(1.2, s * .11); rr(g, x + g.lineWidth / 2, y + g.lineWidth / 2, s - g.lineWidth, s - g.lineWidth, s * .16); g.stroke();
+  const p = s * .28; g.lineCap = 'round';
+  g.beginPath(); g.moveTo(x + p, y + p); g.lineTo(x + s - p, y + s - p); g.moveTo(x + s - p, y + p); g.lineTo(x + p, y + s - p); g.stroke();
+}
+function drawDiamond(g, cx, cy, r, color, alpha, lw) {
+  g.save(); g.globalAlpha = alpha; g.strokeStyle = color; g.lineWidth = lw;
+  g.beginPath(); g.moveTo(cx, cy - r); g.lineTo(cx + r, cy); g.lineTo(cx, cy + r); g.lineTo(cx - r, cy); g.closePath(); g.stroke(); g.restore();
+}
+function sizeCanvas() {
+  const r = $('stage').getBoundingClientRect();
+  BP = Math.max(100, r.width); DPR = window.devicePixelRatio || 1; EXT = Math.round(BP * .05);
+  cv.width = Math.round((BP + 2 * EXT) * DPR); cv.height = cv.width;
+  Object.assign(cv.style, {left: -EXT + 'px', top: -EXT + 'px', width: BP + 2 * EXT + 'px', height: BP + 2 * EXT + 'px'});
+  if (S) { M = Math.max(6, BP * .016); CS = (BP - 2 * M) / Math.max(S.W, S.H); }
+  const st = $('stage').style;
+  st.setProperty('--tf', clamp(BP / 52, 11, 22) + 'px');
+  st.setProperty('--ef', clamp(BP / 44, 12, 24) + 'px');
+}
+const cx = gx => M + (gx + .5) * CS, cy = gy => M + (gy + .5) * CS;
+function drawBoard() {
+  const g = ctx, {W, H, N} = S;
+  g.setTransform(DPR, 0, 0, DPR, 0, 0);
+  g.clearRect(0, 0, BP + 2 * EXT, BP + 2 * EXT);
+  g.translate(EXT, EXT);
+  const v = Math.min(Math.floor(f), S.turns), fr = v >= S.turns ? 0 : f - v;
+  // 底
+  g.fillStyle = '#0f131b'; rr(g, M - 3, M - 3, W * CS + 6, H * CS + 6, 6); g.fill();
+  g.strokeStyle = '#2a3242'; g.lineWidth = 1.5; g.stroke();
+  // 地盘
+  if (showVor) {
+    const vr = vorAt(v);
+    for (let i = 0; i < W * H; i++) {
+      const o = vr.own[i]; if (o < 0) continue;
+      g.fillStyle = rgba(COL[o], focus >= 0 && focus !== o ? .05 : .16);
+      g.fillRect(M + (i % W) * CS, M + ((i / W) | 0) * CS, CS, CS);
+    }
+  }
+  // 网格
+  g.strokeStyle = 'rgba(255,255,255,.045)'; g.lineWidth = 1; g.beginPath();
+  for (let x = 1; x < W; x++) { const px = Math.round(M + x * CS) + .5; g.moveTo(px, M); g.lineTo(px, M + H * CS); }
+  for (let y = 1; y < H; y++) { const py = Math.round(M + y * CS) + .5; g.moveTo(M, py); g.lineTo(M + W * CS, py); }
+  g.stroke();
+  // 障碍
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) if (S.wall[y * W + x]) drawWall(g, M + x * CS, M + y * CS, CS);
+  // 轨迹底色
+  for (let i = 0; i < W * H; i++) {
+    const o = S.owner[i];
+    if (o < 0 || S.claimT[i] > v) continue;
+    const dim = !aliveAt(o, v) || (focus >= 0 && focus !== o);
+    g.fillStyle = rgba(COL[o], dim ? .09 : .2);
+    g.fillRect(M + (i % W) * CS + .5, M + ((i / W) | 0) * CS + .5, CS - 1, CS - 1);
+  }
+  // 出生点
+  for (let k = 0; k < N; k++) {
+    const [sx, sy] = R.spawns[k], lw = Math.max(1.2, CS * .1);
+    g.strokeStyle = rgba(COL[k], focus >= 0 && focus !== k ? .35 : .95); g.lineWidth = lw;
+    g.strokeRect(M + sx * CS + lw / 2 + CS * .04, M + sy * CS + lw / 2 + CS * .04, CS - lw - CS * .08, CS - lw - CS * .08);
+  }
+  // 轨迹线
+  g.lineCap = 'round'; g.lineJoin = 'round';
+  const heads = [];
+  for (let k = 0; k < N; k++) {
+    const p = S.path[k], last = Math.min(v, p.length - 1), al = aliveAt(k, v);
+    const pts = [];
+    for (let i = 0; i <= last; i++) pts.push([cx(p[i][0]), cy(p[i][1])]);
+    let hx = pts[last][0], hy = pts[last][1], dying = false, dir = -1;
+    if (v < S.turns && al && fr > 0) {
+      const ch = (R.moves[v] || '')[k], d = DIRS.indexOf(ch);
+      dir = d;
+      if (S.dt[k] === v) {    // 这一回合撞上：冲出去一点，再弹回
+        dying = true;
+        const e = d >= 0 ? (fr < .5 ? fr / .5 : Math.max(0, 1 - (fr - .5) / .25)) * .42 : 0;
+        if (d >= 0) { hx += DX[d] * CS * e; hy += DY[d] * CS * e; }
+        if (fr >= .5) dying = 'dead';
+      } else if (d >= 0) {
+        hx += DX[d] * CS * fr; hy += DY[d] * CS * fr;
+        pts.push([hx, hy]);
+      }
+    } else if (al) {
+      dir = v > 0 && v <= S.turns ? DIRS.indexOf((R.moves[v - 1] || '')[k]) : -1;
+    }
+    const dimmed = focus >= 0 && focus !== k, deadNow = !al || dying === 'dead';
+    const alpha = dimmed ? .3 : deadNow ? .55 : 1;
+    if (pts.length > 1) {
+      g.globalAlpha = alpha;
+      g.strokeStyle = rgba(DIMC[k], 1); g.lineWidth = CS * .5;
+      g.beginPath(); g.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length; i++) g.lineTo(pts[i][0], pts[i][1]); g.stroke();
+      g.strokeStyle = rgba(COL[k], .95); g.lineWidth = Math.max(1, CS * .17);
+      g.stroke();
+      g.globalAlpha = 1;
+    }
+    heads.push({k, hx, hy, dead: deadNow, dir, dimmed});
+  }
+  // 抢格标记（刚发生的）
+  for (const e of S.events) {
+    if (e.type !== 'contest') continue;
+    const a = f - (e.t + .5);
+    if (a < 0 || a > 2.5) continue;
+    const t = a / 2.5, x0 = cx(e.x), y0 = cy(e.y);
+    drawDiamond(g, x0, y0, CS * (.75 + .5 * Math.min(1, a)), '#ffd24a', 1 - t * .7, Math.max(1.5, CS * .14));
+  }
+  // 头
+  const dead = heads.filter(h => h.dead), live = heads.filter(h => !h.dead);
+  for (const h of dead) {
+    const [px, py] = posAt(h.k, Math.min(v, S.turns));
+    const s = CS * .86;
+    g.globalAlpha = h.dimmed ? .45 : 1;
+    drawDeadHead(g, cx(px) - s / 2, cy(py) - s / 2, s, h.k);
+    g.globalAlpha = 1;
+  }
+  for (const h of live) {
+    const s = CS * .9, k = h.k;
+    g.save();
+    g.globalAlpha = h.dimmed ? .5 : 1;
+    if (!h.dimmed) { g.shadowColor = rgba(COL[k], 1); g.shadowBlur = CS * .9; }
+    g.fillStyle = rgba(HEADC[k], 1); rr(g, h.hx - s / 2, h.hy - s / 2, s, s, s * .22); g.fill();
+    g.shadowBlur = 0;
+    g.strokeStyle = 'rgba(255,255,255,.92)'; g.lineWidth = Math.max(1, CS * .08); g.stroke();
+    if (h.dir >= 0) {    // 朝向小三角
+      const tx = h.hx + DX[h.dir] * s * .5, ty = h.hy + DY[h.dir] * s * .5, w = s * .2, px = -DY[h.dir], py = DX[h.dir];
+      g.fillStyle = '#fff'; g.beginPath();
+      g.moveTo(tx + DX[h.dir] * w * 1.1, ty + DY[h.dir] * w * 1.1); g.lineTo(tx + px * w, ty + py * w); g.lineTo(tx - px * w, ty - py * w); g.closePath(); g.fill();
+    }
+    g.fillStyle = '#05070b'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    g.font = `800 ${(k >= 10 ? .5 : .62) * CS}px Consolas,"Segoe UI",sans-serif`;
+    g.fillText(String(k), h.hx, h.hy + CS * .04);
+    g.restore();
+  }
+  // 出局爆点
+  for (const e of S.deaths) {
+    const a = f - (e.t + .5);
+    if (a < 0 || a > 2.6) continue;
+    const k = e.k;
+    let bx, by;
+    if (e.cause === 'headon') { bx = cx(e.tx); by = cy(e.ty); }
+    else { bx = (cx(e.fx) + cx(e.tx)) / 2; by = (cy(e.fy) + cy(e.ty)) / 2; }
+    g.save();
+    if (a < .35) {    // 白光
+      const t = a / .35, gr = g.createRadialGradient(bx, by, 0, bx, by, CS * (.6 + 2.2 * t));
+      gr.addColorStop(0, `rgba(255,255,255,${1 - t})`); gr.addColorStop(.5, rgba(COL[k], (1 - t) * .8)); gr.addColorStop(1, rgba(COL[k], 0));
+      g.fillStyle = gr; g.beginPath(); g.arc(bx, by, CS * (.6 + 2.2 * t), 0, 7); g.fill();
+    }
+    if (a < 1.6 && Math.floor(a * 8) % 2 === 0) {    // 闪烁
+      const [px, py] = [e.fx, e.fy];
+      g.fillStyle = rgba(mixc(COL[k], [255, 255, 255], .5), .85); rr(g, M + px * CS, M + py * CS, CS, CS, CS * .2); g.fill();
+    }
+    const t = a / 2.6;
+    g.strokeStyle = rgba(COL[k], 1 - t); g.lineWidth = Math.max(1.5, CS * .2 * (1 - t));
+    g.beginPath(); g.arc(bx, by, CS * (.5 + a * 1.7), 0, 7); g.stroke();
+    if (a < 1.5) { g.strokeStyle = `rgba(255,255,255,${.7 * (1 - a / 1.5)})`; g.lineWidth = Math.max(1, CS * .1); g.beginPath(); g.arc(bx, by, CS * (.3 + a * 1.05), 0, 7); g.stroke(); }
+    if (a < 1.1) {    // 火花
+      const r1 = CS * (.35 + a * 1.6), r2 = r1 + CS * .7 * (1 - a / 1.1);
+      g.strokeStyle = rgba(mixc(COL[k], [255, 255, 255], .4), 1 - a / 1.1); g.lineWidth = Math.max(1, CS * .1); g.lineCap = 'round'; g.beginPath();
+      for (let i = 0; i < 8; i++) { const an = i * Math.PI / 4 + Math.PI / 8; g.moveTo(bx + Math.cos(an) * r1, by + Math.sin(an) * r1); g.lineTo(bx + Math.cos(an) * r2, by + Math.sin(an) * r2); }
+      g.stroke();
+    }
+    g.restore();
+  }
+  // 鼠标所在格
+  if (hoverCell) { g.strokeStyle = 'rgba(255,255,255,.6)'; g.lineWidth = 1; g.strokeRect(M + hoverCell[0] * CS + .5, M + hoverCell[1] * CS + .5, CS - 1, CS - 1); }
+}
+
+// ------------------------------------------------------------------ 字幕、结束卡
+let toastKey = '', logKey = '';
+function updateToasts() {
+  let html = '';
+  if (showToasts && S) {
+    const window_ = Math.max(4, SPEEDS[speedIdx] * BASE_TPS * 2.2), maxN = S.N > 6 ? 4 : 3;
+    const turns = S.eventTurns.filter(t => f >= t + .5 && f < t + .5 + window_).slice(-maxN);
+    html = turns.map(t => {
+      const items = turnItems(t, S.N > 6);
+      const c = items.every(it => it.c === 'c') ? ' c' : '';
+      return `<div class="toast${c}"><span class="t">第 ${t} 回合</span>${items.map(it => it.html).join('；')}</div>`;
+    }).join('');
+  }
+  if (html !== toastKey) { toastKey = html; $('toasts').innerHTML = html; }
+  if (recMode && S && S.N <= 6) {    // 录屏模式下右栏下面的空处列出已经发生的事件
+    const lg = S.eventTurns.filter(t => f >= t + .5).slice(-8).map(t => `<div><span class="t">第 ${t} 回合</span>${turnItems(t, false).map(it => it.html).join('；')}</div>`).join('');
+    if (lg !== logKey) { logKey = lg; $('rlog').innerHTML = lg; }
+  }
+}
+let endKey = '';
+function updateEnd() {
+  const on = S && showEnd && f >= S.turns;
+  const ec = $('endcard');
+  if (!on) { if (endKey) { endKey = ''; ec.style.display = 'none'; } return; }
+  if (endKey === 'on') return;
+  endKey = 'on';
+  const order = [...Array(S.N).keys()].sort((a, b) => S.rank[a] - S.rank[b] || a - b);
+  ec.innerHTML = `<h3>终局名次<small>${S.N} 人局 · ${S.turns} 回合 · 种子 ${R.seed ?? '?'}</small></h3><table>` + order.map(k =>
+    `<tr class="${S.rank[k] === 0 ? 'first' : ''}"><td class="rk">${rankText(k)}</td><td>${who(k)}</td><td class="r">${S.score[k].toFixed(2)} 分</td>` +
+    `<td class="why">${S.dt[k] < 0 ? '活到最后' : `第 ${S.dt[k]} 回合 · ${deathPlain(k)}`}</td></tr>`).join('') +
+    `</table><div class="hint norec">名次分 =（身后人数 + 0.5 × 并列人数）/（N − 1）。按 E 收起</div>`;
+  ec.style.display = 'block';
+}
+
+// ------------------------------------------------------------------ 时间轴
+const tl = $('tl'), tg = tl.getContext('2d');
+let TLW = 600, TLH = 46;
+const TLP = 14;
+const tlx = t => TLP + (S.turns ? t / S.turns : 0) * (TLW - 2 * TLP);
+function sizeTimeline() {
+  const r = tl.getBoundingClientRect(); TLW = Math.max(100, r.width); TLH = r.height || 46;
+  tl.width = Math.round(TLW * DPR); tl.height = Math.round(TLH * DPR);
+}
+function drawTimeline() {
+  const g = tg;
+  g.setTransform(DPR, 0, 0, DPR, 0, 0); g.clearRect(0, 0, TLW, TLH);
+  if (!S) return;
+  const y0 = 8, y1 = TLH - 6;
+  g.fillStyle = '#161b25'; rr(g, TLP - 4, y0 - 4, TLW - 2 * TLP + 8, y1 - y0 + 8, 5); g.fill();
+  g.fillStyle = '#26303f'; rr(g, TLP - 4, y0 - 4, Math.max(0, tlx(Math.min(f, S.turns)) - TLP + 4), y1 - y0 + 8, 5); g.fill();
+  // 刻度
+  g.fillStyle = '#5c6676'; g.font = '10px Consolas'; g.textAlign = 'center'; g.textBaseline = 'top';
+  const step = niceStep(S.turns, (TLW - 2 * TLP) / 60);
+  for (let t = 0; t <= S.turns; t += step) { g.fillRect(Math.round(tlx(t)), y1 - 2, 1, 4); }
+  // 抢格 / 互换（上排）
+  for (const e of S.events) {
+    if (e.type === 'contest') drawDiamond(g, tlx(e.t + 1), y0 + 7, 5, '#ffd24a', 1, 2);
+    if (e.type === 'swap') { g.fillStyle = '#5fb8ff'; g.fillRect(tlx(e.t + 1) - 4, y0 + 5, 8, 4); }
+  }
+  // 出局（下排）
+  const byT = new Map();
+  for (const e of S.deaths) { const n = byT.get(e.t) || 0; byT.set(e.t, n + 1);
+    const x = tlx(e.t + 1), yy = y1 - 9 - n * 5;
+    g.fillStyle = COLORS[e.k]; g.strokeStyle = '#05070a'; g.lineWidth = 1.5;
+    g.beginPath(); g.arc(x, yy, 4.2, 0, 7); g.fill(); g.stroke();
+  }
+  // 播放头
+  const px = tlx(Math.min(f, S.turns));
+  g.fillStyle = '#fff'; g.fillRect(Math.round(px) - 1, y0 - 6, 2, y1 - y0 + 12);
+}
+function niceStep(n, maxTicks) { for (const s of [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000]) if (n / s <= maxTicks) return s; return 2000; }
+function tlEventAt(px) {
+  let best = null, bd = 7;
+  for (const t of S.eventTurns) { const d = Math.abs(tlx(t + 1) - px); if (d < bd) { bd = d; best = t; } }
+  return best;
+}
+let tlDrag = false;
+tl.addEventListener('pointerdown', e => {
+  if (!S) return;
+  const px = e.offsetX, t = tlEventAt(px);
+  if (t !== null) { seek(t + 1); return; }
+  tlDrag = true; tl.setPointerCapture(e.pointerId); seekPx(px);
+});
+tl.addEventListener('pointermove', e => {
+  if (!S) return;
+  if (tlDrag) { seekPx(e.offsetX); return; }
+  const t = tlEventAt(e.offsetX);
+  if (t !== null) showTip(e, `<div style="color:var(--muted)">第 ${t} 回合（点击跳到结算后）</div>` + turnItems(t, false).map(it => `<div>${it.html}</div>`).join(''));
+  else showTip(e, `回合 ${Math.round(clamp((e.offsetX - TLP) / (TLW - 2 * TLP), 0, 1) * S.turns)}`);
+});
+tl.addEventListener('pointerup', () => { tlDrag = false; });
+tl.addEventListener('pointerleave', hideTip);
+function seekPx(px) { seek(Math.round(clamp((px - TLP) / (TLW - 2 * TLP), 0, 1) * S.turns)); }
+
+// ------------------------------------------------------------------ 提示框
+function showTip(e, html) { const t = $('tip'); t.innerHTML = html; t.style.display = 'block';
+  const w = t.offsetWidth, h = t.offsetHeight; t.style.left = clamp(e.clientX + 14, 4, innerWidth - w - 4) + 'px'; t.style.top = clamp(e.clientY - h - 10, 4, innerHeight - h - 4) + 'px'; }
+function hideTip() { $('tip').style.display = 'none'; }
+$('stage').addEventListener('pointermove', e => {
+  if (!S) return;
+  const sr = $('stage').getBoundingClientRect(), gx = Math.floor((e.clientX - sr.left - M) / CS), gy = Math.floor((e.clientY - sr.top - M) / CS);
+  if (gx < 0 || gy < 0 || gx >= S.W || gy >= S.H) { hoverCell = null; hideTip(); render(); return; }
+  hoverCell = [gx, gy];
+  const v = Math.min(Math.floor(f), S.turns), i = gy * S.W + gx;
+  let txt = '空地';
+  if (S.wall[i]) txt = '障碍';
+  else if (S.owner[i] >= 0 && S.claimT[i] <= v) txt = `${who(S.owner[i])} 的轨迹（${S.claimT[i] === 0 ? '出生点' : '第 ' + (S.claimT[i] - 1) + ' 回合走进'}）`;
+  const heads = []; for (let k = 0; k < S.N; k++) { const p = posAt(k, v); if (p[0] === gx && p[1] === gy) heads.push(`${who(k)} ${aliveAt(k, v) ? '的头' : '出局的位置'}`); }
+  if (heads.length) txt = heads.join('、');
+  if (showVor && !S.wall[i]) { const o = vorAt(v).own[i]; if (o >= 0) txt += `<br><span style="color:var(--muted)">地盘：</span>${who(o)}`; }
+  showTip(e, `<span class="mono" style="color:var(--gold)">(${gx}, ${gy})</span>　${txt}`);
+  render();
+});
+$('stage').addEventListener('pointerleave', () => { hoverCell = null; hideTip(); render(); });
+
+// ------------------------------------------------------------------ 播放控制
+function seek(t) { playing = false; f = clamp(t, 0, S.turns); render(true); }
+function stepBy(n) { if (!S) return; seek(n > 0 ? Math.floor(f) + n : Math.ceil(f) + n); }
+function togglePlay() {
+  if (!S) return;
+  if (!playing && f >= S.turns) f = 0;
+  playing = !playing;
+  if (!playing) f = Math.round(f * 1000) / 1000;
+  lastTs = 0; render(true);
+}
+function jumpEvent(dir) {
+  if (!S) return;
+  const v = Math.floor(f + 1e-9), tgts = S.eventTurns.map(t => t + 1);
+  const t = dir > 0 ? tgts.find(x => x > v) : [...tgts].reverse().find(x => x < Math.ceil(f - 1e-9));
+  if (t !== undefined) seek(t);
+}
+function setSpeed(i) { speedIdx = clamp(i, 0, SPEEDS.length - 1); $('speed').value = String(speedIdx); }
+function setFocus(k) { focus = k; for (const o of rowEls) o.cache.cls = null; updateDebug(); render(true); }
+function setRec(on, fromKey) {
+  recMode = on; document.body.classList.toggle('rec', on);
+  $('brec').classList.toggle('on', on);
+  layout(); render(true);
+  if (fromKey) hint(on ? '录屏模式：再按 R 或 Esc 退出' : '已退出录屏模式');
+}
+let hintTimer = 0;
+function hint(msg) { const h = $('hint'); h.textContent = msg; h.style.display = 'block'; clearTimeout(hintTimer); hintTimer = setTimeout(() => h.style.display = 'none', 1600); }
+
+for (let i = 0; i < SPEEDS.length; i++) { const o = document.createElement('option'); o.value = String(i); o.textContent = `${SPEEDS[i]}×（${SPEEDS[i] * BASE_TPS} 回合/秒）`; $('speed').appendChild(o); }
+setSpeed(speedIdx);
+$('speed').onchange = e => { setSpeed(+e.target.value); e.target.blur(); };
+$('bplay').onclick = togglePlay;
+$('bprev').onclick = e => stepBy(e.shiftKey ? -10 : -1);
+$('bnext').onclick = e => stepBy(e.shiftKey ? 10 : 1);
+$('bhome').onclick = () => S && seek(0);
+$('bend').onclick = () => S && seek(S.turns);
+$('bpe').onclick = () => jumpEvent(-1);
+$('bne').onclick = () => jumpEvent(1);
+$('bvor').onclick = () => { showVor = !showVor; render(true); };
+$('btoast').onclick = () => { showToasts = !showToasts; render(true); };
+$('brec').onclick = () => setRec(!recMode, true);
+$('bopen').onclick = () => $('file').click();
+$('file').onchange = e => { if (e.target.files[0]) loadFile(e.target.files[0]); e.target.value = ''; };
+$('bhelp').onclick = () => $('help').style.display = 'flex';
+$('bhelpclose').onclick = () => $('help').style.display = 'none';
+$('help').onclick = e => { if (e.target === $('help')) $('help').style.display = 'none'; };
+$('chk').onclick = () => { if (!check) return; if (check.ok) alert(`自检通过：${$('chk').title}`); else $('checkbar').classList.toggle('show'); };
+$('turnbox').addEventListener('keydown', e => {
+  if (e.key === 'Enter') { const v = parseInt(e.target.value); if (S && isFinite(v)) seek(v); e.target.blur(); }
+  if (e.key === 'Escape') e.target.blur();
+  e.stopPropagation();
+});
+document.addEventListener('keydown', e => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if ($('help').style.display === 'flex' && (e.key === 'Escape' || e.key === 'h' || e.key === 'H' || e.key === '?')) { $('help').style.display = 'none'; e.preventDefault(); return; }
+  const k = e.key;
+  let done = true;
+  if (k === ' ' || k === 'k' || k === 'K') togglePlay();
+  else if (k === 'ArrowLeft') stepBy(e.shiftKey ? -10 : -1);
+  else if (k === 'ArrowRight') stepBy(e.shiftKey ? 10 : 1);
+  else if (k === 'Home') S && seek(0);
+  else if (k === 'End') S && seek(S.turns);
+  else if (k === '[' || k === ',' || k === 'PageUp') jumpEvent(-1);
+  else if (k === ']' || k === '.' || k === 'PageDown') jumpEvent(1);
+  else if (k === '+' || k === '=') setSpeed(speedIdx + 1);
+  else if (k === '-' || k === '_') setSpeed(speedIdx - 1);
+  else if (k === 'g' || k === 'G') { if (recMode) setRec(false); $('turnbox').focus(); $('turnbox').select(); }
+  else if (k === 'r' || k === 'R') setRec(!recMode, true);
+  else if (k === 'Escape') { if (recMode) setRec(false, true); else done = false; }
+  else if (k === 'v' || k === 'V') { showVor = !showVor; render(true); }
+  else if (k === 't' || k === 'T') { showToasts = !showToasts; render(true); }
+  else if (k === 'e' || k === 'E') { showEnd = !showEnd; render(true); }
+  else if (k === 'f' || k === 'F') { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(() => {}); }
+  else if (k === 'o' || k === 'O') $('file').click();
+  else if (k === 'h' || k === 'H' || k === '?') $('help').style.display = 'flex';
+  else if (/^[0-9abAB]$/.test(k) && S) { const n = parseInt(k, 16); if (n < S.N) setFocus(focus === n ? -1 : n); }
+  else done = false;
+  if (done) e.preventDefault();
+});
+// 拖放
+let dragN = 0;
+addEventListener('dragenter', e => { e.preventDefault(); dragN++; $('drop').style.display = 'flex'; });
+addEventListener('dragleave', e => { e.preventDefault(); if (--dragN <= 0) { dragN = 0; $('drop').style.display = 'none'; } });
+addEventListener('dragover', e => e.preventDefault());
+addEventListener('drop', e => { e.preventDefault(); dragN = 0; $('drop').style.display = 'none'; const file = e.dataTransfer.files[0]; if (file) loadFile(file); });
+
+// ------------------------------------------------------------------ 布局与主循环
+function place(el, x, y, w, h) { const s = el.style; s.left = x + 'px'; s.top = y + 'px'; s.width = w + 'px'; s.height = h + 'px'; }
+function layout() {
+  const main = $('main').getBoundingClientRect(), W = main.width, H = main.height;
+  const stage = $('stage'), left = $('left'), right = $('right'), rb = $('recbox');
+  if (recMode) {
+    const bw = Math.min(W, H * 16 / 9), bh = bw * 9 / 16, ox = (W - bw) / 2, oy = (H - bh) / 2, pad = bh * .035, board = bh - 2 * pad;
+    place(rb, ox, oy, bw, bh);
+    place(stage, ox + pad * 1.4, oy + pad, board, board);
+    const rx = ox + pad * 2.8 + board;
+    place(right, rx, oy + pad, ox + bw - pad * 1.4 - rx, board);
+    right.style.fontSize = (bh / 1080 * (S && S.N > 6 ? 19 : 23)) + 'px';
+    left.style.display = 'none';
+  } else {
+    const g = 10, rw = clamp(W * .25, 300, 460), lw = W >= 1180 ? clamp(W * .2, 250, 380) : 0;
+    left.style.display = lw ? 'flex' : 'none';
+    const midX = lw ? lw + 2 * g : g, midW = W - rw - g - midX - g;
+    const board = Math.max(160, Math.min(H - 2 * g, midW));
+    place(stage, midX + (midW - board) / 2, (H - board) / 2, board, board);
+    if (lw) place(left, g, g, lw, H - 2 * g);
+    place(right, W - rw - g, g, rw, H - 2 * g);
+    right.style.fontSize = (S && S.N > 6 ? clamp(H / 62, 12, 15) : clamp(H / 56, 13, 16)) + 'px';
+  }
+  sizeCanvas(); sizeTimeline();
+}
+let lastV = -1, pendingFull = true;
+function render(full) { if (full) pendingFull = true; needDraw = true; }
+let needDraw = true;
+function frame(ts) {
+  if (S && playing) {
+    if (lastTs) f += (ts - lastTs) / 1000 * SPEEDS[speedIdx] * BASE_TPS;
+    lastTs = ts;
+    if (f >= S.turns) { f = S.turns; playing = false; pendingFull = true; }
+    needDraw = true;
+  } else lastTs = 0;
+  if (S && needDraw) {
+    needDraw = false;
+    const v = Math.min(Math.floor(f), S.turns);
+    drawBoard();
+    updateRows(v);
+    if (v !== lastV || pendingFull) { lastV = v; updateEvents(v); if (document.activeElement !== $('turnbox')) $('turnbox').value = String(v); }
+    updateToasts(); updateEnd(); drawTimeline();
+    $('bplay').textContent = playing ? '⏸ 暂停' : '▶ 播放';
+    $('bvor').classList.toggle('on', showVor); $('btoast').classList.toggle('on', showToasts);
+    pendingFull = false;
+    // 播放中，出局闪烁需要连续重画；停下时也让刚发生的爆点停在当时的样子
+  }
+  requestAnimationFrame(frame);
+}
+addEventListener('resize', () => { layout(); render(true); });
+document.body.classList.toggle('rec', recMode);
+$('brec').classList.toggle('on', recMode);
+layout();
+requestAnimationFrame(frame);
+if (EMBED) { try { load(EMBED, EMBED.name || '内嵌回放'); } catch (e) { showLoadError(e.message); } }
+else if (Q.get('file')) loadUrl(Q.get('file'));
+</script>
+</body>
+</html>

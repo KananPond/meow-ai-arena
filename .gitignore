@@ -30,3 +30,9 @@ tank/workspace/replays/
 tank/tournament/run-*/
 tank/out/
 ctf/out/
+
+# 第 7 集光轮对战：本地编出来的陪练、本地工具的版本存档和回放、打出来的选手包
+tron/workspace/bots/*.dll
+tron/workspace/history/
+tron/workspace/replays/
+tron/out/

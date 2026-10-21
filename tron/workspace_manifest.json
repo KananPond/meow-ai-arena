@@ -1,0 +1,76 @@
+{
+ "packed": "2026-10-16 20:32:41",
+ "zip": "workspace.zip",
+ "sha256": "5c862fe6e1d8a2544dce30854e6733e80e378ee8f0c8448dd50b4e8ebb1118b6",
+ "bytes": 612484,
+ "files": {
+  "arena.py": {
+   "sha256": "9f664de0b05d6c18a856dfd5d5f9a80bbeb9079e9485ce0f3a05b3196b507416",
+   "bytes": 20667
+  },
+  "bots/greedy.cpp": {
+   "sha256": "4ad6c24ec815d3de347e0601b7820580162969925c0155647f63485f9771e91a",
+   "bytes": 1570
+  },
+  "bots/random.cpp": {
+   "sha256": "4bc141f84fd3f3d49587d6cb82915bfbee3ee72a48748fc32a32df8a0ae46883",
+   "bytes": 625
+  },
+  "bots/sparring.dll": {
+   "sha256": "cc85c22cb264f553b5d01f3a1abbb994e10cd205990d849000a9ab2051591edc",
+   "bytes": 510855
+  },
+  "bots/sparring.exe": {
+   "sha256": "181077490d20f2e5fe1eecdfa6b41b72426e4e0d2610554cc1f660545c986b38",
+   "bytes": 575066
+  },
+  "bots/sparring_hard.dll": {
+   "sha256": "da93257a3c8b4f55194be27eb820544449860729cc918643b2de333626065f3c",
+   "bytes": 229275
+  },
+  "bots/sparring_hard.exe": {
+   "sha256": "1d23900398ba50f34997d5f6ede038ecf95408f39b23947361546adf180c8331",
+   "bytes": 572172
+  },
+  "clock.py": {
+   "sha256": "04246089f5750776b1b80758524bd4a1bdd047bda27cfb32d49fa45bf564eedf",
+   "bytes": 1211
+  },
+  "judge/judge.cpp": {
+   "sha256": "b4075cde1e4db2dd06c5ee39e85c66e8e744d5d85298bc3a27e50f03af6ae57f",
+   "bytes": 28396
+  },
+  "README.md": {
+   "sha256": "4f58645644b944ca86647c4ffffb7f9423b404919b63df7cba962a20897bc5c9",
+   "bytes": 4884
+  },
+  "RULES.md": {
+   "sha256": "df1da8085ea9dd519f652cce8c591838f8b19913422266d19df50db00d39fc8d",
+   "bytes": 6313
+  },
+  "run.cmd": {
+   "sha256": "05a906285e9973dfdf1a661c9d5a6032979205acefb061edac2a8c1564efca93",
+   "bytes": 1587
+  },
+  "run.sh": {
+   "sha256": "08edfc406953824f8214ceffbe29d6dd4f9a9f10fc67fbbd7f3bf99ffed666d3",
+   "bytes": 1082
+  },
+  "submission/bot.cpp": {
+   "sha256": "64b39ebf5a4b5a5ffb48115c5041e1a30851add5423b3c055ac641f979e9c0f0",
+   "bytes": 677
+  },
+  "tron.hpp": {
+   "sha256": "274415207b2f526b4475a9b2365adf7865eb549e14fb1820c81299a410b12ce4",
+   "bytes": 20804
+  },
+  "tron_main.cpp": {
+   "sha256": "c651d7080a6577abcf754a4fe2655fb7329de7172b32c969c77982ad763480d1",
+   "bytes": 6499
+  },
+  "viewer.html": {
+   "sha256": "41f2becb083ac7a0d4c948357525dd16edb44a4663539c75e5b64a63512834b6",
+   "bytes": 65786
+  }
+ }
+}

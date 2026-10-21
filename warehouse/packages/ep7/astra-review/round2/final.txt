@@ -1,0 +1,5 @@
+已完成 12 份审计，生成[总报告](<packages/ep7/astra-review/round2/report.md>)和[summary.json](<packages/ep7/astra-review/round2/summary.json>)，其中链接了逐份报告与完整证据。
+
+- 新增性能回归 **5 项、归为 3 类机制**：Pangu 2 项，Qwen27B、Mercury、Haiku 各 1 项。
+- 13 个输出差异均归于第一轮已知问题；未复现新增正确性问题。LongCat 仍因已知问题编译失败。
+- 所有执行串行，原材料未改动；代表案例均满足本地正式测试规则，最终超时判定以主办方空闲复现为准。

@@ -1,0 +1,240 @@
+{
+ "generated_utc": "2026-10-21T06:42:47.595475+00:00",
+ "rule": "check_input（不加 --full）通过、基线 10 秒内正常结束；目标 100 秒，60～100 秒再跑两次 60 秒",
+ "inputs": {
+  "75ed43fbe778d88d521291c0ad52a6327e4f8ab501613872ee521f0cb916fa77": {
+   "path": "results/ep7/counterexamples/astra_75ed43fbe778.in",
+   "found_for": [
+    "Haiku"
+   ],
+   "verdicts": {
+    "Haiku": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Haiku timeout"
+  },
+  "5383cd84815e137541eccb8e1c8e1a3f4292020b2a2979b8748dbf8f9a8995a3": {
+   "path": "results/ep7/counterexamples/astra_5383cd84815e.in",
+   "found_for": [
+    "Haiku"
+   ],
+   "verdicts": {
+    "Haiku": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Haiku timeout"
+  },
+  "f8a9b32ef914d339b030d16ebd34fac71cbf8d52b7b6da6ff70c7824bcd16ffe": {
+   "path": "results/ep7/counterexamples/astra_f8a9b32ef914.in",
+   "found_for": [
+    "Haiku"
+   ],
+   "verdicts": {
+    "Haiku": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Haiku timeout"
+  },
+  "3e1ec47f6bbb5d6c905356133f7718b0c0a72dab12f2a778817da3fcea967e46": {
+   "path": "results/ep7/counterexamples/astra_3e1ec47f6bbb.in",
+   "found_for": [
+    "Mercury"
+   ],
+   "verdicts": {
+    "Mercury": "wrong_output"
+   },
+   "origins": [
+    "第一轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Mercury wrong_output"
+  },
+  "c0585f15c564caf16f3e9085ab1c53377590b38c51e6a30790d2aa40ef2ca0a5": {
+   "path": "results/ep7/counterexamples/astra_c0585f15c564.in",
+   "found_for": [
+    "Mercury"
+   ],
+   "verdicts": {
+    "Mercury": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Mercury timeout"
+  },
+  "0385598ba299f0c4c73f2e10c8201dd0ec2d3a63b4d9948fd0addfb78d882979": {
+   "path": "results/ep7/counterexamples/astra_0385598ba299.in",
+   "found_for": [
+    "Mercury"
+   ],
+   "verdicts": {
+    "Mercury": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Mercury timeout"
+  },
+  "aaade735b3bb4634c0813702cc2222061a190b23a6596578e2ebecc83f664472": {
+   "path": "results/ep7/counterexamples/astra_aaade735b3bb.in",
+   "found_for": [
+    "Mercury"
+   ],
+   "verdicts": {
+    "Mercury": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Mercury timeout"
+  },
+  "c35ba7ab018e6ee4515b8c06619e477c7df996be1107e79938f055ccc2efbc30": {
+   "path": "results/ep7/counterexamples/astra_c35ba7ab018e.in",
+   "found_for": [
+    "Pangu"
+   ],
+   "verdicts": {
+    "Pangu": "wrong_output"
+   },
+   "origins": [
+    "第一轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Pangu wrong_output"
+  },
+  "37b3750fba7e08549e2db1d5e664dc38804c70f16dffdca2d28f4ca1102211b7": {
+   "path": "results/ep7/counterexamples/astra_37b3750fba7e.in",
+   "found_for": [
+    "Pangu"
+   ],
+   "verdicts": {
+    "Pangu": "wrong_output"
+   },
+   "origins": [
+    "第一轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Pangu wrong_output"
+  },
+  "35128cc3ff60fe472954ab9000b5f158dbd06f8b1d25dcb275f397a9d0b1ed86": {
+   "path": "results/ep7/counterexamples/astra_35128cc3ff60.in",
+   "found_for": [
+    "Pangu"
+   ],
+   "verdicts": {
+    "Pangu": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Pangu timeout"
+  },
+  "29c23d01d96768698fc48e31e41e2be9473566e269eca03016c2e1b1d071870f": {
+   "path": "results/ep7/counterexamples/astra_29c23d01d967.in",
+   "found_for": [
+    "Pangu"
+   ],
+   "verdicts": {
+    "Pangu": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Pangu timeout"
+  },
+  "156e2d832dbcc7fc6b129418454967c051c9a2301ec4009237b7688e9339dd56": {
+   "path": "results/ep7/counterexamples/astra_156e2d832dbc.in",
+   "found_for": [
+    "Pangu"
+   ],
+   "verdicts": {
+    "Pangu": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Pangu timeout"
+  },
+  "f1a67a37b94ef7d2ebc0b1ed49363c6af201e57c87affea61f674a8ff48bc9fd": {
+   "path": "results/ep7/counterexamples/astra_f1a67a37b94e.in",
+   "found_for": [
+    "Pangu"
+   ],
+   "verdicts": {
+    "Pangu": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Pangu timeout"
+  },
+  "e8969d0432456e0059b1c76dbc0dc5230b61b346fd1dd6500ce5cea5ca3a5425": {
+   "path": "results/ep7/counterexamples/excluded/astra_e8969d043245.in",
+   "found_for": [
+    "Pangu"
+   ],
+   "verdicts": {
+    "Pangu": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Pangu timeout"
+  },
+  "67c40dc3e9e511da9ca68fce1e81bed1bdbf4b1f6277c5ebbae5f56f87e7858d": {
+   "path": "results/ep7/counterexamples/astra_67c40dc3e9e5.in",
+   "found_for": [
+    "Qwen27B"
+   ],
+   "verdicts": {
+    "Qwen27B": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Qwen27B timeout"
+  },
+  "fd101dc722894966a8a21c92fb620e017becb4b50c6181f7800587d1760d1788": {
+   "path": "results/ep7/counterexamples/excluded/astra_fd101dc72289.in",
+   "found_for": [
+    "Qwen27B"
+   ],
+   "verdicts": {
+    "Qwen27B": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Qwen27B timeout"
+  },
+  "fea733719952192deaf2f719e3113e9c8df3d01923d1f14d518826d977a3a048": {
+   "path": "results/ep7/counterexamples/astra_fea733719952.in",
+   "found_for": [
+    "Qwen27B"
+   ],
+   "verdicts": {
+    "Qwen27B": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Qwen27B timeout"
+  },
+  "9f301b935003ecaf84582b64689f6b76487de197ba7d72ffad96402b5001786c": {
+   "path": "results/ep7/counterexamples/astra_9f301b935003.in",
+   "found_for": [
+    "Qwen27B"
+   ],
+   "verdicts": {
+    "Qwen27B": "timeout"
+   },
+   "origins": [
+    "第二轮/findings"
+   ],
+   "description": "本场 Astra 找缺陷，主办方独立复现成立：Qwen27B timeout"
+  }
+ }
+}
