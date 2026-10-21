@@ -63,12 +63,17 @@ private:
         std::vector<std::uint16_t> distance;
         std::uint64_t version = 0;
         std::vector<unsigned char> reachable;
+        std::uint64_t detourVersion = std::numeric_limits<std::uint64_t>::max();
+        unsigned char detourQueries = 0;
     };
     StaticEntry& staticTo(int target, bool repair = true);
     StaticEntry& staticChargers();
     StaticEntry staticChargers_;
     bool staticChargersReady_ = false;
     bool shortestOpen(StaticEntry& entry, int source);
+    // -2 means that bounded local work was exhausted; retain the exact-field
+    // fallback. Otherwise return the canonical first step, or -1 if unreachable.
+    int detourStep(int source, const StaticEntry& entry);
     void repairCertificate(StaticEntry& entry);
     void closeCertificate(StaticEntry& entry, const std::vector<int>& closed);
     std::vector<int> activeBlocked_, blockedSlot_;
@@ -126,6 +131,12 @@ private:
     std::vector<std::pair<int, int>> invalidated_;
     std::vector<int> repairQueue_;
     std::vector<std::uint64_t> enqueuedStamp_;
+    // One shared, stamped workspace avoids clearing an entire map per point
+    // query. Eight cyclic buckets hold the integer key 4*detours + firstRank.
+    std::vector<int> detourKey_;
+    std::vector<std::uint32_t> detourSeen_;
+    std::uint32_t detourStamp_ = 0;
+    std::array<std::vector<std::pair<int, int>>, 8> detourBuckets_;
 };
 
 } // namespace traceflow

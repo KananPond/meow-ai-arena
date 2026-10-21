@@ -11,7 +11,8 @@ Grid::Grid(std::vector<std::string> cells)
       walls_(size_), blocked_(size_, 0), neighbors_(size_),
       slotForSource_(size_, -1), queue_(size_),
       unreachable_(size_, kInf), chargerDistances_(size_, kInf),
-      changedStamp_(size_, 0), oldBlocked_(size_, 0), enqueuedStamp_(size_, 0) {
+      changedStamp_(size_, 0), oldBlocked_(size_, 0), enqueuedStamp_(size_, 0),
+      detourKey_(size_), detourSeen_(size_, 0) {
     for (int cy = 0; cy < height_; ++cy) {
         for (int cx = 0; cx < width_; ++cx) {
             const int id = cell(cx, cy);
@@ -24,7 +25,7 @@ Grid::Grid(std::vector<std::string> cells)
 
     // Each static root stores a uint16 distance and one reachability byte per
     // cell. All finite paths fit below 65534 on a legal 200 x 200 grid.
-    staticCapacity_ = std::max(1, std::min(512,
+    staticCapacity_ = std::max(1, std::min(size_,
         static_cast<int>((64u * 1024u * 1024u) / (3u * size_))));
     initialDistance_.resize(size_);
     dynamicInitial_.resize(size_);
@@ -378,6 +379,8 @@ Grid::StaticEntry& Grid::staticTo(int target, bool repair) {
     }
     auto& entry = staticCache_[slot];
     entry.source = target;
+    entry.detourVersion = std::numeric_limits<std::uint64_t>::max();
+    entry.detourQueries = 0;
     entry.age = ++staticClock_;
     entry.distance = initialDistance_;
     entry.reachable.assign(size_, 0);
@@ -518,6 +521,63 @@ bool Grid::validateRoute(const std::vector<int>& route, std::size_t cursor,
     return true;
 }
 
+int Grid::detourStep(int source, const StaticEntry& entry) {
+    // For every static floor edge u->v, the exact static potential h obeys
+    // h(v)-h(u) = +/-1. The reduced cost (1+h(v)-h(u))/2 is therefore 0 or 1,
+    // and a path of reduced cost k has original length h(source)+2*k.
+    // The low two key bits select the first U/R/D/L direction on equal lengths;
+    // an arbitrary 0/1-BFS predecessor tree would not preserve this tie.
+    if (++detourStamp_ == 0) {
+        std::fill(detourSeen_.begin(), detourSeen_.end(), 0);
+        ++detourStamp_;
+    }
+    for (auto& bucket : detourBuckets_) bucket.clear();
+    int pending = 0;
+    const auto push = [&](int cell, int key) {
+        if (detourSeen_[cell] == detourStamp_ && detourKey_[cell] <= key) return;
+        detourSeen_[cell] = detourStamp_;
+        detourKey_[cell] = key;
+        detourBuckets_[key & 7].emplace_back(key, cell);
+        ++pending;
+    };
+
+    const int sourceDistance = entry.distance[source];
+    for (int rank = 0; rank < 4; ++rank) {
+        const int next = neighbors_[source][rank];
+        if (!passable(next)) continue;
+        const int delta = 1 + int(entry.distance[next]) - sourceDistance;
+        push(next, 2 * delta + rank);
+    }
+
+    // This is a work cap, not a claim of a tuned crossover: 1/16 of the map,
+    // clamped to 32..256 pops, before one ordinary exact-field query takes
+    // over. Count stale pops too, bounding queue work. Initial keys lie in
+    // 0..7 and later edges add 0 or 4, so eight cyclic buckets cannot alias
+    // two distinct live priorities while the minimum key moves forward.
+    const int limit = std::max(32, std::min(256, size_ / 16));
+    int key = 0, pops = 0;
+    while (pending != 0) {
+        if (++pops > limit) return -2;
+        while (detourBuckets_[key & 7].empty()) ++key;
+        auto& bucket = detourBuckets_[key & 7];
+        const auto [queuedKey, cell] = bucket.back();
+        bucket.pop_back();
+        --pending;
+        if (detourKey_[cell] != queuedKey) continue;
+
+        // reachable is current: it supplies an open zero-reduced-cost suffix
+        // to the goal. Stop only when its complete minimum key is popped, not
+        // when some certified vertex is first discovered.
+        if (entry.reachable[cell]) return neighbors_[source][queuedKey & 3];
+        for (int next : neighbors_[cell]) {
+            if (!passable(next)) continue;
+            const int delta = 1 + int(entry.distance[next]) - int(entry.distance[cell]);
+            push(next, queuedKey + 2 * delta);
+        }
+    }
+    return -1;
+}
+
 int Grid::nextStep(int source, int target) {
     if (!passable(target)) return -1;
     auto& entry = staticTo(target);
@@ -531,8 +591,27 @@ int Grid::nextStep(int source, int target) {
             return next;
     }
 
-    // If no smallest-static-distance neighbor has a certificate, a detour
-    // might change both the minimum and its tie. Compare exact dynamic values.
+    // A current exact field already amortizes earlier queries. Otherwise try
+    // a bounded point search before repairing/building the whole field. After
+    // four such queries for one target/version, materialize the shared field.
+    // Wall sources have no finite static potential and retain the old fallback.
+    const int exactSlot = slotForSource_[target];
+    const bool exactReady = exactSlot >= 0 && cache_[exactSlot].version == version_;
+    if (!exactReady && entry.distance[source] < 65534) {
+        if (entry.detourVersion != version_) {
+            entry.detourVersion = version_;
+            entry.detourQueries = 0;
+        }
+        if (entry.detourQueries < 4) {
+            ++entry.detourQueries;
+            const int result = detourStep(source, entry);
+            if (result != -2) return result;
+            entry.detourQueries = 4;
+        }
+    }
+
+    // No local answer, or a shared exact field is preferable. Both the minimum
+    // dynamic neighbor distance and its U/R/D/L tie are compared exactly.
     const auto& distances = distancesTo(target);
     int next = -1, best = kInf;
     for (int neighbor : neighbors_[source]) {
