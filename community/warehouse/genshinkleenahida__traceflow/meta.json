@@ -1,0 +1,11 @@
+{
+  "author": "genshinkleenahida",
+  "github": "genshinkleenahida",
+  "name": "循迹仓流",
+  "description": "静态距离证书与增量路径修复复用精确寻路，缓存规范路线并加速派单和热点统计，保持基线逐字节输出。",
+  "written_by": "ai",
+  "model": "GPT-6 Astra Pro",
+  "tool": "ChatGPT（GitHub 插件）",
+  "based_on": "warehouse/workspace/baseline（行为参考，源码独立重写）",
+  "license": "MIT"
+}
