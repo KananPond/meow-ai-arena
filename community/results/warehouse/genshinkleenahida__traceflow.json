@@ -1,0 +1,111 @@
+{
+ "commit": "79b0b03aa974812309ce2e0cb46873fd4bf77f7b",
+ "detail": {
+  "correct": 8,
+  "total": 8,
+  "workloads": [
+   {
+    "baseline_cpu": 131.07,
+    "cpu": 0.0729,
+    "mem_mb": 22.4,
+    "name": "hid_medium",
+    "runs": 14,
+    "set": "隐藏",
+    "speedup": 1798.62,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 97.359,
+    "cpu": 0.1262,
+    "mem_mb": 30.2,
+    "name": "hid_huge",
+    "runs": 8,
+    "set": "隐藏",
+    "speedup": 771.23,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 168.632,
+    "cpu": 0.0853,
+    "mem_mb": 25.4,
+    "name": "hid_crowded",
+    "runs": 12,
+    "set": "隐藏",
+    "speedup": 1977.22,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 90.808,
+    "cpu": 0.1008,
+    "mem_mb": 25.4,
+    "name": "hid_dynamic",
+    "runs": 10,
+    "set": "隐藏",
+    "speedup": 901.28,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 205.459,
+    "cpu": 0.0346,
+    "mem_mb": 25.4,
+    "name": "hid_flood",
+    "runs": 29,
+    "set": "隐藏",
+    "speedup": 5944.43,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 31.76,
+    "cpu": 0.0372,
+    "mem_mb": 25.4,
+    "name": "hid_lowbattery",
+    "runs": 27,
+    "set": "隐藏",
+    "speedup": 854.68,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 192.63,
+    "cpu": 0.0527,
+    "mem_mb": 25.4,
+    "name": "hid_long",
+    "runs": 20,
+    "set": "隐藏",
+    "speedup": 3657.26,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 83.142,
+    "cpu": 0.1034,
+    "mem_mb": 25.4,
+    "name": "hid_mixed",
+    "runs": 10,
+    "set": "隐藏",
+    "speedup": 804.45,
+    "status": "ok"
+   }
+  ]
+ },
+ "entry": "genshinkleenahida__traceflow",
+ "env": {
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cpus": 4,
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "episode": "warehouse",
+ "errors": [],
+ "files": {
+  "src/HANDOFF.md": "0f3c1836bf99cd337270ea24da9d30e19c8f28b1bfab80d8c4cfc951537d987d",
+  "src/grid.cpp": "8160ef7db707f821d6c86d80224fe378f3bbb46bf83b1f766ebbb9d863925e85",
+  "src/grid.hpp": "55f1d2d6bba50b6f04174b14d1a52ebb0d4e54631cdb988753ce36728694bc5f",
+  "src/main.cpp": "5159565e57ba6870791a6ba168a41caba9ec9e962aaacb4552348d34fff8ae36",
+  "src/simulator.cpp": "4360b8a4364f5cc5515617fc11f32492259d70b414a4c29cd0cdff46da48b306",
+  "src/simulator.hpp": "d36ccda5d86cb41e3bb06953e2667be3e01bbc3acdc3bb0e8b1b3bde6ecb1191"
+ },
+ "mode": "full",
+ "schema": 1,
+ "score": 1570.19,
+ "status": "pass",
+ "time": "2026-10-21T12:12:31Z"
+}
