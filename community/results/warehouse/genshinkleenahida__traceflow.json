@@ -1,87 +1,87 @@
 {
- "commit": "79b0b03aa974812309ce2e0cb46873fd4bf77f7b",
+ "commit": "05b98da38660721dbd0a85ac465352134b4caa3f",
  "detail": {
   "correct": 8,
   "total": 8,
   "workloads": [
    {
-    "baseline_cpu": 131.07,
-    "cpu": 0.0729,
+    "baseline_cpu": 116.533,
+    "cpu": 0.051,
     "mem_mb": 22.4,
     "name": "hid_medium",
-    "runs": 14,
-    "set": "隐藏",
-    "speedup": 1798.62,
-    "status": "ok"
-   },
-   {
-    "baseline_cpu": 97.359,
-    "cpu": 0.1262,
-    "mem_mb": 30.2,
-    "name": "hid_huge",
-    "runs": 8,
-    "set": "隐藏",
-    "speedup": 771.23,
-    "status": "ok"
-   },
-   {
-    "baseline_cpu": 168.632,
-    "cpu": 0.0853,
-    "mem_mb": 25.4,
-    "name": "hid_crowded",
-    "runs": 12,
-    "set": "隐藏",
-    "speedup": 1977.22,
-    "status": "ok"
-   },
-   {
-    "baseline_cpu": 90.808,
-    "cpu": 0.1008,
-    "mem_mb": 25.4,
-    "name": "hid_dynamic",
-    "runs": 10,
-    "set": "隐藏",
-    "speedup": 901.28,
-    "status": "ok"
-   },
-   {
-    "baseline_cpu": 205.459,
-    "cpu": 0.0346,
-    "mem_mb": 25.4,
-    "name": "hid_flood",
-    "runs": 29,
-    "set": "隐藏",
-    "speedup": 5944.43,
-    "status": "ok"
-   },
-   {
-    "baseline_cpu": 31.76,
-    "cpu": 0.0372,
-    "mem_mb": 25.4,
-    "name": "hid_lowbattery",
-    "runs": 27,
-    "set": "隐藏",
-    "speedup": 854.68,
-    "status": "ok"
-   },
-   {
-    "baseline_cpu": 192.63,
-    "cpu": 0.0527,
-    "mem_mb": 25.4,
-    "name": "hid_long",
     "runs": 20,
     "set": "隐藏",
-    "speedup": 3657.26,
+    "speedup": 2285.85,
     "status": "ok"
    },
    {
-    "baseline_cpu": 83.142,
-    "cpu": 0.1034,
-    "mem_mb": 25.4,
-    "name": "hid_mixed",
+    "baseline_cpu": 83.438,
+    "cpu": 0.1066,
+    "mem_mb": 67.8,
+    "name": "hid_huge",
     "runs": 10,
     "set": "隐藏",
-    "speedup": 804.45,
+    "speedup": 782.79,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 148.749,
+    "cpu": 0.057,
+    "mem_mb": 25.3,
+    "name": "hid_crowded",
+    "runs": 18,
+    "set": "隐藏",
+    "speedup": 2610.71,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 87.975,
+    "cpu": 0.0787,
+    "mem_mb": 25.3,
+    "name": "hid_dynamic",
+    "runs": 13,
+    "set": "隐藏",
+    "speedup": 1118.04,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 178.065,
+    "cpu": 0.0272,
+    "mem_mb": 25.3,
+    "name": "hid_flood",
+    "runs": 30,
+    "set": "隐藏",
+    "speedup": 6551.4,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 28.322,
+    "cpu": 0.0304,
+    "mem_mb": 25.3,
+    "name": "hid_lowbattery",
+    "runs": 30,
+    "set": "隐藏",
+    "speedup": 931.49,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 173.051,
+    "cpu": 0.0433,
+    "mem_mb": 25.3,
+    "name": "hid_long",
+    "runs": 24,
+    "set": "隐藏",
+    "speedup": 3992.18,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 79.975,
+    "cpu": 0.0969,
+    "mem_mb": 40.1,
+    "name": "hid_mixed",
+    "runs": 11,
+    "set": "隐藏",
+    "speedup": 825.54,
     "status": "ok"
    }
   ]
@@ -96,16 +96,16 @@
  "episode": "warehouse",
  "errors": [],
  "files": {
-  "src/HANDOFF.md": "0f3c1836bf99cd337270ea24da9d30e19c8f28b1bfab80d8c4cfc951537d987d",
-  "src/grid.cpp": "8160ef7db707f821d6c86d80224fe378f3bbb46bf83b1f766ebbb9d863925e85",
-  "src/grid.hpp": "55f1d2d6bba50b6f04174b14d1a52ebb0d4e54631cdb988753ce36728694bc5f",
+  "src/HANDOFF.md": "9fb5b86ce2fd80862583a760b7339645989257830809c9036ec644d840b9d78a",
+  "src/grid.cpp": "581d92a9ed43f6eea9355f3076f7af34fe08d610212c5f16f1c3b4b26827c667",
+  "src/grid.hpp": "fe7b7cc509003cb711314ecec66f769e279bee97ecd1c47434e159fb46890e37",
   "src/main.cpp": "5159565e57ba6870791a6ba168a41caba9ec9e962aaacb4552348d34fff8ae36",
   "src/simulator.cpp": "4360b8a4364f5cc5515617fc11f32492259d70b414a4c29cd0cdff46da48b306",
   "src/simulator.hpp": "d36ccda5d86cb41e3bb06953e2667be3e01bbc3acdc3bb0e8b1b3bde6ecb1191"
  },
  "mode": "full",
  "schema": 1,
- "score": 1570.19,
+ "score": 1789.25,
  "status": "pass",
- "time": "2026-10-21T12:12:31Z"
+ "time": "2026-10-21T16:03:21Z"
 }
