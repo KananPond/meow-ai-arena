@@ -8222,7 +8222,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "calib_old_kimi": {
    "label": "Kimi K3（原主程）（校准重测）",
@@ -9575,7 +9577,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "prev_new_astramaxfast": {
    "label": "GPT-6 Astra · max · Fast",
@@ -11209,7 +11213,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "prev_new_6.1med": {
    "label": "GPT-6.1 Sol · medium",
@@ -12218,7 +12224,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "prev_new_6solmed": {
    "label": "GPT-6 Sol · medium",
@@ -12846,7 +12854,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "prev_new_5.6solmed": {
    "label": "GPT-5.6 Sol · medium",
@@ -13422,7 +13432,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "prev_new_ds": {
    "label": "DeepSeek V4.1 Flash 1017 · max · 试跑0",
@@ -14109,7 +14121,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "prev_new_ds1": {
    "label": "DeepSeek V4.1 Flash 1017 · high · 试跑1",
@@ -14715,7 +14729,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "prev_new_ds2": {
    "label": "DeepSeek V4.1 Flash 1017 · max · 试跑2",
@@ -15416,7 +15432,9 @@
     "astra_67c40dc3e9e5",
     "astra_fea733719952",
     "astra_9f301b935003"
-   ]
+   ],
+   "note": "参照线：10-17 内部评测的提交，代码不在本仓库",
+   "code_in_repo": false
   },
   "prev_old_kimi": {
    "label": "Kimi K3（原主程）",

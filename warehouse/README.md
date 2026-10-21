@@ -156,7 +156,7 @@ python tools/bench2.py --big    # 看快慢：3 组大负载，显示相对参�
 | Claude Haiku 5.5 | 8/8 | 98.1× | 3（超时 3），另有 12 份没跑 | 33.8（自己结束） | `submissions/ep7/haiku-5.5/` |
 
 - **并列**：Step 和混元差 0.9%，千问和 Mercury 差 1%，都在基线复用带来的约 ±1% 系统偏差之内，判为并列（用户决定）。Mistral 和 dots 交上来的代码和基线逐字节相同，速度就是基线本身，并列第 7～8。
-- **豆包**：豆包这一场也交了新代码（Doubao-Seed-Evolving，存档在 `submissions/ep7/doubao-seed-evolving/`），用户决定这份不测速，名次表沿用它第 5 集作为主程的成绩（10-17 在同一台机器上实测）。
+- **豆包**：豆包这一场也交了新代码，用户决定这份不测速、不用（不放进仓库），名次表沿用它第 5 集作为主程的成绩（10-17 在同一台机器上实测）。
 - **盘古**：快筛那一组 180 秒没跑完（基线 33.5 秒）；8 组里只有 `hid_huge` 在时限内跑完且正确，用了 229 CPU 秒，基线 113 秒。所以加速比记"慢 2 倍以上"，按保底算。
 - **LongCat**：`sim.cpp` 用了 `__m128i` 却没包含对应头文件，按统一的编译命令编译失败，8 组和所有反例都记失败。
 - **反例**：按输入计数，不是按根因；0 只表示这些输入上没出错。Claude 三位还有 12 份 Astra 新反例没跑（找到它们的对象是别家代码）。逐个输入的来源和判定见 `results/ep7/counterexamples/README.md`。
@@ -167,7 +167,7 @@ python tools/bench2.py --big    # 看快慢：3 组大负载，显示相对参�
 
 | 路径 | 内容 |
 |---|---|
-| `submissions/ep7/` | 13 份提交的 `src/` 原样（含豆包未测速的那份），见 `submissions/ep7/README.md` |
+| `submissions/ep7/` | 12 份测速提交的 `src/` 原样，见 `submissions/ep7/README.md` |
 | `results/ep7/` | 统一评测主表 `汇总.md`、完整数据 `结果.json`、提交封存清单、编译报错、Astra 反例独立复现的记录（路径已脱敏），见 `results/ep7/README.md` |
 | `results/ep7/counterexamples/` | 统一评测用到的 26 份反例输入和基线输出，另有 2 份未计入的放在 `excluded/` |
 | `packages/ep7/` | 开赛提示词、GPT-6 Astra 两轮找缺陷的任务和报告，见 `packages/ep7/README.md` |

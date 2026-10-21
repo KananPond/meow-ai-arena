@@ -40,7 +40,7 @@ Reference (not ranked):
 | Claude Haiku 5.5 | 8/8 | 98.1× | 3 (timeouts); 12 inputs not run | 33.8 | `submissions/ep7/haiku-5.5/` |
 
 - **Ties**: Step vs. Hunyuan differ by 0.9% and Qwen vs. Mercury by 1%, within the ~±1% systematic uncertainty from the reused baseline, so they were ranked as ties (organizer's decision). Mistral and dots submitted code byte-identical to the baseline, so their speed is the baseline's own; they share 7th–8th.
-- **Doubao** also submitted new code in this event (Doubao-Seed-Evolving, archived unevaluated in `submissions/ep7/doubao-seed-evolving/`). The organizer decided not to time it; the ranking uses Doubao's episode 5 lead submission, timed on the same machine on 10-17.
+- **Doubao** also submitted new code in this event; the organizer decided not to time or use it (it is not included here); the ranking uses Doubao's episode 5 lead submission, timed on the same machine on 10-17.
 - **openPangu**: the screening workload did not finish in 180 s (baseline 33.5 s); only `hid_huge` finished in time and correctly (229 CPU s vs. 113 s for the baseline), so its speed is recorded as "more than 2× slower" as a lower bound.
 - **LongCat**: `sim.cpp` uses `__m128i` without including the header that declares it, so it fails to compile with the common build command.
 - **Counterexamples** are counted per distinct input (SHA-256), not per root cause; 0 only means none of these inputs broke the code. The three Claude submissions were not run on 12 of the new inputs (those were found against other submissions). Per-input details: `results/ep7/counterexamples/README.md`.
@@ -51,7 +51,7 @@ Reference (not ranked):
 
 | Path | Contents |
 |---|---|
-| `submissions/ep7/` | The 13 submitted `src/` folders, byte-for-byte (including Doubao's untimed one); see `submissions/ep7/README.md` |
+| `submissions/ep7/` | The 12 timed `src/` folders, byte-for-byte; see `submissions/ep7/README.md` |
 | `results/ep7/` | Unified result table `汇总.md`, full data `结果.json`, sealed-submission manifest, compiler error, records of the independent counterexample re-run (absolute paths replaced with placeholders); see `results/ep7/README.md` |
 | `results/ep7/counterexamples/` | The 26 counterexample inputs used in the unified pass with baseline outputs, plus 2 excluded ones in `excluded/` |
 | `packages/ep7/` | The prompt, and the tasks and reports of the two GPT-6 Astra defect-hunting sessions; see `packages/ep7/README.md` |

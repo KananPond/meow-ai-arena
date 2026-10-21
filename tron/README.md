@@ -125,7 +125,7 @@ Windows 上没有 `python` 命令时，把 `python` 换成 `.\run.cmd`。如果�
 | `sparring/` | 两个陪练的源码：`sparring.cpp`（中档）、`sparring_hard.cpp`（强档陪练线） |
 | `results/` | 两张榜的成绩表、逐局结果、局内统计、冻结清单，见 `results/README.md` |
 | `replays/` | 30 局随机抽样的回放，见 `replays/README.md` |
-| `tournament/` | 终场用的赛事脚本（计分、赛程、并入）和配置，存档备查，见 `tournament/README.md` |
+| `tournament/` | 终场用的赛事脚本（计分、赛程、并入）和配置，以及两次终场的赛程表（含全部地图种子），存档备查，见 `tournament/README.md` |
 | `challenge.py` | 一键挑战 |
 | `make_player_pack.py`、`workspace_manifest.json` | 编译陪练、打一份和比赛时一样的选手包；比赛时选手包的文件清单和哈希 |
 | `CONDITIONS.md` | 比赛条件与异常记录 |
@@ -142,7 +142,7 @@ python make_player_pack.py --zip       # 编译陪练，按比赛时的文件清
 
 - **陪练**：比赛时选手包里只有陪练编译好的程序（`bots/sparring.exe/.dll`、`bots/sparring_hard.exe/.dll`），开源版放的是源码 `sparring/*.cpp`，用 `make_player_pack.py` 按比赛时的编译参数编出来。开源前核对过：用 GCC 16.2 编出的 `sparring_hard.exe` 和比赛时上场的那份逐字节相同；`sparring.exe` 只差源文件名符号和时间戳；两个陪练的快速模式版本对打 24 组对局，逐回合相同。
 - 除此之外，`workspace/` 和发给选手的 `workspace.zip` 逐字节相同（`RULES.md` 里写的计分口径就是赛前的版本，赛后调整见上面"赛制"）；`bots/` 里的代码和主办方封存的版本逐字节相同（sha256 与 `results/清单.json` 一致）。
-- **没有放进仓库的**：各模型的原始会话记录；选手交卷时用文字写的策略说明；终场全部对局的回放（只放了随机抽的 30 局，逐局结果在 `results/` 里）；地图种子赛程表 `赛程.json`；主办方计时、封存、补时、启动选手的脚本和操作手册；赛后的几个实验（成长曲线、大图实验、稳定性重跑）的数据；2010 年人类选手 bot 的适配代码（见下）。
+- **没有放进仓库的**：各模型的原始会话记录；选手交卷时用文字写的策略说明；终场全部对局的回放（只放了随机抽的 30 局，逐局结果在 `results/` 里）；主办方计时、封存、补时、启动选手的脚本和操作手册；赛后的几个实验（成长曲线、大图实验、稳定性重跑）的数据；2010 年人类选手 bot 的适配代码（见下）。
 
 ## 附加实验：和 2010 年人类选手的 bot 对照
 

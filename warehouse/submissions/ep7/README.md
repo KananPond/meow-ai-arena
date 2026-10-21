@@ -19,10 +19,9 @@
 | `sonnet-5.5/` | Claude Sonnet 5.5 | `ep7_Sonnet` | 参照，不排名 | 8/8 | 169.7× | 有 |
 | `opus-5.5/` | Claude Opus 5.5 | `ep7_Opus` | 参照，不排名 | 8/8 | 101.0× | 有 |
 | `haiku-5.5/` | Claude Haiku 5.5 | `ep7_Haiku` | 参照，不排名 | 8/8 | 98.1× | 有 |
-| `doubao-seed-evolving/` | 豆包 Doubao-Seed-Evolving | — | 不计成绩 | 未测 | 未测 | 没有 |
 
 - `mistral-large-4/` 和 `dots3-note-preview/` 的 5 个文件和基线 `../../workspace/baseline/` 逐字节相同（SHA-256 一致），评测时按"和基线相同"处理，没有单独运行。
 - `longcat-2.0/` 用上面的命令编译失败：`sim.cpp` 第 70 行用了 `__m128i` 却没有包含对应的头文件。编译器的原始报错在 `../../results/ep7/编译错误.json`。
-- `doubao-seed-evolving/` 是豆包这一场的新提交（45 分钟到点收卷，只有一个 `main.cpp`）。用户决定这份不测速，名次表里豆包那一行沿用它第 5 集作为主程的成绩，代码见 `../round1/doubao-seed-2.1-turbo/`。这份放在这里只作存档，没有经过任何评测。
+- 豆包这一场的名次沿用它第 5 集作为主程的成绩，代码见 `../round1/doubao-seed-2.1-turbo/`；它这一场交的新代码按用户决定不测速、不放进仓库。
 - Claude 三位用同一个包、同一句提示词、同样的时限做了一次，作为参照列出，不参与名次。
 - 名次、反例和用时的完整说明见 `../../README.md` 的"第 7 集 · 屎山优化"一节。
