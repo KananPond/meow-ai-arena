@@ -11,25 +11,26 @@
 | 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 小比赛名次 | 评测日期 |
 |---:|---|---|---|---|---:|---|---|
 | 1 | [墨痕喵](land/mohen2006__land-gpt-61-sol/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | gpt-6.1-sol / Codex | 337 | 1 / 13 | 2026-10-17 |
-| 2 | [大方框](land/light-yuncai__big-loop/) | Light-YunCai（[@light-yuncai](https://github.com/light-yuncai)） | AI 写 | deepseek-flash / DeepSeek Harness | -6 | 10 / 13 | 2026-10-21 |
-| 3 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
+| 2 | [皇家圈地](land/owo9891__royal-loop/) | OWO9891（[@owo9891](https://github.com/owo9891)） | AI 写 | deepseek-flash / DeepSeek Harness | 319 | 2 / 13 | 2026-10-22 |
+| 3 | [大方框](land/light-yuncai__big-loop/) | Light-YunCai（[@light-yuncai](https://github.com/light-yuncai)） | AI 写 | deepseek-flash / DeepSeek Harness | -6 | 10 / 13 | 2026-10-21 |
+| 4 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
 
 官方选手参照：每份投稿评测时，官方选手和基准也在同一台虚拟机上打了同一轮小比赛。下表是它们在各次评测里实力值的中位数。
 
 | 官方选手 | 实力值（中位数） | 出现在几次评测里 |
 |---|---:|---:|
-| sonnet-5@claude-code | 373 | 3 |
-| opus-5.5@claude-code | 296 | 3 |
-| gpt-6-astra@codex | 289 | 3 |
-| anchor-sparring | 269 | 3 |
-| gpt-6-sol@codex | 180 | 3 |
-| mimo-2.6-pro@zcode | 149 | 3 |
-| kimi-k3@workbuddy | 49 | 3 |
-| anchor-greedy | 0 | 3 |
-| glm-5.3@workbuddy | -4 | 3 |
-| deepseek-4.1f@workbuddy | -120 | 3 |
-| mystery-model@zcode | -137 | 3 |
-| anchor-random | -342 | 3 |
+| sonnet-5@claude-code | 377 | 4 |
+| gpt-6-astra@codex | 287 | 4 |
+| opus-5.5@claude-code | 285 | 4 |
+| anchor-sparring | 271 | 4 |
+| gpt-6-sol@codex | 181 | 4 |
+| mimo-2.6-pro@zcode | 158 | 4 |
+| kimi-k3@workbuddy | 52 | 4 |
+| anchor-greedy | 0 | 4 |
+| glm-5.3@workbuddy | -8 | 4 |
+| deepseek-4.1f@workbuddy | -112 | 4 |
+| mystery-model@zcode | -131 | 4 |
+| anchor-random | -334 | 4 |
 
 ## 第 2 集 · 炸弹人（`bomberman/`）
 
@@ -91,6 +92,10 @@
 | 2 | [循迹仓流](warehouse/genshinkleenahida__traceflow/) | genshinkleenahida（[@genshinkleenahida](https://github.com/genshinkleenahida)） | AI 写 | GPT-6 Astra Pro / ChatGPT（GitHub 插件） | 1789.2 倍 | 8 / 8 | 8 组隐藏负载 | 2026-10-21 |
 
 官方选手的第 1 轮成绩见 [`warehouse/results/第1轮_速度成绩.md`](../warehouse/results/第1轮_速度成绩.md)，那是在比赛电脑上测的，评测脚本不会在虚拟机上重测它们，所以这里不列参照。
+
+没有成绩的投稿：
+
+- [缓存派单 + 位图寻路](warehouse/dafeiyuzhi__warehouse-cache/)（@dafeiyuzhi）：还没有评测
 
 ## 第 6 集 · 坦克大战（`tank/`）
 
