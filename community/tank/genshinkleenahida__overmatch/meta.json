@@ -1,0 +1,11 @@
+{
+  "author": "genshinkleenahida",
+  "github": "genshinkleenahida",
+  "name": "Overmatch（超越火力）",
+  "description": "公开转移模型条件化搜索，结合完整指令兜底、首回合预取、破墙动作与终局胜利证书。",
+  "written_by": "ai",
+  "model": "GPT-6.1 Sol",
+  "tool": "Codex",
+  "based_on": "slzhta 的 PUCT 和权重；十份公开对手策略；官方 tank.hpp；来源详见 NOTES.md",
+  "license": "MIT"
+}
