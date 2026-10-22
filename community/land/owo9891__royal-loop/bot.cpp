@@ -33,7 +33,7 @@ using namespace std;
 #define P_ATK_TRIP 0
 #endif
 #ifndef P_DEF_W
-#define P_DEF_W 1.5
+#define P_DEF_W 2.5
 #endif
 #ifndef P_DEF_ON
 #define P_DEF_ON 0
