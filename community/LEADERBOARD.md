@@ -11,25 +11,26 @@
 | 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 小比赛名次 | 评测日期 |
 |---:|---|---|---|---|---:|---|---|
 | 1 | [墨痕喵](land/mohen2006__land-gpt-61-sol/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | gpt-6.1-sol / Codex | 337 | 1 / 13 | 2026-10-17 |
-| 2 | [大方框](land/light-yuncai__big-loop/) | Light-YunCai（[@light-yuncai](https://github.com/light-yuncai)） | AI 写 | deepseek-flash / DeepSeek Harness | -6 | 10 / 13 | 2026-10-21 |
-| 3 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
+| 2 | [皇家圈地](land/owo9891__royal-loop/) | OWO9891（[@owo9891](https://github.com/owo9891)） | AI 写 | deepseek-flash / DeepSeek Harness | 319 | 2 / 13 | 2026-10-22 |
+| 3 | [大方框](land/light-yuncai__big-loop/) | Light-YunCai（[@light-yuncai](https://github.com/light-yuncai)） | AI 写 | deepseek-flash / DeepSeek Harness | -6 | 10 / 13 | 2026-10-21 |
+| 4 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
 
 官方选手参照：每份投稿评测时，官方选手和基准也在同一台虚拟机上打了同一轮小比赛。下表是它们在各次评测里实力值的中位数。
 
 | 官方选手 | 实力值（中位数） | 出现在几次评测里 |
 |---|---:|---:|
-| sonnet-5@claude-code | 373 | 3 |
-| opus-5.5@claude-code | 296 | 3 |
-| gpt-6-astra@codex | 289 | 3 |
-| anchor-sparring | 269 | 3 |
-| gpt-6-sol@codex | 180 | 3 |
-| mimo-2.6-pro@zcode | 149 | 3 |
-| kimi-k3@workbuddy | 49 | 3 |
-| anchor-greedy | 0 | 3 |
-| glm-5.3@workbuddy | -4 | 3 |
-| deepseek-4.1f@workbuddy | -120 | 3 |
-| mystery-model@zcode | -137 | 3 |
-| anchor-random | -342 | 3 |
+| sonnet-5@claude-code | 377 | 4 |
+| gpt-6-astra@codex | 287 | 4 |
+| opus-5.5@claude-code | 285 | 4 |
+| anchor-sparring | 271 | 4 |
+| gpt-6-sol@codex | 181 | 4 |
+| mimo-2.6-pro@zcode | 158 | 4 |
+| kimi-k3@workbuddy | 52 | 4 |
+| anchor-greedy | 0 | 4 |
+| glm-5.3@workbuddy | -8 | 4 |
+| deepseek-4.1f@workbuddy | -112 | 4 |
+| mystery-model@zcode | -131 | 4 |
+| anchor-random | -334 | 4 |
 
 ## 第 2 集 · 炸弹人（`bomberman/`）
 
@@ -89,6 +90,7 @@
 |---:|---|---|---|---|---:|---:|---|---|
 | 1 | [稳流 SteadyFlow](warehouse/genshinkleenahida__steadyflow/) | genshinkleenahida（[@genshinkleenahida](https://github.com/genshinkleenahida)） | AI 写 | GPT-6 / Codex | 2971.0 倍 | 8 / 8 | 8 组隐藏负载 | 2026-10-21 |
 | 2 | [循迹仓流](warehouse/genshinkleenahida__traceflow/) | genshinkleenahida（[@genshinkleenahida](https://github.com/genshinkleenahida)） | AI 写 | GPT-6 Astra Pro / ChatGPT（GitHub 插件） | 1789.2 倍 | 8 / 8 | 8 组隐藏负载 | 2026-10-21 |
+| 3 | [缓存派单 + 位图寻路](warehouse/dafeiyuzhi__warehouse-cache/) | 志（[@dafeiyuzhi](https://github.com/dafeiyuzhi)） | AI 写 | DeepSeek（Harness 会话，具体型号未记录） / DeepSeek Harness | 235.2 倍 | 8 / 8 | 8 组隐藏负载 | 2026-10-22 |
 
 官方选手的第 1 轮成绩见 [`warehouse/results/第1轮_速度成绩.md`](../warehouse/results/第1轮_速度成绩.md)，那是在比赛电脑上测的，评测脚本不会在虚拟机上重测它们，所以这里不列参照。
 
@@ -100,7 +102,8 @@
 
 | 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 终场赛参照名次 | 评测日期 |
 |---:|---|---|---|---|---:|---|---|
-| 1 | [value-based PUCT](tank/slzhta__value-based-puct/) | slzhta（[@slzhta](https://github.com/slzhta)） | 人和 AI 合写 | GPT-6 Astra / Codex | 765 | 1 / 15 | 2026-10-21 |
-| 2 | [神经网络搜索 (自适应预算版)](tank/mbfcasper__neural-search/) | mbfcasper（[@mbfcasper](https://github.com/mbfcasper)） | AI 写 | GPT-6.1 Sol + Gemini 4 Argon + Gemini 3.8 Flash + Claude Opus 5.5 / Codex / Antigravity / Claude Code | 670 | 1 / 15 | 2026-10-20 |
+| 1 | [Overmatch（超越火力）](tank/genshinkleenahida__overmatch/) | genshinkleenahida（[@genshinkleenahida](https://github.com/genshinkleenahida)） | AI 写 | GPT-6.1 Sol / Codex | 833 | 1 / 15 | 2026-10-22 |
+| 2 | [value-based PUCT](tank/slzhta__value-based-puct/) | slzhta（[@slzhta](https://github.com/slzhta)） | 人和 AI 合写 | GPT-6 Astra / Codex | 765 | 1 / 15 | 2026-10-21 |
+| 3 | [神经网络搜索 (自适应预算版)](tank/mbfcasper__neural-search/) | mbfcasper（[@mbfcasper](https://github.com/mbfcasper)） | AI 写 | GPT-6.1 Sol + Gemini 4 Argon + Gemini 3.8 Flash + Claude Opus 5.5 / Codex / Antigravity / Claude Code | 670 | 1 / 15 | 2026-10-20 |
 
 固定参照来自 [`tank/results/final/成绩.md`](../tank/results/final/成绩.md)。社区对局使用新地图，在不同机器上运行，局数较少；参照分数不是本次在虚拟机上重新测出的官方成绩。

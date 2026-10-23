@@ -1,0 +1,109 @@
+{
+ "commit": "6b78c8c3ad28aa1d8048a7cf31b06a6e9f35cc5b",
+ "detail": {
+  "correct": 8,
+  "total": 8,
+  "workloads": [
+   {
+    "baseline_cpu": 177.337,
+    "cpu": 0.6166,
+    "mem_mb": 22.1,
+    "name": "hid_medium",
+    "runs": 3,
+    "set": "隐藏",
+    "speedup": 287.62,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 129.635,
+    "cpu": 0.7496,
+    "mem_mb": 22.1,
+    "name": "hid_huge",
+    "runs": 3,
+    "set": "隐藏",
+    "speedup": 172.95,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 231.174,
+    "cpu": 0.998,
+    "mem_mb": 24.9,
+    "name": "hid_crowded",
+    "runs": 3,
+    "set": "隐藏",
+    "speedup": 231.63,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 121.517,
+    "cpu": 0.6259,
+    "mem_mb": 24.9,
+    "name": "hid_dynamic",
+    "runs": 3,
+    "set": "隐藏",
+    "speedup": 194.16,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 288.578,
+    "cpu": 0.7536,
+    "mem_mb": 24.9,
+    "name": "hid_flood",
+    "runs": 3,
+    "set": "隐藏",
+    "speedup": 382.92,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 41.987,
+    "cpu": 0.2658,
+    "mem_mb": 24.9,
+    "name": "hid_lowbattery",
+    "runs": 4,
+    "set": "隐藏",
+    "speedup": 157.97,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 269.298,
+    "cpu": 0.5517,
+    "mem_mb": 24.9,
+    "name": "hid_long",
+    "runs": 3,
+    "set": "隐藏",
+    "speedup": 488.12,
+    "status": "ok"
+   },
+   {
+    "baseline_cpu": 108.009,
+    "cpu": 0.7607,
+    "mem_mb": 24.9,
+    "name": "hid_mixed",
+    "runs": 3,
+    "set": "隐藏",
+    "speedup": 141.99,
+    "status": "ok"
+   }
+  ]
+ },
+ "entry": "dafeiyuzhi__warehouse-cache",
+ "env": {
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cpus": 4,
+  "platform": "Linux-7.0.0-1017-azure-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "episode": "warehouse",
+ "errors": [],
+ "files": {
+  "src/common.h": "087333a8c0eb2168658c298ff491b7dab09716f093cd017103ef0328f0c9161e",
+  "src/main.cpp": "087e1277f5648d0b0950f7aeb2ec4443236f3aaa5bebae567704870d5dae9c9f",
+  "src/sim.cpp": "64244de380329e715151adb47aec17580d1f056669d020e256a247618a8bcd7f",
+  "src/util.cpp": "2961c5684541b1ae83bb3c990f0c0d21f1642737f27e6edfa63ccb6ddfa9044c"
+ },
+ "mode": "full",
+ "schema": 1,
+ "score": 235.24,
+ "status": "pass",
+ "time": "2026-10-22T16:45:40Z"
+}
