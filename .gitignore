@@ -36,3 +36,6 @@ tron/workspace/bots/*.dll
 tron/workspace/history/
 tron/workspace/replays/
 tron/out/
+
+# ZCode 安全钩子的本地状态，不是比赛材料
+.mimosa/
