@@ -1,0 +1,11 @@
+{
+  "author": "示例",
+  "github": "chen-006",
+  "name": "起步模板",
+  "description": "第 7 集选手包里的模板原样复制，能直走就直走，只用来演示投稿格式。",
+  "written_by": "human",
+  "model": "",
+  "tool": "",
+  "based_on": "tron/workspace/submission/bot.cpp",
+  "license": "MIT"
+}
