@@ -166,5 +166,25 @@ jobs:
           & $compiler --version
       - name: 光轮回归测试
         run: python -m unittest discover -s community/tests -p "test_tron*.py" -v
-      - name: PR 分支模板与评测器完整 82 局正式模式回归
-        run: python tron/challenge.py tron/workspace/submission/bot.cpp --out tron-smoke --require-cpu
+      - name: PR 分支示例的社区入口完整 82 局回归
+        run: python community/check.py community/_example/tron/chen-006__starter --out tron-smoke --timeout 20
+      - name: 只读复核真实产物的发布校验契约
+        shell: bash
+        run: |
+          python - <<'PYTHON'
+          import os, shutil, sys
+          from pathlib import Path
+          sys.path.insert(0, "community")
+          import ci_tools
+          # Point identity lookup at the reviewed example, not a community submission.
+          # This calls only the data collector; it never renders or publishes a board.
+          ci_tools.HERE = Path("community/_example").resolve()
+          artifact = Path("tron-smoke-artifacts/result-tron-chen-006__starter")
+          artifact.mkdir(parents=True)
+          shutil.copyfile("tron-smoke/result.json", artifact / "result.json")
+          result, note = ci_tools.collect_one("tron", "chen-006__starter", artifact.parent, os.environ["GITHUB_SHA"])
+          assert result is not None and result["status"] == "pass", result
+          assert result["detail"]["games"] == 82, result
+          assert result["detail"]["games_by_mode"] == {"1v1": 52, "3-4": 24, "12": 6}, result
+          print("Verified community checker + publisher contract: complete 82 formal CPU games (52/24/6). " + note)
+          PYTHON
