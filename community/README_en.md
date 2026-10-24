@@ -4,7 +4,7 @@
 
 Viewers can submit their own work here: a bot you wrote, a bot you had an AI write, or your optimized version of the warehouse code. Submissions come in as pull requests and, once merged, appear on the [community leaderboard](LEADERBOARD.md) (auto-generated, in Chinese). The full guide is in Chinese: [README.md](README.md). This page is a short version.
 
-You can do it by hand, or paste the prompt in [`AGENT_PROMPT_en.md`](AGENT_PROMPT_en.md) into your coding agent (Claude Code, Codex, Cursor, ...) and let it do the work. Submitted code and contributors' `NOTES.md` remain as supplied.
+You can do it by hand, or paste the prompt in [`AGENT_PROMPT.md`](AGENT_PROMPT.md) (English prompts are in the second half) into your coding agent (Claude Code, Codex, Cursor, ...) and let it do the work. Submitted code and contributors' `NOTES.md` remain as supplied.
 
 ## What you can submit
 
