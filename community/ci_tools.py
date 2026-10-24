@@ -125,7 +125,7 @@ def cmd_scope(args):
         set_output(kind="removal", entry=rel)
         return
     say("投稿目录：`%s`（%s）" % (rel, check.EPISODE_TITLES[ep]))
-    set_output(kind="submission", entry=rel)
+    set_output(kind="submission", entry=rel, episode=ep)
 
 
 # ---------------------------------------------------------------- plan：推送后要重测哪些投稿
@@ -247,6 +247,19 @@ def collect_one(ep, name, artifacts, commit):
                             **{k: r.get(k) if type(r.get(k)) is int and 0 <= r[k] <= 80 else None
                                for k in ("wins", "draws", "losses")}}
                            for r in opponents if isinstance(r, dict) and isinstance(r.get("name"), str)])
+    if ep == "tron" and rec["status"] == "pass":
+        try:
+            from tron_contract import validate_result
+            field, verified = validate_result(detail, ROOT)
+            if (verified["source_sha256"] != files.get("bot.cpp") or
+                    verified["full"] is not (rec["mode"] == "full") or rec["mode"] not in ("quick", "full") or
+                    not math.isclose(rec["score"], round(verified["rating"], 1), abs_tol=1e-7)):
+                raise ValueError("源码、档位或加权分与投稿不符")
+            rec["detail"] = dict(verified, field=field, field_size=len(field))
+            rec["score"] = round(verified["rating"], 1)
+        except (OSError, ValueError, KeyError, TypeError, IndexError, AttributeError, OverflowError) as error:
+            rec["status"], rec["score"] = "fail", None
+            rec["errors"].append("光轮结果未通过固定参照与赛程复核：%s" % error)
     return rec, "已采用（%s）" % rec["status"]
 
 
@@ -336,6 +349,16 @@ def cmd_render(args):
                     i, who_cells(ep, name, meta), rec["score"], d.get("rank") or "—", E(str(rec.get("time", ""))[:10])))
             L += ["", "固定参照来自 [`tank/results/final/成绩.md`](../tank/results/final/成绩.md)。"
                   "社区对局使用新地图，在不同机器上运行，局数较少；参照分数不是本次在虚拟机上重新测出的官方成绩。", ""]
+        elif ranked and ep == "tron":
+            L += ["按加权实力值排序：Windows 正式模式，固定终场强对手榜各局型评分，只拟合投稿（豆包 = 0，1v1 / 4人 / 12人权重 50 / 30 / 20%）。", "",
+                  "13 个对手包含 10 位正式选手、2 位参考选手和 sparring_hard；陪练参与拟合但不占参照名次。", "",
+                  "| 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 加权实力值 | 强对手榜参照名次 | 评测日期 |", "|---:|---|---|---|---|---:|---|---|"]
+            for i, (name, meta, rec, _) in enumerate(ranked, 1):
+                d = rec.get("detail") or {}
+                L.append("| %d | %s | %.0f | %s / 13 | %s |" % (
+                    i, who_cells(ep, name, meta), rec["score"], d.get("rank") or "—", E(str(rec.get("time", ""))[:10])))
+            L += ["", "固定参照来自 [`tron/results/RESULTS_强对手榜.md`](../tron/results/RESULTS_强对手榜.md)。"
+                  "默认 82 局（52 / 24 / 6），参照名次只与 12 位选手比较；机器、地图、局数不同，不能当作正式赛名次。", ""]
         elif ranked:
             label = "单挑、混战两种赛制的 Bradley–Terry 实力值取平均，greedy 基准 = 0" if ep == "land" else "Bradley–Terry，基准 = 0"
             L += ["按实力值排序（%s，强 10 倍记 +400）。“小比赛名次”是这份投稿在它自己那一轮小比赛里排第几。" % label, "",

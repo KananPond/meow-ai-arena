@@ -61,7 +61,10 @@ jobs:
     name: 评测 ${{ matrix.episode }}/${{ matrix.entry }}
     needs: plan
     if: needs.plan.outputs.count != '0'
-    runs-on: ubuntu-24.04
+    runs-on: ${{ matrix.episode == 'tron' && 'windows-2025' || 'ubuntu-24.04' }}
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 240
     permissions:
       contents: read
@@ -73,6 +76,13 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: 检查 Windows 原生编译器
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $compiler = (Get-Command g++.exe -ErrorAction Stop).Source
+          "CXX=$compiler" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          & $compiler --version
       # 仓储调度在这里跑完整档（第 1 轮的全部 8 组隐藏负载），bot 类和 PR 评测一样跑 challenge.py 的默认局数。
       # 评测没通过也照常上传 result.json，榜单上会把它列在“没有成绩的投稿”里。
       - name: 评测
@@ -83,7 +93,7 @@ jobs:
           g++ --version | head -n 1
           mode=""
           if [ "$EPISODE" = "warehouse" ]; then mode="--full"; fi
-          python3 community/check.py "community/$EPISODE/$ENTRY" $mode --out "$GITHUB_WORKSPACE/out" --timeout 120 \
+          python community/check.py "community/$EPISODE/$ENTRY" $mode --out "$GITHUB_WORKSPACE/out" --timeout 120 \
             || echo "评测没有通过，结果照常上传。"
       - name: 上传结果
         if: always()

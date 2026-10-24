@@ -50,7 +50,7 @@ python challenge.py 你的bot.cpp
 
 你的作品可以交到这个仓库里，合并后进[社区榜](community/LEADERBOARD.md)。
 
-**可以交什么**：第 1、2、3、6 集的 bot（自己写的、让 AI 写的、在官方选手代码上改的都行），第 5 集优化过的仓储调度代码，或者修好了某份模型代码里已知缺陷的版本。第 4 集没有可以提交的程序，不收。
+**可以交什么**：第 1、2、3、6 集的 bot 和第 7 集的光轮 bot（自己写的、让 AI 写的、在官方选手代码上改的都行），第 5 集优化过的仓储调度代码，或者修好了某份模型代码里已知缺陷的版本。第 4 集没有可以提交的程序，不收。
 
 **最快的办法**是交给你的 coding agent（Claude Code、Codex、Cursor 等）。把下面这句话发给它，它会问你几个问题，在本地测一遍，然后把要提交的内容给你过目，你同意后再开 Pull Request：
 
@@ -66,7 +66,7 @@ python challenge.py 你的bot.cpp
 2. 运行 `python community/check.py community/<集>/<你的文件夹>`，它会检查格式并跑一遍评测。
 3. 只提交这一个文件夹，开 Pull Request，把自测摘要贴进描述。
 
-第 6 集目录名用 `tank`，详情见 [坦克大战投稿说明](community/README.md#代码要遵守的规则)。Tank 投稿支持需要先合并到目标分支，再提交作品；PR 评测使用目标分支的可信脚本。
+第 6 集目录名用 `tank`，第 7 集光轮对战用 `tron`，详情见 [投稿规则](community/README.md#代码要遵守的规则)。Tron 只实现 `int decide(const tron::State&)`，使用官方 `tron.hpp` 和 `tron_main.cpp`，不要自己写 `main`；本地编译和评测需要 Windows。Tank / Tron 投稿支持需要先合并到目标分支，再提交作品；PR 评测使用目标分支的可信脚本。
 
 之后 GitHub Actions 会自动评测，维护者看过后合并。社区榜是在 GitHub 的虚拟机上测的，局数少，和节目里的正式成绩不能直接比。规则、`meta.json` 的写法和成绩口径见 [`community/README.md`](community/README.md)。
 

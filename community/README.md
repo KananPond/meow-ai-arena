@@ -15,6 +15,7 @@ English: [README_en.md](README_en.md)
 | 第 3 集 · 夺旗 | `community/ctf/` | 一个 `bot.cpp` |
 | 第 5 集 · 仓储调度 | `community/warehouse/` | 一个 `src/` 文件夹：优化后的仓储调度程序 |
 | 第 6 集 · 坦克大战 | `community/tank/` | 一个 `bot.cpp`，只实现 `init` 和 `decide` |
+| 第 7 集 · 光轮对战 | `community/tron/` | 一个 `bot.cpp`，只实现 `decide`；本地评测需要 Windows |
 
 下面这些都可以：
 
@@ -42,7 +43,7 @@ English: [README_en.md](README_en.md)
 community/<集>/<GitHub用户名>__<作品名>/
 ```
 
-- `<集>` 是 `land`、`bomberman`、`ctf`、`warehouse`、`tank` 之一。
+- `<集>` 是 `land`、`bomberman`、`ctf`、`warehouse`、`tank`、`tron` 之一。
 - `<GitHub用户名>` 是你开 PR 用的账号，全部写成小写。
 - `<作品名>` 自己取，最多 40 个字符。
 - 两段都只能用小写字母、数字和连字符 `-`；连字符不能在开头和结尾，也不能连着用。两段之间是两个下划线。
@@ -52,7 +53,7 @@ community/<集>/<GitHub用户名>__<作品名>/
 
 文件夹里只能有这些文件：
 
-| 文件 | bot 类四集 | 仓储调度 | 说明 |
+| 文件 | bot 类五集 | 仓储调度 | 说明 |
 |---|---|---|---|
 | `bot.cpp` | 必须有 | 不要 | 单个源文件，最大 256 KB |
 | `src/` | 不要 | 必须有 | 只能有 `.cpp`、`.h`、`.hpp`、`.md` 文件，不能有子文件夹；单个文件最大 256 KB，合计最大 768 KB，最多 40 个文件 |
@@ -71,11 +72,14 @@ community/<集>/<GitHub用户名>__<作品名>/
 | 炸弹人 | `g++ -std=c++20 -O2 bot.cpp` | 首回合 2000 毫秒，之后每回合 50 毫秒；同一个程序要支持 2–10 人 | 访问文件或网络、干扰对手 | `bomberman/workspace/README.md`、`RULES.md` |
 | 夺旗 | `g++ -std=c++20 -O2 bot.cpp` | 第一回合 2 秒（含程序启动），之后每回合 50 毫秒；同一个程序要支持 2–15 方 | 读写文件、联网、启动其他程序；只能用 C++ 标准库 | `ctf/workspace/RULES.md` |
 | 坦克大战 | `g++ -O2 -std=c++20 -I<官方tank/workspace> bot.cpp <官方tank/workspace>/tank_main.cpp` | 首回合（`init` + 首次 `decide`，含启动）2000 CPU 毫秒，之后每回合 50 CPU 毫秒；正式模式独立进程，线程 CPU 时间合计 | 读写文件、联网、启动其他程序、干扰裁判；只依赖官方 `tank.hpp` 和标准库 | `tank/workspace/README.md`、`RULES.md` |
+| 光轮对战 | `g++ -O2 -std=c++20 -static -Wl,--stack,67108864 -I<官方tron/workspace> bot.cpp <官方tron/workspace>/tron_main.cpp` | 首回合（含启动）2000 CPU 毫秒，之后每回合 50 CPU 毫秒；正式模式独立进程，线程 CPU 时间合计 | 读写文件、联网、启动其他程序、干扰裁判；只依赖官方 `tron.hpp` 和标准库 | `tron/workspace/README.md`、`RULES.md` |
 | 仓储调度 | `g++ -O2 -std=c++20 src/*.cpp` | 内存上限 1 GB；计时用进程的 CPU 总时间，多线程不会更快 | 读写文件、联网、在两次运行之间缓存信息；只能用 C++ 标准库；只读标准输入、只写标准输出 | `warehouse/workspace/TASK.md` |
 
-Windows 上编译时会多加一个 `-static`。评测在 Linux 上用 g++ 编译，请不要依赖 Windows 专有的头文件。
+Windows 上编译时会多加一个 `-static`。**Tron 的裁判和主循环只支持 Windows**，本地编译（包括 `--skip-eval`）和评测都需要 Windows + g++；自动评测用 GitHub 标准 `windows-2025` 虚拟机。其他集仍在 Linux 上用 g++ 编译，请不要依赖 Windows 专有的头文件。
 
 坦克大战不能提交自己的 `main`、`tank.hpp` 或 `tank_main.cpp`。在 `bot.cpp` 中 `#include "tank.hpp"`，定义 `void init(const tank::State&, int)` 和 `tank::Orders decide(const tank::State&, int)`；自测会使用仓库里的可信头文件和主循环一起编译。评测沿用原生正式模式的 CPU 预算，不使用不判超时的快速模式，也不放宽 2000/50 毫秒的时限。Tank 允许开线程，预算按所有线程合计；源码扫描中的线程提示只是审查提醒，不代表禁止。正式比赛允许的 Windows 专用头文件不适用于 Linux 社区评测。
+
+光轮对战不能提交自己的 `main`、`tron.hpp` 或 `tron_main.cpp`。在 `bot.cpp` 中 `#include "tron.hpp"`，定义 `int decide(const tron::State&)`，返回 `tron::U / R / D / L`。自测只使用可信选手包里的头文件和主循环，正式评测不改引擎、2000/50 CPU 毫秒预算或超时规则，也不用快速模式。允许开线程，CPU 时间按整个进程合计。超时或返回不合法值时，该回合沿上一回合方向走（第 0 回合为 `U`），不直接判负；摘要会记录超时、不合法输出和崩溃。
 
 仓储调度的评测只编译 `src/` 这一层的全部 `.cpp`（和 `warehouse/workspace/tools/measure.py` 的做法一样），文件怎么拆随你。对任何合法输入，输出都要和 `warehouse/workspace/baseline/` 逐字节相同，`\r\n` 和 `\n` 视为相同。
 
@@ -123,7 +127,7 @@ python community/check.py community/<集>/<你的目录>
 
 1. 检查目录名、文件、`meta.json` 和大小限制。
 2. 运行那一集的评测。
-   - bot 类四集：调用那一集的 `challenge.py`。圈地约 380 局，炸弹人 330 局，夺旗约 180 局，和官方选手、基准打一轮小比赛。坦克大战则只让你的 bot 和 14 个下半场版本、出题方参照、基准这 16 个对手各打 20 局，共 320 局；`--full` 为每个对手 80 局，共 1280 局，均为正式模式。首次运行还需编译官方选手。
+   - bot 类五集：调用那一集的 `challenge.py`。圈地约 380 局，炸弹人 330 局，夺旗约 180 局，和官方选手、基准打一轮小比赛。坦克大战则只让你的 bot 和 14 个下半场版本、出题方参照、基准这 16 个对手各打 20 局，共 320 局；`--full` 为每个对手 80 局，共 1280 局，均为正式模式。光轮对战默认 82 局（1v1 52 局、4 人局 24 局、12 人局 6 局），`--full` 为 328 局，均为正式模式；对手是 10 位正式选手、2 位参考选手和强档陪练线。首次运行还需编译官方选手。
    - 仓储调度：在你的电脑上把基线和你的代码各跑一遍，先比输出，再算每组的加速比和几何平均。
 3. 输出成绩表，并把 `result.json` 和 `summary.md` 写到 `community/.runs/<集>/<你的目录>/`。这个目录不会进 git。
 
@@ -153,7 +157,7 @@ python community/check.py <目录> --full        # bot 类：局数更多；仓�
 
 ## PR 之后会发生什么
 
-1. **自动评测**。GitHub Actions 检查这个 PR 是不是只动了你自己的那个文件夹，然后在 GitHub 的虚拟机上跑一遍 `community/check.py`。评测脚本、官方对手和 Tank 的头文件、主循环都取自目标分支；PR 里只取投稿目录。因此 Tank 投稿需要目标分支已经合并了 Tank 投稿支持，先更新到支持它的最新 `main`，不要把评测脚本混进投稿 PR。结果在 PR 页面的 Checks 里，点进去能看到成绩表。第一次给本仓库提 PR 的账号，要等维护者点一下批准，评测才会开始。
+1. **自动评测**。GitHub Actions 检查这个 PR 是不是只动了你自己的那个文件夹，然后在 GitHub 的虚拟机上跑一遍 `community/check.py`。评测脚本、官方对手和 Tank / Tron 的头文件、主循环都取自目标分支；PR 里只取投稿目录。因此 Tank / Tron 投稿需要目标分支已经合并了对应的投稿支持，先更新到支持它的最新 `main`，不要把评测脚本混进投稿 PR。结果在 PR 页面的 Checks 里，点进去能看到成绩表。第一次给本仓库提 PR 的账号，要等维护者点一下批准，评测才会开始。
 2. **维护者看一眼**。主要看代码有没有违反规则的行为、`meta.json` 是否如实。
 3. **合并**。
 4. **进榜单**。合并后会再评测一次（仓储调度这次跑完整档），几十分钟后 [LEADERBOARD.md](LEADERBOARD.md) 自动更新。
@@ -163,6 +167,7 @@ python community/check.py <目录> --full        # bot 类：局数更多；仓�
 - 社区榜是在 GitHub 提供的虚拟机上测的，bot 类每份投稿只打几百局。**它和节目里的正式成绩不能直接比**：正式赛是在比赛电脑上打几千到几万局。
 - 圈地、炸弹人、夺旗的实力值来自“这份投稿 + 全部官方选手 + 基准”的一轮小比赛，基准记 0 分。社区投稿之间不直接交手。局数少，实力值上下浮动几十分是正常的。
 - 坦克大战单独使用**固定终场赛参照**：固定 `tank/results/final/成绩.json` 中 16 个对手的实力值，只拟合投稿者自己的实力值（Bradley–Terry，基准 = 0，强 10 倍 = +400），不会重新拟合一轮小比赛。摘要中的对手分数是历史终场赛参照值，不是这次社区评测重新测出的成绩；相当名次只和 14 位正式选手比较，基准和出题方参照不排名。局数、地图和机器都与正式赛不同，这个估计不能当作正式赛名次。
+- 光轮对战沿用 `tron/challenge.py` 的**固定终场强对手榜参照**：`tron/results/results.json` 中强对手榜的各局型实力值保持不变，分别只拟合投稿者的 Bradley–Terry 实力值，再按 1v1 50%、4 人局 30%、12 人局 20% 加权（豆包 = 0，强 10 倍 = +400）。`sparring_hard` 参与对战和拟合，但只作参考线、不占名次；参照名次与 12 位选手比较。这里的“3～4 人”分项实际只打 4 人局。选手包 `RULES.md` 保留赛前的 greedy = 0 等口径，社区挑战采用赛后强对手榜口径，不改写历史规则文件。分数、名次只是新地图上少量对局的估计，不是重跑正式赛。
 - 圈地的官方评分脚本会把场上最强的选手换算成 100 分，不适合拿来给社区投稿排序。社区榜用的是单挑和混战两种赛制的 Bradley–Terry 实力值的平均（greedy 基准 = 0），官方脚本算出的 0–100 总分也会列在自测摘要里。
 - 仓储调度的加速比是同一台机器上基线和投稿的 CPU 时间之比，输出有任何一组不对就没有成绩。不同投稿可能在不同的虚拟机上测，相近的数字不必当真。
 - 榜单默认只重测有改动的投稿，原因写在 `.github/workflows/community-leaderboard.yml` 开头。
@@ -179,8 +184,8 @@ python community/check.py <目录> --full        # bot 类：局数更多；仓�
 
 | 路径 | 内容 |
 |---|---|
-| `land/`、`bomberman/`、`ctf/`、`warehouse/`、`tank/` | 各集的投稿 |
-| `_example/` | 三份示例投稿，演示格式，不参加榜单 |
+| `land/`、`bomberman/`、`ctf/`、`warehouse/`、`tank/`、`tron/` | 各集的投稿 |
+| `_example/` | 四份示例投稿，演示格式，不参加榜单 |
 | `check.py` | 本地自测，自动评测用的也是它 |
 | `ci_tools.py` | GitHub Actions 用的工具：检查 PR 的改动范围、生成榜单 |
 | `AGENT_PROMPT.md` | 给 coding agent 的提交提示词（中文、英文各一版） |

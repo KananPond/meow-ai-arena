@@ -15,6 +15,7 @@ on:
     paths:
       - 'community/**'
       - 'tank/challenge.py'
+      - 'tron/challenge.py'
       - '.github/workflows/community-pr.yml'
 
 permissions:
@@ -37,10 +38,15 @@ jobs:
       - name: Python 单元测试与原生编译测试
         run: python3 -m unittest discover -s community/tests -v
 
-  check:
-    name: 检查并评测投稿
+  scope:
+    name: 检查投稿范围
+    outputs:
+      kind: ${{ steps.scope.outputs.kind }}
+      entry: ${{ steps.scope.outputs.entry }}
+      episode: ${{ steps.scope.outputs.episode }}
+      tron_infrastructure: ${{ steps.tron_paths.outputs.relevant }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
+    timeout-minutes: 10
     steps:
       # 默认检出的是 refs/pull/<编号>/merge：把 PR 合进目标分支后的结果。它的第一个父提交就是目标分支。
       # fetch-depth: 2 正好够取到这个父提交。
@@ -70,18 +76,54 @@ jobs:
           fi
           python3 base/community/ci_tools.py scope --repo pr --base 'HEAD^1' --head HEAD
 
-      # bot 类四集调用那一集的 challenge.py（几百局）；仓储调度跑快速档（5 组公开负载 + 3 组隐藏负载）。
+      - name: 识别光轮基础设施改动（不执行 PR 代码）
+        id: tron_paths
+        run: |
+          python3 - <<'PYTHON'
+          import os, re, subprocess
+          paths = subprocess.check_output(["git", "-C", "pr", "diff", "--name-only", "-z", "HEAD^1", "HEAD"]).decode("utf-8").split("\0")
+          pattern = r"(?:\.github/workflows/community-(?:pr|leaderboard)\.yml|community/(?:check|ci_tools|tron_contract)\.py|community/tests/test_tron[^/]*\.py|tron/challenge\.py)"
+          relevant = any(re.fullmatch(pattern, path) for path in paths)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write("relevant=" + str(relevant).lower() + "\n")
+          PYTHON
+
+  check:
+    name: 检查并评测投稿
+    needs: scope
+    if: needs.scope.outputs.kind == 'submission'
+    runs-on: ${{ needs.scope.outputs.episode == 'tron' && 'windows-2025' || 'ubuntu-24.04' }}
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: pr
+          fetch-depth: 2
+          persist-credentials: false
+      - name: 另外检出目标分支
+        run: git -C pr worktree add --detach "$GITHUB_WORKSPACE/base" 'HEAD^1'
+      - name: 检查 Windows 原生编译器
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $compiler = (Get-Command g++.exe -ErrorAction Stop).Source
+          "CXX=$compiler" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          & $compiler --version
+      # bot 类五集调用那一集的 challenge.py（几百局）；仓储调度跑快速档（5 组公开负载 + 3 组隐藏负载）。
       - name: 评测
-        if: steps.scope.outputs.kind == 'submission'
+        if: needs.scope.outputs.kind == 'submission'
         env:
-          ENTRY: ${{ steps.scope.outputs.entry }}
+          ENTRY: ${{ needs.scope.outputs.entry }}
         run: |
           g++ --version | head -n 1
-          python3 --version
-          python3 base/community/check.py "pr/$ENTRY" --out "$GITHUB_WORKSPACE/out" --timeout 75
+          python --version
+          python base/community/check.py "pr/$ENTRY" --out "$GITHUB_WORKSPACE/out" --timeout 75
 
       - name: 把摘要写进 job summary
-        if: always() && steps.scope.outputs.kind == 'submission'
+        if: always() && needs.scope.outputs.kind == 'submission'
         run: |
           if [ -f out/summary.md ]; then
             cat out/summary.md >> "$GITHUB_STEP_SUMMARY"
@@ -90,7 +132,7 @@ jobs:
           fi
 
       - name: 上传结果
-        if: always() && steps.scope.outputs.kind == 'submission'
+        if: always() && needs.scope.outputs.kind == 'submission'
         uses: actions/upload-artifact@v4
         with:
           name: community-result
@@ -100,3 +142,29 @@ jobs:
             out/official-report.md
           if-no-files-found: warn
           retention-days: 30
+
+
+  tron-native:
+    name: 光轮 Windows 原生回归
+    needs: scope
+    # Maintainer-authored PR-head code is not inherently trusted: use a read-only disposable VM.
+    # It never approves fork workflows or widens token/secrets permissions.
+    if: >-
+      needs.scope.outputs.kind == 'other' && needs.scope.outputs.tron_infrastructure == 'true' &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.pull_request.author_association)
+    runs-on: windows-2025
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: 验证原生编译器
+        shell: pwsh
+        run: |
+          $compiler = (Get-Command g++.exe -ErrorAction Stop).Source
+          "CXX=$compiler" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          & $compiler --version
+      - name: 光轮回归测试
+        run: python -m unittest discover -s community/tests -p "test_tron*.py" -v
+      - name: PR 分支模板与评测器完整 82 局正式模式回归
+        run: python tron/challenge.py tron/workspace/submission/bot.cpp --out tron-smoke --require-cpu

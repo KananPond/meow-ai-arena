@@ -17,10 +17,10 @@
 一、先了解规则
 1. 如果当前目录不是这个仓库的克隆，先 fork 并克隆：有 gh 就运行 `gh repo fork chen-006/meow-ai-arena --clone`；没有 gh 就让我在网页上 fork https://github.com/chen-006/meow-ai-arena ，再 `git clone` 我的 fork。
 2. 完整阅读 `community/README.md`。里面的目录规则、meta.json 字段、大小限制都以它为准；它和这段提示词不一致时听它的。
-3. 确定投哪一集之后，再读那一集的规则文件：圈地读 `land/workspace/TASK.md` 和 `RULES.md`；炸弹人读 `bomberman/workspace/README.md` 和 `RULES.md`；夺旗读 `ctf/workspace/README.md` 和 `RULES.md`；仓储调度读 `warehouse/workspace/TASK.md`；坦克大战读 `tank/workspace/README.md`、`RULES.md` 和 `tank.hpp`。Tank 的 `bot.cpp` 只定义 `init` 和 `decide`，包含官方 `tank.hpp`，由官方 `tank_main.cpp` 提供 `main`，不要自己提交头文件或主循环。第 4 集（外交）不收投稿。
+3. 确定投哪一集之后，再读那一集的规则文件：圈地读 `land/workspace/TASK.md` 和 `RULES.md`；炸弹人读 `bomberman/workspace/README.md` 和 `RULES.md`；夺旗读 `ctf/workspace/README.md` 和 `RULES.md`；仓储调度读 `warehouse/workspace/TASK.md`；坦克大战读 `tank/workspace/README.md`、`RULES.md` 和 `tank.hpp`。Tank 的 `bot.cpp` 只定义 `init` 和 `decide`，包含官方 `tank.hpp`，由官方 `tank_main.cpp` 提供 `main`，不要自己提交头文件或主循环。光轮对战读 `tron/workspace/README.md`、`RULES.md` 和 `tron.hpp`，另读 `tron/README.md` 的赛后评分说明；Tron 只定义 `int decide(const tron::State&)`，包含官方 `tron.hpp`，由官方 `tron_main.cpp` 提供 `main`，不要自己提交头文件或主循环。第 4 集（外交）不收投稿。
 
 二、向我确认这几件事（一次问完，等我回答；不要自己猜）
-- 投哪一集：land（圈地）、bomberman（炸弹人）、ctf（夺旗）、warehouse（仓储调度）、tank（坦克大战）。
+- 投哪一集：land（圈地）、bomberman（炸弹人）、ctf（夺旗）、warehouse（仓储调度）、tank（坦克大战）、tron（光轮对战）。
 - 作品文件在哪里：bot 类是一个 .cpp 文件；仓储调度是一个放源码的文件夹。
 - 作品名：目录名里用的那一段只能有小写字母、数字、连字符；另外要一个显示在榜单上的名字，可以是中文。
 - 署名：榜单上显示的作者名，以及我的 GitHub 用户名（可以用 `gh api user --jq .login` 查出来让我确认）。
@@ -36,9 +36,9 @@
 5. 除了这一个文件夹，不要新增、修改或删除仓库里的任何其他文件。不要动官方的 `bots/`、`submissions/`、`workspace/`、`referee/`，不要改 `community/check.py`、`community/LEADERBOARD.md`、`community/results/`。
 
 四、本地自测
-1. 在仓库根目录运行 `python community/check.py community/<集>/<目录>`（没有 `python` 就用 `python3`）。Tank 使用原生正式模式（首回合 2000 CPU 毫秒，之后 50 CPU 毫秒），16 个对手各 20 局，共 320 局；`--full` 为各 80 局，共 1280 局。它固定终场赛对手的实力值，只拟合投稿者分数，不是重新拟合小比赛。Tank 支持必须已合并到目标分支，因为 PR 评测运行的是目标分支的可信脚本。bot 类用时取决于程序；仓储调度第一次要先跑基线，大约 5 到 10 分钟。
+1. 在仓库根目录运行 `python community/check.py community/<集>/<目录>`（没有 `python` 就用 `python3`）。Tank 使用原生正式模式（首回合 2000 CPU 毫秒，之后 50 CPU 毫秒），16 个对手各 20 局，共 320 局；`--full` 为各 80 局，共 1280 局。它固定终场赛对手的实力值，只拟合投稿者分数，不是重新拟合小比赛。Tron 需要 Windows + g++，默认正式模式 82 局（52 局 1v1、24 局 4 人、6 局 12 人），`--full` 为 328 局；沿用强对手榜固定参照，按 50/30/20 加权，豆包 = 0，强档陪练参与拟合但不占名次。Tank / Tron 支持必须已合并到目标分支，因为 PR 评测运行的是目标分支的可信脚本。bot 类用时取决于程序；仓储调度第一次要先跑基线，大约 5 到 10 分钟。
 2. 没有通过就不要提交。把没通过的原因告诉我。结构或 meta.json 的问题你直接改；代码本身的问题（编译不过、超时、仓储调度的输出和基线不一致）先告诉我，由我决定是修还是放弃。不要为了通过去改评测脚本或官方文件。
-3. 电脑上没有 g++ 或 Python 时，告诉我缺什么、怎么装（仓库根目录 README 有说明）。我明确说不装的话，可以只运行 `--skip-eval` 做结构检查，并在 PR 描述里写明“未做本地评测”。
+3. 电脑上没有 g++ 或 Python 时，告诉我缺什么、怎么装（仓库根目录 README 有说明）。Tron 还需要 Windows。`--skip-eval` 仍会编译，不会绕过这些要求；缺少环境就如实写明“未做本地编译和评测”，不要把它记作通过或用快速模式替代。
 
 五、开 PR 之前先给我看
 开 PR 是公开的操作。在 commit、push、开 PR 之前，把下面的内容发给我，等我明确同意：
@@ -70,10 +70,11 @@
 - 炸弹人（bomberman）：任务书是 `bomberman/prompt.md`，选手包是 `bomberman/workspace/`，先读其中的 `README.md` 和 `RULES.md`。成品是 `bomberman/workspace/submission/bot.cpp`。
 - 夺旗（ctf）：任务书是 `ctf/prompt.md`，选手包是 `ctf/workspace/`，先读其中的 `README.md` 和 `RULES.md`。成品是 `ctf/workspace/submission/bot.cpp`。
 - 坦克大战（tank）：任务书是 `tank/prompt.md`，选手包是 `tank/workspace/`，先读 `README.md`、`RULES.md` 和 `tank.hpp`。成品是 `tank/workspace/submission/bot.cpp`，包含官方 `tank.hpp` 并定义 `init` 和 `decide`，不要写自己的 `main`。
+- 光轮对战（tron）：任务书是 `tron/prompt.md`，选手包是 `tron/workspace/`，先读 `README.md`、`RULES.md` 和 `tron.hpp`。成品是 `tron/workspace/submission/bot.cpp`，只实现 `decide`；本地编译和正式评测需要 Windows。社区评分沿用 `tron/challenge.py`，不是选手包的本地名次分。
 - 仓储调度（warehouse）：任务书是 `warehouse/prompt.md` 里第 1 轮的那一段，选手包是 `warehouse/workspace/`，先读其中的 `TASK.md`。成品是改写后的 `warehouse/workspace/src/`，对任何合法输入，输出都要和 `baseline/` 逐字节相同。
 
 写的时候：
-- 按任务书里的规则来：C++20、按各集规定使用依赖（Tank 使用官方 `tank.hpp`；Windows 专用代码不能在 Linux 社区评测中使用）、单个文件（仓储调度是 `src/` 下的若干文件）、不读写文件、不联网、遵守每回合的时间限制。用选手包里自带的本地裁判或 `tools/bench.py` 反复测试。
+- 按任务书里的规则来：C++20、按各集规定使用依赖（Tank / Tron 使用官方 `tank.hpp` / `tron.hpp`；Tron 社区评测在 Windows，其余集在 Linux，依赖仍以各集规则为准）、单个文件（仓储调度是 `src/` 下的若干文件）、不读写文件、不联网、遵守每回合的时间限制。用选手包里自带的本地裁判或 `tools/bench.py` 反复测试。
 - 节目里的模型有时间限制（多数是 60 分钟，仓储调度是 30 分钟，坦克大战是每半场 30 分钟），也不能看别的选手的代码。你不受这两条约束，可以参考仓库里官方选手的代码（`<集>/bots/`、`warehouse/submissions/`）。参考了哪一份，就在 meta.json 的 based_on 里写明。
 - 开发过程中的改动只落在选手包的 `submission/`（仓储调度是 `workspace/src/`）里，这些都只是你的工作副本。投稿时把成品复制到 `community/<集>/<目录>/`，然后用 `git checkout -- <集>/workspace` 把选手包恢复原样，保证最后的 PR 里只有 community 下的那一个文件夹。
 - 写完先用这一集的 `python <集>/challenge.py <你的bot.cpp>` 看看它在官方选手里排第几（仓储调度用 `python tools/bench.py --baseline`），把结果告诉我，问我是继续改还是就这样投。
@@ -90,10 +91,10 @@ Please help me submit an entry to the GitHub repository chen-006/meow-ai-arena (
 1. Learn the rules
 1.1 If the current directory is not a clone of that repository, fork and clone it: with gh, run `gh repo fork chen-006/meow-ai-arena --clone`; without gh, ask me to fork https://github.com/chen-006/meow-ai-arena in the browser, then `git clone` my fork.
 1.2 Read `community/README.md` in full (it is in Chinese; `community/README_en.md` is a short English version). Its rules on folder names, meta.json fields and size limits are authoritative; if they differ from this prompt, follow the README.
-1.3 Once the episode is chosen, read its rule files: territory: `land/workspace/TASK.md` and `RULES.md`; bomberman: `bomberman/workspace/README.md` and `RULES.md`; capture the flag: `ctf/workspace/README.md` and `RULES.md`; warehouse: `warehouse/workspace/TASK.md`; Tank: `tank/workspace/README.md`, `RULES.md` and `tank.hpp`. A Tank `bot.cpp` includes the official `tank.hpp` and defines only `init` and `decide`; the official `tank_main.cpp` provides `main`. Do not submit your own header or driver. Episode 4 (Diplomacy) does not accept submissions.
+1.3 Once the episode is chosen, read its rule files: territory: `land/workspace/TASK.md` and `RULES.md`; bomberman: `bomberman/workspace/README.md` and `RULES.md`; capture the flag: `ctf/workspace/README.md` and `RULES.md`; warehouse: `warehouse/workspace/TASK.md`; Tank: `tank/workspace/README.md`, `RULES.md` and `tank.hpp`. A Tank `bot.cpp` includes the official `tank.hpp` and defines only `init` and `decide`; the official `tank_main.cpp` provides `main`. Do not submit your own header or driver. For Tron read `tron/workspace/README.md`, `RULES.md`, `tron.hpp`, and the post-tournament scoring notes in `tron/README_en.md`; define only `int decide(const tron::State&)`, include the official `tron.hpp`, and use the official `tron_main.cpp`, with no custom header or driver. Episode 4 (Diplomacy) does not accept submissions.
 
 2. Confirm these with me (ask once, wait for my answers, do not guess)
-- Which episode: land, bomberman, ctf, warehouse or tank.
+- Which episode: land, bomberman, ctf, warehouse, tank or tron.
 - Where the entry is: a single .cpp file for the bot episodes; a folder of sources for the warehouse.
 - The entry name: the part used in the folder name may only contain lowercase letters, digits and hyphens; I also need a display name for the leaderboard (any language).
 - Credit: the author name shown on the leaderboard, and my GitHub username (you can look it up with `gh api user --jq .login` and ask me to confirm).
@@ -109,9 +110,9 @@ Please help me submit an entry to the GitHub repository chen-006/meow-ai-arena (
 3.5 Do not add, modify or delete any other file in the repository. Do not touch the official `bots/`, `submissions/`, `workspace/`, `referee/`, and do not edit `community/check.py`, `community/LEADERBOARD.md` or `community/results/`.
 
 4. Test locally
-4.1 From the repository root, run `python community/check.py community/<episode>/<folder>` (use `python3` if there is no `python`). Tank uses native formal mode (2000 CPU ms for the first turn, 50 CPU ms thereafter), playing 20 games against each of 16 opponents, 320 total; `--full` uses 80 each, 1,280 total. Opponent final-tournament ratings stay fixed; only the entrant rating is fitted, rather than refitting a mini-tournament. Tank support must already be merged into the target branch because PR evaluation runs that branch's trusted scripts. Bot evaluation time depends on the programs; the warehouse needs to run the slow baseline first, about 5 to 10 minutes the first time.
+4.1 From the repository root, run `python community/check.py community/<episode>/<folder>` (use `python3` if there is no `python`). Tank uses native formal mode (2000 CPU ms for the first turn, 50 CPU ms thereafter), playing 20 games against each of 16 opponents, 320 total; `--full` uses 80 each, 1,280 total. Opponent final-tournament ratings stay fixed; only the entrant rating is fitted, rather than refitting a mini-tournament. Tron requires Windows and g++; it runs 82 formal-mode games (52 1v1, 24 four-player, six twelve-player), or 328 with `--full`. It keeps the strong-opponent reference ratings fixed and weights the three modes 50/30/20, with Doubao = 0; the strong sparring bot is included among the fixed opponents but is not ranked. Tank / Tron support must already be merged into the target branch because PR evaluation runs that branch's trusted scripts. Bot evaluation time depends on the programs; the warehouse needs to run the slow baseline first, about 5 to 10 minutes the first time.
 4.2 If it does not pass, do not submit. Tell me why it failed. Fix structure and meta.json problems yourself; for problems in the code itself (compile errors, timeouts, warehouse output differing from the baseline), tell me first and let me decide whether to fix it or give up. Never edit the evaluation scripts or official files to make it pass.
-4.3 If g++ or Python is missing, tell me what is missing and how to install it (see the root README). Only if I explicitly decline to install them, run with `--skip-eval` for the structure check and state "no local evaluation was run" in the pull request description.
+4.3 If g++ or Python is missing, tell me what is missing and how to install it (see the root README). Tron also requires Windows. `--skip-eval` still compiles and cannot bypass these requirements. If the environment is unavailable, state "no local compilation or evaluation was run"; do not claim a pass or substitute fast mode.
 
 5. Show me before opening the pull request
 Opening a pull request is a public action. Before you commit, push or open it, send me the following and wait for my explicit approval:
@@ -143,11 +144,12 @@ Fork and clone the repository first (see "1. Learn the rules" below), then work 
 - Bomberman: the task statement is `bomberman/prompt.md`, the package is `bomberman/workspace/`; read `README.md` and `RULES.md` there first. The deliverable is `bomberman/workspace/submission/bot.cpp`.
 - Capture the flag (ctf): the task statement is `ctf/prompt.md`, the package is `ctf/workspace/`; read `README.md` and `RULES.md` there first. The deliverable is `ctf/workspace/submission/bot.cpp`.
 - Tank: the task statement is `tank/prompt.md`, the package is `tank/workspace/`; read `README.md`, `RULES.md` and `tank.hpp` first. The deliverable is `tank/workspace/submission/bot.cpp`, including the official `tank.hpp` and defining `init` and `decide`, with no custom `main`.
+- Tron: the task statement is `tron/prompt.md`, the package is `tron/workspace/`; read `README.md`, `RULES.md` and `tron.hpp` first. The deliverable is `tron/workspace/submission/bot.cpp`, implementing only `decide`. Local compilation and formal evaluation require Windows. Community scoring follows `tron/challenge.py`, not the workspace tool's local placement score.
 - Warehouse: the task statement is the round 1 section of `warehouse/prompt.md`, the package is `warehouse/workspace/`; read `TASK.md` there first. The deliverable is the rewritten `warehouse/workspace/src/`, whose output must be byte-identical to `baseline/` on every valid input.
 These files are in Chinese.
 
 While writing:
-- Follow the rules in the task statement: C++20, only dependencies allowed by the episode (Tank uses the official `tank.hpp`; Windows-specific code cannot run in Linux community CI), a single file (several files under `src/` for the warehouse), no file or network access, and the per-turn time limits. Test repeatedly with the local referee in the package, or with `tools/bench.py`.
+- Follow the rules in the task statement: C++20, only dependencies allowed by the episode (Tank / Tron use the official `tank.hpp` / `tron.hpp`; Tron CI runs on Windows, the other episodes on Linux, and each episode's dependency restrictions still apply), a single file (several files under `src/` for the warehouse), no file or network access, and the per-turn time limits. Test repeatedly with the local referee in the package, or with `tools/bench.py`.
 - The models on the show had a time limit (60 minutes in most episodes, 30 for the warehouse, 30 per half for Tank) and could not see other contestants' code. Neither restriction applies to you: you may study the official entries in the repository (`<episode>/bots/`, `warehouse/submissions/`). If you build on one of them, name it in based_on in meta.json.
 - Keep your work-in-progress changes inside the package's `submission/` folder (`workspace/src/` for the warehouse); these are only working copies. When submitting, copy the finished code to `community/<episode>/<folder>/`, then restore the package with `git checkout -- <episode>/workspace`, so that the final pull request contains nothing but that one folder under community.
 - When you are done, run `python <episode>/challenge.py <your bot.cpp>` to see where it ranks among the official bots (for the warehouse, `python tools/bench.py --baseline`), tell me the result, and ask whether to keep improving or submit as is.
