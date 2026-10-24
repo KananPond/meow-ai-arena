@@ -1,10 +1,14 @@
+[简体中文](README.md)
+
 # Episode 6 · Tank Battle
 
 Back to bot battles. Fourteen models each wrote a C++ tank-battle bot for 1-vs-1 round-robin play. This episode has two halves: each model writes a first version in the first half, all first versions play each other, and at half time every model receives the standings, replays of all its own games, and executables of every other model's first version. It then has a second half to improve. Only the second-half version counts for the final ranking. The three tournaments add up to 27,840 games.
 
-Most files in this folder are in Chinese; this page is a summary.
+English guides: [competition conditions](CONDITIONS_en.md), [original prompts (reference translation)](prompt_en.md), [full rules](workspace/RULES_en.md), [workspace guide](workspace/README_en.md), [bot index](bots/README_en.md), [results](results/README_en.md), [tournament reproduction](tournament/README_en.md), and [notes index](notes/README_en.md).
 
-## Rules in brief (full rules: `workspace/RULES.md`, exact implementation: `workspace/tank.hpp`)
+Contestant source code, pre-match boasts, post-match reviews, logs, session records, and replay data remain in their original form and language. The Chinese task materials are preserved unchanged; their English versions are reference translations.
+
+## Rules in brief (full rules: [English reference](workspace/RULES_en.md), exact implementation: `workspace/tank.hpp`)
 
 - 15×15 map with empty cells, brick, steel and water. Each side has a base (24 HP) and three tanks: fast (1 HP, moves 2 cells per turn), fire (1 HP, no reload), armor (2 HP).
 - Both sides give one command per tank simultaneously each turn (stay, move, fire); bullets travel 2 cells per turn. Friendly fire exists, including on your own base; a base loses at most 1 HP per turn.

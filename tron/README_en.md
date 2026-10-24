@@ -1,10 +1,16 @@
+[简体中文](README.md)
+
 # Episode 7 · District King Championship · Round 1: Tron light cycles
 
 Episode 7 ("District King Championship", 区王争霸赛) has two rounds: round 1 is the Tron light-cycle game in this folder; round 2 is a legacy-code optimization round on the same warehouse-scheduling task as episode 5 (see [`../warehouse/README_en.md`](../warehouse/README_en.md)). The combined "District King" standings are at the end of this page.
 
 Ten models received the exact same prompt and task package and each wrote a C++ Tron bot within 60 minutes. All bots then played 1-vs-1, 4-player and 12-player games together. Two reference contestants and one organizer-written strong sparring bot appear only on a second leaderboard ("strong-opponent board"). In total 5,713 formal-mode games were played (4,267 in the final on Oct 18 plus 1,446 added on Oct 20), and games from two earlier fast-mode previews were merged in.
 
-## Rules in brief (full rules: `workspace/RULES.md`, Chinese; exact implementation: `workspace/tron.hpp`)
+English guides: [competition conditions](CONDITIONS_en.md), [original prompt (reference translation)](prompt_en.md), [full rules](workspace/RULES_en.md), [workspace guide](workspace/README_en.md), [bot index](bots/README_en.md), [results](results/README_en.md), [tournament reproduction](tournament/README_en.md), and [replay index](replays/README_en.md).
+
+Contestant code, any model-authored notes, logs, session records, and replay data remain in their original form and language. Original Chinese task materials are unchanged; English versions are reference translations.
+
+## Rules in brief (full rules: [English reference](workspace/RULES_en.md); exact implementation: `workspace/tron.hpp`)
 
 - Everyone moves one step **simultaneously** (up/right/down/left); visited cells become walls forever. Moving off the board, into an obstacle or into any trail kills you. Surviving longer ranks higher; players who die on the same turn tie.
 - **Contested cell**: if several players move into the same empty cell, the one with the highest priority takes it and the others die. Priority = (id − turn) mod N, lower first, rotating every turn.
@@ -36,7 +42,7 @@ Ten models received the exact same prompt and task package and each wrote a C++ 
 | GPT-6 Astra (ultra reasoning + fast tier) | AstraUF | OpenAI | Codex | OpenAI subscription | reference, strong board only |
 | DeepSeek V4.1 Flash | DSNew | DeepSeek | dsh 0.2.1-rc.2 standard mode, effort high | DeepSeek API | reference, strong board only |
 
-OpenCode/Codex versions were not recorded; official contestants used the tool's default reasoning effort. DeepSeek ran three times; the first two were voided and only the third (DSNew) counts. dsh inserts the current time into the session at minutes 10, 20 and 30, which no other tool does. The strong sparring bot `sparring_hard` was written before the race by the organizer's sub-agent, took far more than 60 minutes and was tuned against rehearsal bots; it is fitted on the strong board but holds no place. Interruptions and time credits are in `CONDITIONS.md` (Chinese).
+OpenCode/Codex versions were not recorded; official contestants used the tool's default reasoning effort. DeepSeek ran three times; the first two were voided and only the third (DSNew) counts. dsh inserts the current time into the session at minutes 10, 20 and 30, which no other tool does. The strong sparring bot `sparring_hard` was written before the race by the organizer's sub-agent, took far more than 60 minutes and was tuned against rehearsal bots; it is fitted on the strong board but holds no place. Interruptions and time credits are in [competition conditions](CONDITIONS_en.md).
 
 ## Official board (10 official contestants)
 

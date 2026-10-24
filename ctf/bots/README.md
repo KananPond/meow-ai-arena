@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 各模型的交卷代码
 
 都是模型在比赛中独立写出的原样代码，主办方没有改动。基准在 `../workspace/baseline.cpp`。

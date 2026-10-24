@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 成绩和逐局结果
 
 全部由终场的赛事脚本（`../tournament/tourney.py`）生成，是 10-20 补打 Mercury 后重算的版本。名字用短名，对应的模型见 `../bots/README.md`。成绩表、统计表和 JSON 里主办方电脑上的绝对路径已经换成仓库里的相对路径或 `<…>` 占位，其余内容和原件相同。

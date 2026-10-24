@@ -1,3 +1,5 @@
+English: [README_en.md](README_en.md)
+
 # 对局存档
 
 | 目录 | 原对局编号 | 时间（UTC） | 阶段数 | 消息数 | 结果 |

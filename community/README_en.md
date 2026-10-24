@@ -1,8 +1,10 @@
+[中文版](README.md)
+
 # Community submissions
 
-Viewers can submit their own work here: a bot you wrote, a bot you had an AI write, or your optimized version of the warehouse code. Submissions come in as pull requests and, once merged, appear on the [community leaderboard](LEADERBOARD.md). The full guide is in Chinese: [README.md](README.md). This page is a short version.
+Viewers can submit their own work here: a bot you wrote, a bot you had an AI write, or your optimized version of the warehouse code. Submissions come in as pull requests and, once merged, appear on the [community leaderboard](LEADERBOARD.md) (auto-generated, in Chinese). The full guide is in Chinese: [README.md](README.md). This page is a short version.
 
-You can do it by hand, or paste the prompt in [`AGENT_PROMPT.md`](AGENT_PROMPT.md) into your coding agent (Claude Code, Codex, Cursor, ...) and let it do the work.
+You can do it by hand, or paste the prompt in [`AGENT_PROMPT_en.md`](AGENT_PROMPT_en.md) into your coding agent (Claude Code, Codex, Cursor, ...) and let it do the work. Submitted code and contributors' `NOTES.md` remain as supplied.
 
 ## What you can submit
 
@@ -61,7 +63,7 @@ python community/check.py community/<episode>/<your-folder>
 
 This validates the folder, runs the episode's `challenge.py` for bots, and prints a Markdown summary. Territory, Bomberman and Capture the flag run a small tournament with the official field. Tank plays only your entry against 16 opponents (14 second-half bots, the reference bot and the baseline): 20 games each, 320 total; `--full` runs 80 each, 1,280 total. Tank uses formal mode and fixed final-tournament reference ratings, as described below. Tron plays 82 formal-mode games (52 1v1, 24 four-player, six twelve-player); `--full` plays 328. Its 13 opponents are the ten official contestants, two reference contestants and `sparring_hard`. For the warehouse, baseline and submission run on your machine, outputs are compared, then speedups computed. `--skip-eval` only checks structure and compilation. `--full` plays more games, or runs all eight hidden warehouse workloads instead of the default quick set (five public workloads plus the three fastest hidden ones; the baseline is very slow).
 
-Results are saved in `community/.runs/<episode>/<your-folder>/result.json` and `summary.md` (ignored by Git). Examples are in [`_example/`](_example/), including Tank and Tron starters.
+Results are saved in `community/.runs/<episode>/<your-folder>/result.json` and `summary.md` (ignored by Git). Examples are in the [example guide](_example/README_en.md), including Tank and Tron starters.
 
 ## Open a pull request
 

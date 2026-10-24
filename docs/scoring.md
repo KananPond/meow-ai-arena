@@ -1,3 +1,5 @@
+English: [scoring_en.md](scoring_en.md)
+
 # 评分方法
 
 三集都用 Bradley–Terry（BT）模型，把每局比赛拆成"两两谁赢了谁"，拟合出每个选手的实力值。差别在于怎么拆分、怎么换算刻度：

@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 复现正式赛
 
 | 文件 | 内容 |

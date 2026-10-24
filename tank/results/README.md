@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 成绩和逐局结果
 
 三场比赛都由 `../tournament/tournament.py` 跑，成绩表也是它生成的（`成绩.md`、`成绩.json` 是原件）。名字用短名，对应的模型见 `../bots/README.md`。

@@ -1,3 +1,5 @@
+English: [AGENT_PROMPT_en.md](AGENT_PROMPT_en.md)
+
 # 给 coding agent 的提交提示词
 
 把下面的提示词整段复制给你的 coding agent（Claude Code、Codex、Cursor 等），它会带着你走完投稿流程。提示词有中文和英文两版，内容相同，用哪一版都行。

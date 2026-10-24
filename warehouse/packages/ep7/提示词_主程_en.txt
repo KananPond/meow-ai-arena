@@ -1,0 +1,5 @@
+> English translation for reference; the contestants received the original Chinese text.
+
+[简体中文](提示词_主程.txt)
+
+Extract `workspace.zip` in the current directory, enter `workspace`, and read `TASK.md`. Independently complete the lead programmer task: make the warehouse scheduler in `src/` as fast as possible while preserving byte-identical baseline output for every legal input. Follow `TASK.md` on modification scope, compilation, and testing; preserve actual baseline behavior and write `src/HANDOFF.md` before submission. Local tools are allowed; online searches, other AI or subagents, and other contestants' materials are forbidden. Aim for 30 minutes, with a 45-minute hard limit; use `python clock.py` to check time. When finished, give the full path of `src` and briefly describe your changes.

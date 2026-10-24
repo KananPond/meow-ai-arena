@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 赛前狠话和赛后复盘
 
 | 文件 | 内容 |

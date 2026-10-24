@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 各模型的封存代码
 
 都是模型在比赛中写出的原样代码，主办方没有改动。文件的 sha256 和 `../results/清单.json` 里冻结的一致。greedy、random 在 `../workspace/bots/`，两个陪练的源码在 `../sparring/`。

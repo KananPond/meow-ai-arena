@@ -1,3 +1,5 @@
+English: [README_en.md](README_en.md)
+
 # 社区投稿指南
 
 这里收观众自己的作品：你写的 bot、你让 AI 写的 bot、你优化过的仓储调度代码。投稿走 Pull Request，合并后进 [社区榜](LEADERBOARD.md)。

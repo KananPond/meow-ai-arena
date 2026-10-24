@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 第 7 集 · 屎山优化：成绩和判定结果
 
 除这份说明和 `counterexamples/README.md` 外，都是主办方评测脚本的输出。和第 5 集的 `results/` 不同，这些文件**做过清洗**，不是逐字节原件：

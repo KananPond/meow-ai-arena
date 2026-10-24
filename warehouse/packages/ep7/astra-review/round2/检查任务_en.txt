@@ -1,0 +1,17 @@
+> English translation for reference; the contestants received the original Chinese text.
+
+[简体中文](检查任务.txt)
+
+This is an authorized local software quality regression check. The programs are synthetic warehouse robot scheduling simulators reading stdin and emitting logs; no network systems, services, accounts, exploitation, or security attacks are involved.
+
+Check behavioral equivalence with `baseline/` and runtime complexity of the 12 new C++ implementations in `targets/` only: Pangu, Dots, Wenxin, LongCat, Qwen27B, Mistral, Hunyuan, Step, Mercury, Haiku, Sonnet, Opus. All code and inputs are local evaluation materials. Do not modify targets, baseline, or original contestant files; do not access competition folders outside this directory, use the network, or call other AI. Other programs run here: terminate only your own processes by PID, never in bulk by name.
+
+First study old performance-regression examples and upheld/rejected measurements under `learning/`: redundant distance computation with no dispatchable robot or unreachable pickups, cache thrashing from insufficient capacity, and frequent invalidation after map changes. Read all 12 current implementations and generate new legal edge and stress tests tailored to their caches and dispatch logic. Do not merely replay old inputs or repeat first-round confirmed defects (see `learning/first_round/report.md` and `learning/first_round`). `learning/legacy_recheck` contains these 12 submissions' shared-pool retests.
+
+Put test scripts and builds in `work/` and `build/`. Compile all top-level `src/*.cpp` with `g++ -O2 -std=c++20 -static`. Run all baseline and target executions serially to avoid contention affecting performance conclusions.
+
+Validate with `tools/check_input.py` without `--full`; baseline must finish within 10 seconds. Record complete output diffs (only CRLF normalized), exit codes, CPU and wall time. Different output, abnormal exit, or stable runtime over 60 seconds can qualify. First allow 100 seconds; if completed in 60–100 seconds, repeat twice at 60 seconds and confirm only if all runs exceed 60 seconds. Larger `--full` results must be separate supplements.
+
+Produce per-submission `report.md` and `summary.json`, distinguishing new reproduced issues, known issues, and unconfirmed performance suspicions. Keep one clear representative input, commands, and evidence per new root cause. Do not inflate counts or treat nondiscovery as a defect-free proof. This is software regression and algorithmic complexity verification only, with no scoring or code repairs.
+
+Organizer supplement, round 2: use ultra. Build on first-round reproduced inputs and reports under `learning/first_round` to investigate related and new defect classes. Subagents are allowed to divide the audit (for example, several submissions each); aggregate, deduplicate, and verify their results yourself. **Deep timeout investigation is allowed and encouraged**: construct inputs making the target much slower than the baseline (which must finish within 10 seconds), and confirm using the formal rules (first 100 seconds, then two 60-second tests if it finishes in 60–100 seconds; all must exceed 60 seconds). Save inputs, construction rationale, expected bottleneck, and measurements under `findings/<名>/timeout_candidates/`. Run at most 4 tested programs concurrently; other tasks share the machine, and the organizer's idle-machine reproduction determines final timeout verdicts.

@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 各模型的封存代码
 
 都是模型在比赛中写出的原样代码，主办方没有改动。`half1/` 是上半场版本（打中场赛、进步赛里的固定对手池），`half2/` 是下半场版本（打终场赛，决定最终名次）。基准在 `../workspace/baseline.cpp`，出题方参照在 `../tournament/sparring.cpp`。

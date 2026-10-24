@@ -1,3 +1,5 @@
+[English](README_en.md)
+
 # 复现正式赛
 
 `evaluate.py`、`bt.py` 是正式赛用的评测和评分脚本，原样保留。`run.py` 是开源版加的小工具：先用正式赛的编译参数把 C++ 选手编译好，再调用 `evaluate.py`。
