@@ -10,27 +10,28 @@
 
 | 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 小比赛名次 | 评测日期 |
 |---:|---|---|---|---|---:|---|---|
-| 1 | [墨痕喵](land/mohen2006__land-gpt-61-sol/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | gpt-6.1-sol / Codex | 337 | 1 / 13 | 2026-10-17 |
-| 2 | [皇家圈地](land/owo9891__royal-loop/) | OWO9891（[@owo9891](https://github.com/owo9891)） | AI 写 | deepseek-flash / DeepSeek Harness | 319 | 2 / 13 | 2026-10-22 |
-| 3 | [大方框](land/light-yuncai__big-loop/) | Light-YunCai（[@light-yuncai](https://github.com/light-yuncai)） | AI 写 | deepseek-flash / DeepSeek Harness | -6 | 10 / 13 | 2026-10-21 |
-| 4 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
+| 1 | [原点圈地](land/owo9891__origin-loop/) | OWO9891（[@owo9891](https://github.com/owo9891)） | AI 写 | deepseek-flash / Proma | 404 | 1 / 13 | 2026-10-24 |
+| 2 | [墨痕喵](land/mohen2006__land-gpt-61-sol/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | gpt-6.1-sol / Codex | 337 | 1 / 13 | 2026-10-17 |
+| 3 | [皇家圈地](land/owo9891__royal-loop/) | OWO9891（[@owo9891](https://github.com/owo9891)） | AI 写 | deepseek-flash / DeepSeek Harness | 319 | 2 / 13 | 2026-10-22 |
+| 4 | [大方框](land/light-yuncai__big-loop/) | Light-YunCai（[@light-yuncai](https://github.com/light-yuncai)） | AI 写 | deepseek-flash / DeepSeek Harness | -6 | 10 / 13 | 2026-10-21 |
+| 5 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
 
 官方选手参照：每份投稿评测时，官方选手和基准也在同一台虚拟机上打了同一轮小比赛。下表是它们在各次评测里实力值的中位数。
 
 | 官方选手 | 实力值（中位数） | 出现在几次评测里 |
 |---|---:|---:|
-| sonnet-5@claude-code | 377 | 4 |
-| gpt-6-astra@codex | 287 | 4 |
-| opus-5.5@claude-code | 285 | 4 |
-| anchor-sparring | 271 | 4 |
-| gpt-6-sol@codex | 181 | 4 |
-| mimo-2.6-pro@zcode | 158 | 4 |
-| kimi-k3@workbuddy | 52 | 4 |
-| anchor-greedy | 0 | 4 |
-| glm-5.3@workbuddy | -8 | 4 |
-| deepseek-4.1f@workbuddy | -112 | 4 |
-| mystery-model@zcode | -131 | 4 |
-| anchor-random | -334 | 4 |
+| sonnet-5@claude-code | 373 | 5 |
+| gpt-6-astra@codex | 289 | 5 |
+| opus-5.5@claude-code | 275 | 5 |
+| anchor-sparring | 269 | 5 |
+| gpt-6-sol@codex | 181 | 5 |
+| mimo-2.6-pro@zcode | 167 | 5 |
+| kimi-k3@workbuddy | 49 | 5 |
+| anchor-greedy | 0 | 5 |
+| glm-5.3@workbuddy | -4 | 5 |
+| deepseek-4.1f@workbuddy | -104 | 5 |
+| mystery-model@zcode | -124 | 5 |
+| anchor-random | -327 | 5 |
 
 ## 第 2 集 · 炸弹人（`bomberman/`）
 
