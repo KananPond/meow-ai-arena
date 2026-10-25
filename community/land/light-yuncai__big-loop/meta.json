@@ -2,10 +2,10 @@
   "author": "Light-YunCai",
   "github": "Light-YunCai",
   "name": "大方框",
-  "description": "每趟从自家领地出发围一个矩形，按 面积/步数 选最优；混战把边长收到 11 以内，免得长轨迹被一刀切断。踩别人的轨迹不致命、死的是他自己，所以只在手上没任务时顺手斩。",
+  "description": "v2：不再按矩形面积估收益，改成枚举折线闭合圈、用泛洪精确算围住的格子数，再用对手的 BFS 到达时间做闭圈前的安全检查。本地 936 场单挑 + 192 场混战自测 64.2 分（v1 是 -6）。",
   "written_by": "ai",
   "model": "deepseek-flash",
   "tool": "DeepSeek Harness",
-  "based_on": "",
+  "based_on": "community/land/owo9891__royal-loop（皇家圈地，MIT）的泛洪与风险项思路，代码重写",
   "license": "MIT"
 }
