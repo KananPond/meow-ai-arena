@@ -4,7 +4,8 @@
 
 每个对阵在每档难度打 2 局（换边），可再加局数（--games-per-pair 大于 2 时按种子扩展，
 座位轮换）。成绩按胜负场次排（平局算半分），写入 ../results/示例赛-成绩.md；
-普通难度的对局默认各存一份回放到 ../replays/。
+--replays 会把普通难度的每一局都在正式对局里顺便存成回放到 ../replays/，
+文件名带种子，换边的两局不会互相覆盖。
 """
 import argparse
 import json
@@ -28,8 +29,12 @@ BOTS = {
 
 
 def _one(job):
-    programs, names, seed, difficulty = job
-    result, _ = core.run_match(Game, programs, names, seed, record=False, difficulty=difficulty)
+    """跑一局。给了 stem 就顺便把这一局的回放写到磁盘（回放和成绩来自同一次对局）。"""
+    programs, names, seed, difficulty, stem, rep_dir, viewer = job
+    result, replay = core.run_match(Game, programs, names, seed, record=stem is not None,
+                                    difficulty=difficulty)
+    if stem is not None:
+        core.save_replay(replay, Path(rep_dir) / stem, Path(viewer))
     return names, result
 
 
@@ -41,7 +46,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--games-per-pair", type=int, default=2, help="每个对阵每档难度打的局数（≥2，含换边）")
     ap.add_argument("--workers", type=int, default=0)
-    ap.add_argument("--replays", action="store_true", help="把普通难度的每场都存成回放")
+    ap.add_argument("--replays", action="store_true", help="把普通难度的每场都存成回放（文件名带种子）")
     ap.add_argument("--seed", type=int, default=101)
     a = ap.parse_args()
 
@@ -53,6 +58,11 @@ def main():
     names = sorted(bots)
     programs = {n: core.command_for(Path(p), root / "workspace" / "build") for n, p in bots.items()}
 
+    rep_dir = root / "replays"
+    viewer = root / "workspace" / "viewer.html"
+    if a.replays:
+        rep_dir.mkdir(exist_ok=True)
+
     jobs, plan = [], []
     k = a.seed
     for i in range(len(names)):
@@ -62,8 +72,12 @@ def main():
                 for g in range(per):
                     home = g % 2 == 0
                     seat = [names[i], names[j]] if home else [names[j], names[i]]
-                    jobs.append(([programs[seat[0]], programs[seat[1]]], seat, k, diff))
-                    plan.append({"a": seat[0], "b": seat[1], "difficulty": diff, "seed": k, "home_is_a": home})
+                    # 回放文件名带种子和座位顺序：同一对阵换边打的两局是两份不同的文件
+                    stem = f"示例-{seat[0]}-vs-{seat[1]}-seed{k}" if a.replays and diff == 1 else None
+                    jobs.append(([programs[seat[0]], programs[seat[1]]], seat, k, diff, stem,
+                                 str(rep_dir), str(viewer)))
+                    plan.append({"a": seat[0], "b": seat[1], "difficulty": diff, "seed": k,
+                                 "home_is_a": home, "replay": stem})
                     k += 1
     workers = a.workers or max(1, min(8, (__import__("os").cpu_count() or 4) // 2))
     print(f"{VERSION} 示例赛：{len(names)} 个 bot 循环赛，{len(jobs)} 局，并行 {workers}")
@@ -126,28 +140,13 @@ def main():
     print(f"成绩表：{out / '示例赛-成绩.md'}")
 
     if a.replays:
-        rep_dir = root / "replays"
-        rep_dir.mkdir(exist_ok=True)
-        viewer = root / "workspace" / "viewer.html"
-        n_rep = 0
-        for pl, job in zip(plan, jobs):
-            if pl["difficulty"] != 1:
-                continue
-            seat, seed, diff = job[1], job[2], job[3]
-            result, replay = core.run_match(Game, job[0], seat, seed, difficulty=diff)
-            stem = f"示例-{pl['a']}-vs-{pl['b']}"
-            core.save_replay(replay, rep_dir / stem, viewer)
-            n_rep += 1
-            print(f"回放：{stem}.html")
-        print(f"共存 {n_rep} 份普通难度回放")
-        # 生成回放索引页
+        # 回放已经在正式对局里一起落盘了，这里只按成绩生成索引页
         items = []
         for r in results:
-            if r["difficulty"] != 1:
+            if not r.get("replay"):
                 continue
-            stem = f"示例-{r['a']}-vs-{r['b']}"
             w = "平局" if r["winner"] < 0 else (r["a"] if r["winner"] == 0 else r["b"]) + " 胜"
-            items.append((stem, f"{r['a']} vs {r['b']}（{w}，{r['turns']} 回合）"))
+            items.append((r["replay"], f"{r['a']} vs {r['b']}（{w}，{r['turns']} 回合，种子 {r['seed']}）"))
         links = "\n".join(f'<option value="{s}.html">{esc_h(t)}</option>' for s, t in items)
         (rep_dir / "index.html").write_text(
             """<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>峡谷对决 · 示例赛回放</title>
@@ -157,12 +156,13 @@ h1{font-size:20px;margin:0 0 6px}p{color:#93a1b5;font-size:13px;margin:0 0 18px}
 select,button{background:#243149;color:#e6ecf5;border:1px solid #3c4d68;border-radius:8px;padding:9px 12px;font:inherit}
 select{width:100%}button{margin-top:12px;cursor:pointer;width:100%}</style></head><body><main>
 <h1>峡谷对决 · 示例赛回放</h1>
-<p>5 个示例 bot 循环赛（普通难度）的每一局。回放里所有图形都是 SVG 现场画的。</p>
+<p>5 个示例 bot 循环赛（普通难度）的每一局。文件名带种子，换边的两局分开存放。回放里所有图形都是 SVG 现场画的。</p>
 <select id="pick">__LINKS__</select>
 <button onclick="location.href=document.getElementById('pick').value">打开这份回放</button>
 </main></body></html>""".replace("__LINKS__", links),
             encoding="utf-8",
         )
+        print(f"回放：{len(items)} 份普通难度回放（文件名带种子，互不覆盖）")
         print(f"索引页：{rep_dir / 'index.html'}")
 
 

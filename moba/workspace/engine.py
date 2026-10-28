@@ -11,7 +11,7 @@ from __future__ import annotations
 import random
 from collections import Counter, deque
 
-VERSION = "moba-1.0"
+VERSION = "moba-1.1"
 DIFF_LABELS = ("简单", "普通", "困难")
 MOVES = {"N": (0, -1), "S": (0, 1), "W": (-1, 0), "E": (1, 0), "WAIT": (0, 0)}
 TEXT_MOVES = {"U": "N", "D": "S", "L": "W", "R": "E", "S": "WAIT"}
@@ -81,6 +81,8 @@ class Game:
         self.events = []
         self._skill_used = set()
         self._sent_init = set()
+        self._field_cache = {}      # 距离场缓存：键是 (障碍版本, 目标集合)
+        self._block_ver = 0         # 静态障碍（塔/营地）版本号，变了就清缓存
         self.check()
 
     # ---------- 地图生成 ----------
@@ -218,6 +220,11 @@ class Game:
         return (self.walls | {t["pos"] for t in self.towers if t["hp"] > 0} |
                 {c["pos"] for c in self.camps if c["alive"]} | {c["pos"] for c in self.crystal})
 
+    def _block_changed(self):
+        """塔被拆、营地死亡或重生：静态障碍变了，缓存的距离场随之失效。"""
+        self._block_ver += 1
+        self._field_cache.clear()
+
     # ---------- 文本协议 ----------
 
     def map_rows(self):
@@ -278,17 +285,25 @@ class Game:
         return "\n".join(out) + "\n"
 
     def decode(self, team, line):
-        """解析一行回复：回合号 + 己方每个英雄各一个移动和一个动作（法师/射手的 Q 后跟目标编号）。"""
+        """解析一行回复：回合号 + 己方每个英雄各一个移动和一个动作（法师/射手的 Q 后跟目标编号）。
+
+        协议是严格的：每个英雄必须正好一组「移动 + 动作」，写多了、写少了都不算合法；
+        行尾 '#' 之后是注释，注释段数不得超过英雄数。多余的 token 一律判格式错误。
+        """
         body, _, note = line.partition("#")
         tok = body.split()
         if not tok or tok[0] != str(self.turn + 1):
             raise ValueError(f"行首应为本回合编号 {self.turn + 1}")
         mine = [h for h in self.heroes if h["team"] == team]
         notes = [s.strip()[:20] for s in note.split(";")] if note.strip() else []
+        if len(notes) > len(mine):
+            raise ValueError(f"注释段数过多：最多 {len(mine)} 段，收到 {len(notes)} 段")
         it = iter(tok[1:])
         heroes = []
         for k, h in enumerate(mine):
             mv, act = next(it, None), next(it, None)
+            if mv is None or act is None:
+                raise ValueError(f"指令不足：{len(mine)} 个英雄各要一组移动和动作，第 {k + 1} 个不完整")
             if mv not in TEXT_MOVES:
                 raise ValueError(f"移动只能是 U D L R S，收到 {mv}")
             cmd = {"id": h["id"], "move": TEXT_MOVES[mv]}
@@ -301,13 +316,16 @@ class Game:
                     if t is None or not t.isdigit():
                         raise ValueError(f"{CLASSES[h['cls']]['skill']} 需要一个目标编号")
                     cmd["target"] = int(t)
-            elif act is not None and act.isdigit():
+            elif act.isdigit():
                 cmd.update(act="attack", target=int(act))
             else:
                 raise ValueError(f"动作只能是 - Q 或目标编号，收到 {act}")
             if k < len(notes) and notes[k]:
                 cmd["note"] = notes[k]
             heroes.append(cmd)
+        extra = next(it, None)
+        if extra is not None:
+            raise ValueError(f"多余的指令内容：{extra}（每个英雄只能写一组移动和动作）")
         return {"heroes": heroes}
 
     def header(self):
@@ -355,6 +373,7 @@ class Game:
                     not any(tuple(u["pos"]) == c["pos"] for u in self.heroes + self.minions
                             if u.get("pos") is not None and u.get("alive", True)):
                 c.update(alive=True, hp=c["maxhp"], respawn_at=None)
+                self._block_changed()
         if self.turn >= RULES["wave_start"] and (self.turn - RULES["wave_start"]) % RULES["wave_gap"] == 0:
             taken = self._static_block() | {tuple(h["pos"]) for h in self.heroes if h["pos"] is not None} | \
                 {tuple(m["pos"]) for m in self.minions if m["alive"]}
@@ -402,6 +421,9 @@ class Game:
         self._heals(intents, ev)
         # 6. 所有攻击同时结算：普攻、火球、穿云箭、小兵、防御塔、野怪
         self._combat(intents, ev)
+        # 定期回收死亡小兵：长局里尸体越积越多，每 20 回合清一次，遍历成本才不会一路涨
+        if self.turn % 20 == 0:
+            self._compact_minions()
 
         if not self.done:
             self.done = self.turn >= self.preset["turns"]
@@ -605,6 +627,7 @@ class Game:
                 self.stats[1 - u["team"]]["minions"] += 1
             elif u["kind"] == "tower":
                 u["hp"] = 0
+                self._block_changed()
                 team = 1 - u["team"]
                 self.stats[team]["towers"] += 1
                 ev.append({"line": f"tower {u['id']} {team} {u['pos'][0]} {u['pos'][1]}", "type": "tower",
@@ -615,6 +638,7 @@ class Game:
             elif u["kind"] == "camp":
                 u["alive"] = False
                 u["respawn_at"] = self.turn + RULES["camp_respawn"]
+                self._block_changed()
                 for s in hitters[tid]:
                     if s["kind"] == "hero":
                         self.stats[s["team"]]["camps"] += 1
@@ -628,6 +652,18 @@ class Game:
                 self.reason = f"{self.turn} 回合，{self.winner} 号队摧毁水晶"
                 ev.append({"line": f"crystal {u['team']} {u['pos'][0]} {u['pos'][1]}", "type": "crystal",
                            "team": u["team"], "pos": list(u["pos"])})
+
+    def _compact_minions(self):
+        """清掉已经死亡的小兵（同时从 units 表里移除），保持小兵列表不会无限增长。
+
+        只删死亡的小兵，存活小兵的相对顺序不变，所以小兵移动的先后次序和以前完全一致。
+        """
+        dead = [m for m in self.minions if not m["alive"]]
+        if not dead:
+            return
+        for m in dead:
+            self.units.pop(m["id"], None)
+        self.minions = [m for m in self.minions if m["alive"]]
 
     def _can_hit(self, a, b, rng):
         d = distance(a, b)
@@ -719,7 +755,14 @@ class Game:
     # ---------- 单人挑战的 NPC 队 ----------
 
     def _field(self, targets):
-        """到 targets 的 BFS 距离场（墙、塔、营地、水晶都绕开）。目标格本身允许是 blocked。"""
+        """到 targets 的 BFS 距离场（墙、塔、营地、水晶都绕开）。目标格本身允许是 blocked。
+
+        结果按（障碍版本, 目标集合）缓存：塔和营地的状态不变时，同一个目标的距离场算一次就够。
+        """
+        key = (self._block_ver, tuple(targets))
+        hit = self._field_cache.get(key)
+        if hit is not None:
+            return hit
         S = self.size
         blocked = self._static_block()
         dist, q = {}, deque()
@@ -733,6 +776,7 @@ class Game:
                 if 0 <= p[0] < S and 0 <= p[1] < S and p not in blocked and p not in dist:
                     dist[p] = dist[(x, y)] + 1
                     q.append(p)
+        self._field_cache[key] = dist
         return dist
 
     def _npc_orders(self):
