@@ -36,3 +36,9 @@ tron/workspace/bots/*.dll
 tron/workspace/history/
 tron/workspace/replays/
 tron/out/
+
+# 第 8 集足球：本地编译、回放重打和沙箱产物
+soccer/out/
+soccer/workspace/_soccer_box/
+soccer/workspace/bots/*.exe
+soccer/workspace/replays/

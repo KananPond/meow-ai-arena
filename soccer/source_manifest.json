@@ -1,0 +1,632 @@
+{
+  "workspace/arena.cpp": {
+    "original_sha256": "a5125c5085e3c471bf5cc559b1fbc4cc3d00df6f49c4ca463712e48ac8caad3b",
+    "sha256": "a5125c5085e3c471bf5cc559b1fbc4cc3d00df6f49c4ca463712e48ac8caad3b",
+    "modified": false
+  },
+  "workspace/build.py": {
+    "original_sha256": "2d7da775b46c747cb9de113534fc43389dc0487bcfd7d77e23fae93e0faf9203",
+    "sha256": "55a807c1810657eebed4e49315fbc720300582301f2c33f8952908f5bce26b80",
+    "modified": true
+  },
+  "workspace/match.py": {
+    "original_sha256": "4dda2e8d1752b9672fecf6dc129c1eaa01f3c5a501151fb2726f25e6887e6a04",
+    "sha256": "fc2d1d506659f2cf75dda86bc11e6467f923f04c9f03a96dff1726862580542a",
+    "modified": true
+  },
+  "workspace/README.md": {
+    "original_sha256": "f2315ccd8d4356db70c2cc56a5cad15335b29be56f0798001c3e73e1a4e312dc",
+    "sha256": "f2315ccd8d4356db70c2cc56a5cad15335b29be56f0798001c3e73e1a4e312dc",
+    "modified": false
+  },
+  "workspace/replay.py": {
+    "original_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+    "sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+    "modified": false
+  },
+  "workspace/RULES.md": {
+    "original_sha256": "31ada7d5fac72cb3b5e2746c8849e8fc8c6e058ba4b10b358260eb8d91b989df",
+    "sha256": "31ada7d5fac72cb3b5e2746c8849e8fc8c6e058ba4b10b358260eb8d91b989df",
+    "modified": false
+  },
+  "workspace/run.cmd": {
+    "original_sha256": "166b96e1ce5145a7cba1a90b072e8357646a48f03d7ea03ff2468c67c2a3187b",
+    "sha256": "166b96e1ce5145a7cba1a90b072e8357646a48f03d7ea03ff2468c67c2a3187b",
+    "modified": false
+  },
+  "workspace/soccer.hpp": {
+    "original_sha256": "06350f319523a9fcfbbfbe5aab47f9d03f66c1228feeeb374edb2a873ebf76b1",
+    "sha256": "06350f319523a9fcfbbfbe5aab47f9d03f66c1228feeeb374edb2a873ebf76b1",
+    "modified": false
+  },
+  "workspace/soccer_engine.py": {
+    "original_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+    "sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+    "modified": false
+  },
+  "workspace/template.cpp": {
+    "original_sha256": "ca56beaa745c4d30c14ce4ac9c2e596b4b100096a18a7719ca201e26f263742c",
+    "sha256": "ca56beaa745c4d30c14ce4ac9c2e596b4b100096a18a7719ca201e26f263742c",
+    "modified": false
+  },
+  "workspace/viewer.html": {
+    "original_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+    "sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+    "modified": false
+  },
+  "workspace/示例回放.txt": {
+    "original_sha256": "04ab7277166a29da7b6df8d26476ac3d4f86e42e6e9268a06d22c7ce6548f3fa",
+    "sha256": "04ab7277166a29da7b6df8d26476ac3d4f86e42e6e9268a06d22c7ce6548f3fa",
+    "modified": false
+  },
+  "bots/half1/team1_a.cpp": {
+    "original_sha256": "76ac3343caffe0bf1eb301fcdc3f8ac924e8639d3850f2cbe182dec1d559dec9",
+    "sha256": "76ac3343caffe0bf1eb301fcdc3f8ac924e8639d3850f2cbe182dec1d559dec9",
+    "modified": false
+  },
+  "bots/half1/team1_b.cpp": {
+    "original_sha256": "f975abc3d553f85fa6adfa416383a5cf5be72ae49df7f7a18c309d110a2a5eef",
+    "sha256": "f975abc3d553f85fa6adfa416383a5cf5be72ae49df7f7a18c309d110a2a5eef",
+    "modified": false
+  },
+  "bots/half1/team2_a.cpp": {
+    "original_sha256": "a5c2b4649c1bb22f4cd3664514a501439dff4da7e41a39577209cf5ca4c31cb3",
+    "sha256": "a5c2b4649c1bb22f4cd3664514a501439dff4da7e41a39577209cf5ca4c31cb3",
+    "modified": false
+  },
+  "bots/half1/team2_b.cpp": {
+    "original_sha256": "42e2846b2eaf431c99cca42d43afac0efd4936998ca6d2c6bd0c4cd09cddf887",
+    "sha256": "42e2846b2eaf431c99cca42d43afac0efd4936998ca6d2c6bd0c4cd09cddf887",
+    "modified": false
+  },
+  "bots/half1/team3_a.cpp": {
+    "original_sha256": "23ca13f023d2680be0e62752feff179501f2b1569d981548750279e93bb0ca58",
+    "sha256": "23ca13f023d2680be0e62752feff179501f2b1569d981548750279e93bb0ca58",
+    "modified": false
+  },
+  "bots/half1/team3_b.cpp": {
+    "original_sha256": "192027422bcdf7ef86e239780c9d42ce73c1626e354bde4bcbbc0ef0599dc75e",
+    "sha256": "192027422bcdf7ef86e239780c9d42ce73c1626e354bde4bcbbc0ef0599dc75e",
+    "modified": false
+  },
+  "bots/half1/team4_a.cpp": {
+    "original_sha256": "0becf23776c1769f433a8c0741f562157cc5619c77b70c3fba1fb1dcc01d1a11",
+    "sha256": "0becf23776c1769f433a8c0741f562157cc5619c77b70c3fba1fb1dcc01d1a11",
+    "modified": false
+  },
+  "bots/half1/team4_b.cpp": {
+    "original_sha256": "53e0560a9b3e145d9b3f0ab6b45286eaede3c9fcf0a93fd728abc5106be5b0d1",
+    "sha256": "53e0560a9b3e145d9b3f0ab6b45286eaede3c9fcf0a93fd728abc5106be5b0d1",
+    "modified": false
+  },
+  "bots/half1/team5_a.cpp": {
+    "original_sha256": "2adb21b3025a6400fa95814dc073ca6767788fcd938b9e9de14f6c04ba78ddca",
+    "sha256": "2adb21b3025a6400fa95814dc073ca6767788fcd938b9e9de14f6c04ba78ddca",
+    "modified": false
+  },
+  "bots/half1/team5_b.cpp": {
+    "original_sha256": "73d5d90f817e5fda85b7a242957d649b162ae134353b3e4f0a663a05e9f0b1bf",
+    "sha256": "73d5d90f817e5fda85b7a242957d649b162ae134353b3e4f0a663a05e9f0b1bf",
+    "modified": false
+  },
+  "bots/half1/team6_a.cpp": {
+    "original_sha256": "f61ae3998be5916988717d58632e1eb26cca9a31bab41cba4c53adf741d3768e",
+    "sha256": "f61ae3998be5916988717d58632e1eb26cca9a31bab41cba4c53adf741d3768e",
+    "modified": false
+  },
+  "bots/half1/team6_b.cpp": {
+    "original_sha256": "999e796351f691be68395052e5d84b8011b7c4c3d232ffe544d0acc4d3601f0a",
+    "sha256": "999e796351f691be68395052e5d84b8011b7c4c3d232ffe544d0acc4d3601f0a",
+    "modified": false
+  },
+  "bots/half2/team1_a.cpp": {
+    "original_sha256": "6f34c87d14c4003e4b238d48676e05bb7f13719a6725e3afa3ccfc7652f5768a",
+    "sha256": "6f34c87d14c4003e4b238d48676e05bb7f13719a6725e3afa3ccfc7652f5768a",
+    "modified": false
+  },
+  "bots/half2/team1_a.partner.cpp": {
+    "original_sha256": "a8b0a4293c91b8c9d3467221bedd028e07dfb9462c964e203fb9b2954d4fe323",
+    "sha256": "a8b0a4293c91b8c9d3467221bedd028e07dfb9462c964e203fb9b2954d4fe323",
+    "modified": false
+  },
+  "bots/half2/team1_b.cpp": {
+    "original_sha256": "ca8507a04b27037ffd37d1ea8ce21d2743f8d3c20e0021d9de7c79d7e51aab0c",
+    "sha256": "ca8507a04b27037ffd37d1ea8ce21d2743f8d3c20e0021d9de7c79d7e51aab0c",
+    "modified": false
+  },
+  "bots/half2/team1_b.partner.cpp": {
+    "original_sha256": "f76558add4461cb4334908f445540ce926b65f11b20737e970f9d7fef0b55dad",
+    "sha256": "f76558add4461cb4334908f445540ce926b65f11b20737e970f9d7fef0b55dad",
+    "modified": false
+  },
+  "bots/half2/team2_a.cpp": {
+    "original_sha256": "be05cb1a674c150969d49d2530c3b5935d852ab30102d840f30ad91fe322f454",
+    "sha256": "be05cb1a674c150969d49d2530c3b5935d852ab30102d840f30ad91fe322f454",
+    "modified": false
+  },
+  "bots/half2/team2_a.partner.cpp": {
+    "original_sha256": "be05cb1a674c150969d49d2530c3b5935d852ab30102d840f30ad91fe322f454",
+    "sha256": "be05cb1a674c150969d49d2530c3b5935d852ab30102d840f30ad91fe322f454",
+    "modified": false
+  },
+  "bots/half2/team2_b.cpp": {
+    "original_sha256": "42e2846b2eaf431c99cca42d43afac0efd4936998ca6d2c6bd0c4cd09cddf887",
+    "sha256": "42e2846b2eaf431c99cca42d43afac0efd4936998ca6d2c6bd0c4cd09cddf887",
+    "modified": false
+  },
+  "bots/half2/team2_b.partner.cpp": {
+    "original_sha256": "d11e9ef2c0119f2facb982cb037e8cbb65b55610185a8c94d3f63a6aa94ef3f3",
+    "sha256": "d11e9ef2c0119f2facb982cb037e8cbb65b55610185a8c94d3f63a6aa94ef3f3",
+    "modified": false
+  },
+  "bots/half2/team3_a.cpp": {
+    "original_sha256": "7b15b4063614622752e84b8f5c5edec3abcb04adce1cfc9df78bb9460d1de465",
+    "sha256": "7b15b4063614622752e84b8f5c5edec3abcb04adce1cfc9df78bb9460d1de465",
+    "modified": false
+  },
+  "bots/half2/team3_a.partner.cpp": {
+    "original_sha256": "ddfd2285ddc6a4f8ed12e2c16431079807d7cb7f98df9cdd3de1d091b865612f",
+    "sha256": "ddfd2285ddc6a4f8ed12e2c16431079807d7cb7f98df9cdd3de1d091b865612f",
+    "modified": false
+  },
+  "bots/half2/team3_b.cpp": {
+    "original_sha256": "d17b8e003ecc8d75f62f415e6dd3f42d698868b67fb24371605a3f00960f5933",
+    "sha256": "d17b8e003ecc8d75f62f415e6dd3f42d698868b67fb24371605a3f00960f5933",
+    "modified": false
+  },
+  "bots/half2/team4_a.cpp": {
+    "original_sha256": "b10b569892fe2f5f98e35d91b1cb7874afd92dfc773b6ab6ecf92b72f5697a9b",
+    "sha256": "b10b569892fe2f5f98e35d91b1cb7874afd92dfc773b6ab6ecf92b72f5697a9b",
+    "modified": false
+  },
+  "bots/half2/team4_a.partner.cpp": {
+    "original_sha256": "d5cc4ac0774467a0503f2f5a35cce1a93348897f22cf310f21247d960090763e",
+    "sha256": "d5cc4ac0774467a0503f2f5a35cce1a93348897f22cf310f21247d960090763e",
+    "modified": false
+  },
+  "bots/half2/team4_b.cpp": {
+    "original_sha256": "f608e13ef12eb114619c4a4bc225a5f5720f3b6f53a8a82c638d4f7c6ceee6f0",
+    "sha256": "f608e13ef12eb114619c4a4bc225a5f5720f3b6f53a8a82c638d4f7c6ceee6f0",
+    "modified": false
+  },
+  "bots/half2/team4_b.partner.cpp": {
+    "original_sha256": "db665d7a3e1b2b649e519f71f1f9f0e840f3ab577b496cba819471198deb9632",
+    "sha256": "db665d7a3e1b2b649e519f71f1f9f0e840f3ab577b496cba819471198deb9632",
+    "modified": false
+  },
+  "bots/half2/team5_a.cpp": {
+    "original_sha256": "a70361620a7dd4835866b91320b3444f4c5cb4b54d51366c78d544f3c5e042c6",
+    "sha256": "a70361620a7dd4835866b91320b3444f4c5cb4b54d51366c78d544f3c5e042c6",
+    "modified": false
+  },
+  "bots/half2/team5_b.cpp": {
+    "original_sha256": "73d5d90f817e5fda85b7a242957d649b162ae134353b3e4f0a663a05e9f0b1bf",
+    "sha256": "73d5d90f817e5fda85b7a242957d649b162ae134353b3e4f0a663a05e9f0b1bf",
+    "modified": false
+  },
+  "bots/half2/team5_b.partner.cpp": {
+    "original_sha256": "73d5d90f817e5fda85b7a242957d649b162ae134353b3e4f0a663a05e9f0b1bf",
+    "sha256": "73d5d90f817e5fda85b7a242957d649b162ae134353b3e4f0a663a05e9f0b1bf",
+    "modified": false
+  },
+  "bots/half2/team6_a.cpp": {
+    "original_sha256": "f61ae3998be5916988717d58632e1eb26cca9a31bab41cba4c53adf741d3768e",
+    "sha256": "f61ae3998be5916988717d58632e1eb26cca9a31bab41cba4c53adf741d3768e",
+    "modified": false
+  },
+  "bots/half2/team6_a.partner.cpp": {
+    "original_sha256": "75e6b2f4c12e53c0f9e391c78c589657cdcd59f8ca41a646eba9d38b27287279",
+    "sha256": "75e6b2f4c12e53c0f9e391c78c589657cdcd59f8ca41a646eba9d38b27287279",
+    "modified": false
+  },
+  "bots/half2/team6_b.cpp": {
+    "original_sha256": "999e796351f691be68395052e5d84b8011b7c4c3d232ffe544d0acc4d3601f0a",
+    "sha256": "999e796351f691be68395052e5d84b8011b7c4c3d232ffe544d0acc4d3601f0a",
+    "modified": false
+  },
+  "bots/half2/team6_b.partner.cpp": {
+    "original_sha256": "24bd6f0eeb3fa49b7c940cd72d8d22b9761ccf84c341f846f2a80a5b7e568596",
+    "sha256": "24bd6f0eeb3fa49b7c940cd72d8d22b9761ccf84c341f846f2a80a5b7e568596",
+    "modified": false
+  },
+  "sparring/bots.hpp": {
+    "original_sha256": "0f256327f0c843ee9d03a97085486c8128426f36a051e5831d720ec06027d697",
+    "sha256": "c19f0f298a52f1e54d48097371c044b8d561a1b1a6174095fcf9f8f688261ca5",
+    "modified": true
+  },
+  "sparring/bot_main.cpp": {
+    "original_sha256": "01b1e948c06edf2bd24c8f0cc8643f1535bb014f068b3f61bf8c305988196999",
+    "sha256": "01b1e948c06edf2bd24c8f0cc8643f1535bb014f068b3f61bf8c305988196999",
+    "modified": false
+  },
+  "tournament/bt.py": {
+    "original_sha256": "37df23c2b39c80a6a0c8f57140d51f77a01712c391a65ac812482083eb907c04",
+    "sha256": "37df23c2b39c80a6a0c8f57140d51f77a01712c391a65ac812482083eb907c04",
+    "modified": false
+  },
+  "packages/format.md": {
+    "original_sha256": "5d42175f0931bdc4718dca99d1bfde00a4776bd95d22c15f1c225b38cb40a000",
+    "sha256": "5d42175f0931bdc4718dca99d1bfde00a4776bd95d22c15f1c225b38cb40a000",
+    "modified": false
+  },
+  "results/团队榜.md": {
+    "original_sha256": "36ce06705749501626afff22d6ab55751b9cd99bec7051bdd76732ca7dcbd6cc",
+    "sha256": "36ce06705749501626afff22d6ab55751b9cd99bec7051bdd76732ca7dcbd6cc",
+    "modified": false
+  },
+  "results/个人榜.md": {
+    "original_sha256": "ec4f84ba0f0c61fc48f1faa9e48764c36a938823a51bb968831db4d1ce3e3fdf",
+    "sha256": "ec4f84ba0f0c61fc48f1faa9e48764c36a938823a51bb968831db4d1ce3e3fdf",
+    "modified": false
+  },
+  "results/halftime/成绩.md": {
+    "original_sha256": "47eca122b9803caa454861c0f42f3571a41b5046ec6060a9828174d4481fad0e",
+    "sha256": "47eca122b9803caa454861c0f42f3571a41b5046ec6060a9828174d4481fad0e",
+    "modified": false
+  },
+  "results/final/成绩.md": {
+    "original_sha256": "46effdb4d530c30362153d5c97e6a416572b04da9b4ff4d4a62624c5ee26ae30",
+    "sha256": "46effdb4d530c30362153d5c97e6a416572b04da9b4ff4d4a62624c5ee26ae30",
+    "modified": false
+  },
+  "prompts/team1_a/00_开赛提示词.txt": {
+    "original_sha256": "e01a62c55af3a07fa1bea84fe975205be867724cf683605aff64a4f668319c29",
+    "sha256": "e01a62c55af3a07fa1bea84fe975205be867724cf683605aff64a4f668319c29",
+    "modified": false
+  },
+  "prompts/team1_a/01_开赛.txt": {
+    "original_sha256": "e01a62c55af3a07fa1bea84fe975205be867724cf683605aff64a4f668319c29",
+    "sha256": "e01a62c55af3a07fa1bea84fe975205be867724cf683605aff64a4f668319c29",
+    "modified": false
+  },
+  "prompts/team1_a/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team1_a/04_复盘.txt": {
+    "original_sha256": "4bea80965cc0e61ad9f93150b669d0ee75b24ed6f5d1778be273c54268c226a3",
+    "sha256": "4bea80965cc0e61ad9f93150b669d0ee75b24ed6f5d1778be273c54268c226a3",
+    "modified": false
+  },
+  "prompts/team1_b/00_开赛提示词.txt": {
+    "original_sha256": "c999cb54c8c0da119dec4128d4ae6da0fc6efd2b40b1e725adb805c1aa453864",
+    "sha256": "c999cb54c8c0da119dec4128d4ae6da0fc6efd2b40b1e725adb805c1aa453864",
+    "modified": false
+  },
+  "prompts/team1_b/01_开赛.txt": {
+    "original_sha256": "c999cb54c8c0da119dec4128d4ae6da0fc6efd2b40b1e725adb805c1aa453864",
+    "sha256": "c999cb54c8c0da119dec4128d4ae6da0fc6efd2b40b1e725adb805c1aa453864",
+    "modified": false
+  },
+  "prompts/team1_b/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team1_b/04_复盘.txt": {
+    "original_sha256": "2bcb9f7cae7cdd058d2c2192702a1b55bf4a7643116ce329f73bb818b53026a4",
+    "sha256": "2bcb9f7cae7cdd058d2c2192702a1b55bf4a7643116ce329f73bb818b53026a4",
+    "modified": false
+  },
+  "prompts/team2_a/00_开赛提示词.txt": {
+    "original_sha256": "16f5fc2507ffd87a84f54479e75584193e06ea1329332f49f37bb1f170c34fbd",
+    "sha256": "16f5fc2507ffd87a84f54479e75584193e06ea1329332f49f37bb1f170c34fbd",
+    "modified": false
+  },
+  "prompts/team2_a/01_开赛.txt": {
+    "original_sha256": "16f5fc2507ffd87a84f54479e75584193e06ea1329332f49f37bb1f170c34fbd",
+    "sha256": "16f5fc2507ffd87a84f54479e75584193e06ea1329332f49f37bb1f170c34fbd",
+    "modified": false
+  },
+  "prompts/team2_a/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team2_a/04_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team2_a/05_续跑.txt": {
+    "original_sha256": "d9352bfabd18ffc80ef53965c94134a8ea3f4db541139deab92b4873f2841ae7",
+    "sha256": "d9352bfabd18ffc80ef53965c94134a8ea3f4db541139deab92b4873f2841ae7",
+    "modified": false
+  },
+  "prompts/team2_a/06_续跑.txt": {
+    "original_sha256": "10e7d0e406b3e800502a1550837a585d3ffe6ed98831b3dd4739d8e48f796524",
+    "sha256": "10e7d0e406b3e800502a1550837a585d3ffe6ed98831b3dd4739d8e48f796524",
+    "modified": false
+  },
+  "prompts/team2_a/07_复盘.txt": {
+    "original_sha256": "8b20c21d1a15f748b6b1e51084b1827260807669f167addaba05c1d71090dbc9",
+    "sha256": "8b20c21d1a15f748b6b1e51084b1827260807669f167addaba05c1d71090dbc9",
+    "modified": false
+  },
+  "prompts/team2_b/00_开赛提示词.txt": {
+    "original_sha256": "1cda452fa551f82c9d14b210747c5b270e41d38dfced2f7cbab44de4b27e282d",
+    "sha256": "1cda452fa551f82c9d14b210747c5b270e41d38dfced2f7cbab44de4b27e282d",
+    "modified": false
+  },
+  "prompts/team2_b/01_开赛.txt": {
+    "original_sha256": "1cda452fa551f82c9d14b210747c5b270e41d38dfced2f7cbab44de4b27e282d",
+    "sha256": "1cda452fa551f82c9d14b210747c5b270e41d38dfced2f7cbab44de4b27e282d",
+    "modified": false
+  },
+  "prompts/team2_b/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team2_b/04_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team2_b/05_续跑.txt": {
+    "original_sha256": "d9352bfabd18ffc80ef53965c94134a8ea3f4db541139deab92b4873f2841ae7",
+    "sha256": "d9352bfabd18ffc80ef53965c94134a8ea3f4db541139deab92b4873f2841ae7",
+    "modified": false
+  },
+  "prompts/team2_b/06_续跑.txt": {
+    "original_sha256": "10e7d0e406b3e800502a1550837a585d3ffe6ed98831b3dd4739d8e48f796524",
+    "sha256": "10e7d0e406b3e800502a1550837a585d3ffe6ed98831b3dd4739d8e48f796524",
+    "modified": false
+  },
+  "prompts/team2_b/07_复盘.txt": {
+    "original_sha256": "15b8b607ec1efa531371b453405c9e691986f944d70f798753630a1b76abf983",
+    "sha256": "15b8b607ec1efa531371b453405c9e691986f944d70f798753630a1b76abf983",
+    "modified": false
+  },
+  "prompts/team3_a/00_开赛提示词.txt": {
+    "original_sha256": "a4204441a6168a35314e06ba39f16a9a903e1452f4b75160aa0e8bc434e490a0",
+    "sha256": "a4204441a6168a35314e06ba39f16a9a903e1452f4b75160aa0e8bc434e490a0",
+    "modified": false
+  },
+  "prompts/team3_a/01_开赛.txt": {
+    "original_sha256": "a4204441a6168a35314e06ba39f16a9a903e1452f4b75160aa0e8bc434e490a0",
+    "sha256": "a4204441a6168a35314e06ba39f16a9a903e1452f4b75160aa0e8bc434e490a0",
+    "modified": false
+  },
+  "prompts/team3_a/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team3_a/04_复盘.txt": {
+    "original_sha256": "75e1d9ffc5488ea8f508c42c3e4d27122637b0339137f6cfe7b330989f10ec9e",
+    "sha256": "75e1d9ffc5488ea8f508c42c3e4d27122637b0339137f6cfe7b330989f10ec9e",
+    "modified": false
+  },
+  "prompts/team3_b/00_开赛提示词.txt": {
+    "original_sha256": "4d94513d381000c0041b2c82c2ddf06ac6c320b072e5b5ecc8c8f14b81620ad2",
+    "sha256": "4d94513d381000c0041b2c82c2ddf06ac6c320b072e5b5ecc8c8f14b81620ad2",
+    "modified": false
+  },
+  "prompts/team3_b/01_开赛.txt": {
+    "original_sha256": "4d94513d381000c0041b2c82c2ddf06ac6c320b072e5b5ecc8c8f14b81620ad2",
+    "sha256": "4d94513d381000c0041b2c82c2ddf06ac6c320b072e5b5ecc8c8f14b81620ad2",
+    "modified": false
+  },
+  "prompts/team3_b/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team3_b/04_复盘.txt": {
+    "original_sha256": "ff2982f23c9960b906fb2745326d68a96d3021289241777da9acdf9b38e6bb03",
+    "sha256": "ff2982f23c9960b906fb2745326d68a96d3021289241777da9acdf9b38e6bb03",
+    "modified": false
+  },
+  "prompts/team4_a/00_开赛提示词.txt": {
+    "original_sha256": "9b173222177b5ce109ab1542170657c077c6c71adb154ccf6d8a68b643445661",
+    "sha256": "9b173222177b5ce109ab1542170657c077c6c71adb154ccf6d8a68b643445661",
+    "modified": false
+  },
+  "prompts/team4_a/01_开赛.txt": {
+    "original_sha256": "9b173222177b5ce109ab1542170657c077c6c71adb154ccf6d8a68b643445661",
+    "sha256": "9b173222177b5ce109ab1542170657c077c6c71adb154ccf6d8a68b643445661",
+    "modified": false
+  },
+  "prompts/team4_a/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team4_a/06_复盘.txt": {
+    "original_sha256": "01a2b537ea65dd35e5d55d7b9c850c4b8e684800fe21f2ced8e2884599369ecf",
+    "sha256": "01a2b537ea65dd35e5d55d7b9c850c4b8e684800fe21f2ced8e2884599369ecf",
+    "modified": false
+  },
+  "prompts/team4_b/00_开赛提示词.txt": {
+    "original_sha256": "e74aea4f26cd2050882002cfa1f2940e0c828506be21de4eceb2a4067dee767c",
+    "sha256": "e74aea4f26cd2050882002cfa1f2940e0c828506be21de4eceb2a4067dee767c",
+    "modified": false
+  },
+  "prompts/team4_b/01_开赛.txt": {
+    "original_sha256": "e74aea4f26cd2050882002cfa1f2940e0c828506be21de4eceb2a4067dee767c",
+    "sha256": "e74aea4f26cd2050882002cfa1f2940e0c828506be21de4eceb2a4067dee767c",
+    "modified": false
+  },
+  "prompts/team4_b/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team4_b/06_复盘.txt": {
+    "original_sha256": "a8eabe386d1294736e23b8cfaa0b41135b544efd15093a3d1d9e5b676f8cb105",
+    "sha256": "a8eabe386d1294736e23b8cfaa0b41135b544efd15093a3d1d9e5b676f8cb105",
+    "modified": false
+  },
+  "prompts/team5_a/00_开赛提示词.txt": {
+    "original_sha256": "f0cfe14bd0878be168e0f610991dd2fd3f3bef6928e643a679c09e5880cbf045",
+    "sha256": "f0cfe14bd0878be168e0f610991dd2fd3f3bef6928e643a679c09e5880cbf045",
+    "modified": false
+  },
+  "prompts/team5_a/01_开工.txt": {
+    "original_sha256": "48b75e1cbf8a52b7f79377eb2a43d708134ee57b9b29483627f3fddbf5e1babe",
+    "sha256": "48b75e1cbf8a52b7f79377eb2a43d708134ee57b9b29483627f3fddbf5e1babe",
+    "modified": false
+  },
+  "prompts/team5_a/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team5_a/04_复盘.txt": {
+    "original_sha256": "967de3aac7d24ee9a0fd614646b78c5829944eec8854af5d4aa877efb3130c09",
+    "sha256": "967de3aac7d24ee9a0fd614646b78c5829944eec8854af5d4aa877efb3130c09",
+    "modified": false
+  },
+  "prompts/team5_b/00_开赛提示词.txt": {
+    "original_sha256": "e479d5b4e2e07fa75115a0b2d5832d10d8ea8f76c80ab8cdb17502e69782b95c",
+    "sha256": "e479d5b4e2e07fa75115a0b2d5832d10d8ea8f76c80ab8cdb17502e69782b95c",
+    "modified": false
+  },
+  "prompts/team5_b/01_开赛.txt": {
+    "original_sha256": "e479d5b4e2e07fa75115a0b2d5832d10d8ea8f76c80ab8cdb17502e69782b95c",
+    "sha256": "e479d5b4e2e07fa75115a0b2d5832d10d8ea8f76c80ab8cdb17502e69782b95c",
+    "modified": false
+  },
+  "prompts/team5_b/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team5_b/04_复盘.txt": {
+    "original_sha256": "60e51f1ce2540e5aa9e68232f5393abd864958e604a9670093aba28f7a058785",
+    "sha256": "60e51f1ce2540e5aa9e68232f5393abd864958e604a9670093aba28f7a058785",
+    "modified": false
+  },
+  "prompts/team6_a/00_开赛提示词.txt": {
+    "original_sha256": "65dec1806373c90c0e8006c9742f63ebbffed34b50b88f2f1364e3da2daae98e",
+    "sha256": "65dec1806373c90c0e8006c9742f63ebbffed34b50b88f2f1364e3da2daae98e",
+    "modified": false
+  },
+  "prompts/team6_a/01_开工.txt": {
+    "original_sha256": "48b75e1cbf8a52b7f79377eb2a43d708134ee57b9b29483627f3fddbf5e1babe",
+    "sha256": "48b75e1cbf8a52b7f79377eb2a43d708134ee57b9b29483627f3fddbf5e1babe",
+    "modified": false
+  },
+  "prompts/team6_a/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team6_a/04_复盘.txt": {
+    "original_sha256": "20cb73909257eaf422b9dbfe264f4a06bc4de12a3ea1add44b3a58770486b6d4",
+    "sha256": "20cb73909257eaf422b9dbfe264f4a06bc4de12a3ea1add44b3a58770486b6d4",
+    "modified": false
+  },
+  "prompts/team6_b/00_开赛提示词.txt": {
+    "original_sha256": "4c5d98bafe595513aff8fe511ecd478ed607b2a314f71167d847c643fc24ed29",
+    "sha256": "4c5d98bafe595513aff8fe511ecd478ed607b2a314f71167d847c643fc24ed29",
+    "modified": false
+  },
+  "prompts/team6_b/01_开工.txt": {
+    "original_sha256": "48b75e1cbf8a52b7f79377eb2a43d708134ee57b9b29483627f3fddbf5e1babe",
+    "sha256": "48b75e1cbf8a52b7f79377eb2a43d708134ee57b9b29483627f3fddbf5e1babe",
+    "modified": false
+  },
+  "prompts/team6_b/02_中场.txt": {
+    "original_sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "sha256": "b8fe4f170309eba998ce8fda38cea8ef14d69e62027394f9e8e05f983ca2b7b1",
+    "modified": false
+  },
+  "prompts/team6_b/04_复盘.txt": {
+    "original_sha256": "d42913c74a81cbd805573c51f923ca91028c623ff204707d61f169476ae44968",
+    "sha256": "d42913c74a81cbd805573c51f923ca91028c623ff204707d61f169476ae44968",
+    "modified": false
+  },
+  "replays/final/team1-team5-s12-2.txt": {
+    "original_sha256": "3f0e73b81a7fa8ee7ef8b0b982f7482ad1ce1cc880f7938014971d6e8db84fae",
+    "sha256": "3f0e73b81a7fa8ee7ef8b0b982f7482ad1ce1cc880f7938014971d6e8db84fae",
+    "modified": false
+  },
+  "replays/final/team2-team4-s31-1.txt": {
+    "original_sha256": "a1e9182d04c3c093fa0fd0f994f502c11c48051140ca1cfe59ed97e805180cf7",
+    "sha256": "a1e9182d04c3c093fa0fd0f994f502c11c48051140ca1cfe59ed97e805180cf7",
+    "modified": false
+  },
+  "replays/final/team2-team3-s20-2.txt": {
+    "original_sha256": "8688ba55b2c2de32f9936c700bc795cd0192d240c7f34a92e44bf2a60da0e0ea",
+    "sha256": "8688ba55b2c2de32f9936c700bc795cd0192d240c7f34a92e44bf2a60da0e0ea",
+    "modified": false
+  },
+  "replays/final/team4-team5-s38-1.txt": {
+    "original_sha256": "20b38a5a2900c50eed56b938f69448c625e578fbc56176ec73275061eb1891de",
+    "sha256": "20b38a5a2900c50eed56b938f69448c625e578fbc56176ec73275061eb1891de",
+    "modified": false
+  },
+  "replays/final/team3-team5-s1-2.txt": {
+    "original_sha256": "665ffcaa793534466e0ee22be63929e473726998a3a18e26b9aa32ba15d7fdd5",
+    "sha256": "665ffcaa793534466e0ee22be63929e473726998a3a18e26b9aa32ba15d7fdd5",
+    "modified": false
+  },
+  "replays/final/team3-team6-s35-2.txt": {
+    "original_sha256": "67f6ca7528b9673d8e485cf49e72ff06349399e5515aaac631f462cb5d4a04d8",
+    "sha256": "67f6ca7528b9673d8e485cf49e72ff06349399e5515aaac631f462cb5d4a04d8",
+    "modified": false
+  },
+  "replays/individual/Astra-Terra-s2-2.txt": {
+    "original_sha256": "5d5adb09b7c249a913e14b422f75d60e9e0f2131001ba3af16298064a21b24b0",
+    "sha256": "5d5adb09b7c249a913e14b422f75d60e9e0f2131001ba3af16298064a21b24b0",
+    "modified": false
+  },
+  "replays/individual/Doubao-DeepSeek-s8-1.txt": {
+    "original_sha256": "7d23d6746451165e98eaf2a187883620359042973f41f0088beeb04b572e39d4",
+    "sha256": "7d23d6746451165e98eaf2a187883620359042973f41f0088beeb04b572e39d4",
+    "modified": false
+  },
+  "replays/individual/Step-Doubao-s9-2.txt": {
+    "original_sha256": "8b2847a99781ac89e595923aca73b392169f55ebc522e73d65d425d6e1a36739",
+    "sha256": "8b2847a99781ac89e595923aca73b392169f55ebc522e73d65d425d6e1a36739",
+    "modified": false
+  },
+  "replays/individual/Kimi-GLM-s13-1.txt": {
+    "original_sha256": "81193e9a3ee8d90dfe5995d4ae9440228012e4f4845f5ad796983d20c59c0edd",
+    "sha256": "81193e9a3ee8d90dfe5995d4ae9440228012e4f4845f5ad796983d20c59c0edd",
+    "modified": false
+  },
+  "replays/individual/Gemini-Terra-s6-2.txt": {
+    "original_sha256": "e84d5a36cdc4b95a7ee0ff3532c7d0d767375fa967995e1834cd6bc514bce29d",
+    "sha256": "e84d5a36cdc4b95a7ee0ff3532c7d0d767375fa967995e1834cd6bc514bce29d",
+    "modified": false
+  },
+  "replays/individual/Grok-DeepSeek-s14-1.txt": {
+    "original_sha256": "42bbb11e2f0a7c4b00eb844bf6edf3882dc4e6aff76d087bccd626989abbc6cc",
+    "sha256": "42bbb11e2f0a7c4b00eb844bf6edf3882dc4e6aff76d087bccd626989abbc6cc",
+    "modified": false
+  },
+  "replays/individual/Gemini-Haiku-s13-1.txt": {
+    "original_sha256": "4b4b46e7c5a41c63294e739032103fb862fd46a8fc60711f46f948e46d3a061f",
+    "sha256": "4b4b46e7c5a41c63294e739032103fb862fd46a8fc60711f46f948e46d3a061f",
+    "modified": false
+  },
+  "replays/individual/Hunyuan-GLM-s10-2.txt": {
+    "original_sha256": "e573315c574a2979f9270809f0b257a644fcd635914678cc0006a5eee54125ca",
+    "sha256": "e573315c574a2979f9270809f0b257a644fcd635914678cc0006a5eee54125ca",
+    "modified": false
+  },
+  "replays/individual/Kimi-Astra-s13-2.txt": {
+    "original_sha256": "adcb8b5182e519b30bea4c21342ea4cd4e4aab98d0bd604aed33b363255b0c94",
+    "sha256": "adcb8b5182e519b30bea4c21342ea4cd4e4aab98d0bd604aed33b363255b0c94",
+    "modified": false
+  },
+  "replays/individual/Opus-DeepSeek-s6-1.txt": {
+    "original_sha256": "f11441046db5f9bb1a2fa3ef3d307ab2c0df4a25237158daeef550d74cb63715",
+    "sha256": "f11441046db5f9bb1a2fa3ef3d307ab2c0df4a25237158daeef550d74cb63715",
+    "modified": false
+  },
+  "replays/individual/Step-Terra-s3-1.txt": {
+    "original_sha256": "830b670789893e8f8fd4d50e00eb7e3ab82838aacd74528a9c22c106584e66a1",
+    "sha256": "830b670789893e8f8fd4d50e00eb7e3ab82838aacd74528a9c22c106584e66a1",
+    "modified": false
+  },
+  "replays/individual/Grok-Terra-s6-1.txt": {
+    "original_sha256": "98bd6e4ab798a382ef48351bdb48e1aa9b61942370d82ed36ec91379960a881e",
+    "sha256": "98bd6e4ab798a382ef48351bdb48e1aa9b61942370d82ed36ec91379960a881e",
+    "modified": false
+  }
+}

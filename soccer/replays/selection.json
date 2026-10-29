@@ -1,0 +1,308 @@
+[
+  {
+    "phase": "final",
+    "sampled_for": "team1",
+    "id": "team1-team5-s12-2",
+    "seed": 510658765,
+    "seats": [
+      "team5/a",
+      "team5/b",
+      "team1/a",
+      "team1/b"
+    ],
+    "score": [
+      17,
+      13
+    ],
+    "file": "replays/final/team1-team5-s12-2.txt"
+  },
+  {
+    "phase": "final",
+    "sampled_for": "team2",
+    "id": "team2-team4-s31-1",
+    "seed": 894186889,
+    "seats": [
+      "team2/b",
+      "team2/a",
+      "team4/b",
+      "team4/a"
+    ],
+    "score": [
+      2,
+      20
+    ],
+    "file": "replays/final/team2-team4-s31-1.txt"
+  },
+  {
+    "phase": "final",
+    "sampled_for": "team3",
+    "id": "team2-team3-s20-2",
+    "seed": 1309329913,
+    "seats": [
+      "team3/a",
+      "team3/b",
+      "team2/a",
+      "team2/b"
+    ],
+    "score": [
+      10,
+      2
+    ],
+    "file": "replays/final/team2-team3-s20-2.txt"
+  },
+  {
+    "phase": "final",
+    "sampled_for": "team4",
+    "id": "team4-team5-s38-1",
+    "seed": 754346795,
+    "seats": [
+      "team4/a",
+      "team4/b",
+      "team5/a",
+      "team5/b"
+    ],
+    "score": [
+      8,
+      1
+    ],
+    "file": "replays/final/team4-team5-s38-1.txt"
+  },
+  {
+    "phase": "final",
+    "sampled_for": "team5",
+    "id": "team3-team5-s1-2",
+    "seed": 763542250,
+    "seats": [
+      "team5/b",
+      "team5/a",
+      "team3/b",
+      "team3/a"
+    ],
+    "score": [
+      0,
+      5
+    ],
+    "file": "replays/final/team3-team5-s1-2.txt"
+  },
+  {
+    "phase": "final",
+    "sampled_for": "team6",
+    "id": "team3-team6-s35-2",
+    "seed": 262145976,
+    "seats": [
+      "team6/b",
+      "team6/a",
+      "team3/b",
+      "team3/a"
+    ],
+    "score": [
+      1,
+      7
+    ],
+    "file": "replays/final/team3-team6-s35-2.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Astra",
+    "id": "Astra-Terra-s2-2",
+    "seed": 676540338,
+    "seats": [
+      "Terra/a",
+      "Terra/b",
+      "Astra/a",
+      "Astra/b"
+    ],
+    "score": [
+      3,
+      3
+    ],
+    "file": "replays/individual/Astra-Terra-s2-2.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "DeepSeek",
+    "id": "Doubao-DeepSeek-s8-1",
+    "seed": 1726133518,
+    "seats": [
+      "Doubao/a",
+      "Doubao/b",
+      "DeepSeek/a",
+      "DeepSeek/b"
+    ],
+    "score": [
+      4,
+      7
+    ],
+    "file": "replays/individual/Doubao-DeepSeek-s8-1.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Doubao",
+    "id": "Step-Doubao-s9-2",
+    "seed": 555467454,
+    "seats": [
+      "Doubao/b",
+      "Doubao/a",
+      "Step/b",
+      "Step/a"
+    ],
+    "score": [
+      7,
+      2
+    ],
+    "file": "replays/individual/Step-Doubao-s9-2.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "GLM",
+    "id": "Kimi-GLM-s13-1",
+    "seed": 2007588829,
+    "seats": [
+      "Kimi/b",
+      "Kimi/a",
+      "GLM/b",
+      "GLM/a"
+    ],
+    "score": [
+      6,
+      2
+    ],
+    "file": "replays/individual/Kimi-GLM-s13-1.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Gemini",
+    "id": "Gemini-Terra-s6-2",
+    "seed": 1144914481,
+    "seats": [
+      "Terra/a",
+      "Terra/b",
+      "Gemini/a",
+      "Gemini/b"
+    ],
+    "score": [
+      4,
+      4
+    ],
+    "file": "replays/individual/Gemini-Terra-s6-2.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Grok",
+    "id": "Grok-DeepSeek-s14-1",
+    "seed": 683524627,
+    "seats": [
+      "Grok/a",
+      "Grok/b",
+      "DeepSeek/a",
+      "DeepSeek/b"
+    ],
+    "score": [
+      2,
+      8
+    ],
+    "file": "replays/individual/Grok-DeepSeek-s14-1.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Haiku",
+    "id": "Gemini-Haiku-s13-1",
+    "seed": 2007588829,
+    "seats": [
+      "Gemini/b",
+      "Gemini/a",
+      "Haiku/b",
+      "Haiku/a"
+    ],
+    "score": [
+      23,
+      0
+    ],
+    "file": "replays/individual/Gemini-Haiku-s13-1.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Hunyuan",
+    "id": "Hunyuan-GLM-s10-2",
+    "seed": 1855639151,
+    "seats": [
+      "GLM/a",
+      "GLM/b",
+      "Hunyuan/a",
+      "Hunyuan/b"
+    ],
+    "score": [
+      10,
+      10
+    ],
+    "file": "replays/individual/Hunyuan-GLM-s10-2.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Kimi",
+    "id": "Kimi-Astra-s13-2",
+    "seed": 2007588829,
+    "seats": [
+      "Astra/b",
+      "Astra/a",
+      "Kimi/b",
+      "Kimi/a"
+    ],
+    "score": [
+      15,
+      0
+    ],
+    "file": "replays/individual/Kimi-Astra-s13-2.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Opus",
+    "id": "Opus-DeepSeek-s6-1",
+    "seed": 1144914481,
+    "seats": [
+      "Opus/a",
+      "Opus/b",
+      "DeepSeek/a",
+      "DeepSeek/b"
+    ],
+    "score": [
+      9,
+      1
+    ],
+    "file": "replays/individual/Opus-DeepSeek-s6-1.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Step",
+    "id": "Step-Terra-s3-1",
+    "seed": 1023710713,
+    "seats": [
+      "Step/b",
+      "Step/a",
+      "Terra/b",
+      "Terra/a"
+    ],
+    "score": [
+      0,
+      24
+    ],
+    "file": "replays/individual/Step-Terra-s3-1.txt"
+  },
+  {
+    "phase": "individual",
+    "sampled_for": "Terra",
+    "id": "Grok-Terra-s6-1",
+    "seed": 1144914481,
+    "seats": [
+      "Grok/a",
+      "Grok/b",
+      "Terra/a",
+      "Terra/b"
+    ],
+    "score": [
+      0,
+      20
+    ],
+    "file": "replays/individual/Grok-Terra-s6-1.txt"
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "team1/a": {
+    "used": "上半场版本",
+    "src": "bots/half1/team1_a.cpp",
+    "exe": "<build>/team1_a_0.exe",
+    "sha256": "0b0189f8dd4989d66109d4811a2a3c77c240ee7fb7f80625f9146ddc05d85873",
+    "notes": [],
+    "src_sha256": "76ac3343caffe0bf1eb301fcdc3f8ac924e8639d3850f2cbe182dec1d559dec9"
+  },
+  "team1/b": {
+    "used": "上半场版本",
+    "src": "bots/half1/team1_b.cpp",
+    "exe": "<build>/team1_b_0.exe",
+    "sha256": "ac1e19f747330ccf1f7c126392a62a83aeb811deb272711f58f6fabdcb84fecb",
+    "notes": [],
+    "src_sha256": "f975abc3d553f85fa6adfa416383a5cf5be72ae49df7f7a18c309d110a2a5eef"
+  },
+  "team2/a": {
+    "used": "上半场版本",
+    "src": "bots/half1/team2_a.cpp",
+    "exe": "<build>/team2_a_0.exe",
+    "sha256": "58ccc17dc87f96cdfc037d8255a18ffadc406af7021890ac53afe643bcd24062",
+    "notes": [],
+    "src_sha256": "a5c2b4649c1bb22f4cd3664514a501439dff4da7e41a39577209cf5ca4c31cb3"
+  },
+  "team2/b": {
+    "used": "上半场版本",
+    "src": "bots/half1/team2_b.cpp",
+    "exe": "<build>/team2_b_0.exe",
+    "sha256": "456dfbb9824b81b735e38b21b7e13d258ee1debd09357467666c3f22a9bf983f",
+    "notes": [],
+    "src_sha256": "42e2846b2eaf431c99cca42d43afac0efd4936998ca6d2c6bd0c4cd09cddf887"
+  },
+  "team3/a": {
+    "used": "上半场版本",
+    "src": "bots/half1/team3_a.cpp",
+    "exe": "<build>/team3_a_0.exe",
+    "sha256": "30bb2b810e6aca9532b833c05015156831e6fa39b5efa5df5f3291b45ce960cb",
+    "notes": [],
+    "src_sha256": "23ca13f023d2680be0e62752feff179501f2b1569d981548750279e93bb0ca58"
+  },
+  "team3/b": {
+    "used": "上半场版本",
+    "src": "bots/half1/team3_b.cpp",
+    "exe": "<build>/team3_b_0.exe",
+    "sha256": "e46488f219f1f48b79250d7c2739ce4640568173e4a9a45a35dae1ec2a9813f3",
+    "notes": [],
+    "src_sha256": "192027422bcdf7ef86e239780c9d42ce73c1626e354bde4bcbbc0ef0599dc75e"
+  },
+  "team4/a": {
+    "used": "上半场版本",
+    "src": "bots/half1/team4_a.cpp",
+    "exe": "<build>/team4_a_0.exe",
+    "sha256": "a9b246c3a3ecdbbcad75f06292e431a274f3d5c3fa427cf4045da4152506aab2",
+    "notes": [],
+    "src_sha256": "0becf23776c1769f433a8c0741f562157cc5619c77b70c3fba1fb1dcc01d1a11"
+  },
+  "team4/b": {
+    "used": "上半场版本",
+    "src": "bots/half1/team4_b.cpp",
+    "exe": "<build>/team4_b_0.exe",
+    "sha256": "7e477833bf94de614b65b55c13b0d35fb5925abcaba0026f879e3a43eee3de31",
+    "notes": [],
+    "src_sha256": "53e0560a9b3e145d9b3f0ab6b45286eaede3c9fcf0a93fd728abc5106be5b0d1"
+  },
+  "team5/a": {
+    "used": "上半场版本",
+    "src": "bots/half1/team5_a.cpp",
+    "exe": "<build>/team5_a_0.exe",
+    "sha256": "db5ef72d6636f8c3d1e5c872f28775fb185bab0d94f5b2757eb27a0c38fc8aeb",
+    "notes": [],
+    "src_sha256": "2adb21b3025a6400fa95814dc073ca6767788fcd938b9e9de14f6c04ba78ddca"
+  },
+  "team5/b": {
+    "used": "上半场版本",
+    "src": "bots/half1/team5_b.cpp",
+    "exe": "<build>/team5_b_0.exe",
+    "sha256": "840283305c41d5f1a71c92ae539634f0fd24c49c792899a4d30bddaddd94af25",
+    "notes": [],
+    "src_sha256": "73d5d90f817e5fda85b7a242957d649b162ae134353b3e4f0a663a05e9f0b1bf"
+  },
+  "team6/a": {
+    "used": "上半场版本",
+    "src": "bots/half1/team6_a.cpp",
+    "exe": "<build>/team6_a_0.exe",
+    "sha256": "b5860ca82308a95ebfe0622fe87cff4966dfeb04258e459cac2a785393a5939c",
+    "notes": [],
+    "src_sha256": "f61ae3998be5916988717d58632e1eb26cca9a31bab41cba4c53adf741d3768e"
+  },
+  "team6/b": {
+    "used": "上半场版本",
+    "src": "bots/half1/team6_b.cpp",
+    "exe": "<build>/team6_b_0.exe",
+    "sha256": "a781b89cced2994b3a125f0681e12078301e6f5a6364f6d7c5c351365ea97167",
+    "notes": [],
+    "src_sha256": "999e796351f691be68395052e5d84b8011b7c4c3d232ffe544d0acc4d3601f0a"
+  }
+}

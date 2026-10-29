@@ -24,6 +24,7 @@
 | 第 6 集 | 坦克大战 | 1v1，14 人，上下半场 | 27840 | GPT-6 Astra | [`tank/`](tank/) |
 | 第 7 集 · 第一场 | 光轮对战 | 1v1 + 4 人 + 12 人，10 人（另有 2 位参考选手） | 5713 | Mistral Large 4 | [`tron/`](tron/) |
 | 第 7 集 · 第二场 | 屎山优化（仓储调度） | 10 人各自单独优化（另有 Claude 3 位作参照） | 每人 1 次 | 阶跃 Step 5 preview / 腾讯混元 Hy4 preview（并列） | [`warehouse/`](warehouse/#第-7-集--屎山优化) |
+| 第 8 集 | 2v2 简化足球 | 12 个模型，6 支双人队；下半场新增个人队 | 8280 | 团队：GPT-6 Astra + GPT-6.1 Terra；个人：GPT-6 Astra | [`soccer/`](soccer/) |
 
 第 7 集两场合计的“区王”是阶跃 Step 5 preview（两场各按名次给 10～1 分相加，见 [`tron/README.md`](tron/README.md) 文末）。
 
