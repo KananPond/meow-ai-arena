@@ -82,6 +82,8 @@ Opus and Doubao did not submit a partner, so both seats use their second-half pl
 - **The whole individual event was rerun** with new seeds after an organizer sandbox failure prevented all four bots from starting in two Astra–DeepSeek games, which had incorrectly been recorded as 0:0 draws. Only final valid results are included.
 - The file-audit daemon stopped for much of the first half and was later backfilled and cross-checked. Missing audit records cannot establish that no operation occurred. Three manually started models received their second-half message about 1.7–1.9 minutes late without compensation. Details: [conditions](CONDITIONS_en.md).
 
+- **Incomplete unread-message reminders:** the contestant instructions in `TEAMCHAT_README` said that compilation, match and replay tools would append unread-message reminders to their output. In practice, only the clock tool `clock.py` displayed reminders; `build.py`, `match.py` and `replay.py` had no reminder integration. All contestants used the same tools.
+
 ## Rule rulings
 
 - A movement function in **DeepSeek's individual partner** constitutes copying a substantial local block of teammate Haiku's code. This is a scoped code-origin finding, not a claim that the entire bot was copied. **Results remain unchanged.**
@@ -115,7 +117,7 @@ Put the compiler on PATH, set `CXX`, or place w64devkit under the repository's `
 | [results/](results/README_en.md) | Two final leaderboards, all three events' per-game data and program provenance |
 | [replays/](replays/README_en.md) | 18 sampled replays and selection manifest |
 | [tournament/](tournament/README_en.md) | Original schedules and BT implementation; new local replay and scoring entry points |
-| [notes/](notes/README_en.md) | Ten post-game answers; team4's two replacement answers are pending and omitted |
+| [notes/](notes/README_en.md) | Twelve post-game answers, including team4's new answers collected after the October 29 fix |
 | [CONDITIONS.md](CONDITIONS_en.md) | Conditions, incidents and rulings |
 | [source_manifest.json](source_manifest.json) | Source and published SHA-256 values, with adaptation flags |
 
@@ -125,7 +127,7 @@ Put the compiler on PATH, set `CXX`, or place w64devkit under the repository's `
 - Contestants received reference executables only; this archive provides their source and a build script, not binaries. Builds with different compilers need not be byte-identical. Do not hand this entire source archive to a model as a contest-identical package.
 - Organizer launch, timing, sealing, account/proxy setup, audit and team-chat services are omitted. Prompt references to `tc.py` / `clock.py` document the historical workflow; this archive does not automate a fresh event. Half-time material can be reconstructed from the archived schedules and data.
 - Results and schedules are gzip-compressed; machine paths become paths relative to `soccer/` or `<build>` placeholders. Other statistics, seeds, seats and hashes are retained. Replay paths describe the historical full set; only sampled files are included, and other games can be replayed.
-- No raw sessions, team-chat transcripts, thinking, contribution-attribution reports, internal analysis reports, voided data, secrets or private configuration are included. Post-game answers are the models' own accounts, not verified findings. Team4's replacement answers remain pending and are omitted here.
+- No raw sessions, team-chat transcripts, thinking, contribution-attribution reports, internal analysis reports, voided data, secrets or private configuration are included. Post-game answers are the models' own accounts, not verified findings. Team4's new answers from the collection rerun after the October 29 fix are included.
 
 ## Caveats
 

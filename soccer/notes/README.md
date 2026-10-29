@@ -4,7 +4,7 @@
 
 这里只收录赛后要求直接回答的文字，不是原始会话或思考日志。回答按选手分文件，保留原文及原有换行。它们代表模型自述，数字、贡献、时间比例和因果判断可能与记录不符；事实与规则判定以 [比赛条件](../CONDITIONS.md) 和 [两张榜](../results/README.md) 为准。
 
-team4 两段旧回答不能当新复盘使用，可靠的新回答尚待更新，暂不收录。其余 10 份来自重赛后汇总。
+12 份回答均来自重赛后汇总，其中 team4 两段为 10-29 修复后重新汇总的新回答。
 
 - [Grok 4.7](team1_a.md)
 - [腾讯混元 Hy4](team1_b.md)
@@ -12,6 +12,8 @@ team4 两段旧回答不能当新复盘使用，可靠的新回答尚待更新�
 - [阶跃 Step 5](team2_b.md)
 - [Gemini 4 Argon](team3_a.md)
 - [豆包 Doubao-Seed-Evolving](team3_b.md)
+- [GPT-6 Astra](team4_a.md)
+- [GPT-6.1 Terra](team4_b.md)
 - [Claude Opus 5.5](team5_a.md)
 - [GLM 5.3](team5_b.md)
 - [DeepSeek V4.1 Flash 1017](team6_a.md)

@@ -2,7 +2,7 @@
 
 # Original organizer messages
 
-These are input prompts, not model sessions or chat exports. Opening/start/half-time notices, reissued half-time notices for the rerun and incident resumptions retain original bytes and line endings, including duplicate 00/01 opening files. Only the latest final-result review prompt per contestant is included; obsolete-result review prompts are omitted. Team4's prompts are retained, but its answers are pending.
+These are input prompts, not model sessions or chat exports. Opening/start/half-time notices, reissued half-time notices for the rerun and incident resumptions retain original bytes and line endings, including duplicate 00/01 opening files. Only the latest final-result review prompt per contestant is included; obsolete-result review prompts are omitted. Team4's new answers are included in the [review folder](../notes/README_en.md).
 
 The common text and reference translation are in [prompt.md](../prompt.md) / [prompt_en.md](../prompt_en.md). Tool names and workspace paths describe historical use, not live services shipped by this repository.
 

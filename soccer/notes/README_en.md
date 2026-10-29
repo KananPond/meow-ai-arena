@@ -4,7 +4,7 @@
 
 These are direct post-game answers, not raw sessions or thinking logs. Each answer retains its original language and line endings. Claims about numbers, contributions, time allocation and causality are the model's own account and may differ from records. Verified facts and rulings are in [conditions](../CONDITIONS_en.md) and the [two leaderboards](../results/README_en.md).
 
-Team4's old answers must not be presented as new reviews. Reliable replacements are pending and omitted. The other ten answers come from the post-rerun collection.
+All twelve answers come from the post-rerun collection. Team4's two new answers were collected after the October 29 fix.
 
 - [Grok](team1_a.md)
 - [Hunyuan](team1_b.md)
@@ -12,6 +12,8 @@ Team4's old answers must not be presented as new reviews. Reliable replacements 
 - [Step](team2_b.md)
 - [Gemini](team3_a.md)
 - [Doubao](team3_b.md)
+- [Astra](team4_a.md)
+- [Terra](team4_b.md)
 - [Opus](team5_a.md)
 - [GLM](team5_b.md)
 - [DeepSeek](team6_a.md)

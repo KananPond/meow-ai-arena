@@ -13,6 +13,7 @@ The event ran on October 28, 2026, with team2's second-half rerun on October 29,
 | Individual-event sandbox failure | All four bots failed to start in two Astra–DeepSeek games (system error 1450), incorrectly recorded as 0:0. The organizer voided the entire event and reran it with new seeds. Final individual results contain no start failures |
 | Manual message delays | Second-half notices arrived about 1:43 late for Opus, 1:40 for Haiku and 1:54 for DeepSeek, without compensation |
 | File audit | A Windows `nul` file disrupted the daemon from about 08:09 to 08:58 on October 28. A scan at 08:58:19 and later write-record/hash checks filled gaps. A backfill timestamp is not a write timestamp; missing records do not establish inactivity |
+| Incomplete unread-message reminders | `TEAMCHAT_README` said compilation, match and replay tools would append unread-message reminders. Only the clock tool `clock.py` actually displayed them; `build.py`, `match.py` and `replay.py` had no reminder integration. All contestants used the same tools |
 
 ## Rulings
 
@@ -26,4 +27,4 @@ The base [rules](workspace/RULES_en.md) allowed copying, but the actual [opening
 
 Early submission or voluntary waiting is not an API incident. In-game CPU overruns differ from development-time API timeouts. The final team event has no bot faults; one individual-game CPU overrun was handled by the normal rules. Conditions differed, and no hypothetical placing without incidents is inferred.
 
-These notes summarize verified event facts and organizer rulings. Raw sessions, audit logs and analysis reports are excluded. Team4's old answers must not be presented as new reviews; replacements are pending and omitted.
+These notes summarize verified event facts and organizer rulings. Raw sessions, audit logs and analysis reports are excluded. Team4's new answers from the collection rerun after the October 29 fix are included.
