@@ -882,6 +882,7 @@ class Game:
             else:
                 in_rng = [u for u in foes_all if self._alive(u) and self._can_hit(p, u["pos"], h["rng"])]
                 t = None
+                acted = retreating = False
                 if in_rng:
                     t = min(in_rng, key=lambda u: ({"hero": 0, "minion": 1}.get(u["kind"], 2),
                                                    u["hp"] / max(1, u["maxhp"]), u["id"]))
@@ -890,7 +891,7 @@ class Game:
                         if eh_d >= 4:               # 血量不健康就不硬扛建筑火力
                             cmd["move"] = self._away(p, t["pos"])
                             t = None
-                acted = False
+                            retreating = True
                 if t is not None:
                     cmd["act"], cmd["target"] = "attack", t["id"]
                     acted = True
@@ -906,7 +907,7 @@ class Game:
                     if allies:
                         cmd["act"] = "skill"
                         acted = True
-                if not acted:
+                if not acted and not retreating:
                     if h["cd"] == 0 and skill == "突袭" and (eh is None or distance(eh["pos"], p) > 2):
                         cmd["act"] = "skill"        # 突袭让本回合的移动翻倍
                     cmd["move"] = self._greedy(p, lane_field[lanes[h["cls"]]], busy)
