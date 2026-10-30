@@ -104,6 +104,7 @@ class Bot:
         self.total_seconds = 0.0
         self.max_seconds = 0.0
         self.lines = queue.Queue()
+        self.out_q = queue.Queue()     # 待写入 stdin 的回合输入
         self.dir = Path(tempfile.mkdtemp(prefix="arena_"))
         try:
             self.proc = subprocess.Popen(command, cwd=self.dir, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
@@ -115,6 +116,7 @@ class Bot:
             return
         threading.Thread(target=self._read_stdout, daemon=True).start()
         threading.Thread(target=self._read_stderr, daemon=True).start()
+        threading.Thread(target=self._write_stdin, daemon=True).start()
 
     def _read_stdout(self):
         try:
@@ -137,16 +139,23 @@ class Bot:
         except (OSError, ValueError):
             pass
 
+    def _write_stdin(self):
+        """唯一的 stdin 写入者：选手程序不读输入时，阻塞在这里而不是卡住主循环。"""
+        try:
+            while True:
+                text = self.out_q.get()
+                if text is None:
+                    break
+                self.proc.stdin.write(text)
+                self.proc.stdin.flush()
+        except (OSError, ValueError):
+            pass
+
     def send(self, text):
-        """写入本回合输入，返回开始计时的时刻。"""
+        """把本回合输入交给写入线程，立即返回开始计时的时刻（写入不会阻塞主循环）。"""
         if self.dead:
             return None
-        try:
-            self.proc.stdin.write(text)
-            self.proc.stdin.flush()
-        except (OSError, ValueError):
-            self._kill(f"进程已退出（代码 {self.proc.poll()}）")
-            return None
+        self.out_q.put(text)
         return time.perf_counter()
 
     def receive(self, started, turn):
@@ -199,6 +208,7 @@ class Bot:
         self.close()
 
     def close(self):
+        self.out_q.put(None)
         p = self.proc
         if p is not None and p.poll() is None:
             p.kill()
