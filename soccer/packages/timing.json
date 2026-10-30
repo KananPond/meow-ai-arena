@@ -1,0 +1,210 @@
+{
+  "timezone": "UTC-07:00",
+  "basis": "Official clock to valid seal, excluding credited time; not active model work. First-half clock starts 300 seconds after team arrival.",
+  "records": [
+    {
+      "seat": "team1_a",
+      "half1": {
+        "start": "10-28 08:04:26",
+        "sealed": "10-28 08:44:28",
+        "elapsed_seconds": 2402.436,
+        "compensation_seconds": 0,
+        "net_seconds": 2402.436
+      },
+      "half2": {
+        "start": "10-28 09:47:15",
+        "sealed": "10-28 10:27:16",
+        "elapsed_seconds": 2401.124,
+        "compensation_seconds": 0,
+        "net_seconds": 2401.124
+      }
+    },
+    {
+      "seat": "team1_b",
+      "half1": {
+        "start": "10-28 08:04:26",
+        "sealed": "10-28 08:44:28",
+        "elapsed_seconds": 2402.443,
+        "compensation_seconds": 0,
+        "net_seconds": 2402.443
+      },
+      "half2": {
+        "start": "10-28 09:47:15",
+        "sealed": "10-28 10:27:16",
+        "elapsed_seconds": 2401.124,
+        "compensation_seconds": 0,
+        "net_seconds": 2401.124
+      }
+    },
+    {
+      "seat": "team2_a",
+      "half1": {
+        "start": "10-28 08:04:38",
+        "sealed": "10-28 08:44:39",
+        "elapsed_seconds": 2400.537,
+        "compensation_seconds": 0,
+        "net_seconds": 2400.537
+      },
+      "half2": {
+        "start": "10-29 04:21:37",
+        "sealed": "10-29 05:29:05",
+        "elapsed_seconds": 4047.916,
+        "compensation_seconds": 1645.0,
+        "net_seconds": 2402.916
+      }
+    },
+    {
+      "seat": "team2_b",
+      "half1": {
+        "start": "10-28 08:04:38",
+        "sealed": "10-28 08:44:39",
+        "elapsed_seconds": 2400.539,
+        "compensation_seconds": 0,
+        "net_seconds": 2400.539
+      },
+      "half2": {
+        "start": "10-29 04:21:37",
+        "sealed": "10-29 05:29:05",
+        "elapsed_seconds": 4047.918,
+        "compensation_seconds": 1645.0,
+        "net_seconds": 2402.918
+      }
+    },
+    {
+      "seat": "team3_a",
+      "half1": {
+        "start": "10-28 08:04:50",
+        "sealed": "10-28 08:44:54",
+        "elapsed_seconds": 2403.843,
+        "compensation_seconds": 0,
+        "net_seconds": 2403.843
+      },
+      "half2": {
+        "start": "10-28 09:47:19",
+        "sealed": "10-28 10:27:21",
+        "elapsed_seconds": 2401.569,
+        "compensation_seconds": 0,
+        "net_seconds": 2401.569
+      }
+    },
+    {
+      "seat": "team3_b",
+      "half1": {
+        "start": "10-28 08:04:50",
+        "sealed": "10-28 08:44:54",
+        "elapsed_seconds": 2403.845,
+        "compensation_seconds": 0,
+        "net_seconds": 2403.845
+      },
+      "half2": {
+        "start": "10-28 09:47:19",
+        "sealed": "10-28 10:27:21",
+        "elapsed_seconds": 2401.569,
+        "compensation_seconds": 0,
+        "net_seconds": 2401.569
+      }
+    },
+    {
+      "seat": "team4_a",
+      "half1": {
+        "start": "10-28 08:05:03",
+        "sealed": "10-28 08:45:05",
+        "elapsed_seconds": 2402.046,
+        "compensation_seconds": 0,
+        "net_seconds": 2402.046
+      },
+      "half2": {
+        "start": "10-28 09:47:20",
+        "sealed": "10-28 10:27:21",
+        "elapsed_seconds": 2400.864,
+        "compensation_seconds": 0,
+        "net_seconds": 2400.864
+      }
+    },
+    {
+      "seat": "team4_b",
+      "half1": {
+        "start": "10-28 08:05:03",
+        "sealed": "10-28 08:45:05",
+        "elapsed_seconds": 2402.046,
+        "compensation_seconds": 0,
+        "net_seconds": 2402.046
+      },
+      "half2": {
+        "start": "10-28 09:47:20",
+        "sealed": "10-28 10:27:21",
+        "elapsed_seconds": 2400.867,
+        "compensation_seconds": 0,
+        "net_seconds": 2400.867
+      }
+    },
+    {
+      "seat": "team5_a",
+      "half1": {
+        "start": "10-28 08:11:30",
+        "sealed": "10-28 08:51:34",
+        "elapsed_seconds": 2403.546,
+        "compensation_seconds": 0,
+        "net_seconds": 2403.546
+      },
+      "half2": {
+        "start": "10-28 09:47:25",
+        "sealed": "10-28 10:27:26",
+        "elapsed_seconds": 2401.504,
+        "compensation_seconds": 0,
+        "net_seconds": 2401.504
+      }
+    },
+    {
+      "seat": "team5_b",
+      "half1": {
+        "start": "10-28 08:11:30",
+        "sealed": "10-28 08:51:34",
+        "elapsed_seconds": 2403.549,
+        "compensation_seconds": 0,
+        "net_seconds": 2403.549
+      },
+      "half2": {
+        "start": "10-28 09:47:25",
+        "sealed": "10-28 10:27:26",
+        "elapsed_seconds": 2401.504,
+        "compensation_seconds": 0,
+        "net_seconds": 2401.504
+      }
+    },
+    {
+      "seat": "team6_a",
+      "half1": {
+        "start": "10-28 08:13:32",
+        "sealed": "10-28 08:53:33",
+        "elapsed_seconds": 2400.907,
+        "compensation_seconds": 0,
+        "net_seconds": 2400.907
+      },
+      "half2": {
+        "start": "10-28 09:47:25",
+        "sealed": "10-28 10:27:26",
+        "elapsed_seconds": 2400.856,
+        "compensation_seconds": 0,
+        "net_seconds": 2400.856
+      }
+    },
+    {
+      "seat": "team6_b",
+      "half1": {
+        "start": "10-28 08:13:32",
+        "sealed": "10-28 08:53:33",
+        "elapsed_seconds": 2400.907,
+        "compensation_seconds": 0,
+        "net_seconds": 2400.907
+      },
+      "half2": {
+        "start": "10-28 09:47:25",
+        "sealed": "10-28 10:27:26",
+        "elapsed_seconds": 2400.856,
+        "compensation_seconds": 0,
+        "net_seconds": 2400.856
+      }
+    }
+  ]
+}

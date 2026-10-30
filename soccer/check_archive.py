@@ -44,6 +44,30 @@ def main():
         require(hashlib.sha256(p.read_bytes()).hexdigest() == info['sha256'], f'哈希不符：{rel}')
         if not info['modified']:
             require(info['original_sha256'] == info['sha256'], f'原样声明不符：{rel}')
+    pack = read(ROOT / 'packages' / 'player_pack_manifest.json')
+    slots = {r['seat'] for r in read(ROOT / 'bots' / 'roster.json')}
+    require(set(pack['slots']) == slots and len(pack['slots']) == 12, '赛时包席位清单不全')
+    paths = [r['path'] for r in pack['player_files']]
+    require(len(set(paths)) == len(paths) == pack['files_per_slot'] == 23, '初始包文件清单不全或重复')
+    require({p['team'] for p in pack['half_time_packages']} == {f'team{i}' for i in range(1, 7)}
+            and len(pack['half_time_packages']) == 6, '中场包队伍清单不全或重复')
+    records = pack['player_files'] + [f for p in pack['half_time_packages'] for f in p['fixed_files']]
+    for record in records:
+        if 'historical_sha256_by_seat' in record:
+            require(set(record['historical_sha256_by_seat']) == slots, '逐席位历史哈希不全')
+        if 'published_source' not in record:
+            continue
+        src = (ROOT / record['published_source']).resolve()
+        require(src.is_relative_to(ROOT) and src.is_file(), '赛时包公开来源不存在或越界')
+        require(hashlib.sha256(src.read_bytes()).hexdigest() == record['published_sha256'],
+                f'赛时包公开来源哈希不符：{record["published_source"]}')
+    clocks = read(ROOT / 'packages' / 'timing.json')['records']
+    require(len(clocks) == 12 and {r['seat'] for r in clocks} == slots, '有效用时席位不全或重复')
+    for row in clocks:
+        for phase in ['half1', 'half2']:
+            t = row[phase]
+            require(abs(t['elapsed_seconds'] - t['compensation_seconds'] - t['net_seconds']) < .001,
+                    f'净时长计算不符：{row["seat"]}/{phase}')
     games_by_phase = {}
     total = 0
     for phase, expected in [('halftime', 2112), ('final', 2904), ('individual', 3264)]:
@@ -73,11 +97,15 @@ def main():
             require(schedule['programs'][seat] == program['sha256'], f'{phase}/{seat} 冻结可执行文件哈希不符')
         games_by_phase[phase] = games
         total += len(games)
+    for package in pack['half_time_packages']:
+        team = package['team']
+        count_games = sum(team in (g['A'], g['B']) for g in games_by_phase['halftime'].values())
+        require(count_games == package['replay_count'] == 512, f'{team} 中场回放清单局数不符')
     for selected in read(ROOT / 'replays' / 'selection.json'):
         g = games_by_phase[selected['phase']][selected['id']]
         require(selected['score'] == g['score'] and selected['seats'] == g['seats'], '回放清单不符')
         require((ROOT / selected['file']).is_file(), '缺少抽样回放')
-    print(f'通过：{count} 个相对链接，{len(manifest)} 个归档哈希，{total} 局赛程与积分，全部上场源码和 18 局抽样回放索引。')
+    print(f'通过：{count} 个相对链接，{len(manifest)} 个归档哈希，{total} 局赛程与积分，全部上场源码和 18 局抽样回放索引；12 席位赛时包、6 个中场包及有效用时清单。')
 
 
 if __name__ == '__main__':

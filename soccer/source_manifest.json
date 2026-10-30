@@ -1,8 +1,8 @@
 {
   "workspace/arena.cpp": {
     "original_sha256": "a5125c5085e3c471bf5cc559b1fbc4cc3d00df6f49c4ca463712e48ac8caad3b",
-    "sha256": "a5125c5085e3c471bf5cc559b1fbc4cc3d00df6f49c4ca463712e48ac8caad3b",
-    "modified": false
+    "sha256": "4e280adc2c283f9c88a2581547c3e8b0b49ec657312ddeb46a53fe40eb9dec63",
+    "modified": true
   },
   "workspace/build.py": {
     "original_sha256": "2d7da775b46c747cb9de113534fc43389dc0487bcfd7d77e23fae93e0faf9203",
@@ -11,13 +11,13 @@
   },
   "workspace/match.py": {
     "original_sha256": "4dda2e8d1752b9672fecf6dc129c1eaa01f3c5a501151fb2726f25e6887e6a04",
-    "sha256": "fc2d1d506659f2cf75dda86bc11e6467f923f04c9f03a96dff1726862580542a",
+    "sha256": "da5a2ec1a384232d14d96a51722c5a151c07f0df6d243bff879172f3dff9dfc1",
     "modified": true
   },
   "workspace/README.md": {
     "original_sha256": "f2315ccd8d4356db70c2cc56a5cad15335b29be56f0798001c3e73e1a4e312dc",
-    "sha256": "f2315ccd8d4356db70c2cc56a5cad15335b29be56f0798001c3e73e1a4e312dc",
-    "modified": false
+    "sha256": "2e29d999b7bad3a22dd029d881f25ad77d5d2a0a07866bb492012cb56febcfa8",
+    "modified": true
   },
   "workspace/replay.py": {
     "original_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
@@ -627,6 +627,11 @@
   "replays/individual/Grok-Terra-s6-1.txt": {
     "original_sha256": "98bd6e4ab798a382ef48351bdb48e1aa9b61942370d82ed36ec91379960a881e",
     "sha256": "98bd6e4ab798a382ef48351bdb48e1aa9b61942370d82ed36ec91379960a881e",
+    "modified": false
+  },
+  "packages/TEAMCHAT_README.md": {
+    "original_sha256": "9980258c9f168c1ba00817a90eb66f3bfcddcaf975a043e5d4a68ca3700e9243",
+    "sha256": "9980258c9f168c1ba00817a90eb66f3bfcddcaf975a043e5d4a68ca3700e9243",
     "modified": false
   }
 }

@@ -1279,7 +1279,7 @@ void setup_common() {
     // 沙箱目录的根（每名选手每局在下面建一个 soccer2v2.<进程号>.<序号> 目录，局后删除）：
     //   1. 环境变量 SOCCER_BOX_ROOT 给了就只用它（试运行失败直接报错）；
     //   2. 否则先用 arena.exe 旁边的 _soccer_box\；
-    //   3. 那里试运行失败（例如被杀毒软件拦截新复制的 exe）→ 回退到 C:\bench\_soccer_box\。
+    //   3. 相邻目录试运行失败时停止，由调用者用 SOCCER_BOX_ROOT 指定其他目录。
     // 选定前都先试跑一次（见 probe_box_root），保证不会整场都"启动失败"。
     auto with_slash = [](std::wstring r) {
         if (!r.empty() && r.back() != L'\\' && r.back() != L'/') r += L'\\';
@@ -1299,8 +1299,6 @@ void setup_common() {
             const size_t cut = d.find_last_of(L"\\/");
             if (cut != std::wstring::npos) cands.push_back(d.substr(0, cut + 1) + L"_soccer_box\\");
         }
-        CreateDirectoryW(L"C:\\bench", nullptr);
-        cands.push_back(L"C:\\bench\\_soccer_box\\");
     }
     std::string why;
     for (const auto& c : cands) {

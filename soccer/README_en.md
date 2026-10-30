@@ -82,7 +82,7 @@ Opus and Doubao did not submit a partner, so both seats use their second-half pl
 - **The whole individual event was rerun** with new seeds after an organizer sandbox failure prevented all four bots from starting in two Astra–DeepSeek games, which had incorrectly been recorded as 0:0 draws. Only final valid results are included.
 - The file-audit daemon stopped for much of the first half and was later backfilled and cross-checked. Missing audit records cannot establish that no operation occurred. Three manually started models received their second-half message about 1.7–1.9 minutes late without compensation. Details: [conditions](CONDITIONS_en.md).
 
-- **Incomplete unread-message reminders:** the contestant instructions in `TEAMCHAT_README` said that compilation, match and replay tools would append unread-message reminders to their output. In practice, only the clock tool `clock.py` displayed reminders; `build.py`, `match.py` and `replay.py` had no reminder integration. All contestants used the same tools.
+- **Incomplete unread-message reminders:** The [team-chat instructions](packages/TEAMCHAT_README_en.md) say **if** an unread-message reminder appears after compilation, match or replay tools, read the message; this is conditional wording. In the implementation, only `clock.py` had reminder integration; `build.py`, `match.py` and `replay.py` did not. All contestants used the same tools.
 
 ## Rule rulings
 
@@ -111,7 +111,7 @@ Put the compiler on PATH, set `CXX`, or place w64devkit under the repository's `
 |---|---|
 | [workspace/](workspace/README_en.md) | Base contestant package, engine, referee, local tools, template and viewer |
 | [prompt.md](prompt_en.md), [prompts/](prompts/README_en.md) | Organizer prompts, not conversation transcripts |
-| [packages/](packages/README_en.md) | Team-event format template supplementing the base rules |
+| [packages/](packages/README_en.md) | Team/chat instructions, historical package inventory and reconstruction steps, valid clock records |
 | [bots/](bots/README_en.md) | 24 sealed player bots and 10 second-half partner bots, byte-identical |
 | [sparring/](sparring/README_en.md) | Source for the three reference bots |
 | [results/](results/README_en.md) | Two final leaderboards, all three events' per-game data and program provenance |
@@ -123,9 +123,9 @@ Put the compiler on PATH, set `CXX`, or place w64devkit under the repository's `
 
 ## Differences from the event
 
-- Sealed bot code and line endings are unchanged. In the base package, `build.py` replaces the organizer's private compiler-search directory with repository `tools/w64devkit`. The sparring header changes only its relative engine include. The referee auto-build command in `match.py` also adds the missing `-luserenv` library; the original package shipped a prebuilt exe and its fallback source build failed without it. All three edits are recorded in the manifest.
+- Sealed bot code and line endings are unchanged. In the base package, `build.py` replaces the organizer's private compiler-search directory with repository `tools/w64devkit`. The sparring header changes only its relative engine include. The referee auto-build command in `match.py` also adds the missing `-luserenv` library; the original package shipped a prebuilt exe and its fallback source build failed without it. The referee also removes its fixed absolute sandbox fallback, retaining only explicit SOCCER_BOX_ROOT or its adjacent directory. The local tool rebuilds a cached referee when its source or engine header is newer, and the workspace guide documents the change. All adaptations are recorded in the manifest.
 - Contestants received reference executables only; this archive provides their source and a build script, not binaries. Builds with different compilers need not be byte-identical. Do not hand this entire source archive to a model as a contest-identical package.
-- Organizer launch, timing, sealing, account/proxy setup, audit and team-chat services are omitted. Prompt references to `tc.py` / `clock.py` document the historical workflow; this archive does not automate a fresh event. Half-time material can be reconstructed from the archived schedules and data.
+- Organizer launch, timing, sealing, account/proxy setup, audit and team-chat services are omitted. Prompt references to `tc.py` / `clock.py` document the historical workflow; this archive does not automate a fresh event. The [package inventory and reconstruction guide](packages/restore_en.md) lists historical files, hashes and dynamic dependencies. Half-time standings and game lists can be reconstructed; missing historical replays can be rerun but are not guaranteed byte-identical. The complete duplicate material is not included.
 - Results and schedules are gzip-compressed; machine paths become paths relative to `soccer/` or `<build>` placeholders. Other statistics, seeds, seats and hashes are retained. Replay paths describe the historical full set; only sampled files are included, and other games can be replayed.
 - No raw sessions, team-chat transcripts, thinking, contribution-attribution reports, internal analysis reports, voided data, secrets or private configuration are included. Post-game answers are the models' own accounts, not verified findings. Team4's new answers from the collection rerun after the October 29 fix are included.
 

@@ -54,4 +54,4 @@ python replay.py gif replays\<回放>.txt 300 360 片段.gif
 - 复盘工具只列事实。想知道两人有没有同时扑球、有没有人回防，用 `player` 看两人各自每步的观测和实际执行的动作，或在 `viewer.html` 里打开"队友消息"。
 - 计时是进程 CPU 时间，每步 10 毫秒。`check` 和 `play` 会显示每步平均和最多用了多少。电脑忙的时候测得会偏大，留出余量。
 - 你的程序在沙箱里运行（不能开子进程、不能读写文件，见 `RULES.md` 第 8 节），本地 `match.py` 也一样。`build.py` 编译前会做源码检查（不能包含 `windows.h` 等系统头文件，见 `RULES.md` 第 9 节）。
-- 若 `match.py` 报"沙箱目录都不能用"（杀毒软件拦截新复制出来的 exe 时会这样）：设环境变量 `SOCCER_BOX_ROOT` 指向一个能运行新 exe 的目录再试；`arena.exe` 会先在 `arena.exe` 旁边的 `_soccer_box\`、再在 `C:\bench\_soccer_box\` 试。
+- 若 `match.py` 报"沙箱目录都不能用"（杀毒软件拦截新复制出来的 exe 时会这样）：设环境变量 `SOCCER_BOX_ROOT` 指向一个能运行新 exe 的目录再试。开源版未设置该变量时只使用 `arena.exe` 旁边的 `_soccer_box\`；失败就停止，不再回退到主办方机器的固定目录。设置该变量时只使用指定目录。

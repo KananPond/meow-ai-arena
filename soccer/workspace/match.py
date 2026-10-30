@@ -38,7 +38,9 @@ BUILTIN = {'baseline': KIT / 'bots' / 'baseline.exe', 'midfield': KIT / 'bots' /
 
 
 def arena_exe():
-    if ARENA.is_file():
+    # 开源版源码更新后重建，避免继续运行带旧沙箱路径的缓存裁判。
+    sources = [KIT / 'arena.cpp', KIT / 'soccer.hpp']
+    if ARENA.is_file() and ARENA.stat().st_mtime_ns >= max(p.stat().st_mtime_ns for p in sources):
         return ARENA
     # 没有现成的 arena.exe：从源码编译（需要 g++）
     cxx = build.find_compiler()

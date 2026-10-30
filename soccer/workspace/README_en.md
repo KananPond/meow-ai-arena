@@ -33,7 +33,7 @@ python replay.py info ../replays/final/team1-team5-s12-2.txt
 
 More files are in the [sample index](../replays/README_en.md). `match.py` accepts baseline, midfield, sparring, template, source paths (compiled automatically) and executable paths. Without `--mate`, both seats use your bot. `run` uses win 1 / draw 0.5, whereas official score rate uses 3/1/0. Fixed snapshots make comparisons independent of teammates' ongoing edits.
 
-Generated build/ and replays/ folders are local artifacts. Diagnostics go to replay-adjacent stderr files. CPU budget is 10 ms per turn; busy machines may affect measurements. Local matches use the same sandbox, forbidding child processes and file I/O. If antivirus prevents sandbox startup, set SOCCER_BOX_ROOT to a folder where new executables can run. The referee tries its own _soccer_box/ and the generic C:\bench\_soccer_box/ fallback.
+Generated build/ and replays/ folders are local artifacts. Diagnostics go to replay-adjacent stderr files. CPU budget is 10 ms per turn; busy machines may affect measurements. Local matches use the same sandbox, forbidding child processes and file I/O. If antivirus prevents sandbox startup, set SOCCER_BOX_ROOT to a folder where new executables can run. Without SOCCER_BOX_ROOT, the open-source referee uses only _soccer_box/ beside its executable and stops if that directory cannot run the probe. With SOCCER_BOX_ROOT, it uses only the specified directory. There is no fixed machine-directory fallback.
 
 Replay commands include `info`, `events`, `around`, `state`, `player`, `gif`; run `python replay.py --help`. PNG/GIF export, matches and text replay inspection use only the standard library. No packages are installed automatically.
 
