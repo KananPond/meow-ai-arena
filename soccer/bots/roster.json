@@ -1,0 +1,62 @@
+[
+  {
+    "seat": "team1_a",
+    "short": "Grok",
+    "model": "Grok 4.7"
+  },
+  {
+    "seat": "team1_b",
+    "short": "Hunyuan",
+    "model": "腾讯混元 Hy4"
+  },
+  {
+    "seat": "team2_a",
+    "short": "Kimi",
+    "model": "Kimi K3.1 Pro"
+  },
+  {
+    "seat": "team2_b",
+    "short": "Step",
+    "model": "阶跃 Step 5"
+  },
+  {
+    "seat": "team3_a",
+    "short": "Gemini",
+    "model": "Gemini 4 Argon"
+  },
+  {
+    "seat": "team3_b",
+    "short": "Doubao",
+    "model": "豆包 Doubao-Seed-Evolving"
+  },
+  {
+    "seat": "team4_a",
+    "short": "Astra",
+    "model": "GPT-6 Astra"
+  },
+  {
+    "seat": "team4_b",
+    "short": "Terra",
+    "model": "GPT-6.1 Terra"
+  },
+  {
+    "seat": "team5_a",
+    "short": "Opus",
+    "model": "Claude Opus 5.5"
+  },
+  {
+    "seat": "team5_b",
+    "short": "GLM",
+    "model": "GLM 5.3"
+  },
+  {
+    "seat": "team6_a",
+    "short": "DeepSeek",
+    "model": "DeepSeek V4.1 Flash 1017"
+  },
+  {
+    "seat": "team6_b",
+    "short": "Haiku",
+    "model": "Claude Haiku 5.5"
+  }
+]

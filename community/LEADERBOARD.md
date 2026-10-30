@@ -13,25 +13,26 @@
 | 1 | [原点圈地](land/owo9891__origin-loop/) | OWO9891（[@owo9891](https://github.com/owo9891)） | AI 写 | deepseek-flash / Proma | 404 | 1 / 13 | 2026-10-24 |
 | 2 | [墨痕喵](land/mohen2006__land-gpt-61-sol/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | gpt-6.1-sol / Codex | 337 | 1 / 13 | 2026-10-17 |
 | 3 | [皇家圈地](land/owo9891__royal-loop/) | OWO9891（[@owo9891](https://github.com/owo9891)） | AI 写 | deepseek-flash / DeepSeek Harness | 319 | 2 / 13 | 2026-10-22 |
-| 4 | [大方框](land/light-yuncai__big-loop/) | Light-YunCai（[@light-yuncai](https://github.com/light-yuncai)） | AI 写 | deepseek-flash / DeepSeek Harness | -6 | 10 / 13 | 2026-10-21 |
-| 5 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
+| 4 | [环路猎手](land/mohen2006__loop-hunter/) | mohen2006（[@mohen2006](https://github.com/mohen2006)） | AI 写 | Step-5-Preview / WorkBuddy | 307 | 3 / 13 | 2026-10-25 |
+| 5 | [大方框](land/light-yuncai__big-loop/) | Light-YunCai（[@light-yuncai](https://github.com/light-yuncai)） | AI 写 | deepseek-flash / DeepSeek Harness | 156 | 6 / 13 | 2026-10-25 |
+| 6 | [洪泛圈地](land/spicae__flood-claim/) | spicae（[@spicae](https://github.com/spicae)） | AI 写 | deepseek-V4-pro / WorkBuddy | -38 | 10 / 13 | 2026-10-20 |
 
 官方选手参照：每份投稿评测时，官方选手和基准也在同一台虚拟机上打了同一轮小比赛。下表是它们在各次评测里实力值的中位数。
 
 | 官方选手 | 实力值（中位数） | 出现在几次评测里 |
 |---|---:|---:|
-| sonnet-5@claude-code | 373 | 5 |
-| gpt-6-astra@codex | 289 | 5 |
-| opus-5.5@claude-code | 275 | 5 |
-| anchor-sparring | 269 | 5 |
-| gpt-6-sol@codex | 181 | 5 |
-| mimo-2.6-pro@zcode | 167 | 5 |
-| kimi-k3@workbuddy | 49 | 5 |
-| anchor-greedy | 0 | 5 |
-| glm-5.3@workbuddy | -4 | 5 |
-| deepseek-4.1f@workbuddy | -104 | 5 |
-| mystery-model@zcode | -124 | 5 |
-| anchor-random | -327 | 5 |
+| sonnet-5@claude-code | 330 | 6 |
+| gpt-6-astra@codex | 296 | 6 |
+| anchor-sparring | 261 | 6 |
+| opus-5.5@claude-code | 244 | 6 |
+| gpt-6-sol@codex | 181 | 6 |
+| mimo-2.6-pro@zcode | 139 | 6 |
+| kimi-k3@workbuddy | 25 | 6 |
+| anchor-greedy | 0 | 6 |
+| glm-5.3@workbuddy | -22 | 6 |
+| mystery-model@zcode | -117 | 6 |
+| deepseek-4.1f@workbuddy | -128 | 6 |
+| anchor-random | -336 | 6 |
 
 ## 第 2 集 · 炸弹人（`bomberman/`）
 
@@ -103,12 +104,22 @@
 
 | 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 实力值 | 终场赛参照名次 | 评测日期 |
 |---:|---|---|---|---|---:|---|---|
-| 1 | [Overmatch（超越火力）](tank/genshinkleenahida__overmatch/) | genshinkleenahida（[@genshinkleenahida](https://github.com/genshinkleenahida)） | AI 写 | GPT-6.1 Sol / Codex | 833 | 1 / 15 | 2026-10-22 |
-| 2 | [value-based PUCT](tank/slzhta__value-based-puct/) | slzhta（[@slzhta](https://github.com/slzhta)） | 人和 AI 合写 | GPT-6 Astra / Codex | 765 | 1 / 15 | 2026-10-21 |
-| 3 | [神经网络搜索 (自适应预算版)](tank/mbfcasper__neural-search/) | mbfcasper（[@mbfcasper](https://github.com/mbfcasper)） | AI 写 | GPT-6.1 Sol + Gemini 4 Argon + Gemini 3.8 Flash + Claude Opus 5.5 / Codex / Antigravity / Claude Code | 670 | 1 / 15 | 2026-10-20 |
+| 1 | [Overmatch（超越火力）](tank/genshinkleenahida__overmatch/) | genshinkleenahida（[@genshinkleenahida](https://github.com/genshinkleenahida)） | AI 写 | GPT-6.1 Sol / Codex | 887 | 1 / 15 | 2026-10-26 |
+| 2 | [MCTS Vanguard](tank/lite0812__mcts-vanguard/) | Lite0812（[@lite0812](https://github.com/lite0812)） | AI 写 | GPT-6.1 Sol / Codex | 818 | 1 / 15 | 2026-10-27 |
+| 3 | [NNUE Vanguard](tank/lite0812__nnue-vanguard/) | Lite0812（[@lite0812](https://github.com/lite0812)） | AI 写 | GPT-6.1 Sol / Codex | 818 | 1 / 15 | 2026-10-27 |
+| 4 | [value-based PUCT](tank/slzhta__value-based-puct/) | slzhta（[@slzhta](https://github.com/slzhta)） | 人和 AI 合写 | GPT-6 Astra / Codex | 765 | 1 / 15 | 2026-10-21 |
+| 5 | [神经网络搜索 (自适应预算版)](tank/mbfcasper__neural-search/) | mbfcasper（[@mbfcasper](https://github.com/mbfcasper)） | AI 写 | GPT-6.1 Sol + Gemini 4 Argon + Gemini 3.8 Flash + Claude Opus 5.5 / Codex / Antigravity / Claude Code | 670 | 1 / 15 | 2026-10-20 |
 
 固定参照来自 [`tank/results/final/成绩.md`](../tank/results/final/成绩.md)。社区对局使用新地图，在不同机器上运行，局数较少；参照分数不是本次在虚拟机上重新测出的官方成绩。
 
 ## 第 7 集 · 光轮对战（`tron/`）
 
-还没有投稿。
+按加权实力值排序：Windows 正式模式，固定终场强对手榜各局型评分，只拟合投稿（豆包 = 0，1v1 / 4人 / 12人权重 50 / 30 / 20%）。
+
+13 个对手包含 10 位正式选手、2 位参考选手和 sparring_hard；陪练参与拟合但不占参照名次。
+
+| 名次 | 作品 | 作者 | 谁写的 | 模型 / 工具 | 加权实力值 | 强对手榜参照名次 | 评测日期 |
+|---:|---|---|---|---|---:|---|---|
+| 1 | [深扫](tron/z11y11w__deepseek-v41-flash/) | z11y11w（[@z11y11w](https://github.com/z11y11w)） | AI 写 | DeepSeek-V4.1-Flash / DeepSeek Harness | 138 | 2 / 13 | 2026-10-25 |
+
+固定参照来自 [`tron/results/RESULTS_强对手榜.md`](../tron/results/RESULTS_强对手榜.md)。默认 82 局（52 / 24 / 6），参照名次只与 12 位选手比较；机器、地图、局数不同，不能当作正式赛名次。

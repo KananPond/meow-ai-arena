@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2v2 简化足球 · 回放查看器</title>
+<style>
+:root{
+  --bg:#eef2ee; --panel:#ffffff; --line:#d9e0da; --text:#1f2a24; --sub:#5d6b63;
+  --a:#2563eb; --a-soft:#dbe7ff; --b:#ea580c; --b-soft:#ffe4d3;
+  --goal:#16a34a; --fault:#dc2626; --ko:#7c3aed; --stall:#b45309; --kick:#475569;
+  --accent:#0f766e;
+  font-family:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Source Han Sans SC",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);overflow:hidden}
+body{display:flex;flex-direction:column}
+button,select,input{font:inherit}
+header{display:flex;align-items:center;gap:12px;padding:8px 14px;background:var(--panel);border-bottom:1px solid var(--line);flex:0 0 auto;flex-wrap:wrap}
+header h1{font-size:17px;margin:0;font-weight:700;letter-spacing:.5px;white-space:nowrap}
+header h1 small{font-weight:400;color:var(--sub);font-size:13px;margin-left:6px}
+header .sp{flex:1}
+.legend{display:flex;gap:14px;align-items:center;font-size:14px;flex-wrap:wrap}
+.legend .chip{display:inline-flex;align-items:center;gap:6px}
+.dot{width:14px;height:14px;border-radius:50%;display:inline-block;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.btn{border:1px solid var(--line);background:#f8faf8;color:var(--text);border-radius:8px;padding:5px 11px;cursor:pointer;font-size:14px;line-height:1.3;white-space:nowrap}
+.btn:hover{background:#eef5f0;border-color:#b9c7bd}
+.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.primary:hover{background:#0d6660}
+#main{flex:1 1 auto;display:flex;min-height:0}
+#stage{flex:1 1 auto;position:relative;min-width:0;display:flex;align-items:center;justify-content:center;padding:8px}
+#cv{display:block;border-radius:14px;box-shadow:0 2px 10px rgba(30,60,40,.12);background:#f7faf7}
+#empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+#empty .box{pointer-events:auto;text-align:center;background:var(--panel);border:2px dashed #b7c6bb;border-radius:18px;padding:36px 48px;color:var(--sub);font-size:16px;line-height:1.9}
+#empty .box b{color:var(--text);font-size:20px}
+aside{flex:0 0 380px;display:flex;flex-direction:column;background:var(--panel);border-left:1px solid var(--line);min-height:0}
+aside h3{font-size:14px;margin:0;padding:8px 12px;background:#f5f8f5;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+aside h3 .sp{flex:1}
+#filters{display:flex;flex-wrap:wrap;gap:4px 10px;padding:6px 12px;border-bottom:1px solid var(--line);font-size:13px}
+#filters label{display:inline-flex;align-items:center;gap:3px;cursor:pointer;white-space:nowrap}
+#evlist{flex:1 1 auto;overflow:auto;font-size:13px;min-height:120px}
+.ev{display:flex;gap:8px;align-items:baseline;padding:4px 12px;border-bottom:1px solid #f0f3f0;cursor:pointer}
+.ev:hover{background:#f1f7f2}
+.ev.cur{background:#fff6d6}
+.ev .t{flex:0 0 42px;text-align:right;color:var(--sub);font-variant-numeric:tabular-nums}
+.ev .tag{flex:0 0 auto;font-size:12px;padding:0 6px;border-radius:5px;color:#fff;line-height:18px}
+.ev .tx{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tag.kick{background:var(--kick)} .tag.goal{background:var(--goal)} .tag.kickoff{background:var(--ko)}
+.tag.stall{background:var(--stall)} .tag.fault{background:var(--fault)} .tag.other{background:#64748b}
+.ta{color:var(--a);font-weight:700} .tb{color:var(--b);font-weight:700}
+#info{flex:0 0 auto;border-top:1px solid var(--line);font-size:12.5px}
+#info table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+#info th,#info td{padding:3px 6px;text-align:right;border-bottom:1px solid #f0f3f0;white-space:nowrap}
+#info th{color:var(--sub);font-weight:400;background:#fafcfa}
+#info td:first-child,#info th:first-child{text-align:left}
+#info .msgcol{display:none}
+body.showmsg #info .msgcol{display:table-cell}
+#opts{padding:6px 12px 8px;display:grid;grid-template-columns:1fr 1fr;gap:3px 8px;font-size:13px;border-top:1px solid var(--line)}
+#opts label{display:flex;align-items:center;gap:4px;cursor:pointer;white-space:nowrap}
+#ctrl{flex:0 0 auto;background:var(--panel);border-top:1px solid var(--line);padding:8px 14px 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#ctrl .grp{display:flex;gap:4px;align-items:center}
+#ctrl .btn{min-width:38px;text-align:center}
+#play{min-width:76px!important;font-weight:700}
+#seekwrap{flex:1 1 300px;position:relative;height:34px;display:flex;align-items:center;min-width:200px}
+#seek{width:100%;margin:0;accent-color:var(--accent);height:22px;position:relative;z-index:2;background:transparent}
+#ticks{position:absolute;left:8px;right:8px;top:0;height:9px;z-index:1}
+#ticks i{position:absolute;top:0;width:3px;height:9px;margin-left:-1px;border-radius:2px}
+#ticks i.f{background:var(--fault)!important;height:5px;top:4px;width:2px}
+#steplbl{font-variant-numeric:tabular-nums;font-size:14px;min-width:120px;text-align:center}
+#speed{border:1px solid var(--line);border-radius:8px;padding:4px 6px;background:#f8faf8}
+#msgfmt{border:1px solid var(--line);border-radius:6px;padding:1px 3px;background:#f8faf8;font-size:12px}
+.modal{position:fixed;inset:0;background:rgba(20,30,25,.35);display:none;align-items:center;justify-content:center;z-index:50}
+.modal.on{display:flex}
+.modal .card{background:#fff;border-radius:14px;padding:20px 26px;max-width:min(680px,92vw);max-height:88vh;overflow:auto;box-shadow:0 10px 40px rgba(0,0,0,.2)}
+.modal h2{margin:0 0 12px;font-size:19px}
+.keys{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14.5px}
+kbd{display:inline-block;border:1px solid #c9d3cc;border-bottom-width:2px;border-radius:5px;padding:0 6px;background:#f7faf8;font-family:inherit;font-size:13px;margin-right:3px}
+#pastebox{width:min(620px,85vw);height:300px;font-family:Consolas,monospace;font-size:12px}
+#drop{position:fixed;inset:0;background:rgba(15,118,110,.15);border:4px dashed var(--accent);display:none;align-items:center;justify-content:center;font-size:28px;color:var(--accent);font-weight:700;z-index:60;pointer-events:none}
+#drop.on{display:flex}
+#toast{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);background:#fff;border:1px solid var(--line);border-left:5px solid var(--fault);padding:10px 18px;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.15);font-size:15px;display:none;z-index:70;max-width:80vw}
+#toast.on{display:block}
+#toast.ok{border-left-color:var(--goal)}
+body.noside aside{display:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>AI 算法对抗大赛 · 2v2 简化足球<small>回放查看器</small></h1>
+  <div class="legend" id="legend"></div>
+  <div class="sp"></div>
+  <span id="fname" style="color:var(--sub);font-size:13px;max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
+  <button class="btn primary" id="openbtn">打开回放…</button>
+  <button class="btn" id="pastebtn">粘贴文本</button>
+  <button class="btn" id="sidebtn" title="显示/隐藏侧栏（S）">侧栏</button>
+  <button class="btn" id="helpbtn">快捷键 (H)</button>
+  <input type="file" id="file" accept=".txt,.replay,.log,text/plain" style="display:none">
+</header>
+<div id="main">
+  <div id="stage">
+    <canvas id="cv"></canvas>
+    <div id="empty"><div class="box"><b>把回放文件拖到这里</b><br>或点右上角「打开回放…」选择文件<br>也可「粘贴文本」，或用网址参数 <code>?src=回放地址</code><br><span style="font-size:13px">格式：SOCCER2V2-REPLAY 2</span></div></div>
+  </div>
+  <aside>
+    <h3>事件列表 <span class="sp"></span><span id="evcount" style="font-weight:400;color:var(--sub)"></span></h3>
+    <div id="filters">
+      <label><input type="checkbox" data-f="goal" checked>进球</label>
+      <label><input type="checkbox" data-f="kickoff" checked>开球</label>
+      <label><input type="checkbox" data-f="stall" checked>重开</label>
+      <label><input type="checkbox" data-f="fault" checked>故障</label>
+      <label><input type="checkbox" data-f="kick" checked>踢球</label>
+      <label><input type="checkbox" id="autoscroll" checked>跟随</label>
+    </div>
+    <div id="evlist"></div>
+    <div id="info"></div>
+    <div id="opts">
+      <label><input type="checkbox" id="o_trail" checked>球的拖尾 (T)</label>
+      <label><input type="checkbox" id="o_vel">速度箭头 (V)</label>
+      <label><input type="checkbox" id="o_reach">可踢范围 (R)</label>
+      <label><input type="checkbox" id="o_cd" checked>冷却提示 (C)</label>
+      <label><input type="checkbox" id="o_kick" checked>踢球闪光 (K)</label>
+      <label><input type="checkbox" id="o_goal" checked>进球提示 (G)</label>
+      <label><input type="checkbox" id="o_gpause" checked>进球暂停 (P)</label>
+      <label><input type="checkbox" id="o_bigball" checked>球放大显示</label>
+      <label><input type="checkbox" id="o_msg">队友消息 (M)</label>
+      <label>格式 <select id="msgfmt"><option value="dec">十进制</option><option value="hex">十六进制</option><option value="bin">二进制</option><option value="all">全部</option></select></label>
+    </div>
+  </aside>
+</div>
+<div id="ctrl">
+  <div class="grp">
+    <button class="btn" id="b_start" title="开头（Home）">⏮</button>
+    <button class="btn" id="b_pgoal" title="上一个进球（[）">[ 进球</button>
+    <button class="btn" id="b_prev" title="后退一步（←）">◀</button>
+    <button class="btn" id="play" title="播放 / 暂停（空格）">▶ 播放</button>
+    <button class="btn" id="b_next" title="前进一步（→）">▶</button>
+    <button class="btn" id="b_ngoal" title="下一个进球（]）">进球 ]</button>
+    <button class="btn" id="b_end" title="结尾（End）">⏭</button>
+  </div>
+  <div id="seekwrap"><div id="ticks"></div><input type="range" id="seek" min="0" max="0" value="0" step="1"></div>
+  <span id="steplbl">0 / 0</span>
+  <label style="font-size:14px">速度
+    <select id="speed">
+      <option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×（20 步/秒）</option>
+      <option value="2">2×</option><option value="4">4×</option><option value="8">8×</option>
+    </select>
+  </label>
+</div>
+
+<div class="modal" id="help"><div class="card">
+  <h2>快捷键</h2>
+  <div class="keys">
+    <span><kbd>空格</kbd></span><span>播放 / 暂停</span>
+    <span><kbd>←</kbd><kbd>→</kbd></span><span>后退 / 前进一步（按住 Shift 为 10 步）</span>
+    <span><kbd>Home</kbd><kbd>End</kbd></span><span>跳到开头 / 结尾</span>
+    <span><kbd>[</kbd><kbd>]</kbd></span><span>跳到上一个 / 下一个进球（跳到进球前 2 秒）</span>
+    <span><kbd>,</kbd><kbd>.</kbd></span><span>跳到上一个 / 下一个事件（不含普通踢球）</span>
+    <span><kbd>-</kbd><kbd>+</kbd></span><span>减速 / 加速（0.25× ～ 8×，1× = 每秒 20 步）</span>
+    <span><kbd>1</kbd>～<kbd>6</kbd></span><span>直接选速度 0.25× / 0.5× / 1× / 2× / 4× / 8×</span>
+    <span><kbd>T</kbd></span><span>球的拖尾</span>
+    <span><kbd>V</kbd></span><span>球员速度箭头</span>
+    <span><kbd>R</kbd></span><span>可踢范围（圆心距 ≤ KICK_REACH）</span>
+    <span><kbd>C</kbd></span><span>冷却提示（冷却中球员变淡，外圈显示剩余步数）</span>
+    <span><kbd>K</kbd></span><span>踢球闪光与方向箭头</span>
+    <span><kbd>G</kbd> / <kbd>P</kbd></span><span>进球大字提示 / 进球后暂停片刻</span>
+    <span><kbd>M</kbd></span><span>队友消息（球员旁与侧栏表格）</span>
+    <span><kbd>S</kbd></span><span>显示 / 隐藏侧栏（录视频时可隐藏）</span>
+    <span><kbd>O</kbd></span><span>打开回放文件</span>
+    <span><kbd>H</kbd> / <kbd>Esc</kbd></span><span>显示 / 关闭本帮助</span>
+  </div>
+  <p style="color:var(--sub);font-size:13px;margin:14px 0 0">网址参数：<code>?src=回放地址</code>（需经网页服务器访问）、<code>&amp;t=步号</code>、<code>&amp;speed=2</code>、<code>&amp;play=1</code>、<code>&amp;side=0</code>。<br>A 队（蓝，A1 A2）守左门、向右进攻；B 队（橙，B1 B2）守右门、向左进攻。</p>
+  <div style="text-align:right;margin-top:12px"><button class="btn" onclick="toggleHelp(false)">关闭</button></div>
+</div></div>
+<div class="modal" id="paste"><div class="card">
+  <h2>粘贴回放文本</h2>
+  <textarea id="pastebox" placeholder="SOCCER2V2-REPLAY 2&#10;CFG ...&#10;..."></textarea>
+  <div style="text-align:right;margin-top:10px;display:flex;gap:8px;justify-content:flex-end">
+    <button class="btn" onclick="$('paste').classList.remove('on')">取消</button>
+    <button class="btn primary" id="pasteok">载入</button>
+  </div>
+</div></div>
+<div id="drop">松开鼠标以载入回放</div>
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* ====================== 解析 ====================== */
+function parseReplay(text){
+  text = String(text).replace(/^﻿/, '');
+  const lines = text.split(/\r?\n/);
+  let first = '';
+  for (const l of lines){ if (l.trim()){ first = l.trim(); break; } }
+  if (/^SOCCER2V2-REPLAY\s+1\b/.test(first)) throw new Error('这是旧格式（SOCCER2V2-REPLAY 1），请先用 replay.py 转换为新格式后再打开。');
+  if (!/^SOCCER2V2-REPLAY\s+2\b/.test(first)) throw new Error('无法识别：第一行应为 “SOCCER2V2-REPLAY 2”。');
+  const R = {
+    cfg:{W:12000,H:8000,GOAL:2000,CHAMFER:1000,RP:300,RB:150,KICK_REACH:500,KICK_MAX:800,KICK_COOLDOWN:5,STALL:300,STEPS:0},
+    players:[0,1,2,3].map(i=>({team:i<2?0:1, num:i%2+1, name:'选手'+(i+1)})),
+    seed:null, firstKick:null, limits:null, stepsDecl:0,
+    frames:[], acts:[], events:[], evLines:0, fLines:0, unknown:0, end:null
+  };
+  for (let li=1; li<lines.length; li++){
+    const line = lines[li].trim();
+    if (!line) continue;
+    const tok = line.split(/\s+/);
+    const h = tok[0];
+    try{
+      if (h === 'S'){
+        if (tok.length < 28){ R.unknown++; continue; }
+        const n = tok.slice(1, 28).map(Number);
+        if (n.some(v=>!isFinite(v))){ R.unknown++; continue; }
+        const t = n[0];
+        const p = [];
+        for (let k=0;k<4;k++){ const o = 7+k*5; p.push([n[o],n[o+1],n[o+2],n[o+3],n[o+4]]); }
+        R.frames[t] = {t, sa:n[1], sb:n[2], b:[n[3],n[4],n[5],n[6]], p};
+      } else if (h === 'EV'){
+        const t = +tok[1], type = tok[2] || '?', a = tok.slice(3);
+        if (!isFinite(t)){ R.unknown++; continue; }
+        R.evLines++;
+        const e = {t, type, raw:line};
+        if (type === 'kick'){ e.p=+a[0]; e.kx=+a[1]; e.ky=+a[2]; e.vx=+a[3]; e.vy=+a[4]; e.n=+(a[5]||1); }
+        else if (type === 'goal'){ e.team=+a[0]; e.last=+(a[1]??-1); e.sa=+a[2]; e.sb=+a[3];
+          e.mask = (a.length > 4 && isFinite(+a[4])) ? +a[4] : null; }   // mask：最后一次触球的全部球员（旧格式没有 → null）
+        else if (type === 'kickoff'){ e.team=+a[0]; e.x=+a[1]; e.y=+a[2]; }
+        else if (type === 'stall'){ e.n=+a[0]; }
+        else { e.args=a.join(' '); }
+        R.events.push(e);
+      } else if (h === 'F'){
+        const t = +tok[1];
+        if (!isFinite(t)){ R.unknown++; continue; }
+        R.fLines++;
+        R.events.push({t, type:'fault', p:+tok[2], kind:tok[3]||'?', text:tok.slice(4).join(' '), raw:line});
+      } else if (/^\d+$/.test(h) && line.indexOf('|') > 0){
+        const parts = line.split('|');
+        const t = +parts[0];
+        const a = [];
+        for (let k=1;k<=4;k++){
+          const v = (parts[k]||'').trim().split(/\s+/).map(Number);
+          a.push([v[0]||0,v[1]||0,v[2]||0,v[3]||0,v[4]||0]);
+        }
+        R.acts[t] = a;
+      } else if (h === 'CFG'){
+        for (const kv of tok.slice(1)){
+          const i = kv.indexOf('='); if (i<0) continue;
+          const k = kv.slice(0,i), v = kv.slice(i+1);
+          R.cfg[k] = (v !== '' && isFinite(+v)) ? +v : v;
+        }
+      } else if (h === 'PLAYER'){
+        const id = +tok[1];
+        if (id>=0 && id<4) R.players[id] = {team: tok[2]==='B'?1:0, num:+tok[3]||(id%2+1), name: tok.slice(4).join(' ') || ('选手'+(id+1))};
+      } else if (h === 'SEED'){ R.seed = tok[1]; }
+      else if (h === 'FIRST_KICK'){ R.firstKick = +tok[1]; }
+      else if (h === 'LIMITS'){ R.limits = tok.slice(1).join(' '); }
+      else if (h === 'STEPS'){ R.stepsDecl = +tok[1]; }
+      else if (h === 'END'){ R.end = {sa:+tok[1], sb:+tok[2], summary: tok.slice(3).join(' ')}; }
+      else R.unknown++;
+    }catch(err){ R.unknown++; }
+  }
+  // 整理帧：补洞（缺帧沿用前一帧）
+  let last = -1;
+  for (let t=0; t<R.frames.length; t++) if (R.frames[t]) last = t;
+  if (last < 0) throw new Error('文件里没有任何状态行（S 行），无法播放。');
+  let prev = null;
+  for (let t=0; t<=last; t++){
+    if (R.frames[t]) prev = R.frames[t];
+    else if (prev){ R.frames[t] = Object.assign({}, prev, {t, filled:true}); }
+  }
+  let firstT = 0; while (!R.frames[firstT]) firstT++;
+  for (let t=0; t<firstT; t++) R.frames[t] = Object.assign({}, R.frames[firstT], {t, filled:true});
+  R.N = last;
+  R.events.sort((x,y)=> x.t - y.t || evOrder(x) - evOrder(y));
+  R.events.forEach((e,i)=> e.idx = i);
+  R.goals = R.events.filter(e=>e.type==='goal');
+  R.kicksAt = new Map();
+  R.byStep = new Map();
+  for (const e of R.events){
+    if (!R.byStep.has(e.t)) R.byStep.set(e.t, []);
+    R.byStep.get(e.t).push(e);
+    if (e.type==='kick'){ if (!R.kicksAt.has(e.t)) R.kicksAt.set(e.t, []); R.kicksAt.get(e.t).push(e); }
+  }
+  // 跳变（进球/重开）：t → t+1 不插值，用速度外推
+  R.jump = new Uint8Array(R.N+2);
+  for (const e of R.events){
+    if (e.type==='goal' || e.type==='stall') R.jump[e.t] = 1;
+    if (e.type==='kickoff' && e.t>0) R.jump[e.t-1] = 1;
+  }
+  for (let t=0; t<R.N; t++){
+    const A = R.frames[t], B = R.frames[t+1];
+    const dx = B.b[0]-A.b[0], dy = B.b[1]-A.b[1];
+    const lim = Math.max(Math.hypot(A.b[2],A.b[3]), Math.hypot(B.b[2],B.b[3])) * 2 + 1500;
+    if (dx*dx+dy*dy > lim*lim) R.jump[t] = 1;
+  }
+  return R;
+}
+function evOrder(e){ return {kickoff:0, kick:1, goal:2, stall:3, fault:4}[e.type] ?? 5; }
+
+/* ====================== 页面 ====================== */
+if (typeof document !== 'undefined') (function(){
+const $ = id => document.getElementById(id);
+window.$ = $;
+const cv = $('cv'), ctx = cv.getContext('2d');
+const COL = {
+  a:'#2563eb', aDark:'#1d4ed8', aSoft:'rgba(37,99,235,', b:'#ea580c', bDark:'#c2410c', bSoft:'rgba(234,88,12,',
+  grass1:'#8fd17f', grass2:'#84c874', line:'rgba(255,255,255,.92)', wall:'#3f6b4a', text:'#1f2a24', sub:'#5d6b63'
+};
+const FONT = '"Microsoft YaHei UI","Microsoft YaHei","PingFang SC","Hiragino Sans GB","Noto Sans CJK SC",sans-serif';
+const SPEEDS = [0.25,0.5,1,2,4,8];
+const BASE_SPS = 20;
+
+let R = null, pos = 0, playing = false, speed = 1, lastTs = 0, holdUntil = 0, lastStep = -1, curEvIdx = -2;
+let view = {s:1, ox:0, oy:0, cssW:0, cssH:0};
+const opt = {};
+for (const k of ['trail','vel','reach','cd','kick','goal','gpause','bigball','msg']){
+  const el = $('o_'+k);
+  opt[k] = el.checked;
+  el.addEventListener('change', ()=>{ opt[k] = el.checked; onOpt(k); });
+}
+function onOpt(k){
+  if (k==='msg'){ document.body.classList.toggle('showmsg', opt.msg); lastStep=-1; }
+  draw();
+}
+function setOpt(k, v){ opt[k] = v; $('o_'+k).checked = v; onOpt(k); }
+$('msgfmt').addEventListener('change', ()=>{ lastStep=-1; draw(); });
+
+function toast(msg, ok){
+  const t = $('toast'); t.textContent = msg; t.className = ok ? 'on ok' : 'on';
+  clearTimeout(toast._h); toast._h = setTimeout(()=> t.className='', ok?2200:6000);
+}
+
+/* ---------- 载入 ---------- */
+function loadText(text, name){
+  let r;
+  try { r = parseReplay(text); }
+  catch(err){ toast(err.message); return false; }
+  R = r; window.R = R;
+  pos = 0; playing = false; holdUntil = 0; lastStep = -1; curEvIdx = -2;
+  $('fname').textContent = name || '';
+  $('fname').title = name || '';
+  $('empty').style.display = 'none';
+  $('seek').max = R.N; $('seek').value = 0;
+  buildLegend(); buildEvents(); buildTicks(); resize();
+  updatePlayBtn(); draw();
+  toast(`已载入：${R.N} 步，${R.events.length} 个事件` + (R.unknown?`（忽略 ${R.unknown} 行无法识别的内容）`:''), true);
+  return true;
+}
+window.loadReplayText = loadText;
+function readFile(f){
+  if (!f) return;
+  const fr = new FileReader();
+  fr.onload = ()=> loadText(fr.result, f.name);
+  fr.onerror = ()=> toast('读取文件失败');
+  fr.readAsText(f, 'utf-8');
+}
+$('openbtn').onclick = ()=> $('file').click();
+$('file').onchange = e => { readFile(e.target.files[0]); e.target.value=''; };
+$('pastebtn').onclick = ()=>{ $('paste').classList.add('on'); $('pastebox').focus(); };
+$('pasteok').onclick = ()=>{ if (loadText($('pastebox').value, '粘贴的文本')) $('paste').classList.remove('on'); };
+$('sidebtn').onclick = ()=>{ document.body.classList.toggle('noside'); resize(); };
+$('helpbtn').onclick = ()=> toggleHelp();
+window.toggleHelp = function(v){ const h=$('help'); h.classList.toggle('on', v===undefined ? !h.classList.contains('on') : v); };
+let dragDepth = 0;
+window.addEventListener('dragenter', e=>{ e.preventDefault(); dragDepth++; $('drop').classList.add('on'); });
+window.addEventListener('dragleave', e=>{ dragDepth=Math.max(0,dragDepth-1); if(!dragDepth) $('drop').classList.remove('on'); });
+window.addEventListener('dragover', e=> e.preventDefault());
+window.addEventListener('drop', e=>{
+  e.preventDefault(); dragDepth=0; $('drop').classList.remove('on');
+  const f = e.dataTransfer.files && e.dataTransfer.files[0];
+  if (f) readFile(f);
+  else { const t = e.dataTransfer.getData('text'); if (t) loadText(t, '拖入的文本'); }
+});
+
+/* ---------- 图例 / 事件 ---------- */
+function pname(i){ const p = R.players[i]; return (p.team? 'B':'A') + p.num; }
+function pspan(i){ if (!(i>=0 && i<4)) return '无'; return `<span class="${R.players[i].team?'tb':'ta'}">${pname(i)}</span>`; }
+function tspan(team){ return team===0 ? '<span class="ta">A 队</span>' : team===1 ? '<span class="tb">B 队</span>' : '双方对称'; }
+function esc(s){ return String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function buildLegend(){
+  const names = t => [0,1,2,3].filter(i=>R.players[i].team===t).map(i=>`${pname(i)} ${esc(R.players[i].name)}`).join('，');
+  $('legend').innerHTML =
+    `<span class="chip" title="${esc(names(0))}"><span class="dot" style="background:${COL.a}"></span><b class="ta">A 队</b> 守左门 →</span>`+
+    `<span class="chip" title="${esc(names(1))}"><span class="dot" style="background:${COL.b}"></span><b class="tb">B 队</b> ← 守右门</span>`+
+    (R.seed!=null?`<span style="color:var(--sub)">种子 ${esc(R.seed)}</span>`:'');
+}
+const FAULT_NAMES = {timeout:'超时', invalid:'非法输出', crash:'崩溃', lost:'失联', timeout_limit:'超时次数超限', start_fail:'启动失败', output_limit:'输出超量'};
+// 进球的"最后触球"说明。有 mask：只有一人照旧；多人 = 同一步同一阶段同时触球，不分先后；0 = 开球后无人触球。
+// 没有 mask（旧格式）：只看 last，保持原样。fmt(i) 返回球员的显示文本；返回 null 表示不显示。
+function goalTouch(e, fmt){
+  if (e.mask == null) return e.last >= 0 ? {text:'最后触球 ' + fmt(e.last), one:e.last} : null;
+  const ps = [0,1,2,3].filter(i => (e.mask >> i) & 1);
+  if (!ps.length) return {text:'开球后无人触球', one:-1};
+  if (ps.length === 1) return {text:'最后触球 ' + fmt(ps[0]), one:ps[0]};
+  return {text:'最后一次触球为 ' + ps.map(fmt).join('、') + ' 同时', one:-1};
+}
+function evHTML(e){
+  switch(e.type){
+    case 'kick': {
+      const v = Math.round(Math.hypot(e.vx, e.vy));
+      return ['kick','踢球', `${pspan(e.p)} 踢球，力度 ${Math.round(Math.hypot(e.kx,e.ky))}，球速 ${v}` + (e.n>1?`（同时 ${e.n} 人）`:'')];
+    }
+    case 'goal': { const g = goalTouch(e, pspan);
+      return ['goal','进球', `${tspan(e.team)} 进球！比分 ${e.sa}:${e.sb}` + (g?`，${g.text}`:'') + (g && g.one>=0 && R.players[g.one].team!==e.team?'（乌龙）':'')]; }
+    case 'kickoff': return ['kickoff','开球', e.team===-1 ? '开球（双方对称）' : `${tspan(e.team)} 开球`];
+    case 'stall': return ['stall','重开', `连续 ${e.n} 步无人踢球，重新开球`];
+    case 'fault': return ['fault','故障', `${pspan(e.p)} ${esc(FAULT_NAMES[e.kind]||e.kind)}${e.text?'：'+esc(e.text):''}`];
+    default: return ['other', esc(e.type), esc(e.args||'')];
+  }
+}
+let filt = {goal:true,kickoff:true,stall:true,fault:true,kick:true};
+document.querySelectorAll('#filters input[data-f]').forEach(el=>{
+  el.addEventListener('change', ()=>{ filt[el.dataset.f] = el.checked; applyFilter(); });
+});
+function applyFilter(){
+  if (!R) return;
+  for (const e of R.events){ if (e.el) e.el.style.display = (filt[e.type] ?? true) ? '' : 'none'; }
+}
+function buildEvents(){
+  const list = $('evlist'); list.innerHTML = '';
+  const frag = document.createDocumentFragment();
+  for (const e of R.events){
+    const [cls, tag, tx] = evHTML(e);
+    const d = document.createElement('div');
+    d.className = 'ev';
+    d.innerHTML = `<span class="t">${e.t}</span><span class="tag ${cls}">${tag}</span><span class="tx">${tx}</span>`;
+    d.title = e.raw;
+    d.onclick = ()=>{ playing=false; holdUntil=0; seek(e.type==='goal' ? e.t : e.t); updatePlayBtn(); };
+    e.el = d; frag.appendChild(d);
+  }
+  list.appendChild(frag);
+  const c = {kick:0,goal:0,kickoff:0,stall:0,fault:0};
+  R.events.forEach(e=>{ if (e.type in c) c[e.type]++; });
+  $('evcount').textContent = `进球 ${c.goal} · 踢球 ${c.kick} · 故障 ${c.fault}`;
+  applyFilter();
+}
+function buildTicks(){
+  const tk = $('ticks'); tk.innerHTML = '';
+  for (const e of R.events){
+    if (e.type!=='goal' && e.type!=='fault') continue;
+    const i = document.createElement('i');
+    if (e.type==='fault') i.className = 'f';
+    else i.style.background = e.team===0 ? COL.a : COL.b;
+    i.style.left = (R.N ? e.t / R.N * 100 : 0) + '%';
+    i.title = e.type==='goal' ? `第 ${e.t} 步 ${e.team===0?'A':'B'} 队进球` : `第 ${e.t} 步 故障`;
+    tk.appendChild(i);
+  }
+}
+function updateCurEvent(step){
+  // 最后一个 t <= step 且当前可见的事件
+  let lo = 0, hi = R.events.length-1, ans = -1;
+  while (lo<=hi){ const m=(lo+hi)>>1; if (R.events[m].t <= step){ ans=m; lo=m+1; } else hi=m-1; }
+  while (ans>=0 && !(filt[R.events[ans].type] ?? true)) ans--;
+  if (ans === curEvIdx) return;
+  if (curEvIdx>=0 && R.events[curEvIdx]) R.events[curEvIdx].el.classList.remove('cur');
+  curEvIdx = ans;
+  if (ans>=0){
+    const el = R.events[ans].el; el.classList.add('cur');
+    if ($('autoscroll').checked){
+      const L = $('evlist'), top = el.offsetTop - L.offsetTop;
+      if (top < L.scrollTop || top > L.scrollTop + L.clientHeight - el.offsetHeight) L.scrollTop = top - L.clientHeight/3;
+    }
+  }
+}
+
+/* ---------- 信息表 ---------- */
+function fmtMsg(m){
+  const f = $('msgfmt').value;
+  const hex = '0x' + (m>>>0).toString(16).toUpperCase().padStart(2,'0');
+  const bin = (m>>>0).toString(2).padStart(8,'0');
+  return f==='hex' ? hex : f==='bin' ? bin : f==='all' ? `${m} ${hex} ${bin}` : String(m);
+}
+function updateInfo(step){
+  const F = R.frames[step], A = R.acts[step];
+  let h = `<table><tr><th>第 ${step} 步</th><th>x</th><th>y</th><th>速度</th><th>冷却</th><th title="本步输出（各自向右进攻视角）">加速 ax,ay</th><th title="踢球向量（各自视角）">踢 kx,ky</th><th class="msgcol">消息</th></tr>`;
+  for (let i=0;i<4;i++){
+    const p = F.p[i], a = A ? A[i] : null;
+    h += `<tr><td title="${esc(R.players[i].name)}">${pspan(i)}</td><td>${p[0]}</td><td>${p[1]}</td><td>${Math.round(Math.hypot(p[2],p[3]))}</td><td>${p[4]||''}</td>`+
+         `<td>${a?a[0]+','+a[1]:''}</td><td>${a&&(a[2]||a[3])?a[2]+','+a[3]:''}</td><td class="msgcol">${a?fmtMsg(a[4]):''}</td></tr>`;
+  }
+  h += `<tr><td>球</td><td>${F.b[0]}</td><td>${F.b[1]}</td><td>${Math.round(Math.hypot(F.b[2],F.b[3]))}</td><td></td><td colspan="2" style="color:var(--sub)">v=(${F.b[2]},${F.b[3]})</td><td class="msgcol"></td></tr></table>`;
+  $('info').innerHTML = h;
+}
+
+/* ---------- 播放控制 ---------- */
+function seek(t){
+  if (!R) return;
+  pos = Math.max(0, Math.min(R.N, t));
+  draw();
+}
+function step(d){ if (!R) return; playing=false; holdUntil=0; seek(Math.round(Math.floor(pos + 1e-9) + d)); updatePlayBtn(); }
+function togglePlay(){
+  if (!R) return;
+  if (!playing && pos >= R.N) pos = 0;
+  playing = !playing; holdUntil = 0; lastTs = 0; updatePlayBtn();
+}
+function updatePlayBtn(){ $('play').textContent = playing ? '⏸ 暂停' : '▶ 播放'; }
+function jumpGoal(dir){
+  if (!R || !R.goals.length) return;
+  const cur = Math.floor(pos + 1e-9);
+  const lead = 40; // 进球前 2 秒
+  let g;
+  if (dir > 0) g = R.goals.find(e => e.t - lead > cur) || null;
+  else { const c = R.goals.filter(e => e.t - lead < cur - 1); g = c.length ? c[c.length-1] : null; }
+  if (!g){ toast(dir>0?'后面没有进球了':'前面没有进球了', true); return; }
+  holdUntil = 0; seek(Math.max(0, g.t - lead));
+}
+function jumpEvent(dir){
+  if (!R) return;
+  const cur = Math.floor(pos + 1e-9);
+  const ev = R.events.filter(e => e.type!=='kick');
+  let e = dir>0 ? ev.find(x=>x.t>cur) : [...ev].reverse().find(x=>x.t<cur);
+  if (e){ playing=false; updatePlayBtn(); seek(e.t); }
+}
+function setSpeed(v){
+  speed = v; const s = $('speed');
+  if (![...s.options].some(o=>+o.value===v)){ const o=document.createElement('option'); o.value=v; o.textContent=v+'×'; s.appendChild(o); }
+  s.value = String(v);
+}
+$('speed').onchange = e => speed = +e.target.value;
+$('play').onclick = togglePlay;
+$('b_prev').onclick = ()=> step(-1);
+$('b_next').onclick = ()=> step(1);
+$('b_start').onclick = ()=>{ playing=false; updatePlayBtn(); seek(0); };
+$('b_end').onclick = ()=>{ playing=false; updatePlayBtn(); seek(R?R.N:0); };
+$('b_pgoal').onclick = ()=> jumpGoal(-1);
+$('b_ngoal').onclick = ()=> jumpGoal(1);
+$('seek').addEventListener('input', e=>{ holdUntil=0; seek(+e.target.value); });
+
+document.addEventListener('keydown', e=>{
+  if (e.target.tagName === 'TEXTAREA' || (e.target.tagName==='INPUT' && e.target.type!=='checkbox' && e.target.type!=='range')) return;
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const k = e.key;
+  let used = true;
+  if (k === ' '){ togglePlay(); }
+  else if (k === 'ArrowLeft') step(e.shiftKey ? -10 : -1);
+  else if (k === 'ArrowRight') step(e.shiftKey ? 10 : 1);
+  else if (k === 'Home'){ playing=false; updatePlayBtn(); seek(0); }
+  else if (k === 'End'){ playing=false; updatePlayBtn(); seek(R?R.N:0); }
+  else if (k === '[') jumpGoal(-1);
+  else if (k === ']') jumpGoal(1);
+  else if (k === ',') jumpEvent(-1);
+  else if (k === '.') jumpEvent(1);
+  else if (k === '-' || k === '_'){ const i = SPEEDS.indexOf(speed); setSpeed(SPEEDS[Math.max(0, (i<0?2:i)-1)]); }
+  else if (k === '+' || k === '='){ const i = SPEEDS.indexOf(speed); setSpeed(SPEEDS[Math.min(SPEEDS.length-1, (i<0?2:i)+1)]); }
+  else if (k >= '1' && k <= '6') setSpeed(SPEEDS[+k-1]);
+  else if (k === 'h' || k === 'H' || k === '?') toggleHelp();
+  else if (k === 'Escape'){ toggleHelp(false); $('paste').classList.remove('on'); }
+  else if (k === 't' || k === 'T') setOpt('trail', !opt.trail);
+  else if (k === 'v' || k === 'V') setOpt('vel', !opt.vel);
+  else if (k === 'r' || k === 'R') setOpt('reach', !opt.reach);
+  else if (k === 'c' || k === 'C') setOpt('cd', !opt.cd);
+  else if (k === 'k' || k === 'K') setOpt('kick', !opt.kick);
+  else if (k === 'g' || k === 'G') setOpt('goal', !opt.goal);
+  else if (k === 'p' || k === 'P') setOpt('gpause', !opt.gpause);
+  else if (k === 'm' || k === 'M') setOpt('msg', !opt.msg);
+  else if (k === 's' || k === 'S'){ document.body.classList.toggle('noside'); resize(); }
+  else if (k === 'o' || k === 'O') $('file').click();
+  else used = false;
+  if (used){ e.preventDefault(); if (document.activeElement && document.activeElement.blur && document.activeElement.tagName==='BUTTON') document.activeElement.blur(); }
+});
+
+/* ---------- 主循环 ---------- */
+function tick(ts){
+  requestAnimationFrame(tick);
+  if (!R){ lastTs = ts; return; }
+  if (playing){
+    const dt = lastTs ? Math.min(0.1, (ts - lastTs)/1000) : 0;
+    if (holdUntil && ts < holdUntil){ /* 进球暂停中 */ }
+    else {
+      holdUntil = 0;
+      let np = pos + dt * BASE_SPS * speed;
+      if (opt.gpause){
+        for (const g of R.goals){
+          const k = g.t + 1;
+          if (pos < k && np >= k){ np = k; holdUntil = ts + 1500 / Math.sqrt(Math.max(1, speed)); break; }
+        }
+      }
+      if (np >= R.N){ np = R.N; playing = false; updatePlayBtn(); }
+      pos = np;
+    }
+    draw();
+  }
+  lastTs = ts;
+}
+requestAnimationFrame(tick);
+
+/* ---------- 画布尺寸 ---------- */
+let WX0, WX1, WY0, WY1;
+function worldBox(){
+  const c = R ? R.cfg : {W:12000,H:8000};
+  WX0 = -800; WX1 = c.W + 800; WY0 = -1750; WY1 = c.H + 450;
+}
+function resize(){
+  worldBox();
+  const st = $('stage');
+  const aw = st.clientWidth - 16, ah = st.clientHeight - 16;
+  const ar = (WX1-WX0)/(WY1-WY0);
+  let w = aw, h = aw/ar;
+  if (h > ah){ h = ah; w = ah*ar; }
+  w = Math.max(200, Math.floor(w)); h = Math.max(140, Math.floor(h));
+  const dpr = window.devicePixelRatio || 1;
+  cv.style.width = w+'px'; cv.style.height = h+'px';
+  cv.width = Math.round(w*dpr); cv.height = Math.round(h*dpr);
+  view = {s: w/(WX1-WX0)*dpr, dpr, cssW:w, cssH:h};
+  draw();
+}
+window.addEventListener('resize', resize);
+
+/* ---------- 状态插值 ---------- */
+function stateAt(p){
+  let i = Math.floor(p + 1e-9), f = p - i;
+  if (i >= R.N){ i = R.N; f = 0; }
+  if (f < 1e-6) f = 0;
+  const A = R.frames[i], B = R.frames[i+1];
+  const S = {i, f, sa:A.sa, sb:A.sb, b:A.b.slice(), p:A.p.map(q=>q.slice()), extrap:false};
+  if (!B || f === 0) return S;
+  if (R.jump[i]){
+    // 进球 / 重开：沿速度外推（展示球越线），球用踢后速度
+    let bvx = A.b[2], bvy = A.b[3];
+    const ks = R.kicksAt.get(i); if (ks && ks.length){ bvx = ks[ks.length-1].vx; bvy = ks[ks.length-1].vy; }
+    S.b[0] += bvx*f; S.b[1] += bvy*f;
+    for (const q of S.p){ q[0] += q[2]*f; q[1] += q[3]*f; }
+    S.extrap = true;
+  } else {
+    for (let k=0;k<2;k++) S.b[k] = A.b[k] + (B.b[k]-A.b[k])*f;
+    for (let j=0;j<4;j++) for (let k=0;k<2;k++) S.p[j][k] = A.p[j][k] + (B.p[j][k]-A.p[j][k])*f;
+  }
+  return S;
+}
+
+/* ---------- 绘制 ---------- */
+function rr(x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+function fieldPath(c){
+  const W=c.W, H=c.H, C=c.CHAMFER;
+  ctx.beginPath();
+  ctx.moveTo(C,0); ctx.lineTo(W-C,0); ctx.lineTo(W,C); ctx.lineTo(W,H-C); ctx.lineTo(W-C,H);
+  ctx.lineTo(C,H); ctx.lineTo(0,H-C); ctx.lineTo(0,C); ctx.closePath();
+}
+function arrow(x1,y1,x2,y2,color,width,head){
+  const dx=x2-x1, dy=y2-y1, L=Math.hypot(dx,dy); if (L<1) return;
+  const ux=dx/L, uy=dy/L; head = Math.min(head, L*0.6);
+  ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=width; ctx.lineCap='round';
+  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2-ux*head*0.6, y2-uy*head*0.6); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x2,y2); ctx.lineTo(x2-ux*head-uy*head*0.55, y2-uy*head+ux*head*0.55);
+  ctx.lineTo(x2-ux*head+uy*head*0.55, y2-uy*head-ux*head*0.55); ctx.closePath(); ctx.fill();
+}
+function drawField(c){
+  const W=c.W, H=c.H, gy0=(H-c.GOAL)/2, gy1=(H+c.GOAL)/2, gd=520;
+  // 球门（网）
+  for (const side of [0,1]){
+    const x0 = side ? W : -gd;
+    ctx.fillStyle = side ? 'rgba(234,88,12,.16)' : 'rgba(37,99,235,.16)';
+    ctx.fillRect(x0, gy0, gd, gy1-gy0);
+    ctx.save(); ctx.beginPath(); ctx.rect(x0, gy0, gd, gy1-gy0); ctx.clip();
+    ctx.strokeStyle = side ? 'rgba(194,65,12,.35)' : 'rgba(29,78,216,.35)'; ctx.lineWidth = 18;
+    ctx.beginPath();
+    for (let k=-gy1; k<gy1+gd; k+=160){ ctx.moveTo(x0, gy0+k); ctx.lineTo(x0+gd, gy0+k+gd); ctx.moveTo(x0+gd, gy0+k); ctx.lineTo(x0, gy0+k+gd); }
+    ctx.stroke(); ctx.restore();
+    ctx.strokeStyle = side ? COL.bDark : COL.aDark; ctx.lineWidth = 60; ctx.lineJoin='round';
+    ctx.beginPath();
+    if (side){ ctx.moveTo(W, gy0); ctx.lineTo(W+gd, gy0); ctx.lineTo(W+gd, gy1); ctx.lineTo(W, gy1); }
+    else { ctx.moveTo(0, gy0); ctx.lineTo(-gd, gy0); ctx.lineTo(-gd, gy1); ctx.lineTo(0, gy1); }
+    ctx.stroke();
+  }
+  // 草地条纹
+  ctx.save(); fieldPath(c); ctx.clip();
+  const n = 12, sw = W/n;
+  for (let k=0;k<n;k++){ ctx.fillStyle = k%2 ? COL.grass2 : COL.grass1; ctx.fillRect(k*sw, 0, sw+1, H); }
+  // 线
+  ctx.strokeStyle = COL.line; ctx.lineWidth = 40;
+  ctx.beginPath(); ctx.moveTo(W/2, 0); ctx.lineTo(W/2, H); ctx.stroke();
+  ctx.beginPath(); ctx.arc(W/2, H/2, 1000, 0, Math.PI*2); ctx.stroke();
+  ctx.fillStyle = COL.line; ctx.beginPath(); ctx.arc(W/2, H/2, 70, 0, Math.PI*2); ctx.fill();
+  // （本规则没有禁区，不画禁区线，免得误导）
+  ctx.restore();
+  // 墙（门口处断开）
+  ctx.strokeStyle = COL.wall; ctx.lineWidth = 70; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  const C = c.CHAMFER;
+  ctx.beginPath();
+  ctx.moveTo(0, gy0); ctx.lineTo(0, C); ctx.lineTo(C, 0); ctx.lineTo(W-C, 0); ctx.lineTo(W, C); ctx.lineTo(W, gy0);
+  ctx.moveTo(W, gy1); ctx.lineTo(W, H-C); ctx.lineTo(W-C, H); ctx.lineTo(C, H); ctx.lineTo(0, H-C); ctx.lineTo(0, gy1);
+  ctx.stroke();
+  // 门柱
+  for (const [x,y,col] of [[0,gy0,COL.a],[0,gy1,COL.a],[W,gy0,COL.b],[W,gy1,COL.b]]){
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x,y,85,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle = col; ctx.lineWidth = 30; ctx.stroke();
+  }
+}
+function drawBand(S){
+  const c = R.cfg, W = c.W;
+  const y0 = -1650, h = 1350;
+  ctx.fillStyle = '#ffffff'; rr(-650, y0, W+1300, h, 260); ctx.fill();
+  ctx.strokeStyle = '#d9e0da'; ctx.lineWidth = 20; ctx.stroke();
+  // 中间比分
+  const cx = W/2, cy = y0 + h/2;
+  ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+  ctx.font = `700 820px ${FONT}`;
+  ctx.fillStyle = COL.a; ctx.textAlign = 'right'; ctx.fillText(String(S.sa), cx-330, cy-90);
+  ctx.fillStyle = COL.b; ctx.textAlign = 'left'; ctx.fillText(String(S.sb), cx+330, cy-90);
+  ctx.fillStyle = COL.text; ctx.textAlign = 'center'; ctx.fillText(':', cx, cy-130);
+  ctx.font = `400 300px ${FONT}`; ctx.fillStyle = COL.sub;
+  ctx.fillText(`第 ${S.i} / ${R.N} 步`, cx, cy+430);
+  // 两侧名字
+  const side = (team, x, align) => {
+    ctx.textAlign = align;
+    const col = team ? COL.b : COL.a;
+    const ids = [0,1,2,3].filter(i=>R.players[i].team===team);
+    ctx.font = `700 400px ${FONT}`; ctx.fillStyle = col;
+    ctx.fillText(team ? 'B 队 ◀ 向左攻' : 'A 队 ▶ 向右攻', x, cy-330);
+    ctx.font = `400 300px ${FONT}`; ctx.fillStyle = COL.text;
+    ids.forEach((id,k)=>{
+      const label = `${pname(id)}  ${R.players[id].name}`;
+      ctx.fillText(fitText(label, 4300), x, cy+120 + k*360);
+    });
+  };
+  side(0, -300, 'left'); side(1, W+300, 'right');
+}
+function fitText(s, maxW){
+  if (ctx.measureText(s).width <= maxW) return s;
+  while (s.length > 1 && ctx.measureText(s + '…').width > maxW) s = s.slice(0, -1);
+  return s + '…';
+}
+function drawTrail(S){
+  const i = S.i, n = 28;
+  const pts = [];
+  for (let t=i; t>=Math.max(0,i-n); t--){
+    if (t < i && R.jump[t]) break;
+    pts.push(R.frames[t].b);
+  }
+  pts.reverse();
+  const all = pts.map(b=>[b[0],b[1]]); all.push([S.b[0], S.b[1]]);
+  if (all.length < 2) return;
+  ctx.lineCap = 'round';
+  for (let k=1;k<all.length;k++){
+    const a = k/all.length;
+    ctx.strokeStyle = `rgba(255,255,255,${0.75*a})`;
+    ctx.lineWidth = 50 + 150*a;
+    ctx.beginPath(); ctx.moveTo(all[k-1][0], all[k-1][1]); ctx.lineTo(all[k][0], all[k][1]); ctx.stroke();
+  }
+}
+function drawKicks(S){
+  const span = 8;
+  for (let t = Math.max(0, S.i - span); t <= S.i; t++){
+    const ks = R.kicksAt.get(t); if (!ks) continue;
+    const age = (S.i + S.f) - t; if (age > span) continue;
+    const a = 1 - age/span;
+    for (const e of ks){
+      const F = R.frames[t], p = F.p[e.p];
+      const col = R.players[e.p].team ? COL.bSoft : COL.aSoft;
+      ctx.strokeStyle = `rgba(255,236,120,${0.95*a})`; ctx.lineWidth = 90*a + 20;
+      ctx.beginPath(); ctx.arc(p[0], p[1], c_RP() + 80 + age*90, 0, Math.PI*2); ctx.stroke();
+      const L = Math.hypot(e.kx, e.ky); if (L < 1) continue;
+      const len = 700 + 1700 * Math.min(1, L / (R.cfg.KICK_MAX||800));
+      const bx = F.b[0], by = F.b[1];
+      ctx.globalAlpha = a;
+      arrow(bx, by, bx + e.kx/L*len, by + e.ky/L*len, col + '0.95)', 75, 300);
+      ctx.globalAlpha = 1;
+    }
+  }
+}
+function c_RP(){ return R.cfg.RP || 300; }
+function drawPlayers(S){
+  const c = R.cfg, RP = c.RP||300, reach = c.KICK_REACH||500, cdMax = c.KICK_COOLDOWN||5;
+  const acts = R.acts[S.i];
+  // 可踢范围
+  if (opt.reach){
+    for (let i=0;i<4;i++){
+      const p = S.p[i], team = R.players[i].team;
+      const inR = Math.hypot(S.b[0]-p[0], S.b[1]-p[1]) <= reach;
+      ctx.fillStyle = (team?COL.bSoft:COL.aSoft) + (inR?'0.22)':'0.10)');
+      ctx.strokeStyle = (team?COL.bSoft:COL.aSoft) + (inR?'0.9)':'0.45)');
+      ctx.lineWidth = inR ? 40 : 22; ctx.setLineDash(inR?[]:[90,70]);
+      ctx.beginPath(); ctx.arc(p[0], p[1], reach, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  }
+  for (let i=0;i<4;i++){
+    const p = S.p[i], team = R.players[i].team, col = team?COL.b:COL.a, dark = team?COL.bDark:COL.aDark;
+    const cd = R.frames[S.i].p[i][4] || 0;
+    const dim = opt.cd && cd > 0;
+    // 阴影
+    ctx.fillStyle = 'rgba(20,50,30,.18)';
+    ctx.beginPath(); ctx.arc(p[0]+50, p[1]+70, RP, 0, Math.PI*2); ctx.fill();
+    ctx.globalAlpha = dim ? 0.55 : 1;
+    ctx.fillStyle = col; ctx.beginPath(); ctx.arc(p[0], p[1], RP, 0, Math.PI*2); ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 55; ctx.stroke();
+    ctx.strokeStyle = dark; ctx.lineWidth = 16; ctx.beginPath(); ctx.arc(p[0], p[1], RP+30, 0, Math.PI*2); ctx.stroke();
+    // 冷却弧
+    if (dim){
+      ctx.strokeStyle = 'rgba(60,60,60,.85)'; ctx.lineWidth = 60; ctx.lineCap='butt';
+      ctx.beginPath(); ctx.arc(p[0], p[1], RP+95, -Math.PI/2, -Math.PI/2 + Math.PI*2*Math.min(1, cd/cdMax)); ctx.stroke();
+    }
+    // 编号
+    ctx.fillStyle = '#fff'; ctx.font = `800 290px ${FONT}`; ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(pname(i), p[0], p[1]+15);
+    // 速度箭头
+    if (opt.vel){
+      const v = Math.hypot(p[2], p[3]);
+      if (v > 3) arrow(p[0], p[1], p[0]+p[2]*4.5, p[1]+p[3]*4.5, 'rgba(30,41,59,.8)', 45, 200);
+    }
+    // 队友消息
+    if (opt.msg && acts){
+      const s = fmtMsg(acts[i][4]);
+      ctx.font = `700 260px ${FONT}`;
+      const tw = ctx.measureText(s).width + 160, bx = p[0] - tw/2, by = p[1] - RP - 520;
+      ctx.fillStyle = 'rgba(255,255,255,.95)'; rr(bx, by, tw, 360, 120); ctx.fill();
+      ctx.strokeStyle = col; ctx.lineWidth = 26; ctx.stroke();
+      ctx.fillStyle = dark; ctx.fillText(s, p[0], by + 185);
+    }
+  }
+}
+function drawFaults(S){
+  for (let t = Math.max(0, S.i - 20); t <= S.i; t++){
+    const es = R.byStep.get(t); if (!es) continue;
+    for (const e of es){
+      if (e.type!=='fault' || !(e.p>=0 && e.p<4)) continue;
+      const p = S.p[e.p], a = 1 - (S.i - t)/21;
+      ctx.globalAlpha = a;
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 50;
+      ctx.beginPath(); ctx.arc(p[0], p[1], (R.cfg.RP||300)+160, 0, Math.PI*2); ctx.stroke();
+      ctx.fillStyle = '#dc2626'; ctx.beginPath(); ctx.arc(p[0]+330, p[1]-330, 170, 0, Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.font = `800 240px ${FONT}`; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText('!', p[0]+330, p[1]-320);
+      ctx.font = `700 230px ${FONT}`; ctx.fillStyle = '#b91c1c';
+      ctx.fillText(FAULT_NAMES[e.kind] || e.kind, p[0], p[1] + (R.cfg.RP||300) + 330);
+      ctx.globalAlpha = 1;
+    }
+  }
+}
+function drawBall(S){
+  const rb = (R.cfg.RB||150) * (opt.bigball ? 1.4 : 1);
+  ctx.fillStyle = 'rgba(20,50,30,.22)'; ctx.beginPath(); ctx.arc(S.b[0]+40, S.b[1]+55, rb, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.arc(S.b[0], S.b[1], rb, 0, Math.PI*2); ctx.fill();
+  ctx.strokeStyle = '#111827'; ctx.lineWidth = 34; ctx.stroke();
+  ctx.fillStyle = '#111827'; ctx.beginPath(); ctx.arc(S.b[0], S.b[1], rb*0.36, 0, Math.PI*2); ctx.fill();
+}
+function drawOverlays(S){
+  const c = R.cfg, W = c.W, H = c.H;
+  const cur = S.i + S.f;
+  // 进球大字
+  if (opt.goal){
+    for (const g of R.goals){
+      const age = cur - (g.t + 1);
+      const inHold = holdUntil && Math.abs(pos - (g.t+1)) < 1e-6;
+      if ((age >= 0 && age <= 34) || inHold){
+        const a = inHold ? 1 : Math.min(1, age*3 + 0.4, (34-age)/8);
+        const col = g.team ? COL.b : COL.a;
+        ctx.globalAlpha = Math.max(0, a);
+        const cy = H*0.22;
+        ctx.fillStyle = 'rgba(255,255,255,.9)'; rr(W/2-3000, cy-1000, 6000, 2000, 360); ctx.fill();
+        ctx.strokeStyle = col; ctx.lineWidth = 80; ctx.stroke();
+        ctx.textAlign='center'; ctx.textBaseline='middle';
+        ctx.fillStyle = col; ctx.font = `900 1000px ${FONT}`;
+        ctx.fillText(`${g.team ? 'B' : 'A'} 队进球！`, W/2, cy-300);
+        ctx.font = `700 440px ${FONT}`; ctx.fillStyle = COL.text;
+        let sub = `${g.sa} : ${g.sb}`;
+        const gt = goalTouch(g, pname);
+        if (gt && gt.one >= 0){ sub += `　${pname(gt.one)} ${R.players[gt.one].name}`; if (R.players[gt.one].team !== g.team) sub += '（乌龙）'; }
+        else if (gt) sub += `　${gt.text}`;
+        ctx.fillText(fitText(sub, 5600), W/2, cy+560);
+        ctx.globalAlpha = 1;
+        break;
+      }
+    }
+  }
+  // 开球 / 重开提示
+  for (let t = Math.max(0, S.i - 30); t <= S.i; t++){
+    const es = R.byStep.get(t); if (!es) continue;
+    for (const e of es){
+      if (e.type !== 'kickoff' && e.type !== 'stall') continue;
+      if (e.type === 'kickoff' && R.goals.some(g=>g.t+1===e.t) && opt.goal && cur - e.t < 34) continue;
+      const a = Math.min(1, (30 - (cur - t))/8);
+      if (a <= 0) continue;
+      const txt = e.type==='stall' ? `连续 ${e.n} 步无人踢球，重新开球` :
+                  e.team===-1 ? '开球' : `${e.team ? 'B' : 'A'} 队开球`;
+      const col = e.type==='stall' ? '#b45309' : e.team===1 ? COL.b : e.team===0 ? COL.a : '#7c3aed';
+      ctx.globalAlpha = a;
+      ctx.font = `700 420px ${FONT}`; ctx.textAlign='center'; ctx.textBaseline='middle';
+      const tw = ctx.measureText(txt).width + 600;
+      ctx.fillStyle = 'rgba(255,255,255,.92)'; rr(W/2 - tw/2, 250, tw, 720, 300); ctx.fill();
+      ctx.strokeStyle = col; ctx.lineWidth = 40; ctx.stroke();
+      ctx.fillStyle = col; ctx.fillText(txt, W/2, 620);
+      ctx.globalAlpha = 1;
+    }
+  }
+  // 终局
+  if (S.i >= R.N){
+    const sa = S.sa, sb = S.sb;
+    const txt = sa > sb ? 'A 队获胜' : sb > sa ? 'B 队获胜' : '平局';
+    const col = sa > sb ? COL.a : sb > sa ? COL.b : COL.text;
+    ctx.fillStyle = 'rgba(255,255,255,.9)'; rr(W/2-3000, H/2-1200, 6000, 2400, 400); ctx.fill();
+    ctx.strokeStyle = col; ctx.lineWidth = 80; ctx.stroke();
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.font = `900 1000px ${FONT}`; ctx.fillStyle = col; ctx.fillText(`终局 ${sa} : ${sb}`, W/2, H/2-330);
+    ctx.font = `700 560px ${FONT}`; ctx.fillStyle = COL.text; ctx.fillText(txt, W/2, H/2+600);
+  }
+}
+function draw(){
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.clearRect(0,0,cv.width,cv.height);
+  if (!R){ return; }
+  const s = view.s;
+  ctx.setTransform(s,0,0,s, -WX0*s, -WY0*s);
+  ctx.fillStyle = '#f7faf7'; ctx.fillRect(WX0, WY0, WX1-WX0, WY1-WY0);
+  const S = stateAt(pos);
+  drawField(R.cfg);
+  drawBand(S);
+  if (opt.trail) drawTrail(S);
+  if (opt.kick) drawKicks(S);
+  drawPlayers(S);
+  drawFaults(S);
+  drawBall(S);
+  drawOverlays(S);
+  // 控件同步
+  if (S.i !== lastStep){
+    lastStep = S.i;
+    $('seek').value = S.i;
+    $('steplbl').textContent = `${S.i} / ${R.N}`;
+    updateInfo(S.i);
+    updateCurEvent(S.i);
+  }
+}
+window.draw = draw;
+
+/* ---------- 启动：内嵌数据 / 网址参数 ---------- */
+resize();
+const q = new URLSearchParams(location.search);
+if (q.get('side') === '0') { document.body.classList.add('noside'); resize(); }
+function afterLoad(){
+  if (!R) return;
+  if (q.get('speed')) setSpeed(+q.get('speed') || 1);
+  if (q.get('t')) seek(+q.get('t') || 0);
+  for (const k of ['trail','vel','reach','cd','kick','goal','gpause','msg']) if (q.has(k)) setOpt(k, q.get(k) !== '0');
+  if (q.get('play') === '1') togglePlay();
+}
+const emb = document.getElementById('replay-data');
+if (emb && emb.textContent.trim()){ loadText(emb.textContent, emb.dataset.name || '内嵌回放'); afterLoad(); }
+else if (q.get('src') || q.get('file')){
+  const src = q.get('src') || q.get('file');
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', src);
+  xhr.overrideMimeType('text/plain; charset=utf-8');
+  xhr.onload = ()=>{ if (xhr.status === 0 || (xhr.status >= 200 && xhr.status < 300)){ loadText(xhr.responseText, src.split('/').pop()); afterLoad(); } else toast('读取失败：HTTP ' + xhr.status); };
+  xhr.onerror = ()=> toast('无法读取 ' + src + '（本地双击打开时浏览器禁止读取其他文件，请改用拖放或「打开回放…」）');
+  xhr.send();
+}
+})();
+if (typeof module !== 'undefined') module.exports = {parseReplay};
+</script>
+</body>
+</html>

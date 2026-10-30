@@ -38,7 +38,7 @@ GAMES = {
     "7b": ("第 7 集 · 屎山优化（仓储调度）", "warehouse", None,
            [("名次和说明（README 文末的第 7 集一节）", "README.md"), ("统一评测主表", "results/ep7/汇总.md"),
             ("比赛条件与异常记录（文末一节）", "CONDITIONS.md")]),
-    "8": ("第 8 集 · 峡谷对决（MOBA）", "moba", "workspace/submission/bot.cpp",
+    "9": ("第 9 集 · 峡谷对决（MOBA）", "moba", "workspace/submission/bot.cpp",
           [("看全部示例赛回放（下拉切换）", "replays/index.html"),
            ("示例赛成绩", "results/示例赛-成绩.md")]),
 }

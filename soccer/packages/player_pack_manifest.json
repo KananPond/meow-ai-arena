@@ -1,0 +1,526 @@
+{
+  "version": 1,
+  "scope": "Initial contestant workspace and later half-time delivery; excludes contestant-created files and host administration.",
+  "slots": [
+    "team1_a",
+    "team1_b",
+    "team2_a",
+    "team2_b",
+    "team3_a",
+    "team3_b",
+    "team4_a",
+    "team4_b",
+    "team5_a",
+    "team5_b",
+    "team6_a",
+    "team6_b"
+  ],
+  "files_per_slot": 23,
+  "player_files": [
+    {
+      "path": "README.md",
+      "kind": "composed-document",
+      "inputs": [
+        "packages/format.md",
+        "workspace/README.md"
+      ],
+      "historical_sha256_by_seat": {
+        "team1_a": "66c254dcfe0db9983b7120c524a363e12830c17c4bfd394bca76f7891e4436de",
+        "team1_b": "a8ecb6e21708c755f965fcb0c83609cb8fc28a8f7448499d4ed1d7775ff69612",
+        "team2_a": "42818b08a81464cf9cdba94f7dabe9a45d6c1484b8b07e5f3f03c0e2a4a19b6a",
+        "team2_b": "3cf9c5cd214a03eb4a531431d53d35e0cd485f8964c5d60244410f31b9bfa3a7",
+        "team3_a": "06f95ff1ac16f15520c48bcaee3b39e878d842b0db4673412e0bdb217bd04a11",
+        "team3_b": "5e1e60a2a351906219e13de9699b4233a2358eb9c3ef1f469457f33b70e6d18f",
+        "team4_a": "815bbd553c29e1d05c8a9f86f6daec2c1172682e0d6cad77e580d0def356bf52",
+        "team4_b": "f4b9fccbb20c4450389de13bab92590c469c8fa2c78059332deafef6aff9e938",
+        "team5_a": "4fa33a70d09bf9bdce5584d849484b225075a20b61f04986f248a963a78b1aba",
+        "team5_b": "62e81fd8ebe00e2890de2f44ebdb65cc6fd1f40b829e213707346000f99cc171",
+        "team6_a": "7b7a231992812768bfc3c3e78bd2ed478e684884a2d910b05121252e76cfa747",
+        "team6_b": "bac5340c7d8f84f865aefdef5a86df5de48786791357fa95c5be78cac15f1b41"
+      }
+    },
+    {
+      "path": "RULES.md",
+      "historical_sha256": "5f8bc60115b211d124dcd3cefd7159c465e91f5ddc76bc3a4fcc5e4d38c90854",
+      "kind": "published-file",
+      "published_source": "workspace/RULES.md",
+      "published_sha256": "31ada7d5fac72cb3b5e2746c8849e8fc8c6e058ba4b10b358260eb8d91b989df"
+    },
+    {
+      "path": "TEAMCHAT_README.md",
+      "historical_sha256": "9980258c9f168c1ba00817a90eb66f3bfcddcaf975a043e5d4a68ca3700e9243",
+      "kind": "published-file",
+      "published_source": "packages/TEAMCHAT_README.md",
+      "published_sha256": "9980258c9f168c1ba00817a90eb66f3bfcddcaf975a043e5d4a68ca3700e9243"
+    },
+    {
+      "path": "arena.cpp",
+      "historical_sha256": "a5125c5085e3c471bf5cc559b1fbc4cc3d00df6f49c4ca463712e48ac8caad3b",
+      "kind": "published-file",
+      "published_source": "workspace/arena.cpp",
+      "published_sha256": "4e280adc2c283f9c88a2581547c3e8b0b49ec657312ddeb46a53fe40eb9dec63"
+    },
+    {
+      "path": "arena.exe",
+      "historical_sha256": "931af26f4e0225e7ee0e51d98d24931ce09fc7962148b5910a8112429fa7fd64",
+      "hash_basis": "Original base-package executable, not a later contestant rebuild",
+      "kind": "rebuild-executable",
+      "build_command": "python build_reference.py"
+    },
+    {
+      "path": "bots/baseline.exe",
+      "historical_sha256": "0a3b15a8b3edc9113d87c00d129f7de55e86ef0758053ea65b2e4983f1b5ccb8",
+      "hash_basis": "Original base-package executable, not a later contestant rebuild",
+      "kind": "rebuild-executable",
+      "build_command": "python build_reference.py"
+    },
+    {
+      "path": "bots/midfield.exe",
+      "historical_sha256": "5e95be24be95f5b20074930df3ee1a9b7708bb682fc2fa20d61f4b77acef1115",
+      "hash_basis": "Original base-package executable, not a later contestant rebuild",
+      "kind": "rebuild-executable",
+      "build_command": "python build_reference.py"
+    },
+    {
+      "path": "bots/sparring.exe",
+      "historical_sha256": "4b2033a614a8d69bca29584e72d0805ede32a59bb8341a55a69cc6c3eace4b3e",
+      "hash_basis": "Original base-package executable, not a later contestant rebuild",
+      "kind": "rebuild-executable",
+      "build_command": "python build_reference.py"
+    },
+    {
+      "path": "build.py",
+      "historical_sha256": "2d7da775b46c747cb9de113534fc43389dc0487bcfd7d77e23fae93e0faf9203",
+      "kind": "published-file",
+      "published_source": "workspace/build.py",
+      "published_sha256": "55a807c1810657eebed4e49315fbc720300582301f2c33f8952908f5bce26b80"
+    },
+    {
+      "path": "clock.py",
+      "historical_sha256": "8c9804f66e2cfee060f5ff68d4770363ab69e2cab6cc70ccbad81fb95270be4d",
+      "kind": "omitted-service-client"
+    },
+    {
+      "path": "match.py",
+      "historical_sha256": "4dda2e8d1752b9672fecf6dc129c1eaa01f3c5a501151fb2726f25e6887e6a04",
+      "kind": "published-file",
+      "published_source": "workspace/match.py",
+      "published_sha256": "da5a2ec1a384232d14d96a51722c5a151c07f0df6d243bff879172f3dff9dfc1"
+    },
+    {
+      "path": "replay.py",
+      "historical_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+      "kind": "published-file",
+      "published_source": "workspace/replay.py",
+      "published_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba"
+    },
+    {
+      "path": "run.cmd",
+      "historical_sha256": "166b96e1ce5145a7cba1a90b072e8357646a48f03d7ea03ff2468c67c2a3187b",
+      "kind": "published-file",
+      "published_source": "workspace/run.cmd",
+      "published_sha256": "166b96e1ce5145a7cba1a90b072e8357646a48f03d7ea03ff2468c67c2a3187b"
+    },
+    {
+      "path": "soccer.hpp",
+      "historical_sha256": "06350f319523a9fcfbbfbe5aab47f9d03f66c1228feeeb374edb2a873ebf76b1",
+      "kind": "published-file",
+      "published_source": "workspace/soccer.hpp",
+      "published_sha256": "06350f319523a9fcfbbfbe5aab47f9d03f66c1228feeeb374edb2a873ebf76b1"
+    },
+    {
+      "path": "soccer_engine.py",
+      "historical_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+      "kind": "published-file",
+      "published_source": "workspace/soccer_engine.py",
+      "published_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556"
+    },
+    {
+      "path": "submission/player.cpp",
+      "kind": "initial-template",
+      "historical_sha256": "ca56beaa745c4d30c14ce4ac9c2e596b4b100096a18a7719ca201e26f263742c",
+      "published_source": "workspace/template.cpp",
+      "published_sha256": "ca56beaa745c4d30c14ce4ac9c2e596b4b100096a18a7719ca201e26f263742c"
+    },
+    {
+      "path": "tc.bat",
+      "historical_sha256": "0f0f21a987a387068440c093a442bfa1dcaa574dec503fd258a19505f3d30d95",
+      "kind": "generated-launcher",
+      "command": "@python \"%~dp0tc.py\" %*"
+    },
+    {
+      "path": "tc.py",
+      "historical_sha256": "dfa3d9a6cb25812e972bb7da7917533bfddcabb44ceac2b177057b59eb6a1ac1",
+      "kind": "omitted-service-client"
+    },
+    {
+      "path": "teamchat.json",
+      "kind": "generated-private-config",
+      "fields": [
+        "team",
+        "me",
+        "peer",
+        "me_name",
+        "peer_name",
+        "chat_dir",
+        "my_dir",
+        "peer_dir"
+      ]
+    },
+    {
+      "path": "template.cpp",
+      "historical_sha256": "ca56beaa745c4d30c14ce4ac9c2e596b4b100096a18a7719ca201e26f263742c",
+      "kind": "published-file",
+      "published_source": "workspace/template.cpp",
+      "published_sha256": "ca56beaa745c4d30c14ce4ac9c2e596b4b100096a18a7719ca201e26f263742c"
+    },
+    {
+      "path": "viewer.html",
+      "historical_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+      "kind": "published-file",
+      "published_source": "workspace/viewer.html",
+      "published_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4"
+    },
+    {
+      "path": "with_notice.py",
+      "historical_sha256": "511e391a2a1ef1ef336d22421c60b26e4bbdcd7cf207c695a4fe2676e9df8e20",
+      "kind": "omitted-service-client"
+    },
+    {
+      "path": "示例回放.txt",
+      "historical_sha256": "04ab7277166a29da7b6df8d26476ac3d4f86e42e6e9268a06d22c7ce6548f3fa",
+      "kind": "published-file",
+      "published_source": "workspace/示例回放.txt",
+      "published_sha256": "04ab7277166a29da7b6df8d26476ac3d4f86e42e6e9268a06d22c7ce6548f3fa"
+    }
+  ],
+  "team_files": [
+    {
+      "path": "team.json",
+      "kind": "generated-private-config",
+      "fields": [
+        "team",
+        "names",
+        "mirror",
+        "start",
+        "start_t"
+      ]
+    },
+    {
+      "path": "phase.json",
+      "kind": "generated-clock-state",
+      "fields": [
+        "phase",
+        "desc",
+        "ends_t",
+        "ends",
+        "meeting_minutes",
+        "half1_minutes",
+        "half2_minutes",
+        "t0",
+        "updated"
+      ]
+    },
+    {
+      "path": "chat/",
+      "kind": "initial-directory"
+    },
+    {
+      "path": "chat/state/",
+      "kind": "initial-directory"
+    },
+    {
+      "path": "chat/chat.jsonl",
+      "kind": "runtime-chat-omitted"
+    },
+    {
+      "path": "chat/chat.lock",
+      "kind": "runtime-lock-omitted"
+    },
+    {
+      "path": "chat/state/a.json",
+      "kind": "runtime-read-cursor-omitted"
+    },
+    {
+      "path": "chat/state/b.json",
+      "kind": "runtime-read-cursor-omitted"
+    },
+    {
+      "path": "halftime/",
+      "kind": "delivered-after-half-time"
+    }
+  ],
+  "half_time_packages": [
+    {
+      "team": "team1",
+      "fixed_files": [
+        {
+          "path": "README.md",
+          "historical_sha256": "5861cb999aeecf432aa9da0055d428002e6335322928aa1ba794a242e51a96a8"
+        },
+        {
+          "path": "RESULTS.md",
+          "historical_sha256": "f5b000d0ad0814b09e14ad6ed60bbd6027f0ed1cab115a8e5e3ab19aa4cb36e1"
+        },
+        {
+          "path": "tools/replay.py",
+          "historical_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+          "published_source": "workspace/replay.py",
+          "published_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba"
+        },
+        {
+          "path": "tools/soccer_engine.py",
+          "historical_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+          "published_source": "workspace/soccer_engine.py",
+          "published_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556"
+        },
+        {
+          "path": "tools/viewer.html",
+          "historical_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+          "published_source": "workspace/viewer.html",
+          "published_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4"
+        }
+      ],
+      "replay_pattern": "replays/{id}.txt",
+      "replay_count": 512,
+      "replay_selection": {
+        "source": "results/halftime/results.json.gz",
+        "field": "games",
+        "condition": "A == team or B == team",
+        "include_references": true
+      }
+    },
+    {
+      "team": "team2",
+      "fixed_files": [
+        {
+          "path": "README.md",
+          "historical_sha256": "5861cb999aeecf432aa9da0055d428002e6335322928aa1ba794a242e51a96a8"
+        },
+        {
+          "path": "RESULTS.md",
+          "historical_sha256": "da6affc67a4781c2f4f7ef6881e708bd7569d65b9155e1c6aa7af345fc053b98"
+        },
+        {
+          "path": "tools/replay.py",
+          "historical_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+          "published_source": "workspace/replay.py",
+          "published_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba"
+        },
+        {
+          "path": "tools/soccer_engine.py",
+          "historical_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+          "published_source": "workspace/soccer_engine.py",
+          "published_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556"
+        },
+        {
+          "path": "tools/viewer.html",
+          "historical_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+          "published_source": "workspace/viewer.html",
+          "published_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4"
+        }
+      ],
+      "replay_pattern": "replays/{id}.txt",
+      "replay_count": 512,
+      "replay_selection": {
+        "source": "results/halftime/results.json.gz",
+        "field": "games",
+        "condition": "A == team or B == team",
+        "include_references": true
+      }
+    },
+    {
+      "team": "team3",
+      "fixed_files": [
+        {
+          "path": "README.md",
+          "historical_sha256": "5861cb999aeecf432aa9da0055d428002e6335322928aa1ba794a242e51a96a8"
+        },
+        {
+          "path": "RESULTS.md",
+          "historical_sha256": "d5f30dadc5e9d1d659570e4896b206e47aa148f2637011591e364b10ff4f7f81"
+        },
+        {
+          "path": "tools/replay.py",
+          "historical_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+          "published_source": "workspace/replay.py",
+          "published_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba"
+        },
+        {
+          "path": "tools/soccer_engine.py",
+          "historical_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+          "published_source": "workspace/soccer_engine.py",
+          "published_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556"
+        },
+        {
+          "path": "tools/viewer.html",
+          "historical_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+          "published_source": "workspace/viewer.html",
+          "published_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4"
+        }
+      ],
+      "replay_pattern": "replays/{id}.txt",
+      "replay_count": 512,
+      "replay_selection": {
+        "source": "results/halftime/results.json.gz",
+        "field": "games",
+        "condition": "A == team or B == team",
+        "include_references": true
+      }
+    },
+    {
+      "team": "team4",
+      "fixed_files": [
+        {
+          "path": "README.md",
+          "historical_sha256": "5861cb999aeecf432aa9da0055d428002e6335322928aa1ba794a242e51a96a8"
+        },
+        {
+          "path": "RESULTS.md",
+          "historical_sha256": "e39bab0cde4d73a0f489014e27c7e70a65be442c09f84618b331e12d2042dbae"
+        },
+        {
+          "path": "tools/replay.py",
+          "historical_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+          "published_source": "workspace/replay.py",
+          "published_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba"
+        },
+        {
+          "path": "tools/soccer_engine.py",
+          "historical_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+          "published_source": "workspace/soccer_engine.py",
+          "published_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556"
+        },
+        {
+          "path": "tools/viewer.html",
+          "historical_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+          "published_source": "workspace/viewer.html",
+          "published_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4"
+        }
+      ],
+      "replay_pattern": "replays/{id}.txt",
+      "replay_count": 512,
+      "replay_selection": {
+        "source": "results/halftime/results.json.gz",
+        "field": "games",
+        "condition": "A == team or B == team",
+        "include_references": true
+      }
+    },
+    {
+      "team": "team5",
+      "fixed_files": [
+        {
+          "path": "README.md",
+          "historical_sha256": "5861cb999aeecf432aa9da0055d428002e6335322928aa1ba794a242e51a96a8"
+        },
+        {
+          "path": "RESULTS.md",
+          "historical_sha256": "f9e65e400fba1b87d13e87aacb61279911a0a458f0cacefcd91c2954ff61fe8b"
+        },
+        {
+          "path": "tools/replay.py",
+          "historical_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+          "published_source": "workspace/replay.py",
+          "published_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba"
+        },
+        {
+          "path": "tools/soccer_engine.py",
+          "historical_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+          "published_source": "workspace/soccer_engine.py",
+          "published_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556"
+        },
+        {
+          "path": "tools/viewer.html",
+          "historical_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+          "published_source": "workspace/viewer.html",
+          "published_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4"
+        }
+      ],
+      "replay_pattern": "replays/{id}.txt",
+      "replay_count": 512,
+      "replay_selection": {
+        "source": "results/halftime/results.json.gz",
+        "field": "games",
+        "condition": "A == team or B == team",
+        "include_references": true
+      }
+    },
+    {
+      "team": "team6",
+      "fixed_files": [
+        {
+          "path": "README.md",
+          "historical_sha256": "5861cb999aeecf432aa9da0055d428002e6335322928aa1ba794a242e51a96a8"
+        },
+        {
+          "path": "RESULTS.md",
+          "historical_sha256": "1827eeab48df7d19886a78a9a5439b71578716c9825270fd40e2639550e8c833"
+        },
+        {
+          "path": "tools/replay.py",
+          "historical_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba",
+          "published_source": "workspace/replay.py",
+          "published_sha256": "a165bfa36559b8b098de686401af50e9daa80f6ff75f477702d86b44664e52ba"
+        },
+        {
+          "path": "tools/soccer_engine.py",
+          "historical_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556",
+          "published_source": "workspace/soccer_engine.py",
+          "published_sha256": "5788fb387b4296aaf3f3ba098fc0bb7d1c9de87064a8a18bb941abe014c6a556"
+        },
+        {
+          "path": "tools/viewer.html",
+          "historical_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4",
+          "published_source": "workspace/viewer.html",
+          "published_sha256": "3e1b5b459e278e629f26690cae172cab5f3bc9ff222343953f8751ee2473fab4"
+        }
+      ],
+      "replay_pattern": "replays/{id}.txt",
+      "replay_count": 512,
+      "replay_selection": {
+        "source": "results/halftime/results.json.gz",
+        "field": "games",
+        "condition": "A == team or B == team",
+        "include_references": true
+      }
+    }
+  ],
+  "later_player_files": [
+    {
+      "path": "submission/partner.cpp",
+      "kind": "optional-second-half-submission"
+    },
+    {
+      "path": "build/",
+      "kind": "runtime"
+    },
+    {
+      "path": "replays/",
+      "kind": "runtime"
+    },
+    {
+      "path": "_soccer_box/",
+      "kind": "runtime"
+    },
+    {
+      "path": "__pycache__/",
+      "kind": "runtime"
+    }
+  ],
+  "excluded": "Account/provider configuration, credentials, raw sessions, thinking, chat exports, host mirrors/backups and voided event data.",
+  "hash_note": "Historical hashes describe static files actually distributed. Current published hashes describe open-source adaptations. Dynamic private configurations have no published values or hashes.",
+  "initial_readme_parameters": {
+    "提交文件": "submission/player.cpp",
+    "队伍数": 6,
+    "会议分钟": 5,
+    "上半场分钟": 40,
+    "下半场分钟": 25,
+    "中场种子": 32,
+    "终场种子": 44,
+    "胜": 3,
+    "平": 1,
+    "负": 0
+  },
+  "half_time_announced_second_half_minutes": 40
+}

@@ -1,5 +1,5 @@
 {
- "commit": "4ca6b9d812f02dc23d0fc942cc0e4a2f233dd763",
+ "commit": "63ec27068ef561056be762be59d057144d1bf574",
  "detail": {
   "budget": {
    "budget_kind": "cpu",
@@ -80,18 +80,18 @@
    {
     "display": "GPT-6.1 Sol Ultrafast（Codex CLI）",
     "draws": 0,
-    "losses": 1,
+    "losses": 0,
     "name": "SolUF",
     "rating": 466.92800596466685,
-    "wins": 19
+    "wins": 20
    },
    {
     "display": "Gemini 4 Argon Contributor（OpenCode Go）",
     "draws": 0,
-    "losses": 2,
+    "losses": 0,
     "name": "Gemini",
     "rating": 355.4298340699916,
-    "wins": 18
+    "wins": 20
    },
    {
     "display": "GPT-6.1 Sol",
@@ -211,11 +211,11 @@
  "episode": "tank",
  "errors": [],
  "files": {
-  "bot.cpp": "c9b899e8c67927bd74bcfbe52a98f5b522537f8f814c150108edddecea963cfa"
+  "bot.cpp": "628a67a5845de0d8a99df35273a9b9bc63d524e77d8b30bf8524846dd27ea7e3"
  },
  "mode": "quick",
  "schema": 1,
- "score": 833.1,
+ "score": 887.4,
  "status": "pass",
- "time": "2026-10-22T08:00:52Z"
+ "time": "2026-10-26T16:05:12Z"
 }

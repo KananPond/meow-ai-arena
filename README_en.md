@@ -14,6 +14,7 @@ Several AI models receive **the exact same prompt**, each writes a game bot in a
 | 6 | Tank battle (two halves) | 1v1, 14 models | 27,840 | GPT-6 Astra | `tank/` |
 | 7, round 1 | Tron light cycles | 1v1 + 4p + 12p, 10 models (+2 reference) | 5,713 | Mistral Large 4 | `tron/` |
 | 7, round 2 | Legacy-code optimization (warehouse task) | 10 models, solo (+3 Claude reference runs) | 1 run each | StepFun Step 5 preview / Tencent Hunyuan Hy4 preview (tie) | `warehouse/` |
+| 8 | 2v2 simplified soccer | 12 models in 6 teams; individual teams added in the second half | 8,280 | Team: GPT-6 Astra + GPT-6.1 Terra; individual: GPT-6 Astra | [soccer/](soccer/README_en.md) |
 
 Episode 4 is different: no bots. Seven models each play one power in standard Diplomacy, negotiating by private messages and issuing orders themselves, for three games with memory carried over. `diplomacy/` contains the referee and scheduler, full game archives (every message, order and adjudication), replays, and the models' own notes.
 

@@ -1,0 +1,76 @@
+{
+ "commit": "7114aea6253f51cdc1b4339f1e515fb3e803c457",
+ "detail": {
+  "ci95": null,
+  "field": [
+   {
+    "name": "sonnet-5@claude-code",
+    "score": 329.8
+   },
+   {
+    "name": "gpt-6-astra@codex",
+    "score": 313.6
+   },
+   {
+    "name": "anchor-sparring",
+    "score": 279.1
+   },
+   {
+    "name": "opus-5.5@claude-code",
+    "score": 227.2
+   },
+   {
+    "name": "gpt-6-sol@codex",
+    "score": 151.4
+   },
+   {
+    "name": "mimo-2.6-pro@zcode",
+    "score": 105.9
+   },
+   {
+    "name": "kimi-k3@workbuddy",
+    "score": 19.0
+   },
+   {
+    "name": "anchor-greedy",
+    "score": 0.0
+   },
+   {
+    "name": "glm-5.3@workbuddy",
+    "score": -45.0
+   },
+   {
+    "name": "mystery-model@zcode",
+    "score": -96.4
+   },
+   {
+    "name": "deepseek-4.1f@workbuddy",
+    "score": -137.3
+   },
+   {
+    "name": "anchor-random",
+    "score": -329.1
+   }
+  ],
+  "field_size": 13,
+  "games_note": "单挑 312 局；混战拆成 384 组两两比较",
+  "rank": 3
+ },
+ "entry": "mohen2006__loop-hunter",
+ "env": {
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "cpus": 4,
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.3"
+ },
+ "episode": "land",
+ "errors": [],
+ "files": {
+  "bot.cpp": "586589b6f3720367986f3b0966c7657a5cf8468ab5f1640bc5dafed85d253da8"
+ },
+ "mode": "quick",
+ "schema": 1,
+ "score": 306.6,
+ "status": "pass",
+ "time": "2026-10-25T15:58:12Z"
+}

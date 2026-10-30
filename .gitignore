@@ -37,7 +37,13 @@ tron/workspace/history/
 tron/workspace/replays/
 tron/out/
 
-# 第 8 集峡谷对决：回放网页里已经内嵌了完整数据，旁边的 .json 只是本地副产物
+# 第 8 集足球：本地编译、回放重打和沙箱产物
+soccer/out/
+soccer/workspace/_soccer_box/
+soccer/workspace/bots/*.exe
+soccer/workspace/replays/
+
+# 第 9 集峡谷对决：回放网页里已经内嵌了完整数据，旁边的 .json 只是本地副产物
 moba/replays/*.json
 
 # ZCode 安全钩子的本地状态，不是比赛材料

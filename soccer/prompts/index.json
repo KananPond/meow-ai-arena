@@ -1,0 +1,218 @@
+[
+  {
+    "file": "prompts/team1_a/00_开赛提示词.txt",
+    "seat": "team1_a"
+  },
+  {
+    "file": "prompts/team1_a/01_开赛.txt",
+    "seat": "team1_a"
+  },
+  {
+    "file": "prompts/team1_a/02_中场.txt",
+    "seat": "team1_a"
+  },
+  {
+    "file": "prompts/team1_a/04_复盘.txt",
+    "seat": "team1_a"
+  },
+  {
+    "file": "prompts/team1_b/00_开赛提示词.txt",
+    "seat": "team1_b"
+  },
+  {
+    "file": "prompts/team1_b/01_开赛.txt",
+    "seat": "team1_b"
+  },
+  {
+    "file": "prompts/team1_b/02_中场.txt",
+    "seat": "team1_b"
+  },
+  {
+    "file": "prompts/team1_b/04_复盘.txt",
+    "seat": "team1_b"
+  },
+  {
+    "file": "prompts/team2_a/00_开赛提示词.txt",
+    "seat": "team2_a"
+  },
+  {
+    "file": "prompts/team2_a/01_开赛.txt",
+    "seat": "team2_a"
+  },
+  {
+    "file": "prompts/team2_a/02_中场.txt",
+    "seat": "team2_a"
+  },
+  {
+    "file": "prompts/team2_a/04_中场.txt",
+    "seat": "team2_a"
+  },
+  {
+    "file": "prompts/team2_a/05_续跑.txt",
+    "seat": "team2_a"
+  },
+  {
+    "file": "prompts/team2_a/06_续跑.txt",
+    "seat": "team2_a"
+  },
+  {
+    "file": "prompts/team2_a/07_复盘.txt",
+    "seat": "team2_a"
+  },
+  {
+    "file": "prompts/team2_b/00_开赛提示词.txt",
+    "seat": "team2_b"
+  },
+  {
+    "file": "prompts/team2_b/01_开赛.txt",
+    "seat": "team2_b"
+  },
+  {
+    "file": "prompts/team2_b/02_中场.txt",
+    "seat": "team2_b"
+  },
+  {
+    "file": "prompts/team2_b/04_中场.txt",
+    "seat": "team2_b"
+  },
+  {
+    "file": "prompts/team2_b/05_续跑.txt",
+    "seat": "team2_b"
+  },
+  {
+    "file": "prompts/team2_b/06_续跑.txt",
+    "seat": "team2_b"
+  },
+  {
+    "file": "prompts/team2_b/07_复盘.txt",
+    "seat": "team2_b"
+  },
+  {
+    "file": "prompts/team3_a/00_开赛提示词.txt",
+    "seat": "team3_a"
+  },
+  {
+    "file": "prompts/team3_a/01_开赛.txt",
+    "seat": "team3_a"
+  },
+  {
+    "file": "prompts/team3_a/02_中场.txt",
+    "seat": "team3_a"
+  },
+  {
+    "file": "prompts/team3_a/04_复盘.txt",
+    "seat": "team3_a"
+  },
+  {
+    "file": "prompts/team3_b/00_开赛提示词.txt",
+    "seat": "team3_b"
+  },
+  {
+    "file": "prompts/team3_b/01_开赛.txt",
+    "seat": "team3_b"
+  },
+  {
+    "file": "prompts/team3_b/02_中场.txt",
+    "seat": "team3_b"
+  },
+  {
+    "file": "prompts/team3_b/04_复盘.txt",
+    "seat": "team3_b"
+  },
+  {
+    "file": "prompts/team4_a/00_开赛提示词.txt",
+    "seat": "team4_a"
+  },
+  {
+    "file": "prompts/team4_a/01_开赛.txt",
+    "seat": "team4_a"
+  },
+  {
+    "file": "prompts/team4_a/02_中场.txt",
+    "seat": "team4_a"
+  },
+  {
+    "file": "prompts/team4_a/06_复盘.txt",
+    "seat": "team4_a"
+  },
+  {
+    "file": "prompts/team4_b/00_开赛提示词.txt",
+    "seat": "team4_b"
+  },
+  {
+    "file": "prompts/team4_b/01_开赛.txt",
+    "seat": "team4_b"
+  },
+  {
+    "file": "prompts/team4_b/02_中场.txt",
+    "seat": "team4_b"
+  },
+  {
+    "file": "prompts/team4_b/06_复盘.txt",
+    "seat": "team4_b"
+  },
+  {
+    "file": "prompts/team5_a/00_开赛提示词.txt",
+    "seat": "team5_a"
+  },
+  {
+    "file": "prompts/team5_a/01_开工.txt",
+    "seat": "team5_a"
+  },
+  {
+    "file": "prompts/team5_a/02_中场.txt",
+    "seat": "team5_a"
+  },
+  {
+    "file": "prompts/team5_a/04_复盘.txt",
+    "seat": "team5_a"
+  },
+  {
+    "file": "prompts/team5_b/00_开赛提示词.txt",
+    "seat": "team5_b"
+  },
+  {
+    "file": "prompts/team5_b/01_开赛.txt",
+    "seat": "team5_b"
+  },
+  {
+    "file": "prompts/team5_b/02_中场.txt",
+    "seat": "team5_b"
+  },
+  {
+    "file": "prompts/team5_b/04_复盘.txt",
+    "seat": "team5_b"
+  },
+  {
+    "file": "prompts/team6_a/00_开赛提示词.txt",
+    "seat": "team6_a"
+  },
+  {
+    "file": "prompts/team6_a/01_开工.txt",
+    "seat": "team6_a"
+  },
+  {
+    "file": "prompts/team6_a/02_中场.txt",
+    "seat": "team6_a"
+  },
+  {
+    "file": "prompts/team6_a/04_复盘.txt",
+    "seat": "team6_a"
+  },
+  {
+    "file": "prompts/team6_b/00_开赛提示词.txt",
+    "seat": "team6_b"
+  },
+  {
+    "file": "prompts/team6_b/01_开工.txt",
+    "seat": "team6_b"
+  },
+  {
+    "file": "prompts/team6_b/02_中场.txt",
+    "seat": "team6_b"
+  },
+  {
+    "file": "prompts/team6_b/04_复盘.txt",
+    "seat": "team6_b"
+  }
+]
