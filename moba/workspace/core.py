@@ -197,7 +197,7 @@ class Bot:
         self.strikes += 1
         self.faults.append((turn, reason))
         if self.strikes >= MAX_STRIKES:
-            self._kill(f"连续 {MAX_STRIKES} 次失败，最后一次：{reason}", turn)
+            self._kill(f"连续 {MAX_STRIKES} 次失败，最后一次：{reason}")
         return None
 
     def _kill(self, reason, turn=None):

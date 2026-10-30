@@ -119,7 +119,7 @@ def batch(specs, games, seed, difficulty, workers):
                 d["score"] += score[i]
                 d["kills"] += st[i].get("kills", 0)
                 d["towers"] += st[i].get("towers", 0)
-                d["faults"] += len(bots[i]["faults"]) + (1 if bots[i]["dead"] else 0)
+                d["faults"] += len(bots[i]["faults"])
                 d["max_ms"] = max(d["max_ms"], bots[i]["max_ms"])
     print(f"{VERSION}  难度 {DIFF_LABELS[difficulty]}  {games} 局（地图种子 {seed}–{seed + (games - 1) // n}）  并行 {workers}")
     for x, d in sorted(stats.items(), key=lambda kv: -kv[1]["score"]):
