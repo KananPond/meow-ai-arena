@@ -1,6 +1,6 @@
 """用你的 bot 挑战"峡谷对决"：单人难度阶梯 + 5v5 挑战全部示例 bot。
 
-  python challenge.py                      用 workspace/submission/bot.cpp（模板，英雄原地不动）
+  python challenge.py                      用 workspace/submission/bot.cpp（需要你先自己创建）
   python challenge.py 我的bot.cpp          单人挑战：从简单到困难逐档打引擎 NPC 队
   python challenge.py 我的bot.cpp --pvp    再和 5 个示例 bot 各打两场（换边）
 

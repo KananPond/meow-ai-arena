@@ -169,12 +169,12 @@ def check():
     compiler = core.find_compiler()
     if not compiler:
         raise SystemExit("没有找到 C++ 编译器（g++ 或 clang++）。请把情况告诉组织方。")
-    result, _ = core.run_match(Game, [program("baseline"), program(str(HERE / "submission" / "bot.cpp"))],
-                               ["baseline", "bot"], 1, record=False, difficulty=0)
+    result, _ = core.run_match(Game, [program("baseline"), program("baseline")],
+                               ["baseline", "baseline"], 1, record=False, difficulty=0)
     bad = [b for b in result["bots"] if b["faults"] or b["dead"]]
     if bad:
         raise SystemExit(f"试跑出错：{bad}")
-    print(f"正常：Python {sys.version.split()[0]}，编译器 {compiler}，基准和模板都能完整打一局。")
+    print(f"正常：Python {sys.version.split()[0]}，编译器 {compiler}，基准能完整打一局。")
 
 
 def main():

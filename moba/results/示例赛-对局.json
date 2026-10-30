@@ -4,1695 +4,959 @@
   "b": "均衡",
   "difficulty": 0,
   "seed": 101,
+  "round": 0,
   "home_is_a": true,
   "replay": null,
   "winner": 1,
-  "reason": "700 回合，1 号队摧毁水晶",
-  "turns": 700,
+  "reason": "579 回合，1 号队摧毁水晶",
+  "turns": 579,
   "score": [
    0.0,
    1.0
   ],
-  "stats": [
-   {
-    "minions": 198,
-    "camps": 14,
-    "deaths": 29,
-    "kills": 3
-   },
-   {
-    "minions": 250,
-    "camps": 16,
-    "kills": 29,
-    "deaths": 3,
-    "towers": 3
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "发育",
-  "difficulty": 0,
-  "seed": 102,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "681 回合，0 号队摧毁水晶",
-  "turns": 681,
-  "score": [
-   1.0,
-   0.0
+  "kda": [
+   0.10714285714285714,
+   10.333333333333334
   ],
   "stats": [
    {
-    "minions": 334,
-    "camps": 18,
-    "kills": 41,
-    "deaths": 3,
-    "towers": 3
-   },
-   {
-    "camps": 15,
-    "minions": 289,
-    "deaths": 41,
-    "kills": 3
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "均衡",
-  "difficulty": 1,
-  "seed": 103,
-  "home_is_a": true,
-  "replay": "示例-发育-vs-均衡-seed103",
-  "winner": 1,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 414,
-    "camps": 26,
-    "deaths": 33,
-    "kills": 8
-   },
-   {
-    "minions": 518,
-    "camps": 22,
-    "kills": 33,
-    "deaths": 8,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "发育",
-  "difficulty": 1,
-  "seed": 104,
-  "home_is_a": false,
-  "replay": "示例-均衡-vs-发育-seed104",
-  "winner": 0,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 439,
-    "kills": 43,
-    "deaths": 5,
-    "camps": 17,
-    "towers": 1
-   },
-   {
-    "minions": 317,
-    "camps": 21,
-    "deaths": 43,
-    "kills": 5
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "均衡",
-  "difficulty": 2,
-  "seed": 105,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 493,
-    "camps": 22,
-    "deaths": 33,
-    "kills": 10
-   },
-   {
-    "minions": 594,
-    "camps": 21,
-    "kills": 33,
-    "deaths": 10,
-    "towers": 3
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "发育",
-  "difficulty": 2,
-  "seed": 106,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 409,
-    "camps": 18,
-    "kills": 19,
-    "deaths": 12,
-    "towers": 1
-   },
-   {
-    "minions": 348,
-    "camps": 43,
-    "deaths": 19,
-    "kills": 12
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "抱团",
-  "difficulty": 0,
-  "seed": 107,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 0,
-  "reason": "506 回合，0 号队摧毁水晶",
-  "turns": 506,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 247,
-    "camps": 9,
-    "deaths": 25,
-    "kills": 2,
-    "towers": 2
-   },
-   {
-    "minions": 228,
-    "kills": 25,
-    "deaths": 2,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "发育",
-  "difficulty": 0,
-  "seed": 108,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
-  "turns": 700,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 334,
-    "kills": 34,
-    "deaths": 12,
-    "towers": 1
-   },
-   {
-    "camps": 15,
-    "minions": 341,
-    "deaths": 34,
-    "kills": 12,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "抱团",
-  "difficulty": 1,
-  "seed": 109,
-  "home_is_a": true,
-  "replay": "示例-发育-vs-抱团-seed109",
-  "winner": 0,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 514,
-    "camps": 22,
-    "deaths": 38,
-    "kills": 11,
-    "towers": 2
-   },
-   {
-    "minions": 447,
-    "kills": 38,
-    "deaths": 11,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "发育",
-  "difficulty": 1,
-  "seed": 110,
-  "home_is_a": false,
-  "replay": "示例-抱团-vs-发育-seed110",
-  "winner": 1,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 441,
-    "deaths": 18,
-    "kills": 42,
-    "towers": 1
-   },
-   {
-    "minions": 486,
-    "camps": 29,
-    "kills": 18,
-    "deaths": 42,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "抱团",
-  "difficulty": 2,
-  "seed": 111,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 530,
-    "camps": 48,
-    "kills": 24,
-    "deaths": 51,
-    "towers": 2
-   },
-   {
-    "minions": 533,
-    "deaths": 24,
-    "kills": 51,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "发育",
-  "difficulty": 2,
-  "seed": 112,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 548,
-    "kills": 48,
-    "deaths": 25,
-    "towers": 1
-   },
-   {
-    "minions": 528,
-    "camps": 51,
-    "deaths": 48,
-    "kills": 25,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "游走",
-  "difficulty": 0,
-  "seed": 113,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
-  "turns": 700,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "camps": 17,
-    "minions": 315,
-    "deaths": 32,
-    "kills": 17
-   },
-   {
-    "minions": 343,
-    "camps": 12,
-    "kills": 32,
-    "deaths": 17,
-    "towers": 3
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "发育",
-  "difficulty": 0,
-  "seed": 114,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
-  "turns": 700,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 274,
-    "camps": 15,
-    "kills": 29,
-    "deaths": 15,
-    "towers": 3
-   },
-   {
-    "camps": 19,
-    "minions": 236,
-    "deaths": 29,
-    "kills": 15
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "游走",
-  "difficulty": 1,
-  "seed": 115,
-  "home_is_a": true,
-  "replay": "示例-发育-vs-游走-seed115",
-  "winner": 1,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 458,
-    "camps": 34,
-    "deaths": 32,
-    "kills": 24
-   },
-   {
-    "minions": 496,
-    "camps": 13,
-    "kills": 32,
-    "deaths": 24,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "发育",
-  "difficulty": 1,
-  "seed": 116,
-  "home_is_a": false,
-  "replay": "示例-游走-vs-发育-seed116",
-  "winner": 0,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 370,
-    "camps": 16,
-    "kills": 31,
-    "deaths": 26,
-    "towers": 1
-   },
-   {
-    "minions": 308,
-    "camps": 34,
-    "deaths": 31,
-    "kills": 26
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "游走",
-  "difficulty": 2,
-  "seed": 117,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 507,
-    "camps": 36,
-    "deaths": 41,
-    "kills": 25
-   },
-   {
-    "minions": 558,
-    "camps": 13,
-    "kills": 41,
-    "deaths": 25,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "发育",
-  "difficulty": 2,
-  "seed": 118,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 566,
-    "camps": 10,
-    "kills": 36,
-    "deaths": 21,
-    "towers": 2
-   },
-   {
-    "minions": 514,
-    "camps": 24,
-    "deaths": 36,
-    "kills": 21,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "速推",
-  "difficulty": 0,
-  "seed": 119,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "358 回合，1 号队摧毁水晶",
-  "turns": 358,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 146,
+    "minions": 217,
     "camps": 11,
-    "deaths": 22,
-    "kills": 7,
-    "towers": 1
-   },
-   {
-    "minions": 172,
-    "kills": 22,
-    "deaths": 7,
-    "towers": 4
-   }
-  ]
- },
- {
-  "a": "速推",
-  "b": "发育",
-  "difficulty": 0,
-  "seed": 120,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "122 回合，0 号队摧毁水晶",
-  "turns": 122,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 54,
-    "kills": 8,
-    "towers": 2,
-    "deaths": 4
-   },
-   {
-    "minions": 43,
-    "camps": 7,
-    "deaths": 8,
-    "kills": 4
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "速推",
-  "difficulty": 1,
-  "seed": 121,
-  "home_is_a": true,
-  "replay": "示例-发育-vs-速推-seed121",
-  "winner": 1,
-  "reason": "634 回合，1 号队摧毁水晶",
-  "turns": 634,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 287,
-    "camps": 17,
-    "deaths": 31,
-    "kills": 18,
-    "towers": 1
-   },
-   {
-    "minions": 354,
-    "kills": 31,
-    "deaths": 18,
-    "towers": 4
-   }
-  ]
- },
- {
-  "a": "速推",
-  "b": "发育",
-  "difficulty": 1,
-  "seed": 122,
-  "home_is_a": false,
-  "replay": "示例-速推-vs-发育-seed122",
-  "winner": 0,
-  "reason": "544 回合，0 号队摧毁水晶",
-  "turns": 544,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 323,
-    "deaths": 13,
-    "kills": 24,
-    "towers": 6
-   },
-   {
-    "minions": 249,
-    "camps": 14,
-    "kills": 13,
-    "deaths": 24
-   }
-  ]
- },
- {
-  "a": "发育",
-  "b": "速推",
-  "difficulty": 2,
-  "seed": 123,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 476,
-    "camps": 24,
-    "deaths": 42,
-    "kills": 21,
-    "towers": 2
-   },
-   {
-    "minions": 622,
-    "kills": 42,
-    "deaths": 21,
-    "towers": 6
-   }
-  ]
- },
- {
-  "a": "速推",
-  "b": "发育",
-  "difficulty": 2,
-  "seed": 124,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 592,
-    "deaths": 34,
-    "kills": 40,
-    "towers": 3
-   },
-   {
-    "minions": 526,
-    "kills": 34,
-    "deaths": 40,
-    "camps": 25,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "抱团",
-  "difficulty": 0,
-  "seed": 125,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
-  "turns": 700,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 342,
-    "camps": 19,
-    "kills": 13,
-    "deaths": 4,
-    "towers": 1
-   },
-   {
-    "minions": 189,
-    "deaths": 13,
-    "kills": 4
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "均衡",
-  "difficulty": 0,
-  "seed": 126,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 1,
-  "reason": "629 回合，1 号队摧毁水晶",
-  "turns": 629,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 170,
-    "kills": 5,
-    "deaths": 8
-   },
-   {
-    "camps": 16,
-    "minions": 309,
-    "deaths": 5,
-    "kills": 8,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "抱团",
-  "difficulty": 1,
-  "seed": 127,
-  "home_is_a": true,
-  "replay": "示例-均衡-vs-抱团-seed127",
-  "winner": 0,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 561,
-    "camps": 14,
-    "kills": 27,
-    "towers": 3,
-    "deaths": 8
-   },
-   {
-    "minions": 387,
-    "deaths": 27,
-    "kills": 8
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "均衡",
-  "difficulty": 1,
-  "seed": 128,
-  "home_is_a": false,
-  "replay": "示例-抱团-vs-均衡-seed128",
-  "winner": 1,
-  "reason": "604 回合，1 号队摧毁水晶",
-  "turns": 604,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 239,
-    "deaths": 19,
-    "kills": 3
-   },
-   {
-    "minions": 345,
-    "camps": 14,
-    "kills": 19,
-    "deaths": 3,
-    "towers": 3
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "抱团",
-  "difficulty": 2,
-  "seed": 129,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 631,
-    "camps": 22,
-    "kills": 19,
-    "deaths": 13,
-    "towers": 2
-   },
-   {
-    "minions": 464,
-    "deaths": 19,
-    "kills": 13
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "均衡",
-  "difficulty": 2,
-  "seed": 130,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 480,
-    "deaths": 22,
-    "kills": 20,
-    "towers": 1
-   },
-   {
-    "minions": 637,
-    "kills": 22,
-    "deaths": 20,
-    "towers": 3,
-    "camps": 12
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "游走",
-  "difficulty": 0,
-  "seed": 131,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
-  "turns": 700,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "camps": 18,
-    "minions": 342,
-    "kills": 31,
-    "deaths": 9,
-    "towers": 3
-   },
-   {
-    "minions": 291,
-    "camps": 8,
-    "deaths": 31,
-    "kills": 9
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "均衡",
-  "difficulty": 0,
-  "seed": 132,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
-  "turns": 700,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 299,
-    "camps": 11,
-    "kills": 12,
-    "deaths": 34
-   },
-   {
-    "camps": 21,
-    "minions": 343,
-    "deaths": 12,
-    "kills": 34,
-    "towers": 3
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "游走",
-  "difficulty": 1,
-  "seed": 133,
-  "home_is_a": true,
-  "replay": "示例-均衡-vs-游走-seed133",
-  "winner": 0,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 491,
-    "kills": 44,
-    "camps": 26,
-    "deaths": 14,
-    "towers": 1
-   },
-   {
-    "minions": 426,
-    "camps": 8,
-    "deaths": 44,
-    "kills": 14
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "均衡",
-  "difficulty": 1,
-  "seed": 134,
-  "home_is_a": false,
-  "replay": "示例-游走-vs-均衡-seed134",
-  "winner": 1,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 326,
-    "camps": 10,
-    "deaths": 37,
-    "kills": 11
-   },
-   {
-    "minions": 409,
-    "camps": 19,
-    "kills": 37,
-    "deaths": 11,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "游走",
-  "difficulty": 2,
-  "seed": 135,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 566,
-    "deaths": 13,
-    "camps": 13,
-    "kills": 36,
-    "towers": 2
-   },
-   {
-    "minions": 497,
-    "kills": 13,
-    "deaths": 36
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "均衡",
-  "difficulty": 2,
-  "seed": 136,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 484,
-    "camps": 9,
-    "deaths": 50,
-    "kills": 8
-   },
-   {
-    "minions": 608,
-    "kills": 50,
-    "camps": 30,
-    "deaths": 8,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "速推",
-  "difficulty": 0,
-  "seed": 137,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "379 回合，1 号队摧毁水晶",
-  "turns": 379,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 152,
-    "camps": 1,
-    "deaths": 18,
-    "kills": 7
-   },
-   {
-    "minions": 173,
-    "kills": 18,
-    "deaths": 7,
-    "towers": 4
-   }
-  ]
- },
- {
-  "a": "速推",
-  "b": "均衡",
-  "difficulty": 0,
-  "seed": 138,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "348 回合，0 号队摧毁水晶",
-  "turns": 348,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 152,
-    "kills": 15,
-    "deaths": 10,
-    "towers": 6
-   },
-   {
-    "minions": 138,
-    "camps": 6,
-    "deaths": 15,
-    "kills": 10,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "速推",
-  "difficulty": 1,
-  "seed": 139,
-  "home_is_a": true,
-  "replay": "示例-均衡-vs-速推-seed139",
-  "winner": 1,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 411,
-    "camps": 17,
-    "deaths": 16,
-    "kills": 24,
-    "towers": 1
-   },
-   {
-    "minions": 395,
-    "kills": 16,
-    "deaths": 24,
-    "towers": 3
-   }
-  ]
- },
- {
-  "a": "速推",
-  "b": "均衡",
-  "difficulty": 1,
-  "seed": 140,
-  "home_is_a": false,
-  "replay": "示例-速推-vs-均衡-seed140",
-  "winner": 1,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 444,
-    "kills": 18,
-    "deaths": 22,
-    "towers": 3
-   },
-   {
-    "minions": 488,
-    "camps": 23,
-    "deaths": 18,
-    "kills": 22,
-    "towers": 2
-   }
-  ]
- },
- {
-  "a": "均衡",
-  "b": "速推",
-  "difficulty": 2,
-  "seed": 141,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 607,
-    "deaths": 17,
-    "kills": 35,
-    "camps": 31,
-    "towers": 2
-   },
-   {
-    "minions": 530,
-    "kills": 17,
-    "deaths": 35,
-    "towers": 3
-   }
-  ]
- },
- {
-  "a": "速推",
-  "b": "均衡",
-  "difficulty": 2,
-  "seed": 142,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 549,
-    "deaths": 31,
-    "kills": 25,
-    "towers": 3
-   },
-   {
-    "minions": 562,
-    "camps": 18,
-    "kills": 31,
-    "deaths": 25,
-    "towers": 3
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "游走",
-  "difficulty": 0,
-  "seed": 143,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
-  "turns": 700,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 334,
-    "kills": 18,
-    "deaths": 12,
-    "towers": 1
-   },
-   {
-    "minions": 342,
-    "camps": 16,
-    "deaths": 18,
-    "kills": 12,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "抱团",
-  "difficulty": 0,
-  "seed": 144,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
-  "turns": 700,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 344,
-    "camps": 16,
-    "kills": 16,
-    "deaths": 21,
-    "towers": 3
-   },
-   {
-    "minions": 304,
-    "deaths": 16,
-    "kills": 21,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "游走",
-  "difficulty": 1,
-  "seed": 145,
-  "home_is_a": true,
-  "replay": "示例-抱团-vs-游走-seed145",
-  "winner": 1,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 434,
-    "deaths": 22,
-    "kills": 13
-   },
-   {
-    "minions": 501,
-    "camps": 12,
-    "kills": 22,
-    "deaths": 13,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "抱团",
-  "difficulty": 1,
-  "seed": 146,
-  "home_is_a": false,
-  "replay": "示例-游走-vs-抱团-seed146",
-  "winner": 1,
-  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
-  "turns": 900,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 470,
-    "camps": 5,
-    "kills": 19,
-    "deaths": 7
-   },
-   {
-    "minions": 482,
-    "deaths": 19,
-    "kills": 7
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "游走",
-  "difficulty": 2,
-  "seed": 147,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 518,
-    "kills": 29,
-    "deaths": 32,
-    "towers": 1
-   },
-   {
-    "minions": 553,
-    "camps": 16,
-    "deaths": 29,
-    "kills": 32,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "抱团",
-  "difficulty": 2,
-  "seed": 148,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 550,
-    "camps": 19,
-    "deaths": 24,
-    "kills": 25,
-    "towers": 2
-   },
-   {
-    "minions": 499,
-    "kills": 24,
-    "deaths": 25
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "速推",
-  "difficulty": 0,
-  "seed": 149,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "128 回合，1 号队摧毁水晶",
-  "turns": 128,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 46,
+    "deaths": 28,
     "kills": 3,
-    "deaths": 2
+    "assists": 0,
+    "towers": 0
    },
    {
-    "minions": 60,
+    "minions": 269,
+    "camps": 11,
+    "kills": 28,
+    "assists": 3,
+    "deaths": 3,
+    "towers": 3
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "发育",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
+  "turns": 700,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   7.2,
+   0.15151515151515152
+  ],
+  "stats": [
+   {
+    "minions": 302,
+    "camps": 17,
+    "deaths": 5,
+    "kills": 33,
+    "assists": 3,
+    "towers": 3
+   },
+   {
+    "camps": 4,
+    "minions": 215,
+    "kills": 5,
+    "assists": 0,
+    "deaths": 33,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "抱团",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
+  "turns": 700,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   0.11428571428571428,
+   12.333333333333334
+  ],
+  "stats": [
+   {
+    "minions": 342,
+    "camps": 23,
+    "deaths": 35,
+    "towers": 3,
+    "kills": 3,
+    "assists": 1
+   },
+   {
+    "minions": 303,
+    "kills": 35,
+    "assists": 2,
+    "deaths": 3,
+    "towers": 1,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "发育",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "694 回合，1 号队摧毁水晶",
+  "turns": 694,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   7.8,
+   0.13157894736842105
+  ],
+  "stats": [
+   {
+    "minions": 310,
+    "kills": 38,
+    "assists": 1,
+    "deaths": 5,
+    "towers": 1,
+    "camps": 0
+   },
+   {
+    "camps": 21,
+    "minions": 340,
+    "deaths": 38,
+    "kills": 5,
+    "assists": 0,
+    "towers": 3
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "游走",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
+  "turns": 700,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.6333333333333333,
+   1.8333333333333333
+  ],
+  "stats": [
+   {
+    "minions": 214,
+    "camps": 17,
+    "deaths": 30,
+    "kills": 18,
+    "assists": 1,
+    "towers": 0
+   },
+   {
+    "minions": 238,
+    "camps": 8,
+    "kills": 30,
+    "assists": 3,
+    "deaths": 18,
+    "towers": 3
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "发育",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
+  "turns": 700,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   2.235294117647059,
+   0.4594594594594595
+  ],
+  "stats": [
+   {
+    "minions": 329,
+    "camps": 6,
+    "kills": 37,
+    "assists": 1,
+    "deaths": 17,
+    "towers": 2
+   },
+   {
+    "camps": 17,
+    "minions": 290,
+    "deaths": 37,
+    "kills": 17,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "速推",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "171 回合，1 号队摧毁水晶",
+  "turns": 171,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.21428571428571427,
+   6.0
+  ],
+  "stats": [
+   {
+    "minions": 63,
+    "camps": 6,
+    "deaths": 14,
+    "kills": 3,
+    "assists": 0,
+    "towers": 0
+   },
+   {
+    "minions": 80,
+    "kills": 14,
+    "assists": 4,
     "deaths": 3,
     "towers": 2,
-    "kills": 2
+    "camps": 0
    }
   ]
  },
  {
   "a": "速推",
-  "b": "抱团",
+  "b": "发育",
   "difficulty": 0,
-  "seed": 150,
+  "seed": 101,
+  "round": 0,
   "home_is_a": false,
   "replay": null,
   "winner": 0,
-  "reason": "100 回合，0 号队摧毁水晶",
-  "turns": 100,
+  "reason": "94 回合，0 号队摧毁水晶",
+  "turns": 94,
   "score": [
    1.0,
    0.0
   ],
+  "kda": [
+   2.5,
+   0.5
+  ],
   "stats": [
    {
-    "minions": 43,
-    "deaths": 3,
+    "minions": 38,
+    "kills": 4,
+    "assists": 1,
+    "deaths": 2,
     "towers": 2,
-    "kills": 1
+    "camps": 0
    },
    {
     "minions": 32,
-    "kills": 3,
+    "camps": 6,
+    "deaths": 4,
+    "kills": 2,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "抱团",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
+  "turns": 700,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   6.0,
+   0.16666666666666666
+  ],
+  "stats": [
+   {
+    "minions": 342,
+    "camps": 15,
+    "deaths": 1,
+    "kills": 6,
+    "assists": 0,
+    "towers": 0
+   },
+   {
+    "minions": 136,
+    "kills": 1,
+    "assists": 0,
+    "deaths": 6,
+    "towers": 0,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "均衡",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "260 回合，1 号队摧毁水晶",
+  "turns": 260,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.16666666666666666,
+   8.0
+  ],
+  "stats": [
+   {
+    "minions": 68,
+    "deaths": 6,
+    "kills": 1,
+    "assists": 0,
+    "towers": 0,
+    "camps": 0
+   },
+   {
+    "camps": 8,
+    "minions": 124,
+    "kills": 6,
+    "assists": 2,
+    "towers": 2,
     "deaths": 1
    }
   ]
  },
  {
+  "a": "均衡",
+  "b": "游走",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "538 回合，0 号队摧毁水晶",
+  "turns": 538,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   5.0,
+   0.23684210526315788
+  ],
+  "stats": [
+   {
+    "minions": 258,
+    "camps": 20,
+    "kills": 38,
+    "assists": 7,
+    "deaths": 9,
+    "towers": 3
+   },
+   {
+    "minions": 215,
+    "camps": 9,
+    "deaths": 38,
+    "kills": 9,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "均衡",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "662 回合，1 号队摧毁水晶",
+  "turns": 662,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.20588235294117646,
+   6.5
+  ],
+  "stats": [
+   {
+    "camps": 8,
+    "minions": 229,
+    "deaths": 34,
+    "kills": 6,
+    "assists": 1,
+    "towers": 0
+   },
+   {
+    "minions": 273,
+    "camps": 23,
+    "kills": 34,
+    "assists": 5,
+    "deaths": 6,
+    "towers": 3
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "速推",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
+  "turns": 700,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.2727272727272727,
+   0.8571428571428571
+  ],
+  "stats": [
+   {
+    "minions": 247,
+    "camps": 14,
+    "deaths": 11,
+    "kills": 14,
+    "assists": 0,
+    "towers": 1
+   },
+   {
+    "minions": 157,
+    "kills": 11,
+    "assists": 1,
+    "deaths": 14,
+    "towers": 1,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "均衡",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "192 回合，0 号队摧毁水晶",
+  "turns": 192,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   2.3333333333333335,
+   0.75
+  ],
+  "stats": [
+   {
+    "minions": 82,
+    "kills": 4,
+    "assists": 3,
+    "deaths": 3,
+    "towers": 2,
+    "camps": 0
+   },
+   {
+    "minions": 76,
+    "camps": 7,
+    "deaths": 4,
+    "kills": 3,
+    "assists": 0,
+    "towers": 2
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "游走",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
+  "turns": 700,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.5,
+   0.6666666666666666
+  ],
+  "stats": [
+   {
+    "minions": 316,
+    "deaths": 14,
+    "kills": 21,
+    "assists": 0,
+    "towers": 0,
+    "camps": 0
+   },
+   {
+    "minions": 340,
+    "camps": 19,
+    "kills": 14,
+    "assists": 0,
+    "deaths": 21,
+    "towers": 1
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "抱团",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 700 回合，按剩余建筑血量与击杀判定",
+  "turns": 700,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   0.36,
+   3.0
+  ],
+  "stats": [
+   {
+    "minions": 341,
+    "camps": 20,
+    "deaths": 25,
+    "kills": 9,
+    "assists": 0,
+    "towers": 3
+   },
+   {
+    "minions": 308,
+    "kills": 25,
+    "assists": 2,
+    "deaths": 9,
+    "towers": 0,
+    "camps": 0
+   }
+  ]
+ },
+ {
   "a": "抱团",
   "b": "速推",
-  "difficulty": 1,
-  "seed": 151,
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
   "home_is_a": true,
-  "replay": "示例-抱团-vs-速推-seed151",
+  "replay": null,
+  "winner": 1,
+  "reason": "319 回合，1 号队摧毁水晶",
+  "turns": 319,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.3333333333333333,
+   3.888888888888889
+  ],
+  "stats": [
+   {
+    "minions": 127,
+    "kills": 9,
+    "assists": 0,
+    "deaths": 27,
+    "towers": 1,
+    "camps": 0
+   },
+   {
+    "minions": 155,
+    "deaths": 9,
+    "towers": 4,
+    "kills": 27,
+    "assists": 8,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "抱团",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "99 回合，0 号队摧毁水晶",
+  "turns": 99,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   0.0,
+   3.0
+  ],
+  "stats": [
+   {
+    "minions": 42,
+    "deaths": 3,
+    "towers": 2,
+    "kills": 0,
+    "assists": 0,
+    "camps": 0
+   },
+   {
+    "minions": 33,
+    "kills": 3,
+    "assists": 0,
+    "deaths": 0,
+    "towers": 0,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "速推",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "150 回合，1 号队摧毁水晶",
+  "turns": 150,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.5,
+   2.5
+  ],
+  "stats": [
+   {
+    "minions": 59,
+    "camps": 3,
+    "deaths": 8,
+    "kills": 4,
+    "assists": 0,
+    "towers": 0
+   },
+   {
+    "minions": 71,
+    "kills": 8,
+    "assists": 2,
+    "deaths": 4,
+    "towers": 2,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "游走",
+  "difficulty": 0,
+  "seed": 101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "525 回合，0 号队摧毁水晶",
+  "turns": 525,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   4.375,
+   0.25
+  ],
+  "stats": [
+   {
+    "minions": 254,
+    "kills": 32,
+    "assists": 3,
+    "towers": 6,
+    "deaths": 8,
+    "camps": 0
+   },
+   {
+    "minions": 198,
+    "camps": 5,
+    "deaths": 32,
+    "kills": 8,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "均衡",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
   "winner": 1,
   "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
   "turns": 900,
   "score": [
    0.0,
    1.0
+  ],
+  "kda": [
+   0.1111111111111111,
+   10.0
+  ],
+  "stats": [
+   {
+    "minions": 275,
+    "camps": 23,
+    "deaths": 27,
+    "kills": 3,
+    "assists": 0,
+    "towers": 0
+   },
+   {
+    "minions": 333,
+    "kills": 27,
+    "assists": 3,
+    "deaths": 3,
+    "camps": 3,
+    "towers": 3
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "发育",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   2.8,
+   0.4166666666666667
+  ],
+  "stats": [
+   {
+    "minions": 488,
+    "kills": 36,
+    "assists": 6,
+    "deaths": 15,
+    "camps": 12,
+    "towers": 2
+   },
+   {
+    "minions": 368,
+    "camps": 17,
+    "deaths": 36,
+    "kills": 15,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "抱团",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   0.40540540540540543,
+   2.466666666666667
+  ],
+  "stats": [
+   {
+    "minions": 430,
+    "camps": 24,
+    "deaths": 37,
+    "kills": 15,
+    "assists": 0,
+    "towers": 1
+   },
+   {
+    "minions": 397,
+    "kills": 37,
+    "assists": 0,
+    "deaths": 15,
+    "towers": 1,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "发育",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.5,
+   0.6666666666666666
   ],
   "stats": [
    {
     "minions": 394,
-    "kills": 23,
-    "deaths": 26
+    "kills": 30,
+    "assists": 0,
+    "deaths": 20,
+    "towers": 0,
+    "camps": 0
    },
    {
-    "minions": 541,
-    "deaths": 23,
-    "towers": 5,
-    "kills": 26
+    "minions": 448,
+    "camps": 18,
+    "deaths": 30,
+    "kills": 20,
+    "assists": 0,
+    "towers": 2
    }
   ]
  },
  {
-  "a": "速推",
-  "b": "抱团",
+  "a": "发育",
+  "b": "游走",
   "difficulty": 1,
-  "seed": 152,
-  "home_is_a": false,
-  "replay": "示例-速推-vs-抱团-seed152",
-  "winner": 0,
-  "reason": "575 回合，0 号队摧毁水晶",
-  "turns": 575,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 340,
-    "deaths": 11,
-    "towers": 4,
-    "kills": 13
-   },
-   {
-    "minions": 274,
-    "kills": 11,
-    "deaths": 13,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "抱团",
-  "b": "速推",
-  "difficulty": 2,
-  "seed": 153,
+  "seed": 10101,
+  "round": 0,
   "home_is_a": true,
   "replay": null,
   "winner": 1,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
   "score": [
    0.0,
    1.0
   ],
-  "stats": [
-   {
-    "minions": 466,
-    "deaths": 25,
-    "kills": 27,
-    "towers": 1
-   },
-   {
-    "minions": 584,
-    "kills": 25,
-    "towers": 4,
-    "deaths": 27
-   }
-  ]
- },
- {
-  "a": "速推",
-  "b": "抱团",
-  "difficulty": 2,
-  "seed": 154,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
-  "turns": 1100,
-  "score": [
-   1.0,
-   0.0
+  "kda": [
+   0.8125,
+   1.2692307692307692
   ],
   "stats": [
    {
-    "minions": 626,
-    "deaths": 26,
-    "kills": 22,
-    "towers": 4
-   },
-   {
-    "minions": 502,
+    "minions": 391,
+    "camps": 30,
+    "deaths": 32,
     "kills": 26,
-    "deaths": 22,
-    "towers": 1
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "速推",
-  "difficulty": 0,
-  "seed": 155,
-  "home_is_a": true,
-  "replay": null,
-  "winner": 1,
-  "reason": "543 回合，1 号队摧毁水晶",
-  "turns": 543,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 231,
-    "camps": 3,
-    "deaths": 34,
-    "kills": 13,
-    "towers": 2
+    "assists": 0,
+    "towers": 0
    },
    {
-    "minions": 261,
-    "kills": 34,
-    "deaths": 13,
-    "towers": 6
-   }
-  ]
- },
- {
-  "a": "速推",
-  "b": "游走",
-  "difficulty": 0,
-  "seed": 156,
-  "home_is_a": false,
-  "replay": null,
-  "winner": 0,
-  "reason": "466 回合，0 号队摧毁水晶",
-  "turns": 466,
-  "score": [
-   1.0,
-   0.0
-  ],
-  "stats": [
-   {
-    "minions": 219,
-    "kills": 28,
-    "towers": 6,
-    "deaths": 11
-   },
-   {
-    "minions": 188,
-    "camps": 5,
-    "deaths": 28,
-    "kills": 11
-   }
-  ]
- },
- {
-  "a": "游走",
-  "b": "速推",
-  "difficulty": 1,
-  "seed": 157,
-  "home_is_a": true,
-  "replay": "示例-游走-vs-速推-seed157",
-  "winner": 1,
-  "reason": "256 回合，1 号队摧毁水晶",
-  "turns": 256,
-  "score": [
-   0.0,
-   1.0
-  ],
-  "stats": [
-   {
-    "minions": 121,
-    "camps": 3,
-    "deaths": 9,
-    "kills": 5
-   },
-   {
-    "minions": 135,
-    "kills": 9,
-    "deaths": 5,
+    "minions": 443,
+    "camps": 8,
+    "kills": 32,
+    "assists": 1,
+    "deaths": 26,
     "towers": 2
    }
   ]
  },
  {
-  "a": "速推",
-  "b": "游走",
+  "a": "游走",
+  "b": "发育",
   "difficulty": 1,
-  "seed": 158,
+  "seed": 10101,
+  "round": 0,
   "home_is_a": false,
-  "replay": "示例-速推-vs-游走-seed158",
+  "replay": null,
   "winner": 0,
   "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
   "turns": 900,
@@ -1700,27 +964,567 @@
    1.0,
    0.0
   ],
+  "kda": [
+   1.894736842105263,
+   0.5588235294117647
+  ],
   "stats": [
    {
-    "minions": 503,
+    "minions": 338,
+    "camps": 5,
     "kills": 34,
-    "deaths": 24,
-    "towers": 6
+    "assists": 2,
+    "deaths": 19,
+    "towers": 1
    },
    {
-    "minions": 429,
-    "camps": 4,
+    "minions": 302,
+    "camps": 14,
     "deaths": 34,
+    "kills": 19,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "速推",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.6333333333333333,
+   1.631578947368421
+  ],
+  "stats": [
+   {
+    "minions": 348,
+    "camps": 27,
+    "kills": 19,
+    "assists": 0,
+    "deaths": 30,
+    "towers": 0
+   },
+   {
+    "minions": 478,
+    "deaths": 19,
+    "kills": 30,
+    "assists": 1,
+    "towers": 4,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "发育",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "540 回合，0 号队摧毁水晶",
+  "turns": 540,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.9333333333333333,
+   0.625
+  ],
+  "stats": [
+   {
+    "minions": 289,
     "kills": 24,
+    "assists": 5,
+    "deaths": 15,
+    "towers": 4,
+    "camps": 0
+   },
+   {
+    "minions": 225,
+    "camps": 11,
+    "deaths": 24,
+    "kills": 15,
+    "assists": 0,
+    "towers": 1
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "抱团",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.0,
+   1.0909090909090908
+  ],
+  "stats": [
+   {
+    "minions": 436,
+    "kills": 11,
+    "assists": 0,
+    "deaths": 11,
+    "camps": 7,
+    "towers": 0
+   },
+   {
+    "minions": 360,
+    "deaths": 11,
+    "kills": 11,
+    "assists": 1,
+    "towers": 1,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "均衡",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "380 回合，1 号队摧毁水晶",
+  "turns": 380,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.15384615384615385,
+   7.0
+  ],
+  "stats": [
+   {
+    "minions": 141,
+    "kills": 2,
+    "assists": 0,
+    "deaths": 13,
+    "towers": 0,
+    "camps": 0
+   },
+   {
+    "minions": 204,
+    "camps": 1,
+    "deaths": 2,
+    "kills": 13,
+    "assists": 1,
+    "towers": 2
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "游走",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   7.428571428571429,
+   0.15555555555555556
+  ],
+  "stats": [
+   {
+    "minions": 454,
+    "kills": 45,
+    "assists": 7,
+    "camps": 16,
+    "deaths": 7,
+    "towers": 2
+   },
+   {
+    "minions": 358,
+    "camps": 4,
+    "deaths": 45,
+    "kills": 7,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "均衡",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.3783783783783784,
+   3.142857142857143
+  ],
+  "stats": [
+   {
+    "minions": 374,
+    "kills": 14,
+    "assists": 0,
+    "camps": 2,
+    "deaths": 37,
+    "towers": 0
+   },
+   {
+    "minions": 481,
+    "camps": 9,
+    "deaths": 14,
+    "kills": 37,
+    "assists": 7,
+    "towers": 2
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "速推",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.1363636363636365,
+   0.96
+  ],
+  "stats": [
+   {
+    "minions": 455,
+    "kills": 25,
+    "assists": 0,
+    "camps": 13,
+    "deaths": 22,
     "towers": 3
+   },
+   {
+    "minions": 411,
+    "deaths": 25,
+    "kills": 22,
+    "assists": 2,
+    "towers": 3,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "均衡",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "605 回合，1 号队摧毁水晶",
+  "turns": 605,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.2666666666666666,
+   1.1428571428571428
+  ],
+  "stats": [
+   {
+    "minions": 279,
+    "kills": 14,
+    "assists": 5,
+    "deaths": 15,
+    "towers": 3,
+    "camps": 0
+   },
+   {
+    "minions": 290,
+    "camps": 10,
+    "deaths": 14,
+    "kills": 15,
+    "assists": 1,
+    "towers": 2
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "游走",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.608695652173913,
+   0.6764705882352942
+  ],
+  "stats": [
+   {
+    "minions": 388,
+    "kills": 34,
+    "assists": 3,
+    "deaths": 23,
+    "towers": 0,
+    "camps": 0
+   },
+   {
+    "minions": 434,
+    "camps": 3,
+    "deaths": 34,
+    "kills": 23,
+    "assists": 0,
+    "towers": 2
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "抱团",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.2,
+   0.8333333333333334
+  ],
+  "stats": [
+   {
+    "minions": 448,
+    "camps": 3,
+    "deaths": 20,
+    "kills": 24,
+    "assists": 0,
+    "towers": 1
+   },
+   {
+    "minions": 383,
+    "kills": 20,
+    "assists": 0,
+    "deaths": 24,
+    "towers": 0,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "速推",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "275 回合，1 号队摧毁水晶",
+  "turns": 275,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.0,
+   1.0
+  ],
+  "stats": [
+   {
+    "minions": 111,
+    "kills": 8,
+    "assists": 0,
+    "deaths": 8,
+    "towers": 0,
+    "camps": 0
+   },
+   {
+    "minions": 146,
+    "deaths": 8,
+    "kills": 8,
+    "assists": 0,
+    "towers": 2,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "抱团",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "414 回合，0 号队摧毁水晶",
+  "turns": 414,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   0.7272727272727273,
+   1.375
+  ],
+  "stats": [
+   {
+    "minions": 218,
+    "deaths": 11,
+    "kills": 8,
+    "assists": 0,
+    "towers": 2,
+    "camps": 0
+   },
+   {
+    "minions": 174,
+    "kills": 11,
+    "assists": 0,
+    "deaths": 8,
+    "towers": 1,
+    "camps": 0
    }
   ]
  },
  {
   "a": "游走",
   "b": "速推",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 900 回合，按剩余建筑血量与击杀判定",
+  "turns": 900,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.0,
+   1.1363636363636365
+  ],
+  "stats": [
+   {
+    "minions": 398,
+    "camps": 2,
+    "deaths": 22,
+    "kills": 22,
+    "assists": 0,
+    "towers": 1
+   },
+   {
+    "minions": 488,
+    "kills": 22,
+    "assists": 3,
+    "deaths": 22,
+    "towers": 4,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "游走",
+  "difficulty": 1,
+  "seed": 10101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "856 回合，0 号队摧毁水晶",
+  "turns": 856,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   2.625,
+   0.5581395348837209
+  ],
+  "stats": [
+   {
+    "minions": 435,
+    "kills": 43,
+    "assists": 20,
+    "deaths": 24,
+    "towers": 6,
+    "camps": 0
+   },
+   {
+    "minions": 359,
+    "camps": 4,
+    "deaths": 43,
+    "kills": 24,
+    "assists": 0,
+    "towers": 1
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "均衡",
   "difficulty": 2,
-  "seed": 159,
+  "seed": 20101,
+  "round": 0,
   "home_is_a": true,
   "replay": null,
   "winner": 1,
@@ -1730,27 +1534,35 @@
    0.0,
    1.0
   ],
+  "kda": [
+   0.325,
+   3.3076923076923075
+  ],
   "stats": [
    {
-    "minions": 505,
-    "deaths": 31,
-    "kills": 25,
-    "camps": 6,
-    "towers": 2
+    "minions": 403,
+    "camps": 28,
+    "deaths": 40,
+    "kills": 13,
+    "assists": 0,
+    "towers": 0
    },
    {
-    "minions": 573,
-    "kills": 31,
-    "deaths": 25,
-    "towers": 3
+    "minions": 498,
+    "kills": 40,
+    "assists": 3,
+    "deaths": 13,
+    "camps": 14,
+    "towers": 2
    }
   ]
  },
  {
-  "a": "速推",
-  "b": "游走",
+  "a": "均衡",
+  "b": "发育",
   "difficulty": 2,
-  "seed": 160,
+  "seed": 20101,
+  "round": 0,
   "home_is_a": false,
   "replay": null,
   "winner": 0,
@@ -1760,18 +1572,709 @@
    1.0,
    0.0
   ],
+  "kda": [
+   5.428571428571429,
+   0.2
+  ],
   "stats": [
    {
-    "minions": 629,
-    "kills": 34,
+    "minions": 370,
+    "camps": 19,
+    "kills": 35,
+    "assists": 3,
+    "deaths": 7,
+    "towers": 2
+   },
+   {
+    "minions": 287,
+    "camps": 19,
+    "deaths": 35,
+    "kills": 7,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "抱团",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   0.5833333333333334,
+   1.7619047619047619
+  ],
+  "stats": [
+   {
+    "minions": 467,
+    "camps": 27,
+    "deaths": 36,
+    "kills": 21,
+    "assists": 0,
+    "towers": 1
+   },
+   {
+    "minions": 418,
+    "kills": 36,
+    "assists": 1,
+    "deaths": 21,
+    "towers": 1,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "发育",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   2.15,
+   0.46511627906976744
+  ],
+  "stats": [
+   {
+    "minions": 444,
+    "deaths": 20,
+    "kills": 43,
+    "assists": 0,
+    "towers": 1,
+    "camps": 0
+   },
+   {
+    "minions": 440,
+    "camps": 19,
+    "kills": 20,
+    "assists": 0,
+    "deaths": 43,
+    "towers": 1
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "游走",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.5581395348837209,
+   1.9166666666666667
+  ],
+  "stats": [
+   {
+    "minions": 353,
+    "camps": 33,
+    "kills": 24,
+    "assists": 0,
+    "deaths": 43,
+    "towers": 0
+   },
+   {
+    "minions": 396,
+    "deaths": 24,
+    "kills": 43,
+    "assists": 3,
+    "camps": 9,
+    "towers": 2
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "发育",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.6153846153846154,
+   0.6190476190476191
+  ],
+  "stats": [
+   {
+    "minions": 395,
+    "camps": 11,
+    "kills": 42,
+    "assists": 0,
+    "deaths": 26,
+    "towers": 0
+   },
+   {
+    "minions": 378,
+    "camps": 32,
+    "deaths": 42,
+    "kills": 26,
+    "assists": 0,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "发育",
+  "b": "速推",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.6285714285714286,
+   1.6818181818181819
+  ],
+  "stats": [
+   {
+    "minions": 391,
+    "camps": 16,
+    "kills": 22,
+    "assists": 0,
+    "deaths": 35,
+    "towers": 0
+   },
+   {
+    "minions": 509,
     "deaths": 22,
+    "kills": 35,
+    "assists": 2,
+    "towers": 5,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "发育",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.7407407407407407,
+   0.675
+  ],
+  "stats": [
+   {
+    "minions": 544,
+    "kills": 40,
+    "assists": 7,
+    "deaths": 27,
+    "towers": 6,
+    "camps": 0
+   },
+   {
+    "minions": 410,
+    "camps": 23,
+    "deaths": 40,
+    "kills": 27,
+    "assists": 0,
+    "towers": 1
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "抱团",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.6666666666666667,
+   0.6
+  ],
+  "stats": [
+   {
+    "minions": 528,
+    "camps": 11,
+    "deaths": 15,
+    "kills": 25,
+    "assists": 0,
     "towers": 3
    },
    {
-    "minions": 486,
+    "minions": 396,
+    "kills": 15,
+    "assists": 0,
+    "deaths": 25,
+    "towers": 0,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "均衡",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "1074 回合，1 号队摧毁水晶",
+  "turns": 1074,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.2916666666666667,
+   3.4285714285714284
+  ],
+  "stats": [
+   {
+    "minions": 382,
+    "deaths": 24,
+    "kills": 7,
+    "assists": 0,
+    "towers": 0,
+    "camps": 0
+   },
+   {
+    "minions": 545,
+    "camps": 11,
+    "kills": 24,
+    "assists": 0,
+    "deaths": 7,
+    "towers": 2
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "游走",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   5.2727272727272725,
+   0.22448979591836735
+  ],
+  "stats": [
+   {
+    "minions": 514,
+    "camps": 23,
+    "kills": 49,
+    "assists": 9,
+    "deaths": 11,
+    "towers": 3
+   },
+   {
+    "minions": 400,
+    "deaths": 49,
+    "kills": 11,
+    "assists": 0,
     "camps": 5,
-    "deaths": 34,
-    "kills": 22,
+    "towers": 0
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "均衡",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.25,
+   4.363636363636363
+  ],
+  "stats": [
+   {
+    "minions": 348,
+    "camps": 7,
+    "deaths": 44,
+    "kills": 11,
+    "assists": 0,
+    "towers": 0
+   },
+   {
+    "minions": 449,
+    "kills": 44,
+    "assists": 4,
+    "deaths": 11,
+    "camps": 13,
+    "towers": 2
+   }
+  ]
+ },
+ {
+  "a": "均衡",
+  "b": "速推",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.3,
+   1.0263157894736843
+  ],
+  "stats": [
+   {
+    "minions": 483,
+    "camps": 25,
+    "kills": 38,
+    "assists": 1,
+    "deaths": 30,
+    "towers": 2
+   },
+   {
+    "minions": 469,
+    "deaths": 38,
+    "kills": 30,
+    "assists": 9,
+    "towers": 3,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "均衡",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.032258064516129,
+   1.2916666666666667
+  ],
+  "stats": [
+   {
+    "minions": 498,
+    "deaths": 31,
+    "kills": 24,
+    "assists": 8,
+    "towers": 2,
+    "camps": 0
+   },
+   {
+    "minions": 493,
+    "camps": 21,
+    "kills": 31,
+    "assists": 0,
+    "deaths": 24,
+    "towers": 3
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "游走",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.6896551724137931,
+   1.5263157894736843
+  ],
+  "stats": [
+   {
+    "minions": 422,
+    "deaths": 29,
+    "kills": 19,
+    "assists": 1,
+    "towers": 0,
+    "camps": 0
+   },
+   {
+    "minions": 462,
+    "camps": 7,
+    "kills": 29,
+    "assists": 0,
+    "deaths": 19,
+    "towers": 1
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "抱团",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.037037037037037,
+   1.0
+  ],
+  "stats": [
+   {
+    "minions": 451,
+    "camps": 7,
+    "deaths": 27,
+    "kills": 28,
+    "assists": 0,
+    "towers": 1
+   },
+   {
+    "minions": 423,
+    "kills": 27,
+    "assists": 1,
+    "deaths": 28,
+    "towers": 0,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "抱团",
+  "b": "速推",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   1.4761904761904763,
+   0.7419354838709677
+  ],
+  "stats": [
+   {
+    "minions": 427,
+    "kills": 31,
+    "assists": 0,
+    "deaths": 21,
+    "towers": 1,
+    "camps": 0
+   },
+   {
+    "minions": 512,
+    "deaths": 31,
+    "towers": 4,
+    "kills": 21,
+    "assists": 2,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "抱团",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   0.47619047619047616,
+   2.1
+  ],
+  "stats": [
+   {
+    "minions": 518,
+    "deaths": 42,
+    "kills": 20,
+    "assists": 0,
+    "towers": 4,
+    "camps": 0
+   },
+   {
+    "minions": 424,
+    "kills": 42,
+    "assists": 0,
+    "deaths": 20,
+    "towers": 1,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "游走",
+  "b": "速推",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": true,
+  "replay": null,
+  "winner": 1,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   0.0,
+   1.0
+  ],
+  "kda": [
+   0.6829268292682927,
+   1.6071428571428572
+  ],
+  "stats": [
+   {
+    "minions": 409,
+    "camps": 5,
+    "kills": 28,
+    "assists": 0,
+    "deaths": 41,
+    "towers": 0
+   },
+   {
+    "minions": 500,
+    "deaths": 28,
+    "kills": 41,
+    "assists": 4,
+    "towers": 5,
+    "camps": 0
+   }
+  ]
+ },
+ {
+  "a": "速推",
+  "b": "游走",
+  "difficulty": 2,
+  "seed": 20101,
+  "round": 0,
+  "home_is_a": false,
+  "replay": null,
+  "winner": 0,
+  "reason": "打满 1100 回合，按剩余建筑血量与击杀判定",
+  "turns": 1100,
+  "score": [
+   1.0,
+   0.0
+  ],
+  "kda": [
+   1.1428571428571428,
+   1.037037037037037
+  ],
+  "stats": [
+   {
+    "minions": 501,
+    "deaths": 28,
+    "kills": 27,
+    "assists": 5,
+    "towers": 3,
+    "camps": 0
+   },
+   {
+    "minions": 416,
+    "camps": 5,
+    "kills": 28,
+    "assists": 0,
+    "deaths": 27,
     "towers": 2
    }
   ]

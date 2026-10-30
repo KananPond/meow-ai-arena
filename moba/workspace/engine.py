@@ -11,7 +11,7 @@ from __future__ import annotations
 import random
 from collections import Counter, deque
 
-VERSION = "moba-1.1"
+VERSION = "moba-1.2"
 DIFF_LABELS = ("简单", "普通", "困难")
 MOVES = {"N": (0, -1), "S": (0, 1), "W": (-1, 0), "E": (1, 0), "WAIT": (0, 0)}
 TEXT_MOVES = {"U": "N", "D": "S", "L": "W", "R": "E", "S": "WAIT"}
@@ -381,10 +381,11 @@ class Game:
                 for lane in range(3):
                     rail = self.rails[("ABC"[lane], team)]
                     alive = sum(1 for m in self.minions if m["alive"] and m["team"] == team and m["lane"] == lane)
-                    if alive >= RULES["minion_cap"]:
+                    room = max(0, RULES["minion_cap"] - alive)
+                    if room == 0:
                         continue
                     at = 0
-                    for _ in range(self.preset["wave_size"]):
+                    for _ in range(min(self.preset["wave_size"], room)):
                         while at < len(rail) and rail[at] in taken:
                             at += 1
                         if at >= len(rail):
@@ -447,31 +448,48 @@ class Game:
         live = [h for h in self.heroes if h["pos"] is not None]
         start = {h["id"]: tuple(h["pos"]) for h in live}
         static = self._static_block() | {tuple(m["pos"]) for m in self.minions if m["alive"]}
-        want, dashed = {}, {}
+        want, dashed, via, moves = {}, {}, {}, {}
         for h in live:
             cmd = self._cmd(intents, h)
             d = MOVES.get(cmd.get("move", "WAIT"), (0, 0))
             p0 = start[h["id"]]
             p1 = (p0[0] + d[0], p0[1] + d[1])
+            moves[h["id"]] = d
             want[h["id"]] = p0 if p1 in static else p1
-            if h["id"] in self._skill_used and CLASSES[h["cls"]]["skill"] == "突袭" and want[h["id"]] != p0:
-                p2 = (want[h["id"]][0] + d[0], want[h["id"]][1] + d[1])
-                if p2 not in static and p2 not in {s for i, s in start.items() if i != h["id"]}:
-                    want[h["id"]] = p2
-                    dashed[h["id"]] = p1
-        count = Counter(want.values())
-        blocked = {i for i, p in want.items() if count[p] > 1}
-        owner = {p: i for i, p in start.items()}
-        for i, p in want.items():
-            j = owner.get(p)
-            if j is not None and j != i and want[j] == start[i] and self.heroes[i]["team"] != self.heroes[j]["team"]:
-                blocked.update((i, j))
+        for h in live:
+            hid, p0, d = h["id"], start[h["id"]], moves[h["id"]]
+            p1 = want[hid]
+            if hid not in self._skill_used or CLASSES[h["cls"]]["skill"] != "突袭" or p1 == p0:
+                continue
+            p2 = (p1[0] + d[0], p1[1] + d[1])
+            occupant = next((i for i, p in start.items() if p == p1 and i != hid), None)
+            if p2 not in static and (occupant is None or want[occupant] != start[occupant]):
+                want[hid] = p2
+                dashed[hid] = p1
+                via[hid] = p1
+
         while True:
-            more = {i for i, p in want.items() if i not in blocked and p != start[i] and p in owner
-                    and (owner[p] in blocked or want[owner[p]] == start[owner[p]])}
-            if not more:
+            count = Counter(want.values())
+            blocked = {i for i, p in want.items() if count[p] > 1}
+            owner = {p: i for i, p in start.items()}
+            for i, p in want.items():
+                j = owner.get(p)
+                if j is not None and j != i and want[j] == start[i] and self.heroes[i]["team"] != self.heroes[j]["team"]:
+                    blocked.update((i, j))
+            while True:
+                more = {i for i, p in want.items() if i not in blocked and p != start[i] and p in owner
+                        and (owner[p] in blocked or want[owner[p]] == start[owner[p]])}
+                if not more:
+                    break
+                blocked |= more
+
+            broken = {i for i in dashed if i not in blocked and via[i] in owner
+                      and (owner[via[i]] in blocked or want[owner[via[i]]] == start[owner[via[i]]])}
+            if not broken:
                 break
-            blocked |= more
+            for i in broken:
+                dashed.pop(i)
+                want[i] = via[i]
         for h in live:
             h["pos"] = list(start[h["id"]] if h["id"] in blocked else want[h["id"]])
             if h["id"] in dashed and tuple(h["pos"]) == want[h["id"]]:
@@ -562,9 +580,15 @@ class Game:
                     add(h, tgt, 45 + 6 * h["level"], "fireball")
             elif h["id"] in self._skill_used and skill == "穿云箭":
                 if tgt is not None and self._alive(tgt) and self._hostile(h, tgt) and \
-                        distance(p, tgt["pos"]) <= 4 and (mid := line_cells(p, tgt["pos"])) is not None:
-                    stop = next((i for i, q in enumerate(mid) if q in self.walls), len(mid))
-                    cells = {p, *mid[:stop]}
+                        distance(p, tgt["pos"]) <= 4 and line_cells(p, tgt["pos"]) is not None:
+                    dx = (tgt["pos"][0] > p[0]) - (tgt["pos"][0] < p[0])
+                    dy = (tgt["pos"][1] > p[1]) - (tgt["pos"][1] < p[1])
+                    cells = {p}
+                    for step in range(1, 5):
+                        q = (p[0] + dx * step, p[1] + dy * step)
+                        if q in self.walls:
+                            break
+                        cells.add(q)
                     for u in targets:
                         if u["id"] != h["id"] and tuple(u["pos"]) in cells and self._hostile(h, u):
                             add(h, u, h["atk"], "pierce")
@@ -617,6 +641,9 @@ class Game:
                 u["pos"], u["respawn_at"] = None, self.turn + RULES["respawn"]
                 self.stats[1 - u["team"]]["kills"] += 1
                 self.stats[u["team"]]["deaths"] += 1
+                helpers = {s["id"] for s in hitters[tid]
+                           if s.get("team") == 1 - u["team"] and s["kind"] == "hero"}
+                self.stats[1 - u["team"]]["assists"] += max(0, len(helpers) - 1)
                 killers = [s for s in hitters[tid] if s.get("team") == 1 - u["team"] and s["kind"] == "hero"]
                 for s in killers:
                     self._give_xp(s, RULES["xp_hero_kill"], ev)
@@ -647,11 +674,45 @@ class Game:
                         break
             elif u["kind"] == "crystal":
                 u["hp"] = 0
-                self.done = True
-                self.winner = 1 - u["team"]
-                self.reason = f"{self.turn} 回合，{self.winner} 号队摧毁水晶"
                 ev.append({"line": f"crystal {u['team']} {u['pos'][0]} {u['pos'][1]}", "type": "crystal",
                            "team": u["team"], "pos": list(u["pos"])})
+        self._finish_combat()
+
+    def _finish_combat(self):
+        destroyed = [c for c in self.crystal if c["hp"] <= 0]
+        if not destroyed:
+            return
+        if len(destroyed) == 1:
+            self.done = True
+            self.winner = 1 - destroyed[0]["team"]
+            self.reason = f"{self.turn} 回合，{self.winner} 号队摧毁水晶"
+            return
+
+        self.done = True
+        kdas = (self._kda(0), self._kda(1))
+        if abs(kdas[0] - kdas[1]) > 1e-9:
+            self.winner = 0 if kdas[0] > kdas[1] else 1
+        elif self.stats[0]["kills"] != self.stats[1]["kills"]:
+            self.winner = 0 if self.stats[0]["kills"] > self.stats[1]["kills"] else 1
+        elif self.stats[0]["deaths"] != self.stats[1]["deaths"]:
+            self.winner = 0 if self.stats[0]["deaths"] < self.stats[1]["deaths"] else 1
+        else:
+            fracs = (self._building_frac(0), self._building_frac(1))
+            if abs(fracs[0] - fracs[1]) > 1e-9:
+                self.winner = 0 if fracs[0] > fracs[1] else 1
+        verdict = "平局" if self.winner < 0 else f"{self.winner} 号队获胜"
+        self.reason = (f"{self.turn} 回合，双方水晶同时被毁，按 KDA 判定："
+                       f"0 队 {kdas[0]:.3f} vs 1 队 {kdas[1]:.3f}，{verdict}")
+
+    def _kda(self, team):
+        s = self.stats[team]
+        return (s["kills"] + s["assists"]) / max(1, s["deaths"])
+
+    def _building_frac(self, team):
+        total = sum(t["maxhp"] for t in self.towers if t["team"] == team) + self.crystal[team]["maxhp"]
+        left = sum(t["hp"] for t in self.towers if t["team"] == team and t["hp"] > 0) + \
+            max(0, self.crystal[team]["hp"])
+        return left / total
 
     def _compact_minions(self):
         """清掉已经死亡的小兵（同时从 units 表里移除），保持小兵列表不会无限增长。
@@ -711,12 +772,8 @@ class Game:
                        "id": h["id"], "level": h["level"]})
 
     def _decide_by_score(self):
-        frac = []
-        for team in range(2):
-            total = sum(t["maxhp"] for t in self.towers if t["team"] == team) + self.crystal[team]["maxhp"]
-            left = sum(t["hp"] for t in self.towers if t["team"] == team and t["hp"] > 0) + \
-                max(0, self.crystal[team]["hp"])
-            frac.append((left / total, self.stats[team]["kills"]))
+        frac = [(self._building_frac(0), self.stats[0]["kills"]),
+                (self._building_frac(1), self.stats[1]["kills"])]
         if abs(frac[0][0] - frac[1][0]) > 1e-9:
             self.winner = 0 if frac[0][0] > frac[1][0] else 1
         elif frac[0][1] != frac[1][1]:
@@ -735,8 +792,14 @@ class Game:
 
     def result(self):
         score = [0.5, 0.5] if self.winner < 0 else ([1.0, 0.0] if self.winner == 0 else [0.0, 1.0])
+        stats = []
+        for s in self.stats:
+            row = {k: v for k, v in s.items()}
+            for key in ("kills", "assists", "deaths", "towers", "minions", "camps"):
+                row.setdefault(key, 0)
+            stats.append(row)
         return {"score": score, "winner": self.winner, "reason": self.reason, "turns": self.turn,
-                "stats": [{k: v for k, v in s.items()} for s in self.stats]}
+                "kda": [self._kda(0), self._kda(1)], "stats": stats}
 
     def check(self):
         at = [tuple(u["pos"]) for u in self.heroes if u["pos"] is not None]
