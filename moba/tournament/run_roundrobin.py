@@ -60,9 +60,16 @@ def main():
     missing = [n for n, p in bots.items() if not Path(p).is_file()]
     if missing:
         raise SystemExit(f"示例 bot 缺失：{missing}（先让它们交卷）")
-    names = sorted(bots)
     digests = {n: hashlib.sha256(Path(p).read_bytes()).hexdigest() for n, p in bots.items()}
-    programs = {n: core.command_for(Path(p), root / "workspace" / "build") for n, p in bots.items()}
+    programs = {}
+    for n, p in bots.items():
+        try:
+            programs[n] = core.command_for(Path(p), root / "workspace" / "build")
+        except RuntimeError as exc:
+            print(f"跳过 {n}：编译失败\n{exc}")
+    names = sorted(programs)
+    if len(names) < 2:
+        raise SystemExit("可参赛的 bot 不足 2 个")
 
     rep_dir = root / "replays"
     viewer = root / "workspace" / "viewer.html"
