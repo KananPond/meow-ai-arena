@@ -11,7 +11,7 @@ from __future__ import annotations
 import random
 from collections import Counter, deque
 
-VERSION = "moba-1.2"
+VERSION = "moba-1.3"
 DIFF_LABELS = ("简单", "普通", "困难")
 MOVES = {"N": (0, -1), "S": (0, 1), "W": (-1, 0), "E": (1, 0), "WAIT": (0, 0)}
 TEXT_MOVES = {"U": "N", "D": "S", "L": "W", "R": "E", "S": "WAIT"}
@@ -639,7 +639,8 @@ class Game:
                        "type": "death", "id": tid, "pos": pos, "by": by, "kind": u["kind"]})
             if u["kind"] == "hero":
                 u["pos"], u["respawn_at"] = None, self.turn + RULES["respawn"]
-                self.stats[1 - u["team"]]["kills"] += 1
+                if any(s.get("team") == 1 - u["team"] for s in hitters[tid]):
+                    self.stats[1 - u["team"]]["kills"] += 1     # 中立野怪击杀只记 D 不记 K
                 self.stats[u["team"]]["deaths"] += 1
                 helpers = {s["id"] for s in hitters[tid]
                            if s.get("team") == 1 - u["team"] and s["kind"] == "hero"}
