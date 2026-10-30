@@ -42,7 +42,7 @@ def pve_ladder(mine_cmd, seeds=(1, 2)):
             win += w == 0
             towers = result["stats"][0].get("towers", 0)
             kills = result["stats"][0].get("kills", 0)
-            mark = "✅ 胜" if w == 0 else "❌ 负"
+            mark = "✅ 胜" if w == 0 else ("➖ 平" if w < 0 else "❌ 负")
             detail.append(f"种子 {seed}：{mark}（{result['turns']} 回合，推塔 {towers}，击杀 {kills}，{result['reason']}）")
             out = HERE / "challenge-runs" / time.strftime("%Y%m%d-%H%M%S") / f"pve-{DIFF_LABELS[diff]}-{seed}"
             core.save_replay(replay, out, WS / "viewer.html")

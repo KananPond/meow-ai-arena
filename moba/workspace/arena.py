@@ -62,7 +62,13 @@ def result_line(result, names, difficulty):
     w = result["winner"]
     head = f"{VERSION}  难度 {DIFF_LABELS[difficulty]}  种子 {result['seed']}  "
     if len(names) == 1:
-        return head + (f"{names[0]} 获胜" if w == 0 else f"{names[0]} 的水晶被 NPC 队摧毁") + f"（{result['reason']}）"
+        if w == 0:
+            tail = f"{names[0]} 获胜"
+        elif w < 0:
+            tail = "平局"
+        else:
+            tail = f"{names[0]} 的水晶被 NPC 队摧毁"
+        return head + tail + f"（{result['reason']}）"
     if w < 0:
         return head + f"平局（{result['reason']}）"
     return head + f"{names[w]} 获胜（{result['reason']}）"
